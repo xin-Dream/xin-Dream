@@ -36,7 +36,8 @@ export https_proxy=127.0.0.1:7890
 
 # 设置可用窗口
 安装完ROS后，使用小海龟测试时在打开窗口时会有错误。请按以下步骤安装Xlaunch，以下步骤可以打开rviz，否则还要改很多。
-目前还没设置好gazebo，后续会设置好会更新。
+~~目前还没设置好gazebo，后续会设置好会更新。~~
+内容已修改，gazebo可正常启动
 
 1. [下载Xserver](https://sourceforge.net/projects/vcxsrv/)
 
@@ -46,9 +47,12 @@ export https_proxy=127.0.0.1:7890
 sudo vim ~/.bashrc
 
 #在末尾添加以下内容
-export DISPLAY=:0.0
-export LIBGL_ALWAYS_INDIRECT=
-export LIBGL_ALWASY_SOFTWARE=1
+# export DISPLAY=:0.0
+# export LIBGL_ALWAYS_INDIRECT=
+# export LIBGL_ALWASY_SOFTWARE=1
+
+#修改为以下内容，rviz与gazebo都能正常显示
+export DISPLAY=localhost:0
 
 #wq保存退出后
 source ~/.bashrc

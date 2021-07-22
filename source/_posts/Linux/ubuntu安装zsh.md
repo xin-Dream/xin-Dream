@@ -44,13 +44,19 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 ```bash
 sudo apt-get install autojump
 ```
+4. 下载主题
+```BASH
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+```
 
-4. 修改配置文件
+
+
+5. 修改配置文件
 
 ```bash
 # 设置字体模式以及配置命令行的主题，语句顺序不能颠倒
-POWERLEVEL9K_MODE='nerdfont-complete'
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# POWERLEVEL9K_MODE='nerdfont-complete'
+# ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # 以下内容去掉注释即可生效：
 # 启动错误命令自动更正

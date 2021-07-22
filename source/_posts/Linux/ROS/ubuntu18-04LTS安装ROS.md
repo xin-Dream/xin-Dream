@@ -92,7 +92,7 @@ sudo gedit /etc/hosts
 ### 解决init失败方法（2021.05.30）
 
 ```bash
-sudo vim /etc/ros/rosdep/source.list.d/20-default.list
+sudo vim /etc/ros/rosdep/sources.list.d/20-default.list
 
 #复制以下内容，以下内容来自
 https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/sources.list.d/20-default.list
