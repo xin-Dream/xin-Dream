@@ -2,6 +2,7 @@
 title: ubuntu笔记本设置合上屏幕不休眠
 date: 2021-07-22 11:53:28
 tags: 
+    [ubuntu]
 categories: 
     [Linux,ubuntu]
 ---
