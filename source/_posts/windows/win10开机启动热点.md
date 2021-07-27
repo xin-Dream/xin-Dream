@@ -2,9 +2,12 @@
 title: win10开机启动热点
 date: 2021-07-26 08:53:15
 tags: 
-     
+
+    
 categories: 
+
     [windows]
+
 ---
 
 # 1. 在任意位置新建文本文档，复制以下内容，保存后重命名为AutoHostpot.ps1
@@ -40,10 +43,12 @@ else{
 要测试代码是否有效，可修改文件名后执行测试一下
 
 # 2. 使用powershell(管理员)，执行以下内容，在弹出选项中输入a
+
 ```BASH
 set-executionpolicy remotesigned
 ```
 
 # 3. 使用win+R，输入shell:startup，打开启动文件夹
+
 新建快捷方式，选中第一步新建的AutoHostpot.ps1文件
 
