@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    局域网中windows上添加ubuntu的共享文件夹 |  Dream
+    修改vscode中文件排序顺序 |  Dream
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -51,7 +51,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Linux/局域网中windows上添加ubuntu的共享文件夹"
+  id="post-hexo/修改vscode中文件排序顺序"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -62,7 +62,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  局域网中windows上添加ubuntu的共享文件夹
+  修改vscode中文件排序顺序
 </h1>
  
 
@@ -70,11 +70,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2021/07/27/Linux/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%B8%ADwindows%E4%B8%8A%E6%B7%BB%E5%8A%A0ubuntu%E7%9A%84%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/" class="article-date">
-  <time datetime="2021-07-27T14:18:31.000Z" itemprop="datePublished">2021-07-27</time>
+      <a href="/2021/07/29/hexo/%E4%BF%AE%E6%94%B9vscode%E4%B8%AD%E6%96%87%E4%BB%B6%E6%8E%92%E5%BA%8F%E9%A1%BA%E5%BA%8F/" class="article-date">
+  <time datetime="2021-07-29T05:56:39.000Z" itemprop="datePublished">2021-07-29</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Linux/">Linux</a> / <a class="article-category-link" href="/categories/Linux/ubuntu/">ubuntu</a>
+    <a class="article-category-link" href="/categories/hexo/">hexo</a>
   </div>
   
 <div class="word_count">
@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">182</span>
+            <span class="post-count">25</span>
         </span>
     </span>
 
@@ -98,25 +98,14 @@
  
     </div>
       
-    <div class="tocbot"></div>
-
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="1-安装samba"><a href="#1-安装samba" class="headerlink" title="1. 安装samba"></a>1. 安装samba</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install samba</span><br><span class="line">sudo apt-get install samba-common</span><br></pre></td></tr></table></figure>
-<h1 id="2-创建共享文件夹"><a href="#2-创建共享文件夹" class="headerlink" title="2. 创建共享文件夹"></a>2. 创建共享文件夹</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir ~/share</span><br><span class="line"></span><br><span class="line">sudo chmod 777 ~/share</span><br></pre></td></tr></table></figure>
-<h1 id="3-配置samba"><a href="#3-配置samba" class="headerlink" title="3. 配置samba"></a>3. 配置samba</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/samba/smb.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在文中最后添加以下内容</span></span><br><span class="line"></span><br><span class="line">[share]</span><br><span class="line">comment = share folder</span><br><span class="line">browseable = yes</span><br><span class="line">path = /home/dream/Share</span><br><span class="line">create mask = 0755</span><br><span class="line">directory mask = 0755</span><br><span class="line">valid users = dream     <span class="comment"># 注意这里的用户，应为ubuntu账户之一</span></span><br><span class="line">force user = dream</span><br><span class="line">force group = dream</span><br><span class="line">public = yes</span><br><span class="line">available = yes</span><br><span class="line">writable = yes</span><br></pre></td></tr></table></figure>
-<h1 id="4-添加samba用户"><a href="#4-添加samba用户" class="headerlink" title="4. 添加samba用户"></a>4. 添加samba用户</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo smbpasswd -a dream  <span class="comment"># 这里要和上一步设置的用户一致</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 按照要求设置密码</span></span><br></pre></td></tr></table></figure>
-<h1 id="5-重启samba服务"><a href="#5-重启samba服务" class="headerlink" title="5. 重启samba服务"></a>5. 重启samba服务</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/smbd restart</span><br></pre></td></tr></table></figure>
-<h1 id="6-在windows中添加网络文件夹"><a href="#6-在windows中添加网络文件夹" class="headerlink" title="6. 在windows中添加网络文件夹"></a>6. 在windows中添加网络文件夹</h1><p>在此电脑中右键–添加一个网络位置<br>设置地址为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这里的网络地址应为与windows位于同一局域网的地址</span></span><br><span class="line">\\192.168.0.101\share</span><br></pre></td></tr></table></figure>
-
-
-
-
+  <p>在设置中搜索<code>explorer.sort order</code></p>
+<p>设置为modified，按修改日期排序，文件夹在前</p>
  
       <!-- reward -->
       
@@ -181,32 +170,21 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/07/27/Linux/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%B8%ADwindows%E4%B8%8A%E6%B7%BB%E5%8A%A0ubuntu%E7%9A%84%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/07/29/hexo/%E4%BF%AE%E6%94%B9vscode%E4%B8%AD%E6%96%87%E4%BB%B6%E6%8E%92%E5%BA%8F%E9%A1%BA%E5%BA%8F/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
-
     </footer>
   </div>
 
    
   <nav class="article-nav">
     
-      <a href="/2021/07/27/%E6%9C%BA%E6%A2%B0%E7%B1%BB/Solidworks%E7%84%8A%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9E%8B%E6%9D%90/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            Solidworks焊件结构中添加型材
-          
-        </div>
-      </a>
     
-    
-      <a href="/2021/07/26/Linux/vscode%E4%B8%AD%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86ubuntu/" class="article-nav-link">
+      <a href="/2021/07/29/windows/win10%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E9%A2%91%E6%AE%B5/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">vscode中免密登陆ubuntu</div>
+        <div class="article-nav-title">win10设置网络连接频段</div>
       </a>
     
   </nav>
