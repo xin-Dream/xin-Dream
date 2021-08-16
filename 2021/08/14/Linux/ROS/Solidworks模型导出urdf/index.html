@@ -76,25 +76,6 @@
   <div class="article-category">
     <a class="article-category-link" href="/categories/Linux/">Linux</a> / <a class="article-category-link" href="/categories/Linux/ROS/">ROS</a>
   </div>
-  
-<div class="word_count">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="ri-quill-pen-line"></i>
-            <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">201</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="ri-book-open-line"></i>
-            <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
-        </span>
-    </span>
-</div>
  
     </div>
       
@@ -123,9 +104,51 @@
 <h1 id="二、-插件安装"><a href="#二、-插件安装" class="headerlink" title="二、 插件安装"></a>二、 插件安装</h1><p><a target="_blank" rel="noopener" href="https://github.com/ros/solidworks_urdf_exporter/releases">solidworks_urdf_exporter</a><br>下载其中exe文件安装即可</p>
 <h1 id="三、-solidwoks中导出urdf"><a href="#三、-solidwoks中导出urdf" class="headerlink" title="三、 solidwoks中导出urdf"></a>三、 solidwoks中导出urdf</h1><ol>
 <li>在<strong>工具-&gt;Tools-&gt;Export as URDF</strong>中打开刚才安装的sw2urdf工具。或者直接在右上角搜索框输入urdf，比较方便。</li>
-<li></li>
+<li>设置base_link。修改途中与base_link相连link个数时会在下方创建Empty_link，由于我已经修改过了，所以名称不一样。</li>
 </ol>
-<h1 id="四、-ros中显示"><a href="#四、-ros中显示" class="headerlink" title="四、 ros中显示"></a>四、 ros中显示</h1> 
+<img src="/2021/08/14/Linux/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/02.png" class="" title="This is an image">
+
+<ol start="3">
+<li>设置每个单独的link。在上图框中五个link中选中就会进入每个单独link的设置过程。这里每个link设置就一样了，以一个轮子为例。</li>
+</ol>
+<p>这里的joint类型说明一下：</p>
+<ul>
+<li>revolute：旋转关节，可设定转动范围</li>
+<li>continuous：旋转关节，无位置限制</li>
+<li>prismatic：滑动关节，有位置限制</li>
+<li>fixed：虚拟关节，不可运动</li>
+<li>floating：六自由度关节</li>
+<li>planar：平面关节</li>
+</ul>
+<img src="/2021/08/14/Linux/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/03.png" class="" title="This is an image">
+
+<ol start="4">
+<li>根据以上步骤设置完所有关节后，开始导出文件。选中下图框中Preview and Export，会自动计算数据，并生成预览。检查没问题后，按照引导导出文件就好。</li>
+</ol>
+<ul>
+<li><p><strong>命名时有个问题需要注意一下</strong>：这里的命名内容包括<strong>小写字母、下划线、数字</strong>，否则在ROS中需要改相当一部分内容的名字，这里最好一步到位。</p>
+</li>
+<li><p>其实这里的建模，最好不要把一些螺栓、螺钉、固定板等比较杂的零件放进去，计算速度会慢，找到主要的主体、传感器、轮子等就好。</p>
+</li>
+</ul>
+<img src="/2021/08/14/Linux/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/04.png" class="" title="This is an image">
+
+<h1 id="四、-ros中显示"><a href="#四、-ros中显示" class="headerlink" title="四、 ros中显示"></a>四、 ros中显示</h1><ol>
+<li><p>创建工作空间</p>
+</li>
+<li><p>将上一步solidworks插件生成的功能包复制到工作空间的src目录下。</p>
+</li>
+<li><p>修改功能包的以下几个地方：</p>
+<ul>
+<li>package.xml中的邮箱，可以设置个自己的</li>
+<li>display.launch中添加一行代码<code>&lt;node pkg=&quot;joint_state_publisher&quot; type=&quot;joint_state_publisher&quot; name=&quot;joint_state_publisher&quot;&gt;</code>。因为自动生成的launch文件使用joint_state_publisher_gui，在rviz中出现节点间没有坐标变换的情况，如下图<img src="/2021/08/14/Linux/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/05.png" class="" title="This is an image">
+</li>
+</ul>
+</li>
+<li><p>最终使用roslaunch在rviz模型中显示，如下图。</p>
+<img src="/2021/08/14/Linux/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/06.png" class="" title="This is an image"></li>
+</ol>
+ 
       <!-- reward -->
       
     </div>
