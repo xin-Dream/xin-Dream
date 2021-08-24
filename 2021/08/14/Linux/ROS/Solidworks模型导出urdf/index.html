@@ -134,19 +134,19 @@
 <img src="/2021/08/14/Linux/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/04.png" class="" title="This is an image">
 
 <h1 id="四、-ros中显示"><a href="#四、-ros中显示" class="headerlink" title="四、 ros中显示"></a>四、 ros中显示</h1><ol>
-<li><p>创建工作空间</p>
-</li>
-<li><p>将上一步solidworks插件生成的功能包复制到工作空间的src目录下。</p>
-</li>
-<li><p>修改功能包的以下几个地方：</p>
-<ul>
+<li>创建工作空间</li>
+<li>将上一步solidworks插件生成的功能包复制到工作空间的src目录下。</li>
+<li>修改功能包的以下几个地方：<ul>
 <li>package.xml中的邮箱，可以设置个自己的</li>
-<li>display.launch中添加一行代码<code>&lt;node pkg=&quot;joint_state_publisher&quot; type=&quot;joint_state_publisher&quot; name=&quot;joint_state_publisher&quot;&gt;</code>。因为自动生成的launch文件使用joint_state_publisher_gui，在rviz中出现节点间没有坐标变换的情况，如下图<img src="/2021/08/14/Linux/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/05.png" class="" title="This is an image">
+<li>display.launch中添加一行代码<code>&lt;node pkg=&quot;joint_state_publisher&quot; type=&quot;joint_state_publisher&quot; name=&quot;joint_state_publisher&quot;&gt;</code>。<del>因为自动生成的launch文件使用joint_state_publisher_gui，在rviz中出现节点间没有坐标变换的情况</del>，如下图<img src="/2021/08/14/Linux/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/05.png" class="" title="This is an image">
+
 </li>
 </ul>
 </li>
-<li><p>最终使用roslaunch在rviz模型中显示，如下图。</p>
-<img src="/2021/08/14/Linux/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/06.png" class="" title="This is an image"></li>
+</ol>
+<p><strong>这里修正一下：</strong><br>joint_state_publisher_gui不是不发布坐标变换信息，而是又可能没有安装这个包<br><code>sudo apt-get install ros-melodic-joint-state-publisher-gui</code></p>
+<ol start="4">
+<li>最终使用roslaunch在rviz模型中显示，如下图。<img src="/2021/08/14/Linux/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/06.png" class="" title="This is an image"></li>
 </ol>
  
       <!-- reward -->
