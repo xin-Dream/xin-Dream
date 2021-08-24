@@ -794,6 +794,7 @@ ROS中的程序使用C++编写，所以在stm32中使用C和C++混合编译。
     sudo chmod 777 /dev/ttyACM0
 
     # 借助rosserial_python显示ros节点信息
+    roscore
     rosrun rosserial_python serial_node.py _port:=/dev/ttyACM0 _baud=57600
 
     # 当显示以下内容说明连接正常

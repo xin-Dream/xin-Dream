@@ -57,7 +57,28 @@ set WORKAREASIZE 0x20000
 source [find target/stm32f4x.cfg] 
 ```
 
-# 7. 注意事项
+# 7. 无线下载器
+
+[STM32仿真器无线下载AMR单片机远程调试烧录编程STLINK DAPLINK](https://detail.tmall.com/item.htm?id=623728332784&spm=a1z09.2.0.0.46df2e8ddFg2g1&_u=o2ph6ufjfa55)
+
+按上一步添加cfg文件
+
+```bash
+# This is for using the onboard STLINK/V2
+adapter driver cmsis-dap
+
+transport select swd
+
+# 0x10000 = 64K Flash Size
+set FLASH_SIZE 0x160000
+
+source [find target/stm32f4x.cfg]
+
+adapter speed 2000
+```
+
+
+# 8. 注意事项
    + 在Clion中选择文件时按下图配置，这样在CMakeLists中会是单独一行，如果删除文件后还有残留可以自己查到删除{% asset_img 07.png This is an image %}{% asset_img 08.png This is an image %}
    <br> 
    + 在使用FreeRTOS时，编译会报错。默认情况下，硬件浮点运算是关闭的，~~需要在CMakeLists里设置一下~~需要在CMakeLists_template.txt和CMakeLists.txt中修改，否则重新生成stm32程序时CMakeLists.txt会再次取消浮点运算{% asset_img 09.png This is an image %}<br><br>  **取消框选内容的注释就好了。** <br><br>  {% asset_img 10.png This is an image %}

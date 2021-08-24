@@ -57,8 +57,12 @@ categories:
 2. 将上一步solidworks插件生成的功能包复制到工作空间的src目录下。
 3. 修改功能包的以下几个地方：
    + package.xml中的邮箱，可以设置个自己的
-   + display.launch中添加一行代码`<node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">`。因为自动生成的launch文件使用joint_state_publisher_gui，在rviz中出现节点间没有坐标变换的情况，如下图
+   + display.launch中添加一行代码`<node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">`。~~因为自动生成的launch文件使用joint_state_publisher_gui，在rviz中出现节点间没有坐标变换的情况~~，如下图
 {% asset_image 05.png This is an image %}
+
+**这里修正一下：**
+joint_state_publisher_gui不是不发布坐标变换信息，而是又可能没有安装这个包
+`sudo apt-get install ros-melodic-joint-state-publisher-gui`
 
 4. 最终使用roslaunch在rviz模型中显示，如下图。
 {% asset_image 06.png This is an image %}
