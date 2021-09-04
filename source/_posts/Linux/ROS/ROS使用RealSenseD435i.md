@@ -1,10 +1,10 @@
 ---
-title: ROS学习笔记（一）
-date: 2021-01-28 22:09:02
+title: ROS使用RealSenseD435i
+date: 2021-09-04 20:58:02
 tags:
-[ROS,ubuntu18.04,笔记]
+    [ROS,ubuntu18.04,笔记]
 categories:
-[Linux,ROS]
+    [Linux,ROS]
 ---
 
 ```bash

@@ -1,10 +1,10 @@
 ---
-title: 树莓派配置opencv环境
-date: 2021-01-28 22:23:23
+title: ubuntu18.04使用RealSenseD435i
+date: 2021-09-04 20:58:23
 tags:
-[opencv]
+    [opencv]
 categories:
-[机器视觉,opencv]
+    [机器视觉,opencv]
 ---
 
 [官方安装教程](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md)

@@ -20,4 +20,7 @@ sudo apt-get install ros-melodic-slam-gmapping
 sudo apt-get install ros-melodic-map-server
 
 ```
-
+# 3. rosserial
+```bash
+sudo apt-get install ros-melodic-rosserial-python
+```
