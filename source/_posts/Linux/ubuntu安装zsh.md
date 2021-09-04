@@ -31,12 +31,12 @@ sh install.sh
 ```bash
 # git clone加速技巧，将github.com改为github.com.cnpmjs.org
 
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com.cnpmjs.org/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 2. 语法高亮
 
 ```bash
- git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+ git clone https://github.com.cnpmjs.org/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
 3. 跳转目录
@@ -46,7 +46,7 @@ sudo apt-get install autojump
 ```
 4. 下载主题
 ```BASH
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+git clone https://github.com.cnpmjs.org/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 ```
 
 
@@ -67,7 +67,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # 启用已安装的插件
 plugins=(
-  git extract fasd zsh-autosuggestions zsh-syntax-highlighting autojump
+  git extract zsh-autosuggestions zsh-syntax-highlighting autojump
 )
 ```
 

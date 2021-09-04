@@ -95,6 +95,9 @@ DEFAULT_INDEX_URL = 'file:///home/dream/Downloads/rosdistro/index-v4.yaml'
 
 ```
 
+```bash
+sudo apt-get install python-rosdep
+```
 
 ```BASH
 sudo rosdep init 
@@ -105,126 +108,125 @@ rosdep update
 如果需要更新，只需更新下载的文件即可
 
 
+<details>
+    <summary>内容为以前步骤，除2021-05-30更新方法，均不够稳定，可以不用参考。</summary>
+        <li>
+            ```bash
+            sudo rosdep init
+            ```
+            这里出了问题
+            
+            一开始有找不到rosdep的错误
 
-本步骤中分割线下内容为以前步骤，除2021-05-30更新方法，均不够稳定，可以不用参考。
+            ```bash
+            sudo apt-get install python-rosdep
+            ```
+            
+            安装完成后，又出现了新错误，如下
+            ### ERROR: cannot download default sources list from:
+            https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/sources.list.d/20-default.list
+            Website may be down.
+            
+            解决这个问题，找了一些办法
+
+
+            ```bash
+            sudo apt-get install python-wstool ros-melodic-ros 
+            ```
+            并不成功
+            
+            ```bash
+            sudo -E rosdep init
+            ```
+            还是不成功
+            
+            ```bash
+            #打开host文件
+            sudo gedit /etc/hosts
+            #在文件末尾添加
+            151.101.84.133 raw.githubusercontent.com
+            ```
+            终于成功了,参考连接[解决办法](https://community.bwbot.org/topic/811/rosdep-init-%E6%88%96%E8%80%85rosdep-update-%E8%BF%9E%E6%8E%A5%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95)
+            ### 可用ip发生变化2020-12-03
+            
+            ```bash
+            #当前可用ip 2020-06-05
+            151.101.76.133  raw.githubusercontent.com
+            140.82.113.4        github.com
+            185.199.111.153     assets-cdn.github.com
+            199.232.69.194      github.global.ssl.fastly.net
+            #可以先ping一下地址测试
+            ```
+
+            ### 解决init失败方法（2021.05.30）
+            
+            ```bash
+            sudo vim /etc/ros/rosdep/sources.list.d/20-default.list
+            
+            #复制以下内容，以下内容来自
+            https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/sources.list.d/20-default.list
+            
+            # os-specific listings first
+            yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/osx-homebrew.yaml osx
+            
+            # generic
+            yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/base.yaml
+            yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/python.yaml
+            yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/ruby.yaml
+            gbpdistro https://raw.githubusercontent.com/ros/rosdistro/master/releases/fuerte.yaml fuerte
+            
+            # newer distributions (Groovy, Hydro, ...) must not be listed anymore, they are being fetched from the rosdistro index.yaml instead
+            ```
+
+
+            接下来继续安装过程
+            
+            ```bash
+            rosdep update
+            ```
+            ### 【2020-12-03】
+            这里如果出错可能是网络问题，可以试一下手机热点
+            
+            ### 【2021-05-30】
+            可以先测试一下网络延迟，然后将等待时间更改到对应延时，即可解决time out 问题
+            
+            ```bash
+            ping raw.githubusercontent.com
+            
+            cd /usr/lib/python2.7/dist-packages/rosdep2
+            sudo vim source_list.py
+            sudo vim gbpdistro_support.py
+            sudo vim rep3.py
+            
+            #将文件中的DOWNLOAD_TIMEOUT改为相应值超出一部分
+            
+            ```
+
+            ### 【2021-05-30】
+            上一方法主要针对网络较好时，这个是使用https://ghproxy.com的代理加速，目前来看这个方法是最高效的
+            
+            ```bash
+            cd /usr/lib/python2.7/dist-packages/
+            
+            sudo vim rosdep2/source_list.py
+            #在download_rosdep_data方法中添加  310行
+            url="https://ghproxy.com/"+url
+            
+            #在以下文件中的网址前添加“https://ghproxy.com/”
+            /usr/lib/python2.7/dist-packages/rosdep2/gbpdistro_support.py 36行
+            /usr/lib/python2.7/dist-packages/rosdep2/sources_list.py 72行
+            /usr/lib/python2.7/dist-packages/rosdep2/rep3.py	39行
+            /usr/lib/python2.7/dist-packages/rosdistro/__init__.py  68行
+            /usr/lib/python2.7/dist-packages/rosdistro/manifest_provider/github.py 68行 119行
+            ```
+
+
+        </li>   
+  <!-- <pre><code>title，value，callBack可以缺省</code></pre> -->
+</details>
 
 ---
 
-```bash
-sudo rosdep init
-```
-这里出了问题
-
-一开始有找不到rosdep的错误
-
-```bash
-sudo apt-get install python-rosdep
-```
-
-安装完成后，又出现了新错误，如下
-### ERROR: cannot download default sources list from:
-https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/sources.list.d/20-default.list
-Website may be down.
-
-解决这个问题，找了一些办法
-
- 1. 
-
-```bash
-sudo apt-get install python-wstool ros-melodic-ros 
-```
-并不成功
-2. 
-
-```bash
-sudo -E rosdep init
-```
-还是不成功
-3. 
-
-```bash
-#打开host文件
-sudo gedit /etc/hosts
-#在文件末尾添加
-151.101.84.133 raw.githubusercontent.com
-```
-终于成功了,参考连接[解决办法](https://community.bwbot.org/topic/811/rosdep-init-%E6%88%96%E8%80%85rosdep-update-%E8%BF%9E%E6%8E%A5%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95)
-### 可用ip发生变化2020-12-03
-
-```bash
-#当前可用ip 2020-06-05
-151.101.76.133  raw.githubusercontent.com
-140.82.113.4        github.com
-185.199.111.153     assets-cdn.github.com
-199.232.69.194      github.global.ssl.fastly.net
-#可以先ping一下地址测试
-```
-
-### 解决init失败方法（2021.05.30）
-
-```bash
-sudo vim /etc/ros/rosdep/sources.list.d/20-default.list
-
-#复制以下内容，以下内容来自
-https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/sources.list.d/20-default.list
-
-# os-specific listings first
-yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/osx-homebrew.yaml osx
-
-# generic
-yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/base.yaml
-yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/python.yaml
-yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/ruby.yaml
-gbpdistro https://raw.githubusercontent.com/ros/rosdistro/master/releases/fuerte.yaml fuerte
-
-# newer distributions (Groovy, Hydro, ...) must not be listed anymore, they are being fetched from the rosdistro index.yaml instead
-```
-
-
-接下来继续安装过程
-
-```bash
-rosdep update
-```
-### 【2020-12-03】
-这里如果出错可能是网络问题，可以试一下手机热点
-
-### 【2021-05-30】
-可以先测试一下网络延迟，然后将等待时间更改到对应延时，即可解决time out 问题
-
-```bash
-ping raw.githubusercontent.com
-
-cd /usr/lib/python2.7/dist-packages/rosdep2
-sudo vim source_list.py
-sudo vim gbpdistro_support.py
-sudo vim rep3.py
-
-#将文件中的DOWNLOAD_TIMEOUT改为相应值超出一部分
-
-```
-
-### 【2021-05-30】
-上一方法主要针对网络较好时，这个是使用https://ghproxy.com的代理加速，目前来看这个方法是最高效的
-
-```bash
-cd /usr/lib/python2.7/dist-packages/
-
-sudo vim rosdep2/source_list.py
-#在download_rosdep_data方法中添加  310行
-url="https://ghproxy.com/"+url
-
-#在以下文件中的网址前添加“https://ghproxy.com/”
-/usr/lib/python2.7/dist-packages/rosdep2/gbpdistro_support.py 36行
-/usr/lib/python2.7/dist-packages/rosdep2/sources_list.py 72行
-/usr/lib/python2.7/dist-packages/rosdep2/rep3.py	39行
-/usr/lib/python2.7/dist-packages/rosdistro/__init__.py  68行
-/usr/lib/python2.7/dist-packages/rosdistro/manifest_provider/github.py 68行 119行
-```
-
-
----
-分割线，以下结束rosdep update过程，继续安装步骤
 
 ## 5. 设置环境变量
 

@@ -40,7 +40,8 @@ sudo dpkg -i netease-cloud-music_1.1.0_amd64_ubuntu.deb
 #如果有错误
 sudo apt-get -f install
 ```
-安装完成后启动时发现打不开
+新版软件一切正常
+~~安装完成后启动时发现打不开~~
 终端输入
 
 ```bash
@@ -54,7 +55,7 @@ Failed to load module "canberra-gtk-module"
 #解决
 sudo apt-get install libcanberra-gtk
 ```
-再次打开，可能还不行，只能后台打开，我也不知道为什么
+~~再次打开，可能还不行，只能后台打开，我也不知道为什么~~
 
 ```bash
 sudo netease-cloud-music 
@@ -108,11 +109,11 @@ sudo apt install microsoft-edge-dev
 
 # 6. Barrier
 
-{% post_link 多机共享键鼠软件Barrier.md %}
+{% post_link windows/多机共享键鼠软件Barrier.md %}
 
 # 7. zsh & Oh my zsh
 
-{% post_link ubuntu安装zsh.md %}
+{% post_link Linux/ubuntu安装zsh.md %}
 
 # 8. clash
 ```bash
@@ -139,12 +140,22 @@ sudo apt install microsoft-edge-dev
 ```
 
 # 9. 输入法安装
+
+## 1. 谷歌拼音
+```bash
+sudo apt-get install fcitx-googlepinyin
+
+#安装完成后，在区域与语言中添加googlepinyin即可
+```
+
+
+
+---
 安装WiFi还是需要百度的，所以先安装搜狗输入法
 首先安装Fcitx输入框架
 
 ```bash
 sudo apt install fcitx
-
 ```
 
 [搜狗输入法Linux](https://pinyin.sogou.com/linux/?r=pinyin)
@@ -159,3 +170,15 @@ sudo apt install fcitx
 
 这里有点问题，如果搜狗输入法在第一位，中英文切换的时候，输入法里会有一些乱码。所以这里将键盘-汉语移到最上面，如图
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200602130238639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70)
+
+# [10.Jetbrains系列](https://www.jetbrains.com/products/#type=ide)
+
+# [11. 百度网盘](https://pan.baidu.com/download)
+
+# [12. 全球学术快报](http://cajviewer.cnki.net/download.html)
+
+# 13. 串口调试软件
+
+cutecom：`sudo apt-get install cutecom`
+
+# [14. STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html)

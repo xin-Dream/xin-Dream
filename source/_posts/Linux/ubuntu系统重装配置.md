@@ -8,7 +8,7 @@ categories:
 ---
 # 1. 安装WIFI
 可以在 software&updates -> Additional Drivers里选择合适的显卡驱动和WIFI驱动
-若没有WIFI驱动，可以先换源
+若没有WIFI驱动，可以先换源或update
 
 # 2. 修改启动时系统选择等待时间
 ```bash
@@ -30,7 +30,7 @@ sudo vim /etc/sudoers
 ```
 
 # 4. 常用软件安装
-{% post_link ubuntu中常用软件安装 %}
+{% post_link Linux/ubuntu中常用软件安装 %}
 
 # 5. 双系统时间不统一
 参考[写给工程师的ubuntu20.04的最佳配置指南](https://juejin.im/post/5eb3a1556fb9a0434b73545c#heading-31)
