@@ -100,7 +100,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: hexo-theme-ayer
+theme: ayer
 # theme: hexo-theme-PureBlue
 
 
@@ -111,6 +111,8 @@ deploy:
   repo: 
     github: git@github.com:xin-dream/xin-dream.git
   branch: gh-pages
+
+toc: true
 
 encrypt:
   enable: true
