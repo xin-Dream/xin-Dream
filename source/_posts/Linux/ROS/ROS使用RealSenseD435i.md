@@ -2,7 +2,7 @@
 title: ROS使用RealSenseD435i
 date: 2021-09-04 20:58:02
 tags:
-    [ROS,ubuntu18.04,笔记]
+    [ROS]
 categories:
     [Linux,ROS]
 ---

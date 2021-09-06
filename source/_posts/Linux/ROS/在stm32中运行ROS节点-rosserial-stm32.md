@@ -570,7 +570,7 @@ ROS中的程序使用C++编写，所以在stm32中使用C和C++混合编译。
 
     ```CPP
     // robot.cpp
-
+    
     #include "robot.h"
     #include <ros.h>
     #include <std_msgs/String.h>
@@ -579,28 +579,28 @@ ROS中的程序使用C++编写，所以在stm32中使用C和C++混合编译。
     ros::NodeHandle nh;
     std_msgs::String str_msg;
     ros::Publisher chatter("chatter", &str_msg);
-
+    
     char hello[] = "Hello world!";
-
+    
     void setup(void) {
         nh.initNode();
         nh.advertise(chatter);
     }
-
+    
     void loop(void) {
         HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
-
+    
         str_msg.data = hello;
         chatter.publish(&str_msg);
         nh.spinOnce();
-
+    
         HAL_Delay(1000);
     }
     ```
-
+    
     ```C
     //robot.h
-
+    
     #ifdef __cplusplus
     extern "C" {
     #endif
@@ -613,65 +613,65 @@ ROS中的程序使用C++编写，所以在stm32中使用C和C++混合编译。
     #ifdef __cplusplus
     }
     #endif
-
+    
     ```
 
 2. 修改usbd_cdc_if文件
 
     ```C
     //需要修改以下四个地方
-
+    
     //============================================================================
     /* USER CODE BEGIN INCLUDE */
-
+    
     #include "string.h"
     #include "stdarg.h"
     #include "stdio.h"
-
+    
     /* USER CODE END INCLUDE */
-
+    
     //============================================================================
-
+    
     /* USER CODE BEGIN PRIVATE_VARIABLES */
-
+    
     uint8_t usb_rxBuffer[USB_RX_DATA_SIZE];
     uint32_t usb_rxBufPtrIn = 0;
     uint32_t usb_rxBufPtrOut = 0;
-
+    
     /* USER CODE END PRIVATE_VARIABLES */
-
+    
     //============================================================================
-
+    
     static int8_t CDC_Receive_FS(uint8_t *Buf, uint32_t *Len) {
         /* USER CODE BEGIN 6 */
-
+    
         uint32_t i;
         uint16_t in;
-
+    
         for (i = 0; i < *Len; ++i) {
-
+    
             in = (usb_rxBufPtrIn + 1) % USB_RX_DATA_SIZE;
             if (in != usb_rxBufPtrIn) {
                 usb_rxBuffer[usb_rxBufPtrIn] = Buf[i];
                 usb_rxBufPtrIn = in;
             }
-
+    
         }
         USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
         USBD_CDC_ReceivePacket(&hUsbDeviceFS);
         return (USBD_OK);
         /* USER CODE END 6 */
     }
-
+    
     //============================================================================
 
 
     /* USER CODE BEGIN PRIVATE_FUNCTIONS_IMPLEMENTATION */
-
+    
     int vcp_available(void) {
         return ((uint32_t) (USB_RX_DATA_SIZE + usb_rxBufPtrIn - usb_rxBufPtrOut)) % USB_RX_DATA_SIZE;
     }
-
+    
     int vcp_read(void) {
         // if the head isn't ahead of the tail, we don't have any characters
         if (usb_rxBufPtrIn == usb_rxBufPtrOut) {
@@ -682,58 +682,58 @@ ROS中的程序使用C++编写，所以在stm32中使用C和C++混合编译。
             return ch;
         }
     }
-
+    
     void vcp_write(uint8_t *Buf, uint16_t Len) {
         while (CDC_Transmit_FS(Buf, Len) != HAL_OK);
     }
-
+    
     void vcp_printf(const char *fmt, ...) {
-
+    
         va_list arg;
         va_start (arg, fmt);
         int32_t len;
         static char print_buffer[255];
-
+    
         len = vsnprintf(print_buffer, 255, fmt, arg);
         va_end (arg);
 
 
         /*ret = */vcp_write((uint8_t *) print_buffer, len);
-
+    
         //return ret;
     }
-
+    
     /* USER CODE END PRIVATE_FUNCTIONS_IMPLEMENTATION */
-
+    
     ```
-
+    
     ```C
     // usbd_cdc_if.h
-
+    
     //============================================================================
-
+    
     /* USER CODE BEGIN EXPORTED_DEFINES */
     /* Define size for the receive and transmit buffer over CDC */
     /* It's up to user to redefine and/or remove those define */
     #define APP_RX_DATA_SIZE  2048
     #define APP_TX_DATA_SIZE  2048
-
+    
     #define USB_RX_DATA_SIZE  2048
     /* USER CODE END EXPORTED_DEFINES */
-
-    //============================================================================
     
+    //============================================================================
+
 
     /* USER CODE BEGIN EXPORTED_FUNCTIONS */
-
+    
     int vcp_available(void);
-
+    
     int vcp_read(void);
-
+    
     void vcp_write(uint8_t *Buf, uint16_t Len);
-
+    
     void vcp_printf(const char *fmt, ...);
-
+    
     /* USER CODE END EXPORTED_FUNCTIONS */
     ```
 
@@ -747,7 +747,7 @@ ROS中的程序使用C++编写，所以在stm32中使用C和C++混合编译。
             return -1;
         }
     }
-
+    
     void write(uint8_t *data, int length) {
         vcp_write(data, length);
     }
@@ -761,14 +761,14 @@ ROS中的程序使用C++编写，所以在stm32中使用C和C++混合编译。
     /* USER CODE END Header_DataProcessTask */
     void DataProcessTask(void const *argument) {
         /* USER CODE BEGIN DataProcessTask */
-
+    
         setup();
-
+    
         /* Infinite loop */
         for (;;) {
-
+    
             loop();
-
+    
             osDelay(200);
         }
         /* USER CODE END DataProcessTask */
@@ -779,24 +779,24 @@ ROS中的程序使用C++编写，所以在stm32中使用C和C++混合编译。
 # 7. 上位机查看数据
 
     使用一根USB线连接单片机和ROS主机
-
+    
     ```BASH
     # 安装rosserial_python包
     sudo apt-get install ros-melodic-rosserial-python
-
+    
     # 查看串口
     lsusb
     ls /dev/tty*
     # 这里会显示有ttyACM0。
     # 注意一点，使用USB-TTL时会显示ttyUSB*，使用虚拟串口会显示ttyACM*
-
+    
     # 赋给串口权限，这里是用于测试，后期项目中需要绑定串口
     sudo chmod 777 /dev/ttyACM0
-
+    
     # 借助rosserial_python显示ros节点信息
     roscore
     rosrun rosserial_python serial_node.py _port:=/dev/ttyACM0 _baud=57600
-
+    
     # 当显示以下内容说明连接正常
     [INFO] [1629459555.223735]: ROS Serial Python Node
     [INFO] [1629459555.234876]: Connecting to /dev/ttyACM0 at 57600 baud
@@ -809,11 +809,12 @@ ROS中的程序使用C++编写，所以在stm32中使用C和C++混合编译。
     rostopic list
     # 会显示有chatter、diagnostics、rosout、rosout_agg四个话题
     # 其中chatter是单片机中的话题，diagnostics是serial_node话题
-
+    
     rostopic echo /chatter
     ```
 
-    
-    
-    
+
+​    
+​    
+​    
 

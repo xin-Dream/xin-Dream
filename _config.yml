@@ -103,7 +103,6 @@ ignore:
 theme: ayer
 # theme: hexo-theme-PureBlue
 
-
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
