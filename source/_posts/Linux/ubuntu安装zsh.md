@@ -21,8 +21,10 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools
 
 sh -c "$(fetch -o - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# 若以上方式都不好用，可以在网页打开网址
-# 新建一个install.sh，将网页内容复制进去，然后执行
+# 若以上方式都不好用，可以在网页打开网址,新建一个install.sh，将网页内容复制进去，然后执行
+
+#或者可以在我GitHub上找到Ubuntu_files的zsh里有配置文件
+
 sh install.sh
 ```
 ## 2. 配置与插件安装

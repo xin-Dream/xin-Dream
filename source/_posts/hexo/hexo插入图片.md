@@ -6,7 +6,7 @@ categories: [hexo]
 ---
 # 1. 配置
 
-首先应在主题的`_config.yaml`中设置下列选项为 **True**
+首先应在博客的`_config.yaml`中设置下列选项为 **True**
 
 ```bash
 post_asset_folder: true

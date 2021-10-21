@@ -15,6 +15,7 @@ categories: [hexo]
 
 
 
+
 # 1.  安装npm
 
 直接使用`sudo apt-get install npm`会由于依赖的问题，与ROS冲突。而仓库里的版本好像也很低，所以在nodejs中下载压缩包。
