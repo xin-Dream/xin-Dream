@@ -1,7 +1,7 @@
 ---
 title: 在word中插入代码
 date: 2021-08-04 20:12:03
-tags:
+tags: [word]
 categories: [杂项]
 ---
 [CodeInWord](http://www.codeinword.com/)
