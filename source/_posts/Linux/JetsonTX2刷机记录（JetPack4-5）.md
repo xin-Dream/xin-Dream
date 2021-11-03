@@ -14,7 +14,7 @@ JetsonTX2、win10系统、VMware15.0中的ubuntu18.04、安装JetPack4.5
 1. 本文用于记录JetsonTX2的刷机过程，如果想参考本文刷机，请先阅读完整篇文章注意着重标注的步骤再开始刷机
 2. 本文仅记录刷机过程，至于具体功能与配置请参考其他文章
 3. 本文主要参考YouTube上的视频教程，文末有相关链接
-*** 
+***
 # 安装过程
 ## 1. 硬件准备 
 首先准备好JetsonTX2、原装MicroUSB数据线及其相关供电装置，等文中有相关说明后再对板子供电
@@ -42,7 +42,7 @@ sdkmanager
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210208003221540.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70)
 自己选择一个安装位置
-**安装选项中选择接受协议，但是不要选稍后安装**。因为我是暗转完成后截的图，所以提示的大小有些差别。
+**安装选项中选择接受协议，但是不要选稍后安装**。因为我是安装完成后截的图，所以提示的大小有些差别。
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210208003642651.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70)
 
 ## 6. 自主安装过程
@@ -54,7 +54,7 @@ sdkmanager
 ## 7. TX2的硬件连接准备
 + 为TX2使用HDMI连接显示屏（最好不要用转VGA的线，直接接高清线）
 + 连接鼠标和键盘
-+ 将TX2与电脑使用网线连接到同一个路由器
++ ~~将TX2与电脑使用网线连接到同一个路由器~~在使用USB线连接后，自动设置为USB网络共享
 + 使用MicroUSB线连接TX2与电脑，并将电脑设置为将USB连接至虚拟机
 ## 8.TX2进入恢复模式
 1. 为TX2供电，并完成硬件连接

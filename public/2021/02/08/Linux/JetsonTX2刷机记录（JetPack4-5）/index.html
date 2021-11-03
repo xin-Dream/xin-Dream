@@ -119,12 +119,12 @@
 <li>下载地址：<a target="_blank" rel="noopener" href="https://developer.nvidia.com/embedded/jetpack">jetpack</a><br><img src="https://img-blog.csdnimg.cn/20210207221321206.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
 </ul>
 <h2 id="4-安装并运行SDKmanager"><a href="#4-安装并运行SDKmanager" class="headerlink" title="4. 安装并运行SDKmanager"></a>4. 安装并运行SDKmanager</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ./sdkmanager_1.4.0-7363_amd64.deb</span><br><span class="line"><span class="comment">#安装完成后运行</span></span><br><span class="line">sdkmanager</span><br></pre></td></tr></table></figure>
-<h2 id="5-选择型号与位置初选"><a href="#5-选择型号与位置初选" class="headerlink" title="5. 选择型号与位置初选"></a>5. 选择型号与位置初选</h2><p><img src="https://img-blog.csdnimg.cn/20210208003221540.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>自己选择一个安装位置<br><strong>安装选项中选择接受协议，但是不要选稍后安装</strong>。因为我是暗转完成后截的图，所以提示的大小有些差别。<br><img src="https://img-blog.csdnimg.cn/20210208003642651.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="5-选择型号与位置初选"><a href="#5-选择型号与位置初选" class="headerlink" title="5. 选择型号与位置初选"></a>5. 选择型号与位置初选</h2><p><img src="https://img-blog.csdnimg.cn/20210208003221540.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>自己选择一个安装位置<br><strong>安装选项中选择接受协议，但是不要选稍后安装</strong>。因为我是安装完成后截的图，所以提示的大小有些差别。<br><img src="https://img-blog.csdnimg.cn/20210208003642651.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h2 id="6-自主安装过程"><a href="#6-自主安装过程" class="headerlink" title="6. 自主安装过程"></a>6. 自主安装过程</h2><p>在上一步选择继续后，输入ubuntu系统的密码就可以开始下载并安装了，注意先不要给TX2上电。<br>在进度到45%左右时会有个对话框“==SDK Manager is about to flash your Jetson TX2==”<br>这里先选择 ==Manual Setup==<br>然后点击Flash</p>
 <h2 id="7-TX2的硬件连接准备"><a href="#7-TX2的硬件连接准备" class="headerlink" title="7. TX2的硬件连接准备"></a>7. TX2的硬件连接准备</h2><ul>
 <li>为TX2使用HDMI连接显示屏（最好不要用转VGA的线，直接接高清线）</li>
 <li>连接鼠标和键盘</li>
-<li>将TX2与电脑使用网线连接到同一个路由器</li>
+<li><del>将TX2与电脑使用网线连接到同一个路由器</del>在使用USB线连接后，自动设置为USB网络共享</li>
 <li>使用MicroUSB线连接TX2与电脑，并将电脑设置为将USB连接至虚拟机<h2 id="8-TX2进入恢复模式"><a href="#8-TX2进入恢复模式" class="headerlink" title="8.TX2进入恢复模式"></a>8.TX2进入恢复模式</h2></li>
 </ul>
 <ol>

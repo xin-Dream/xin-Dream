@@ -128,7 +128,8 @@ sudo apt install microsoft-edge-dev
  chmod +x clash
 
  # 先执行一次
- ./clash 
+ ./clash -d .
+ # 注意这里一定执行-d ，否则不能成功，权限不够加sudo
 
  # 在官网获取配置文件config.yml
 
@@ -136,7 +137,7 @@ sudo apt install microsoft-edge-dev
  cd ~/.config/clash
  mv config.yml config.yaml
 
- # 重新运行./clash即可
+ # 重新运行 ./clash -d . 即可
 ```
 
 # 9. 输入法安装
@@ -164,7 +165,7 @@ sudo apt install fcitx
 
  设置-->区域和语言-->管理已安装的语言-->键盘输入法系统
  选择刚才安装的Fcitx框架-->应用到整个系统
- 
+
  然后要重启一下
 再打开右上角有个小键盘，里面有配置当前输入法，~~将搜狗输入法上移到第一位，就可以了~~ 
 

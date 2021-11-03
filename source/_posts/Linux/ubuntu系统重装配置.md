@@ -51,3 +51,14 @@ timedatectl set-local-rtc 1 --adjust-system-clock
 ```bash
 sudo apt install python3-pip
 ```
+
+# 7. 设置终端走代理
+
+```
+sudo vim ~/.bashrc
+
+export http_proxy=127.0.0.1:1080
+export https_proxy=127.0.0.1:1080
+export socks_proxy=127.0.0.1:1080
+```
+

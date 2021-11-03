@@ -74,3 +74,13 @@ shutdown -h +3 # 三分钟后关机
 shutdown -r +3 # 三分钟后重启
 shutdown -r now # 立即重启
 ```
+
+# 5. 解锁文件夹
+
+> 在安装anaconda后，创建环境时会显示文件夹被锁
+
+```bash
+sudo chown dream /home/dream/003-software/007-anaconda
+sudo chown dream /home/dream/.conda
+
+```
