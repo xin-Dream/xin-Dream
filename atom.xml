@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Dream</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2021-11-06T12:47:18.836Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>ZGX</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ttt</title>
+    <link href="http://example.com/2021/11/06/ttt/"/>
+    <id>http://example.com/2021/11/06/ttt/</id>
+    <published>2021-11-06T12:47:18.000Z</published>
+    <updated>2021-11-06T12:47:18.836Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://example.com/2021/11/06/test/"/>
+    <id>http://example.com/2021/11/06/test/</id>
+    <published>2021-11-06T12:43:40.000Z</published>
+    <updated>2021-11-06T12:45:33.347Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>hexo博客使用emoji表情</title>
+    <link href="http://example.com/2021/11/06/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8emoji%E8%A1%A8%E6%83%85/"/>
+    <id>http://example.com/2021/11/06/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8emoji%E8%A1%A8%E6%83%85/</id>
+    <published>2021-11-06T12:42:45.000Z</published>
+    <updated>2021-11-06T12:42:45.214Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>hexo博客绑定域名</title>
+    <link href="http://example.com/2021/11/06/hexo/hexo%E5%8D%9A%E5%AE%A2%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/"/>
+    <id>http://example.com/2021/11/06/hexo/hexo%E5%8D%9A%E5%AE%A2%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/</id>
+    <published>2021-11-06T12:10:50.000Z</published>
+    <updated>2021-11-06T12:34:32.015Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-域名注册&quot;&gt;&lt;a href=&quot;#1-域名注册&quot; class=&quot;headerlink&quot; title=&quot;1 域名注册&quot;&gt;&lt;/a&gt;1 域名注册&lt;/h1&gt;&lt;h3 id=&quot;1-1-查询可用域名&quot;&gt;&lt;a href=&quot;#1-1-查询可用域名&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="hexo" scheme="http://example.com/categories/hexo/"/>
+    
+    
+    <category term="hexo" scheme="http://example.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Typora写hexo博客</title>
+    <link href="http://example.com/2021/11/06/hexo/%E4%BD%BF%E7%94%A8Typora%E5%86%99hexo%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://example.com/2021/11/06/hexo/%E4%BD%BF%E7%94%A8Typora%E5%86%99hexo%E5%8D%9A%E5%AE%A2/</id>
+    <published>2021-11-06T08:40:02.000Z</published>
+    <updated>2021-11-06T12:40:44.354Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="hexo" scheme="http://example.com/categories/hexo/"/>
+    
+    
+    <category term="hexo" scheme="http://example.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu18.04安装OpenPose</title>
+    <link href="http://example.com/2021/11/03/Linux/Ubuntu18-04%E5%AE%89%E8%A3%85OpenPose/"/>
+    <id>http://example.com/2021/11/03/Linux/Ubuntu18-04%E5%AE%89%E8%A3%85OpenPose/</id>
+    <published>2021-11-03T12:09:29.000Z</published>
+    <updated>2021-11-03T12:09:29.259Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu18.04安装AlphaPose</title>
+    <link href="http://example.com/2021/11/03/Linux/Ubuntu18-04%E5%AE%89%E8%A3%85AlphaPose/"/>
+    <id>http://example.com/2021/11/03/Linux/Ubuntu18-04%E5%AE%89%E8%A3%85AlphaPose/</id>
+    <published>2021-11-03T06:44:58.000Z</published>
+    <updated>2021-11-03T07:55:40.360Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="http://example.com/categories/Linux/"/>
+    
+    <category term="ubuntu" scheme="http://example.com/categories/Linux/ubuntu/"/>
+    
+    
+    <category term="AlphaPose" scheme="http://example.com/tags/AlphaPose/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用电机对比</title>
+    <link href="http://example.com/2021/11/03/%E6%9D%82%E9%A1%B9/%E5%B8%B8%E7%94%A8%E7%94%B5%E6%9C%BA%E5%AF%B9%E6%AF%94/"/>
+    <id>http://example.com/2021/11/03/%E6%9D%82%E9%A1%B9/%E5%B8%B8%E7%94%A8%E7%94%B5%E6%9C%BA%E5%AF%B9%E6%AF%94/</id>
+    <published>2021-11-03T04:30:19.000Z</published>
+    <updated>2021-11-03T04:42:20.748Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="杂项" scheme="http://example.com/categories/%E6%9D%82%E9%A1%B9/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu18.04安装CUDA-pytorch</title>
+    <link href="http://example.com/2021/11/02/Linux/ubuntu18-04%E5%AE%89%E8%A3%85pytorch/"/>
+    <id>http://example.com/2021/11/02/Linux/ubuntu18-04%E5%AE%89%E8%A3%85pytorch/</id>
+    <published>2021-11-02T11:56:35.000Z</published>
+    <updated>2021-11-03T07:20:33.574Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="http://example.com/categories/Linux/"/>
+    
+    <category term="ubuntu" scheme="http://example.com/categories/Linux/ubuntu/"/>
+    
+    
+    <category term="pytorch" scheme="http://example.com/tags/pytorch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>毕业设计</title>
+    <link href="http://example.com/2021/11/01/%E6%9D%82%E9%A1%B9/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    <id>http://example.com/2021/11/01/%E6%9D%82%E9%A1%B9/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/</id>
+    <published>2021-11-01T14:37:12.000Z</published>
+    <updated>2021-11-06T08:39:28.500Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>jetsonTX2开启风扇</title>
+    <link href="http://example.com/2021/11/01/Linux/jetsonTX2%E5%BC%80%E5%90%AF%E9%A3%8E%E6%89%87/"/>
+    <id>http://example.com/2021/11/01/Linux/jetsonTX2%E5%BC%80%E5%90%AF%E9%A3%8E%E6%89%87/</id>
+    <published>2021-11-01T14:36:52.000Z</published>
+    <updated>2021-11-01T14:40:38.361Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;开启风扇模式&quot;&gt;&lt;a href=&quot;#开启风扇模式&quot; class=&quot;headerlink&quot; title=&quot;开启风扇模式&quot;&gt;&lt;/a&gt;开启风扇模式&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="http://example.com/categories/Linux/"/>
+    
+    <category term="ubuntu" scheme="http://example.com/categories/Linux/ubuntu/"/>
+    
+    
+    <category term="ubuntu18.04" scheme="http://example.com/tags/ubuntu18-04/"/>
+    
+    <category term="JetsonTX2" scheme="http://example.com/tags/JetsonTX2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jetsonTX2安装Pytorch</title>
+    <link href="http://example.com/2021/11/01/Linux/jetsonTX2%E5%AE%89%E8%A3%85Pytorch/"/>
+    <id>http://example.com/2021/11/01/Linux/jetsonTX2%E5%AE%89%E8%A3%85Pytorch/</id>
+    <published>2021-11-01T14:36:17.000Z</published>
+    <updated>2021-11-01T15:01:45.934Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="http://example.com/categories/Linux/"/>
+    
+    <category term="ubuntu" scheme="http://example.com/categories/Linux/ubuntu/"/>
+    
+    
+    <category term="JetsonTX2" scheme="http://example.com/tags/JetsonTX2/"/>
+    
+    <category term="pytorch" scheme="http://example.com/tags/pytorch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文献管理软件zotero</title>
+    <link href="http://example.com/2021/10/29/%E6%9D%82%E9%A1%B9/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6zotero/"/>
+    <id>http://example.com/2021/10/29/%E6%9D%82%E9%A1%B9/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6zotero/</id>
+    <published>2021-10-28T18:53:41.000Z</published>
+    <updated>2021-11-04T12:10:03.396Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-下载安装&quot;&gt;&lt;a href=&quot;#1-下载安装&quot; class=&quot;headerlink&quot; title=&quot;1 下载安装&quot;&gt;&lt;/a&gt;1 下载安装&lt;/h1&gt;&lt;h2 id=&quot;1-1-windows：&quot;&gt;&lt;a href=&quot;#1-1-windows：&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="杂项" scheme="http://example.com/categories/%E6%9D%82%E9%A1%B9/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>创建自己的word模板</title>
+    <link href="http://example.com/2021/10/22/%E6%9D%82%E9%A1%B9/%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84word%E6%A8%A1%E6%9D%BF/"/>
+    <id>http://example.com/2021/10/22/%E6%9D%82%E9%A1%B9/%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84word%E6%A8%A1%E6%9D%BF/</id>
+    <published>2021-10-22T07:43:46.000Z</published>
+    <updated>2021-10-22T07:47:30.482Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="杂项" scheme="http://example.com/categories/%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="word" scheme="http://example.com/tags/word/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>学习交流会</title>
+    <link href="http://example.com/2021/10/21/%E6%9D%82%E9%A1%B9/%E5%AD%A6%E4%B9%A0%E4%BA%A4%E6%B5%81%E4%BC%9A/"/>
+    <id>http://example.com/2021/10/21/%E6%9D%82%E9%A1%B9/%E5%AD%A6%E4%B9%A0%E4%BA%A4%E6%B5%81%E4%BC%9A/</id>
+    <published>2021-10-21T04:05:26.000Z</published>
+    <updated>2021-11-02T12:00:59.768Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一、经验分享&quot;&gt;&lt;a href=&quot;#一、经验分享&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="杂项" scheme="http://example.com/categories/%E6%9D%82%E9%A1%B9/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>hexo博客插入视频</title>
+    <link href="http://example.com/2021/10/21/hexo/hexo%E5%8D%9A%E5%AE%A2%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91/"/>
+    <id>http://example.com/2021/10/21/hexo/hexo%E5%8D%9A%E5%AE%A2%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91/</id>
+    <published>2021-10-21T04:03:51.000Z</published>
+    <updated>2021-10-21T07:12:40.783Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一、使用插件hexo-tag-dplayer&quot;&gt;&lt;a href=&quot;#一、使用插件hexo-tag-dplayer&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="hexo" scheme="http://example.com/categories/hexo/"/>
+    
+    
+    <category term="hexo" scheme="http://example.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo博客使用gitalk评论</title>
+    <link href="http://example.com/2021/10/10/hexo/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8gitalk%E8%AF%84%E8%AE%BA/"/>
+    <id>http://example.com/2021/10/10/hexo/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8gitalk%E8%AF%84%E8%AE%BA/</id>
+    <published>2021-10-10T11:09:55.000Z</published>
+    <updated>2021-10-21T03:50:47.187Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;创建评论系统的repository&quot;&gt;&lt;a href=&quot;#创建评论系统的repository&quot; class=&quot;headerlink&quot; title=&quot;创建评论系统的repository&quot;&gt;&lt;/a&gt;创建评论系统的repository&lt;/h1&gt;
+
+&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="hexo" scheme="http://example.com/categories/hexo/"/>
+    
+    
+    <category term="hexo" scheme="http://example.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在一台电脑中部署两个hexo博客</title>
+    <link href="http://example.com/2021/10/04/hexo/%E5%9C%A8%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%AD%E9%83%A8%E7%BD%B2%E4%B8%A4%E4%B8%AAhexo%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://example.com/2021/10/04/hexo/%E5%9C%A8%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%AD%E9%83%A8%E7%BD%B2%E4%B8%A4%E4%B8%AAhexo%E5%8D%9A%E5%AE%A2/</id>
+    <published>2021-10-04T08:01:37.000Z</published>
+    <updated>2021-10-04T11:56:45.585Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;环境简介：&lt;br&gt;现有两个Github账号，比如分别为xinDream、robotcenter&lt;br&gt;在.ssh文件夹下有两份密钥文件，如：id_xindream_rsa、id_robotcenter_rsa&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;</summary>
+        
+      
+    
+    
+    
+    <category term="hexo" scheme="http://example.com/categories/hexo/"/>
+    
+    
+    <category term="hexo" scheme="http://example.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Anaconda配置tensorflow环境</title>
+    <link href="http://example.com/2021/09/21/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/Anaconda%E9%85%8D%E7%BD%AEtensorflow%E7%8E%AF%E5%A2%83/"/>
+    <id>http://example.com/2021/09/21/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/Anaconda%E9%85%8D%E7%BD%AEtensorflow%E7%8E%AF%E5%A2%83/</id>
+    <published>2021-09-21T03:15:29.000Z</published>
+    <updated>2021-09-30T12:22:44.541Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-Anaconda安装&quot;&gt;&lt;a href=&quot;#1-Anaconda安装&quot; class=&quot;headerlink&quot; title=&quot;1. Anaconda安装&quot;&gt;&lt;/a&gt;1. Anaconda安装&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;+</summary>
+        
+      
+    
+    
+    
+    <category term="机器视觉" scheme="http://example.com/categories/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/"/>
+    
+    <category term="tensorflow" scheme="http://example.com/categories/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/tensorflow/"/>
+    
+    
+    <category term="opencv" scheme="http://example.com/tags/opencv/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文献管理与阅读</title>
+    <link href="http://example.com/2021/09/19/%E6%9D%82%E9%A1%B9/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86%E4%B8%8E%E9%98%85%E8%AF%BB/"/>
+    <id>http://example.com/2021/09/19/%E6%9D%82%E9%A1%B9/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86%E4%B8%8E%E9%98%85%E8%AF%BB/</id>
+    <published>2021-09-19T11:17:10.000Z</published>
+    <updated>2021-09-30T12:22:44.548Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;文献下载&quot;&gt;&lt;a href=&quot;#文献下载&quot; class=&quot;headerlink&quot; title=&quot;文献下载&quot;&gt;&lt;/a&gt;文献下载&lt;/h1&gt;&lt;h3 id=&quot;1-TB购买的知网账号下载PDF格式文档&quot;&gt;&lt;a href=&quot;#1-TB购买的知网账号下载PDF格式文档&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="杂项" scheme="http://example.com/categories/%E6%9D%82%E9%A1%B9/"/>
+    
+    
+  </entry>
+  
+</feed>
