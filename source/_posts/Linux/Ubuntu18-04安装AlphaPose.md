@@ -14,12 +14,12 @@ categories:
 
 # 1 AlphaPose环境说明
 
-    + CUDA
-    + Python3.5+
-    + Cython
-    + PyTorch 1.1+
-    + torchvision 0.3.0+
-    + numpy
++ CUDA
++ Python3.5+
++ Cython
++ PyTorch 1.1+
++ torchvision 0.3.0+
++ numpy
 
 ## 1.1 Ubuntu18.04、GTX1050
 
@@ -54,6 +54,7 @@ export LANG=C.UTF-8
 ######################################################
 python setup.py build develop
 
+# 最后一步出现的问题 #############################################################
 # 这里有可能出现Beginning with Matplotlib 3.4, Python 3.7 or above is required.
 # 使用升级pip的指令是无效的，可以试一下
 sudo -H pip install --upgrade pip
@@ -61,5 +62,12 @@ sudo -H pip install --upgrade pip
 # 我选择更换python版本，在安装pytorch环境的文章中说过，更换python命令如下
 conda install python=3.7
 # 需要注意一下更换的比较重要的包，比如pytorch、torchvision等。
+
+# pyparsing的版本问题，这里有可能会报两个错误
+error: pyparsing 3.0.4 is installed but pyparsing<3,>=2.0.2 is required by {'packaging'}
+
+# 解决：先卸载，换版本安装，一定先卸载
+
+
 ```
 
