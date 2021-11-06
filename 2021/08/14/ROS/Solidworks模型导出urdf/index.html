@@ -109,7 +109,7 @@
 <li>机器人要有一个base_link，为其设置一个坐标原点。我的作图习惯是将base_link在装配时就定义到坐标原点，这样可以直接选用坐标原点设置为base_link的坐标原点。</li>
 <li>为需要旋转的部分设置一个旋转轴，例如下图中机器人的四个轮子和前面的挡板应该是要转动的，所以在其各自旋转轴中设置旋转轴。</br>
 </br>
-<img src="/2021/08/14/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/01.png" class="" title="This is an image">
+
 </br>
 </br>
 
@@ -120,7 +120,7 @@
 <li>在<strong>工具-&gt;Tools-&gt;Export as URDF</strong>中打开刚才安装的sw2urdf工具。或者直接在右上角搜索框输入urdf，比较方便。</li>
 <li>设置base_link。修改途中与base_link相连link个数时会在下方创建Empty_link，由于我已经修改过了，所以名称不一样。</li>
 </ol>
-<img src="/2021/08/14/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/02.png" class="" title="This is an image">
+
 
 <ol start="3">
 <li>设置每个单独的link。在上图框中五个link中选中就会进入每个单独link的设置过程。这里每个link设置就一样了，以一个轮子为例。</li>
@@ -134,7 +134,7 @@
 <li>floating：六自由度关节</li>
 <li>planar：平面关节</li>
 </ul>
-<img src="/2021/08/14/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/03.png" class="" title="This is an image">
+
 
 <ol start="4">
 <li>根据以上步骤设置完所有关节后，开始导出文件。选中下图框中Preview and Export，会自动计算数据，并生成预览。检查没问题后，按照引导导出文件就好。</li>
@@ -145,14 +145,14 @@
 <li><p>其实这里的建模，最好不要把一些螺栓、螺钉、固定板等比较杂的零件放进去，计算速度会慢，找到主要的主体、传感器、轮子等就好。</p>
 </li>
 </ul>
-<img src="/2021/08/14/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/04.png" class="" title="This is an image">
+
 
 <h1 id="四、-ros中显示"><a href="#四、-ros中显示" class="headerlink" title="四、 ros中显示"></a>四、 ros中显示</h1><ol>
 <li>创建工作空间</li>
 <li>将上一步solidworks插件生成的功能包复制到工作空间的src目录下。</li>
 <li>修改功能包的以下几个地方：<ul>
 <li>package.xml中的邮箱，可以设置个自己的</li>
-<li>display.launch中添加一行代码<code>&lt;node pkg=&quot;joint_state_publisher&quot; type=&quot;joint_state_publisher&quot; name=&quot;joint_state_publisher&quot;&gt;</code>。<del>因为自动生成的launch文件使用joint_state_publisher_gui，在rviz中出现节点间没有坐标变换的情况</del>，如下图<img src="/2021/08/14/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/05.png" class="" title="This is an image">
+<li>display.launch中添加一行代码<code>&lt;node pkg=&quot;joint_state_publisher&quot; type=&quot;joint_state_publisher&quot; name=&quot;joint_state_publisher&quot;&gt;</code>。<del>因为自动生成的launch文件使用joint_state_publisher_gui，在rviz中出现节点间没有坐标变换的情况</del>，如下图
 
 </li>
 </ul>
@@ -160,7 +160,7 @@
 </ol>
 <p><strong>这里修正一下：</strong><br>joint_state_publisher_gui不是不发布坐标变换信息，而是又可能没有安装这个包<br><code>sudo apt-get install ros-melodic-joint-state-publisher-gui</code></p>
 <ol start="4">
-<li>最终使用roslaunch在rviz模型中显示，如下图。<img src="/2021/08/14/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/06.png" class="" title="This is an image"></li>
+<li>最终使用roslaunch在rviz模型中显示，如下图。</li>
 </ol>
  
       <!-- reward -->

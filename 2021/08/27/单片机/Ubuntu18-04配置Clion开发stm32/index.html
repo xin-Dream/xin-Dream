@@ -124,20 +124,20 @@
 <li>Toolchains</li>
 </ol>
 <p>File -&gt; Build,Execution,Deployment -&gt; Toolchains<br>新建一个设置，参考下图</p>
-<img src="/2021/08/27/%E5%8D%95%E7%89%87%E6%9C%BA/Ubuntu18-04%E9%85%8D%E7%BD%AEClion%E5%BC%80%E5%8F%91stm32/01.png" class="" title="This is an image">
+
 
 <ol start="2">
 <li>CMake</li>
 </ol>
 <p>File -&gt; Build,Execution,Deployment -&gt; CMake<br>配置参考下图</p>
-<img src="/2021/08/27/%E5%8D%95%E7%89%87%E6%9C%BA/Ubuntu18-04%E9%85%8D%E7%BD%AEClion%E5%BC%80%E5%8F%91stm32/02.png" class="" title="This is an image">
+
 
 <ol start="3">
 <li><p>下载器</p>
 <ul>
 <li>自己找个位置新建config文件夹，用于存放不同下载器得cfg文件，新建一个daplink.cfg（这里我用cmsis_dap调试器）</li>
 <li>在daplink.cfg文件中添加内容<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> [find interface/cmsis-dap.cfg]</span><br><span class="line">transport select swd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 0x10000 = 64K Flash Size</span></span><br><span class="line"><span class="built_in">set</span> FLASH_SIZE=0x160000</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> [find target/stm32f4x.cfg]</span><br></pre></td></tr></table></figure></li>
-<li>在下载选项中选择Edit configuration,参考下图设置<img src="/2021/08/27/%E5%8D%95%E7%89%87%E6%9C%BA/Ubuntu18-04%E9%85%8D%E7%BD%AEClion%E5%BC%80%E5%8F%91stm32/03.png" class="" title="This is an image"></li>
+<li>在下载选项中选择Edit configuration,参考下图设置</li>
 </ul>
 </li>
 <li><p>编译、下载测试</p>
