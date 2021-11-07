@@ -1661,14 +1661,12 @@
 <li>可在命令行使用”gcc -v”、”arm-none-eabi-gcc -v”、”openocd -v”验证</li>
 </ul>
 <h1 id="3-Clion配置"><a href="#3-Clion配置" class="headerlink" title="3. Clion配置"></a>3. Clion配置</h1><ul>
-<li></li>
-<li></li>
-<li>
-
-</li>
+<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/01.png" alt="01"></li>
+<li><img src="images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/02.png" alt="02"></li>
+<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/03.png" alt="03"></li>
 </ul>
 <h1 id="4-新建stm32项目"><a href="#4-新建stm32项目" class="headerlink" title="4. 新建stm32项目"></a>4. 新建stm32项目</h1><ul>
-<li></li>
+<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/04.png" alt="04"></li>
 <li>新建项目后，编辑区会出现Open with STM32CubeMX，即可使用CubeMX配置程序</li>
 <li>配置完成后注意CubeMX中路径要与刚才路径一致</li>
 <li>后期若移动位置，需在新位置打开CubeMX的ioc文档并修改</li>
@@ -1681,19 +1679,22 @@
 <li>首先编写下载的cfg文件，这个我习惯在工作区建一个文件夹config，然后新建F4-stlink.cfg文件</li>
 <li>以下代码为F407使用stlink下载器的设置，粘贴到新建的文件夹即可</li>
 <li>然后在Clion的下载选项中选择这个文件，如下图</li>
-<li></li>
-<li></li>
+<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/05.png" alt="05"></li>
+<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/06.png" alt="06"></li>
 <li>配置完成后使用运行按钮即可下载<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># This is for using the onboard STLINK/V2</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> [find interface/stlink.cfg]</span><br><span class="line"></span><br><span class="line">transport select hla_swd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 0x10000 = 64K Flash Size</span></span><br><span class="line"><span class="built_in">set</span> WORKAREASIZE 0x20000</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> [find target/stm32f4x.cfg] </span><br></pre></td></tr></tbody></table></figure>
 <h1 id="7-无线下载器"><a href="#7-无线下载器" class="headerlink" title="7. 无线下载器"></a>7. 无线下载器</h1></li>
 </ul>
 <p><a href="https://detail.tmall.com/item.htm?id=623728332784&amp;spm=a1z09.2.0.0.46df2e8ddFg2g1&amp;_u=o2ph6ufjfa55">STM32仿真器无线下载AMR单片机远程调试烧录编程STLINK DAPLINK</a></p>
 <p>按上一步添加cfg文件</p>
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># This is for using the onboard STLINK/V2</span></span><br><span class="line">adapter driver cmsis-dap</span><br><span class="line"></span><br><span class="line">transport select swd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 0x10000 = 64K Flash Size</span></span><br><span class="line"><span class="built_in">set</span> FLASH_SIZE 0x160000</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> [find target/stm32f4x.cfg]</span><br><span class="line"></span><br><span class="line">adapter speed 2000</span><br></pre></td></tr></tbody></table></figure>
-
 <h1 id="8-注意事项"><a href="#8-注意事项" class="headerlink" title="8. 注意事项"></a>8. 注意事项</h1><ul>
-<li>在Clion中选择文件时按下图配置，这样在CMakeLists中会是单独一行，如果删除文件后还有残留可以自己查到删除<br> </li>
-<li>在使用FreeRTOS时，编译会报错。默认情况下，硬件浮点运算是关闭的，<del>需要在CMakeLists里设置一下</del>需要在CMakeLists_template.txt和CMakeLists.txt中修改，否则重新生成stm32程序时CMakeLists.txt会再次取消浮点运算<br><br>  <strong>取消框选内容的注释就好了。</strong> <br><br>  <br> 
-<br> </li>
+<li>在Clion中选择文件时按下图配置，这样在CMakeLists中会是单独一行，如果删除文件后还有残留可以自己查到删除<img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/07.png" alt="07"><img src="./images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/08.png" alt="08"> <br> </li>
+<li>在使用FreeRTOS时，编译会报错。默认情况下，硬件浮点运算是关闭的，<del>需要在CMakeLists里设置一下</del>需要在CMakeLists_template.txt和CMakeLists.txt中修改，否则重新生成stm32程序时CMakeLists.txt会再次取消浮点运算<img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/09.png" alt="09"><br><br>  <strong>取消框选内容的注释就好了。</strong> <br><br><br><br><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/10.png" alt="10"> <br></li>
+<li>CubeMX不生成CMakeList<ul>
+<li>CMakeList不是CubeMX生成的，是CLion生成的 </li>
+<li>当项目名中含“.”时，不生成CMakeList</li>
+</ul>
+</li>
 <li><strong>待更新+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</strong></li>
 </ul>
 ]]></content>
