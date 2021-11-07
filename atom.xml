@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-11-07T06:46:21.802Z</updated>
+  <updated>2021-11-07T06:57:54.727Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>桌面工作台计划</title>
+    <link href="http://example.com/2021/11/07/%E6%9D%82%E9%A1%B9/%E6%A1%8C%E9%9D%A2%E5%B7%A5%E4%BD%9C%E5%8F%B0%E8%AE%A1%E5%88%92/"/>
+    <id>http://example.com/2021/11/07/%E6%9D%82%E9%A1%B9/%E6%A1%8C%E9%9D%A2%E5%B7%A5%E4%BD%9C%E5%8F%B0%E8%AE%A1%E5%88%92/</id>
+    <published>2021-11-07T06:57:16.000Z</published>
+    <updated>2021-11-07T06:57:54.727Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="杂项" scheme="http://example.com/categories/%E6%9D%82%E9%A1%B9/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>hexo博客使用emoji表情</title>
@@ -485,33 +508,6 @@
     
     
     <category term="Python" scheme="http://example.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>stm32使用OLED</title>
-    <link href="http://example.com/2021/09/06/%E5%8D%95%E7%89%87%E6%9C%BA/stm32%E4%BD%BF%E7%94%A8OLED/"/>
-    <id>http://example.com/2021/09/06/%E5%8D%95%E7%89%87%E6%9C%BA/stm32%E4%BD%BF%E7%94%A8OLED/</id>
-    <published>2021-09-06T08:59:54.000Z</published>
-    <updated>2021-09-30T12:22:44.529Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;在后面有三个文件内容，oled.c  oled.h  </summary>
-        
-      
-    
-    
-    
-    <category term="单片机" scheme="http://example.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-    <category term="STM32" scheme="http://example.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA/STM32/"/>
-    
-    
-    <category term="stm32" scheme="http://example.com/tags/stm32/"/>
     
   </entry>
   
