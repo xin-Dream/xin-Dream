@@ -42,7 +42,7 @@ external_link:
 filename_case: 0
 render_drafts: false
 
-post_asset_folder: true
+post_asset_folder: false
 
 relative_link: false
 future: true
@@ -115,3 +115,30 @@ toc: true
 
 encrypt:
   enable: true
+
+# hexo-generator-searchdb
+search:
+  path: search.xml
+  field: post
+  format: html
+
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: " "
+  order_by: -date
+
+
+githubEmojis:
+  enable: true
+  className: github-emoji
+  unicode: true
+  styles:
+    display: inline
+    vertical-align: middle # Freemind适用
+  localEmojis:

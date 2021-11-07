@@ -42,7 +42,10 @@
           font-size: 1.6rem;
         }
       </style>
-    </head>
+    
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
+</head>
   </html>
 </html>
 
@@ -99,22 +102,22 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>一直在用CubeMX配置stm32程序，特别是时钟配置格外方便，没想到一直没注意的时钟树一旦出错，花了我两天时间才找到问题。<br></br><br></br></p>
+  <p>一直在用CubeMX配置stm32程序，特别是时钟配置格外方便，没想到一直没注意的时钟树一旦出错，花了我两天时间才找到问题。<br><br><br><br></p>
 <blockquote>
-<p>问题描述：<br>在使用stm32的USB做虚拟串口时，无论是windows还是在Ubuntu上都显示设备不能识别，连端口号都不显示。<br></br></p>
+<p>问题描述：<br>在使用stm32的USB做虚拟串口时，无论是windows还是在Ubuntu上都显示设备不能识别，连端口号都不显示。<br><br></p>
 </blockquote>
 <p>使用CubeMX时一般我习惯直接修改HCLK为168MHz，软件会自动匹配其余时钟。</p>
 <p>其实软件设定的只是每个芯片的可匹配的频率，对不同的开发板，我们用的最多的外部晶振其实是不一样的，如果设定与实际频率不同，就会出大问题。</p>
-</br>
-</br>
+<br>
+<br>
 
-<img src="/2021/08/20/%E5%8D%95%E7%89%87%E6%9C%BA/%E4%BD%BF%E7%94%A8CubeMX-CubeIDE%E9%85%8D%E7%BD%AE%E6%97%B6%E9%92%9F%E6%A0%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/01.png" class="" title="This is an image">
 
-</br>
-</br>
+
+<br>
+<br>
 查看开发板中是8MHz的晶振，所以软件中的设定要与之匹配。
 
-<img src="/2021/08/20/%E5%8D%95%E7%89%87%E6%9C%BA/%E4%BD%BF%E7%94%A8CubeMX-CubeIDE%E9%85%8D%E7%BD%AE%E6%97%B6%E9%92%9F%E6%A0%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/02.png" class="" title="This is an image">
+
 
 
  
@@ -194,7 +197,7 @@
    
   <nav class="article-nav">
     
-      <a href="/2021/08/21/Linux/ROS/Clion%E4%B8%AD%E6%B7%BB%E5%8A%A0urdf%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B/" class="article-nav-link">
+      <a href="/2021/08/21/ROS/Clion%E4%B8%AD%E6%B7%BB%E5%8A%A0urdf%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
@@ -204,7 +207,7 @@
       </a>
     
     
-      <a href="/2021/08/18/Linux/ROS/%E5%9C%A8stm32%E4%B8%AD%E8%BF%90%E8%A1%8CROS%E8%8A%82%E7%82%B9-rosserial-stm32/" class="article-nav-link">
+      <a href="/2021/08/18/ROS/%E5%9C%A8stm32%E4%B8%AD%E8%BF%90%E8%A1%8CROS%E8%8A%82%E7%82%B9-rosserial-stm32/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
         <div class="article-nav-title">在STM32F407中运行ROS节点-rosserial_stm32</div>
       </a>

@@ -42,7 +42,10 @@
           font-size: 1.6rem;
         }
       </style>
-    </head>
+    
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
+</head>
   </html>
 </html>
 
@@ -111,7 +114,7 @@
 <li><p>安装好插件后，在侧边栏找到LeetCode插件，在LeetCode的菜单栏找到设置</p>
 </li>
 </ol>
-<img src="/2021/06/13/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/LeetCode/%E5%9C%A8Clion%E4%B8%8A%E5%BC%80%E5%A7%8BLeetCode/01.png" class="" title="This is an image">
+
 
 <ol start="4">
 <li>设置界面信息<ol>
@@ -121,7 +124,7 @@
 </ol>
 </li>
 </ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CodeFileName: $!&#123;question.frontendQuestionId&#125;-$&#123;question.titleSlug&#125;</span><br><span class="line">CodeTemplate:   <span class="comment">//$&#123;question.title&#125;</span></span><br><span class="line">                <span class="comment">//$&#123;question.titleSlug&#125;</span></span><br><span class="line">                <span class="comment">//$!velocityTool.date()</span></span><br><span class="line"></span><br><span class="line">                $&#123;question.code&#125;</span><br><span class="line"></span><br><span class="line">                \<span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;stdio.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">                <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">                    <span class="comment">//printf(&quot;$&#123;question.frontendQuestionId&#125;,$&#123;question.title&#125;&quot;;</span></span><br><span class="line">                &#125;   </span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CodeFileName: $!{question.frontendQuestionId}-${question.titleSlug}</span><br><span class="line">CodeTemplate:   <span class="comment">//${question.title}</span></span><br><span class="line">                <span class="comment">//${question.titleSlug}</span></span><br><span class="line">                <span class="comment">//$!velocityTool.date()</span></span><br><span class="line"></span><br><span class="line">                ${question.code}</span><br><span class="line"></span><br><span class="line">                \<span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"></span><br><span class="line">                <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">                    <span class="comment">//printf("${question.frontendQuestionId},${question.title}";</span></span><br><span class="line">                }   </span><br></pre></td></tr></tbody></table></figure>
 <ol start="5">
 <li><p>在LeetCode菜单栏第一个按钮即是登录按钮，登录后即可根据难度或顺序选择题目，双击后即可在文件夹中生成程序，右键还可选择题目等。</p>
 </li>

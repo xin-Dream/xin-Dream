@@ -42,7 +42,10 @@
           font-size: 1.6rem;
         }
       </style>
-    </head>
+    
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
+</head>
   </html>
 </html>
 
@@ -104,7 +107,7 @@
   <h1 id="我的配置"><a href="#我的配置" class="headerlink" title="我的配置"></a>我的配置</h1><p>华硕飞行堡垒五代，i5+256G固态+1T机械硬盘，ubuntu18.04LTS</p>
 <h1 id="制作双系统启动U盘"><a href="#制作双系统启动U盘" class="headerlink" title="制作双系统启动U盘"></a>制作双系统启动U盘</h1><h2 id="需要工具"><a href="#需要工具" class="headerlink" title="需要工具"></a>需要工具</h2><p>微PE工具箱，win10镜像，Ubuntu18.04的ISO镜像，32GU盘（这个制作完成后还会有很大一部分空余，可以用于日常使用，只用于启动盘的话，ubuntu和win10 8G的U盘大概能够）</p>
 <h2 id="制作过程"><a href="#制作过程" class="headerlink" title="制作过程"></a>制作过程</h2><ol>
-<li>用微PE工具箱为U盘制作PE系统，这个是用于安装和维护win10系统的<br>可以参考软件安装管家的<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzIwMjE1MjMyMw==&mid=502719825&idx=1&sn=9104261c8b121d6aaae0b11124e90645&chksm=0ee145bd3996ccab948300376dc86d18305ed1f981ba361cee53850ed001f24552addcb63c63&scene=20&xtrack=1&key=550718b070ec51af153ef2fa7f6561bd89e049c0c95440110b1f4cc8ae1503ab88e011c74375991716f9151ed7adc503eef74aa0bf681d120c2dd4a5426d5a35a6fc4af420d6971699c29501b2681215&ascene=1&uin=MTYxNTIyMDEzOQ==&devicetype=Windows%2010%20x64&version=62090072&lang=zh_CN&exportkey=A74S+18fXHhNvj3ZK2y3NdI=&pass_ticket=lXTBjZUUl17jl5VJK2C+emLrJWEDoeji+S9sM0ESR4E5qBCCcxZJ2xptM6sFbNQT">PE系统安装教程</a></li>
+<li>用微PE工具箱为U盘制作PE系统，这个是用于安装和维护win10系统的<br>可以参考软件安装管家的<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzIwMjE1MjMyMw==&amp;mid=502719825&amp;idx=1&amp;sn=9104261c8b121d6aaae0b11124e90645&amp;chksm=0ee145bd3996ccab948300376dc86d18305ed1f981ba361cee53850ed001f24552addcb63c63&amp;scene=20&amp;xtrack=1&amp;key=550718b070ec51af153ef2fa7f6561bd89e049c0c95440110b1f4cc8ae1503ab88e011c74375991716f9151ed7adc503eef74aa0bf681d120c2dd4a5426d5a35a6fc4af420d6971699c29501b2681215&amp;ascene=1&amp;uin=MTYxNTIyMDEzOQ==&amp;devicetype=Windows%2010%20x64&amp;version=62090072&amp;lang=zh_CN&amp;exportkey=A74S+18fXHhNvj3ZK2y3NdI=&amp;pass_ticket=lXTBjZUUl17jl5VJK2C+emLrJWEDoeji+S9sM0ESR4E5qBCCcxZJ2xptM6sFbNQT">PE系统安装教程</a></li>
 <li>制作好之后会有两个分区，其中EFI中是PE系统的分区，另一个是正常的分区，然后我们将这个正常分区分成三个，ubuntu（3G），Win（6G），Data（其余空间-300MB）<br><img src="https://img-blog.csdnimg.cn/20200531002825803.png" alt="在这里插入图片描述"></li>
 <li>ubuntu<pre><code>只需要解压ubuntu18.04的ISO镜像就可以得到ubuntu的主要文件![在这里插入图片描述](https://img-blog.csdnimg.cn/20200531003203907.png)![在这里插入图片描述](https://img-blog.csdnimg.cn/20200531003219937.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70)
 然后将解压后文件夹内的所有内容复制到刚才U盘分区的ubuntu分区下就可以了</code></pre>
@@ -150,9 +153,9 @@ EFI系统分区：
 </ol>
 <h1 id="ubuntu开机后的配置"><a href="#ubuntu开机后的配置" class="headerlink" title="ubuntu开机后的配置"></a>ubuntu开机后的配置</h1><p>我的电脑安装好之后显示没有WiFi适配器，所以只能先插上网线，设置好分辨率在去改WiFi</p>
 <h2 id="安装显卡驱动"><a href="#安装显卡驱动" class="headerlink" title="安装显卡驱动"></a>安装显卡驱动</h2><p>进入系统后可以先更新一下，这个过程可能会比较长</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></tbody></table></figure>
 <p>更新完成后，安装驱动</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo ubuntu-drivers autoinstall</span><br><span class="line"><span class="comment">#安装完成后，重启</span></span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo ubuntu-drivers autoinstall</span><br><span class="line"><span class="comment">#安装完成后，重启</span></span><br><span class="line">sudo reboot</span><br></pre></td></tr></tbody></table></figure>
 <p>重启后可以发现，分辨率已经正常了</p>
 <h2 id="WiFi驱动"><a href="#WiFi驱动" class="headerlink" title="WiFi驱动"></a>WiFi驱动</h2><p>这些设置完就要开始安装WiFi驱动了<br>没有想到，WiFi修改过程简单又刺激</p>
 <p> 在软件与更新–&gt;附加驱动，下面有个开源WiFi驱动，选中，更新，重启<br> 重启之后刺激的是，屏幕一直闪烁，强制关机后再打开就正常了….<br> 这个办法可能不适用于所有人<br> 可以参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/github_33678609/article/details/86502916">ubuntu18.04系统安装完成后显示未发现WiFi适配器</a></p>

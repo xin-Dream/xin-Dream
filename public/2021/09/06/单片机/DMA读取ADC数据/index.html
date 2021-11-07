@@ -42,7 +42,10 @@
           font-size: 1.6rem;
         }
       </style>
-    </head>
+    
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
+</head>
   </html>
 </html>
 
@@ -110,13 +113,13 @@
 <li>在ADC中的DMA Settings中设置Mode 为 Circular</li>
 </ul>
 <h1 id="2-数据结构体定义"><a href="#2-数据结构体定义" class="headerlink" title="2. 数据结构体定义"></a>2. 数据结构体定义</h1><p>在macro.h中定义</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ADC_CHANNEL_NUMBER  10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">uint32_t</span> ADC_Buff[ADC_CHANNEL_NUMBER];</span><br><span class="line"></span><br><span class="line">&#125; Sensor_TypeDef;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ADC_CHANNEL_NUMBER  10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> {</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">uint32_t</span> ADC_Buff[ADC_CHANNEL_NUMBER];</span><br><span class="line"></span><br><span class="line">} Sensor_TypeDef;</span><br></pre></td></tr></tbody></table></figure>
 <h1 id="3-结构体定义"><a href="#3-结构体定义" class="headerlink" title="3. 结构体定义"></a>3. 结构体定义</h1><p>在macro.c中</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sensor_TypeDef sensors;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sensor_TypeDef sensors;</span><br></pre></td></tr></tbody></table></figure>
 
 
 <h1 id="4-程序初始化"><a href="#4-程序初始化" class="headerlink" title="4. 程序初始化"></a>4. 程序初始化</h1><p>在main.c中</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> Sensor_TypeDef sensors;</span><br><span class="line"></span><br><span class="line">HAL_ADC_Start_DMA(&amp;hadc1, sensors.ADC_Buff, ADC_CHANNEL_NUMBER);</span><br><span class="line"><span class="comment">//注意开启DMA要在定义函数之后</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> Sensor_TypeDef sensors;</span><br><span class="line"></span><br><span class="line">HAL_ADC_Start_DMA(&amp;hadc1, sensors.ADC_Buff, ADC_CHANNEL_NUMBER);</span><br><span class="line"><span class="comment">//注意开启DMA要在定义函数之后</span></span><br></pre></td></tr></tbody></table></figure>
  
       <!-- reward -->
       
@@ -204,7 +207,7 @@
       </a>
     
     
-      <a href="/2021/09/05/Linux/ROS/%E8%A7%A3%E5%86%B3%E5%9C%A8Pycharm%E4%B8%AD%E6%97%A0%E6%B3%95import%E5%AE%89%E8%A3%85%E7%9A%84ROS%E5%BA%93/" class="article-nav-link">
+      <a href="/2021/09/05/ROS/%E8%A7%A3%E5%86%B3%E5%9C%A8Pycharm%E4%B8%AD%E6%97%A0%E6%B3%95import%E5%AE%89%E8%A3%85%E7%9A%84ROS%E5%BA%93/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
         <div class="article-nav-title">解决在Pycharm中无法import安装的ROS库</div>
       </a>
