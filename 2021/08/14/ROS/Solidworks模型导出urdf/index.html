@@ -42,7 +42,9 @@
           font-size: 1.6rem;
         }
       </style>
-    <link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
+    
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
 </head>
   </html>
 </html>
@@ -108,11 +110,11 @@
 <h1 id="一、-建模"><a href="#一、-建模" class="headerlink" title="一、 建模"></a>一、 建模</h1><p>建模时需注意以下几点</p>
 <ol>
 <li>机器人要有一个base_link，为其设置一个坐标原点。我的作图习惯是将base_link在装配时就定义到坐标原点，这样可以直接选用坐标原点设置为base_link的坐标原点。</li>
-<li>为需要旋转的部分设置一个旋转轴，例如下图中机器人的四个轮子和前面的挡板应该是要转动的，所以在其各自旋转轴中设置旋转轴。</br>
-</br>
+<li>为需要旋转的部分设置一个旋转轴，例如下图中机器人的四个轮子和前面的挡板应该是要转动的，所以在其各自旋转轴中设置旋转轴。<br>
+<br>
 
-</br>
-</br>
+<br>
+<br>
 
 </li>
 </ol>
@@ -153,7 +155,7 @@
 <li>将上一步solidworks插件生成的功能包复制到工作空间的src目录下。</li>
 <li>修改功能包的以下几个地方：<ul>
 <li>package.xml中的邮箱，可以设置个自己的</li>
-<li>display.launch中添加一行代码<code>&lt;node pkg=&quot;joint_state_publisher&quot; type=&quot;joint_state_publisher&quot; name=&quot;joint_state_publisher&quot;&gt;</code>。<del>因为自动生成的launch文件使用joint_state_publisher_gui，在rviz中出现节点间没有坐标变换的情况</del>，如下图
+<li>display.launch中添加一行代码<code>&lt;node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher"&gt;</code>。<del>因为自动生成的launch文件使用joint_state_publisher_gui，在rviz中出现节点间没有坐标变换的情况</del>，如下图
 
 </li>
 </ul>

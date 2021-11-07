@@ -42,7 +42,9 @@
           font-size: 1.6rem;
         }
       </style>
-    <link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
+    
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
 </head>
   </html>
 </html>
@@ -103,40 +105,40 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1 id="git基本操作"><a href="#git基本操作" class="headerlink" title="git基本操作"></a>git基本操作</h1><h2 id="下载与配置"><a href="#下载与配置" class="headerlink" title="下载与配置"></a>下载与配置</h2><p>windows中可以去官网下载git：<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">下载地址</a><br>ubuntu中可以直接终端下载，比较方便</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></tbody></table></figure>
 <p>设置用户名和邮箱地址</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;你的github名字&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;你的邮箱地址&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"你的github名字"</span></span><br><span class="line">git config --global user.email <span class="string">"你的邮箱地址"</span></span><br></pre></td></tr></tbody></table></figure>
 <h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p>我比较习惯在先在github上创建仓库，然后git clone到本地，修改之后在提交（如果是在vscode中操作会更简单），操作过程如下：</p>
 <ol>
-<li>clone远程仓库<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> <span class="string">&quot;在github上创建仓库的地址&quot;</span></span><br></pre></td></tr></table></figure></li>
-<li>add<br>以添加index.py为例<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add index.py</span><br></pre></td></tr></table></figure></li>
+<li>clone远程仓库<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> <span class="string">"在github上创建仓库的地址"</span></span><br></pre></td></tr></tbody></table></figure></li>
+<li>add<br>以添加index.py为例<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add index.py</span><br></pre></td></tr></tbody></table></figure></li>
 <li>commit</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;add a new file&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"add a new file"</span></span><br></pre></td></tr></tbody></table></figure>
 <ol start="4">
 <li>push将提交的信息推送到仓库</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></tbody></table></figure>
 <ol start="5">
 <li>pull，获取并整合另外的版本库或一个本地分支</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></tbody></table></figure>
 <ol start="6">
 <li>checkout，检出一个分支或路径到工作区</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">checkout index.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">checkout index.py</span><br></pre></td></tr></tbody></table></figure>
 <h1 id="git-高级操作"><a href="#git-高级操作" class="headerlink" title="git 高级操作"></a>git 高级操作</h1><p>分支操作：</p>
 <h1 id="ubuntu-ssh连接git"><a href="#ubuntu-ssh连接git" class="headerlink" title="ubuntu ssh连接git"></a>ubuntu ssh连接git</h1><ol>
 <li>创建SSH key , 没有特殊的指定文件可以直接回车</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;你的email地址&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"你的email地址"</span></span><br></pre></td></tr></tbody></table></figure>
 <p><img src="https://img-blog.csdnimg.cn/20200602165441521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <ol start="2">
 <li>在github上添加sshkey</li>
 </ol>
 <p>登陆GitHub，打开“Account settings”，“SSH Keys”页面，然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容。</p>
 <h2 id="win10-ssh-连接github"><a href="#win10-ssh-连接github" class="headerlink" title="win10 ssh 连接github"></a>win10 ssh 连接github</h2><p>和ubuntu中操作差不多，但是执行命令要在git bash中执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;1812752073@qq.com&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"1812752073@qq.com"</span></span><br></pre></td></tr></tbody></table></figure>
 <p><img src="https://img-blog.csdnimg.cn/20200602185729683.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012526120/article/details/49401871">git和github在ubuntu上的使用</a></p>
  

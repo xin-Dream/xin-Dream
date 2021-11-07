@@ -42,7 +42,9 @@
           font-size: 1.6rem;
         }
       </style>
-    <link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
+    
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
 </head>
   </html>
 </html>
@@ -103,10 +105,10 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1 id="1-配置"><a href="#1-配置" class="headerlink" title="1. 配置"></a>1. 配置</h1><p>首先应在博客的<code>_config.yaml</code>中设置下列选项为 <strong>True</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br></pre></td></tr></tbody></table></figure>
 <h1 id="2-生成"><a href="#2-生成" class="headerlink" title="2. 生成"></a>2. 生成</h1><p>之后在新创建文章时，会生成与文章同名的文件夹，将图片文件放入该文件夹即可。</p>
 <h1 id="3-引用"><a href="#3-引用" class="headerlink" title="3. 引用"></a>3. 引用</h1><p>在文章中使用以下代码即可引用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img 01.png This is an image %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{% asset_img 01.png This is an image %}</span><br></pre></td></tr></tbody></table></figure>
  
       <!-- reward -->
       

@@ -42,7 +42,9 @@
           font-size: 1.6rem;
         }
       </style>
-    <link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
+    
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
 </head>
   </html>
 </html>
@@ -103,7 +105,7 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1 id="1-undefined-reference-to"><a href="#1-undefined-reference-to" class="headerlink" title="1. undefined reference to"></a>1. undefined reference to</h1><p>C++代码调用C语言库的时候，应在调用头文件的时候添加生命，如下</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span>&#123;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;test.h&quot;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span>{</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"test.h"</span></span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure> 
       <!-- reward -->
       
     </div>

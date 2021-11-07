@@ -42,7 +42,9 @@
           font-size: 1.6rem;
         }
       </style>
-    <link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
+    
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
 </head>
   </html>
 </html>
@@ -100,19 +102,19 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>一直在用CubeMX配置stm32程序，特别是时钟配置格外方便，没想到一直没注意的时钟树一旦出错，花了我两天时间才找到问题。<br></br><br></br></p>
+  <p>一直在用CubeMX配置stm32程序，特别是时钟配置格外方便，没想到一直没注意的时钟树一旦出错，花了我两天时间才找到问题。<br><br><br><br></p>
 <blockquote>
-<p>问题描述：<br>在使用stm32的USB做虚拟串口时，无论是windows还是在Ubuntu上都显示设备不能识别，连端口号都不显示。<br></br></p>
+<p>问题描述：<br>在使用stm32的USB做虚拟串口时，无论是windows还是在Ubuntu上都显示设备不能识别，连端口号都不显示。<br><br></p>
 </blockquote>
 <p>使用CubeMX时一般我习惯直接修改HCLK为168MHz，软件会自动匹配其余时钟。</p>
 <p>其实软件设定的只是每个芯片的可匹配的频率，对不同的开发板，我们用的最多的外部晶振其实是不一样的，如果设定与实际频率不同，就会出大问题。</p>
-</br>
-</br>
+<br>
+<br>
 
 
 
-</br>
-</br>
+<br>
+<br>
 查看开发板中是8MHz的晶振，所以软件中的设定要与之匹配。
 
 

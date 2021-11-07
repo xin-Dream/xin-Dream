@@ -42,7 +42,9 @@
           font-size: 1.6rem;
         }
       </style>
-    <link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
+    
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
 </head>
   </html>
 </html>
@@ -105,10 +107,10 @@
   <h1 id="windows设置"><a href="#windows设置" class="headerlink" title="windows设置"></a>windows设置</h1><p>所有设置–应用–可选功能–安装OpenSSH服务器和OpenSSH客户端<br><img src="https://img-blog.csdnimg.cn/20200513000425414.png" alt="在这里插入图片描述"></p>
 <h1 id="vscode安装插件"><a href="#vscode安装插件" class="headerlink" title="vscode安装插件"></a>vscode安装插件</h1><h2 id="Remote-SSH"><a href="#Remote-SSH" class="headerlink" title="Remote-SSH"></a>Remote-SSH</h2><p>vscode中安装Remote-SSH就会附带安装其他插件<br><img src="https://img-blog.csdnimg.cn/20200513000237919.png" alt="在这里插入图片描述"></p>
 <h1 id="问题解决–过程试图写入的管道不存在"><a href="#问题解决–过程试图写入的管道不存在" class="headerlink" title="问题解决–过程试图写入的管道不存在"></a>问题解决–过程试图写入的管道不存在</h1><h2 id="ssh冲突"><a href="#ssh冲突" class="headerlink" title="ssh冲突"></a>ssh冲突</h2><h3 id="修改环境变量"><a href="#修改环境变量" class="headerlink" title="修改环境变量"></a>修改环境变量</h3><p>如果电脑安装了Git，那么Git的ssh可能会和vscode中的ssh通道冲突。可以在环境变量中删除</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#原变量</span></span><br><span class="line">%SYSTEMROOT%\System32\OpenSSH</span><br><span class="line"></span><br><span class="line"><span class="comment">#替换成电脑安装git的目录</span></span><br><span class="line">D:\Git\usr\bin</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#原变量</span></span><br><span class="line">%SYSTEMROOT%\System32\OpenSSH</span><br><span class="line"></span><br><span class="line"><span class="comment">#替换成电脑安装git的目录</span></span><br><span class="line">D:\Git\usr\bin</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="修改vscode设置"><a href="#修改vscode设置" class="headerlink" title="修改vscode设置"></a>修改vscode设置</h3><p>或者可以在vscode中修改ssh的路径<br><img src="https://img-blog.csdnimg.cn/20200513000939286.png" alt="在这里插入图片描述"></p>
 <h2 id="修改known-hosts文件"><a href="#修改known-hosts文件" class="headerlink" title="修改known_hosts文件"></a>修改known_hosts文件</h2><p>如果以上步骤后仍然出现 “ 过程试图写入管道不存在 ”，可能是由于Linux主机发生了变化，这时可以在konwn_hosts中删除关于Linux主机的记录内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#文件路径</span></span><br><span class="line">C:\User\&quot;用户名<span class="string">&quot;\.ssh</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#文件路径</span></span><br><span class="line">C:\User\"用户名<span class="string">"\.ssh</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></tbody></table></figure>
 <p>在known_hosts文件中，如果是记事本打开的话，每一行代表一个主机的连接信息，只需要删掉出问题的主机内容，然后在vscode中重新ssh连接就可以了</p>
  
       <!-- reward -->
