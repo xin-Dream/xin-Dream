@@ -6,16 +6,6 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>test</title>
-    <url>/2021/11/06/test/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>ttt</title>
-    <url>/2021/11/06/ttt/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Arm架构ubuntu18.04安装Archiconda &amp; conda命令</title>
     <url>/2021/04/22/Linux/Arm%E6%9E%B6%E6%9E%84ubuntu18-04%E5%AE%89%E8%A3%85Archiconda/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在ubuntu中的学习过程，希望有一些单独的隔离环境使用Python，避免互相产生干扰。<br>由于JetsonTX2属于ARM架构，所以不能使用Anaconda。<br><strong>Archiconda</strong>是将conda移植到aarch64平台中的工具，操作和Anaconda类似。</p>
