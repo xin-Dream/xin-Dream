@@ -43,7 +43,9 @@ typora-root-url: ..\..
 
 [表情一览表](https://blog.csdn.net/weixin_42395140/article/details/111642339)
 
-比较遗憾的是，在hexo博客中不能显示。待解决.......
+~~比较遗憾的是，在hexo博客中不能显示。待解决.......~~
+
+{% post_link hexo/hexo博客使用emoji表情  hexo博客使用emoji表情 %}
 
 # 2 便捷的插入图片
 
