@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>常用电机对比 |  Dream</title>
+      <title>机器人结构设计 |  Dream</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/badminton.ico" />
@@ -42,9 +42,9 @@
           font-size: 1.6rem;
         }
       </style>
-    
+    <link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
 </head>
   </html>
 </html>
@@ -68,7 +68,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-杂项/常用电机对比"
+  id="post-机械类/机器人结构设计"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -79,7 +79,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  常用电机对比
+  机器人结构设计
 </h1>
  
 
@@ -87,7 +87,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2021/11/03/%E6%9D%82%E9%A1%B9/%E5%B8%B8%E7%94%A8%E7%94%B5%E6%9C%BA%E5%AF%B9%E6%AF%94/" class="article-date">
+      <a href="/2021/11/03/%E6%9C%BA%E6%A2%B0%E7%B1%BB/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/" class="article-date">
   <time datetime="2021-11-03T04:30:19.000Z" itemprop="datePublished">2021-11-03</time>
 </a> 
   <div class="article-category">
@@ -104,10 +104,37 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>在毕业设计过程中需要用到电机选型，包括机器人运动的底部电机、摄像头要用到的云台电机、可能会涉及到的机械臂或其他执行机构的电机。本文主要以实用选择，未必涉及全部电机，由于在自主机器人的设计中常用直流电源，以12V、24V为主，所以电机的选型以直流电机为主。</p>
+  <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h1 id="1-机器人底盘"><a href="#1-机器人底盘" class="headerlink" title="1 机器人底盘"></a>1 机器人底盘</h1><h2 id="1-1-底盘布置方案"><a href="#1-1-底盘布置方案" class="headerlink" title="1.1 底盘布置方案"></a>1.1 底盘布置方案</h2><h2 id="1-1-1-履带式"><a href="#1-1-1-履带式" class="headerlink" title="1.1.1 履带式"></a>1.1.1 履带式</h2><p><a href="zotero://select/library/items/HJD9ZGWW">江, 《巡检机器人底盘结构设计及其振动特性研究》.    </a></p>
+<h3 id="1-1-2-轮式"><a href="#1-1-2-轮式" class="headerlink" title="1.1.2 轮式"></a>1.1.2 轮式</h3><ol>
+<li>前轮转向+后轮驱动</li>
+<li>两轮驱动+万向轮</li>
+<li>四轮驱动</li>
+</ol>
+<h2 id="1-1-轮毂电机"><a href="#1-1-轮毂电机" class="headerlink" title="1.1 轮毂电机"></a>1.1 轮毂电机</h2><blockquote>
+<p>轮毂电机技术也被称为车轮内装电机技术，它的最大特点就是将动力装置、传动装置和制动装置都整合一起到轮毂内，得以将电动车辆的机械部分大为简化。</p>
 </blockquote>
-<h1 id="1-机器人底盘"><a href="#1-机器人底盘" class="headerlink" title="1 机器人底盘"></a>1 机器人底盘</h1><h2 id="1-1-轮毂电机"><a href="#1-1-轮毂电机" class="headerlink" title="1.1 轮毂电机"></a>1.1 轮毂电机</h2><h2 id="1-2-直流减速电机"><a href="#1-2-直流减速电机" class="headerlink" title="1.2 直流减速电机"></a>1.2 直流减速电机</h2><h2 id="1-3-舵轮"><a href="#1-3-舵轮" class="headerlink" title="1.3 舵轮"></a>1.3 舵轮</h2><h1 id="2-云台"><a href="#2-云台" class="headerlink" title="2 云台"></a>2 云台</h1><h2 id="2-1-无刷电机"><a href="#2-1-无刷电机" class="headerlink" title="2.1 无刷电机"></a>2.1 无刷电机</h2><h2 id="2-2-舵机"><a href="#2-2-舵机" class="headerlink" title="2.2 舵机"></a>2.2 舵机</h2><h2 id="2-3-步进电机"><a href="#2-3-步进电机" class="headerlink" title="2.3 步进电机"></a>2.3 步进电机</h2> 
+<h3 id="1-1-1-优点"><a href="#1-1-1-优点" class="headerlink" title="1.1.1 优点"></a>1.1.1 优点</h3><ol>
+<li><p>省略大量传动部件，让车辆结构更简单</p>
+<p>对于传统车辆来说，离合器、变速器、传动轴、差速器乃至分动器都是必不可少的，而这些部件不但重量不轻、让车辆的结构更为复杂，同时也存在需要定期维护和故障率的问题。但是轮毂电机就很好地解决了这个问题。除了结构更为简单之外，采用轮毂电机驱动的车辆可以获得更好的空间利用率，同时传动效率也要高出不少。</p>
+</li>
+<li><p>可实现多种复杂的驱动方式</p>
+<p>由于轮毂电机具备单个车轮独立驱动的特性，因此无论是前驱、后驱还是四驱形式，它都可以比较轻松地实现，全时四驱在轮毂电机驱动的车辆上实现起来非常容易。同时轮毂电机可以通过左右车轮的不同转速甚至反转实现类似履带式车辆的差动转向，大大减小车辆的转弯半径，在特殊情况下几乎可以实现原地转向(不过此时对车辆转向机构和轮胎的磨损较大)，对于特种车辆很有价值。</p>
+</li>
+<li><p>便于采用多种新能源车技术</p>
+<p>新能源车型不少都采用电驱动，因此轮毂电机驱动也就派上了大用场。无论是纯电动还是燃料电池电动车，抑或是增程电动车，都可以用轮毂电机作为主要驱动力；即便是对于混合动力车型，也可以采用轮毂电机作为起步或者急加速时的助力，可谓是一机多用。同时，新能源车的很多技术，比如制动能量回收(即再生制动)也可以很轻松地在轮毂电机驱动车型上得以实现。</p>
+</li>
+</ol>
+<h3 id="1-1-2-缺点"><a href="#1-1-2-缺点" class="headerlink" title="1.1.2 缺点"></a>1.1.2 缺点</h3><ol>
+<li><p>增大簧下质量和轮毂的转动惯量，对车辆的操控有所影响</p>
+<p>对于普通民用车辆来说，常常用一些相对轻质的材料比如铝合金来制作悬挂的部件，以减轻簧下质量，提升悬挂的响应速度。可是轮毂电机恰好较大幅度地增大了簧下质量，同时也增加了轮毂的转动惯量，这对于车辆的操控性能是不利的。不过考虑到电动车型大多限于代步而非追求动力性能，这一点尚不是最大缺陷。</p>
+</li>
+<li><p>电制动性能有限，维持制动系统运行需要消耗不少电能</p>
+<p>现在的传统动力<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%95%86%E7%94%A8%E8%BD%A6">商用车</a>已经有不少装备了利用涡流制动原理(即电阻制动)的辅助减速设备，比如很多卡车所用的电动缓速器。而由于能源的关系，电动车采用电制动也是首选，不过对于轮毂电机驱动的车辆，由于轮毂电机系统的电制动容量较小，不能满足整车制动性能的要求，都需要附加机械制动系统，但是对于普通电动乘用车，没有了传统内燃机带动的真空泵，就需要电动真空泵来提供刹车助力，但也就意味了有着更大的能量消耗，即便是再生制动能回收一些能量，如果要确保制动系统的效能，制动系统消耗的能量也是影响电动车续航里程的重要因素之一。</p>
+</li>
+<li><p>轮毂电机工作的环境恶劣，面临水、灰尘等多方面影响，在密封方面也有较高要求，同时在设计上也需要为轮毂电机单独考虑散热问题。</p>
+</li>
+</ol>
+ 
       <!-- reward -->
       
     </div>
@@ -171,7 +198,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/11/03/%E6%9D%82%E9%A1%B9/%E5%B8%B8%E7%94%A8%E7%94%B5%E6%9C%BA%E5%AF%B9%E6%AF%94/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/11/03/%E6%9C%BA%E6%A2%B0%E7%B1%BB/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/" alt="微信分享二维码">
     </div>
 </div>
 
