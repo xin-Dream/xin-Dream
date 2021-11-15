@@ -101,21 +101,112 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>毕业设计首先要继续完成对SLAM的实践部分，所以机器人的主要功能要在ROS平台中完成建图与导航的基本功能。结合与研究生导师的联系，准备开始接触人体行为检测。人体行为检测主要是在深度学习基础上完成对人体骨骼关键节点的检测，判断人的动作与行为。<br>该机器人的具体应用场景还未完善。</p>
+<p>毕业设计首先要继续完成对SLAM的实践部分，所以机器人的主要功能要在ROS平台中完成建图与导航的基本功能。结合与研究生导师的联系，准备开始接触人体行为检测。人体行为检测主要是在深度学习基础上完成对人体骨骼关键节点的检测，判断人的动作与行为。<br>本文会当作毕业设计的草稿，尽量详细的写清楚。</p>
 </blockquote>
 <h1 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h1><p>机器人操作系统（ROS）、同步定位与地图构建（SLAM）、人体行为检测、深度学习、stm32</p>
-<h1 id="1-结构"><a href="#1-结构" class="headerlink" title="1 结构"></a>1 结构</h1><h1 id="2-硬件"><a href="#2-硬件" class="headerlink" title="2 硬件"></a>2 硬件</h1><h2 id="2-1-硬件平台选型"><a href="#2-1-硬件平台选型" class="headerlink" title="2.1 硬件平台选型"></a>2.1 硬件平台选型</h2><ul>
+<h1 id="1-结构设计"><a href="#1-结构设计" class="headerlink" title="1 结构设计"></a>1 结构设计</h1><h2 id="1-1-机器人底盘"><a href="#1-1-机器人底盘" class="headerlink" title="1.1 机器人底盘"></a>1.1 机器人底盘</h2><h3 id="1-1-1-论文中的底盘布置方案"><a href="#1-1-1-论文中的底盘布置方案" class="headerlink" title="1.1.1 论文中的底盘布置方案"></a>1.1.1 论文中的底盘布置方案</h3><ol>
+<li><p><a href="zotero://select/library/items/HJD9ZGWW">江, 《巡检机器人底盘结构设计及其振动特性研究》.    </a></p>
+<ol>
+<li><p>履带形式：战车型、普通型、联合型、三角型</p>
+<p><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211111192429984.png" alt="image-20211111192429984"></p>
+</li>
+<li><p>机器人底盘振动对测量影响实验</p>
+<ul>
+<li>巡检机器人底盘振动对激光雷达测距的影响</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p><a href="zotero://select/library/items/HU8FUZKT">高等, 《一种新型零转径轮式机器人底盘设计与仿真》.</a></p>
+<ol>
+<li>摘要中有多种底盘形式介绍</li>
+<li>两套电机系统和轮系差速器实现零半径转型和无侧滑行驶</li>
+<li>人员密集、空间狭小</li>
+</ol>
+<p><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211111195958223.png" alt="image-20211111195958223"></p>
+</li>
+<li><p><a href="zotero://select/library/items/UQNWIBLD">付和胡, 《轮式机器人底盘结构设计与计算》.</a></p>
+<ol>
+<li>类似AGV形式，中间驱动轮，前后从动轮</li>
+<li>有底盘承重扭矩计算</li>
+</ol>
+</li>
+<li><p><a href="zotero://select/library/items/VCCBBN59">高, 《面向巡检应用的全向轮式机器人的运动控制系统设计与实现》.</a></p>
+<ol>
+<li>变电站内巡检</li>
+<li>两轮差速、四轮固定式差速、麦克纳姆轮各自优缺点</li>
+<li>四轴联动控制和防失步控制方式实现以普通轮为架构的全驱全向运动</li>
+<li>山东鲁能、新松、浙江国自三类巡检机器人</li>
+<li><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211111203005319.png" alt="image-20211111203005319"></li>
+<li>四层电路板：信号层+VCC+GND+信号层</li>
+<li>底盘矢量分解</li>
+<li>防失步控制算法：分别以前轮为基准，调整后轮PWM（擂台机器人中若使用四驱可以考虑添加）</li>
+<li>充电方式</li>
+</ol>
+</li>
+<li><p><a href="zotero://select/library/items/4W7US7FC">曾, 《全方位移动机器人底盘设计与运动控制实现》.</a></p>
+<ol>
+<li><p>三个全向轮</p>
+</li>
+<li><p>运动性能分析</p>
+</li>
+<li><p>运动控制</p>
+</li>
+</ol>
+</li>
+<li><p><a href="zotero://select/library/items/K76IVQVY">周, 《基于Mecanum轮的全方位移动机器人研究》.</a></p>
+</li>
+<li><p><a href="zotero://select/library/items/VTQGEAVY">胡, 《四轮独立驱动和转向移动机器人的设计与控制》.</a></p>
+<p><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211113215815642.png" alt="image-20211113215815642"></p>
+</li>
+<li><p><a href="zotero://select/library/items/PMLN5JUK">苏等, 《轮足式机器人机构设计及越障性能分析》.</a></p>
+<ol>
+<li>多轮式轮足</li>
+</ol>
+</li>
+<li><p><a href="zotero://select/library/items/3RGD3WKE">赵, 曹和鞠, 《小型四轮移动机器人驱动电机选型设计计算》.</a></p>
+<ol>
+<li>五寸轮毂电机+直流伺服摆臂电机</li>
+<li>主要是摆臂电机的计算</li>
+</ol>
+</li>
+<li><p><a href="zotero://select/library/items/WN5S6XP8">周等, 《轮足式仿人机器人行走机构设计与仿真分析》.</a></p>
+<ol>
+<li><p>双腿轮足式</p>
+</li>
+<li><iframe src="//player.bilibili.com/player.html?aid=497852089&amp;bvid=BV1fK411V7yZ&amp;cid=181392909&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+</li>
+</ol>
+<p><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211113215257440.png" alt="image-20211113215257440"></p>
+</li>
+<li><p><a href="zotero://select/library/items/HP8N7QV9">Gonzalez等, 《Dynamics and Aerial Attitude Control for Rapid Emergency Deployment of the Agile Ground Robot AGRO》.</a></p>
+<ol>
+<li><p>四轮全向，与第四篇论文类似</p>
+</li>
+<li><p>四轮在空中当作动量轮</p>
+</li>
+<li><p>四个无刷电机和四个舵机</p>
+</li>
+<li><iframe src="//player.bilibili.com/player.html?aid=287290586&amp;bvid=BV1Vf4y1Q7Wo&amp;cid=240154987&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+</li>
+</ol>
+<p><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211113142314349.png" alt="image-20211113142314349"></p>
+</li>
+</ol>
+<p><strong>根据以上文献和大部分结构形式，最终选定与第四篇、第七篇相同的结构</strong></p>
+<h3 id="1-1-2-电机选型"><a href="#1-1-2-电机选型" class="headerlink" title="1.1.2 电机选型"></a>1.1.2 电机选型</h3><h1 id="2-硬件"><a href="#2-硬件" class="headerlink" title="2 硬件"></a>2 硬件</h1><h2 id="2-1-硬件平台选型"><a href="#2-1-硬件平台选型" class="headerlink" title="2.1 硬件平台选型"></a>2.1 硬件平台选型</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://www.nvidia.cn/autonomous-machines/embedded-systems/jetson-tx2/">JetsonTX2</a></li>
 <li><a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?spm=a1z09.2.0.0.6c4d2e8dDQN5Gf&amp;id=582677940441&amp;_u=22ph6ufjad4a">STM32F407VET6</a></li>
 <li><a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?spm=a230r.1.14.18.557c3f68qS9ACg&amp;id=630983815382&amp;ns=1&amp;abbucket=15#detail">杉川雷达</a></li>
-<li>电机：<a href="/2021/11/03/%E6%9D%82%E9%A1%B9/%E5%B8%B8%E7%94%A8%E7%94%B5%E6%9C%BA%E5%AF%B9%E6%AF%94/" title="常用电机对比">常用电机对比</a></li>
 <li>电源</li>
 <li>雷达</li>
 </ul>
 <h1 id="3-软件"><a href="#3-软件" class="headerlink" title="3 软件"></a>3 软件</h1><h2 id="3-1-上位机"><a href="#3-1-上位机" class="headerlink" title="3.1 上位机"></a>3.1 上位机</h2><h3 id="3-1-1-环境配置"><a href="#3-1-1-环境配置" class="headerlink" title="3.1.1 环境配置"></a>3.1.1 环境配置</h3><ol>
 <li><p>JetsonTX2系统：<a href="/2021/02/08/Linux/JetsonTX2%E5%88%B7%E6%9C%BA%E8%AE%B0%E5%BD%95%EF%BC%88JetPack4-5%EF%BC%89/" title="JetsonTX2刷机记录">JetsonTX2刷机记录</a></p>
 </li>
-<li><p>ROS环境安装：<a href="#">Post not found: Linux/ROS/ubuntu18-04LTS安装ROS ubuntu18.04LTS安装ROS</a></p>
+<li><p>ROS环境安装：<a href="/2021/01/28/ROS/ubuntu18-04LTS%E5%AE%89%E8%A3%85ROS/" title="ubuntu18.04LTS安装ROS">ubuntu18.04LTS安装ROS</a></p>
 </li>
 <li><p>jetsonTX2中安装Pytorch环境：<a href="/2021/11/01/Linux/jetsonTX2%E5%AE%89%E8%A3%85Pytorch/" title="jetsonTX2安装Pytorch">jetsonTX2安装Pytorch</a></p>
 </li>
@@ -128,9 +219,15 @@
 </li>
 </ol>
 <h2 id="3-2-下位机"><a href="#3-2-下位机" class="headerlink" title="3.2 下位机"></a>3.2 下位机</h2><ol>
-<li>stm32中运行ROS节点：<a href="#">Post not found: Linux/ROS/在stm32中运行ROS节点-rosserial-stm32 在STM32F407中运行ROS节点</a></li>
+<li>stm32中运行ROS节点：<a href="/2021/08/18/ROS/%E5%9C%A8stm32%E4%B8%AD%E8%BF%90%E8%A1%8CROS%E8%8A%82%E7%82%B9-rosserial-stm32/" title="在STM32F407中运行ROS节点">在STM32F407中运行ROS节点</a></li>
 </ol>
-<h2 id="3-3-终端"><a href="#3-3-终端" class="headerlink" title="3.3 终端"></a>3.3 终端</h2><h3 id="3-3-1-网页"><a href="#3-3-1-网页" class="headerlink" title="3.3.1 网页"></a>3.3.1 网页</h3><h3 id="3-3-2-APP"><a href="#3-3-2-APP" class="headerlink" title="3.3.2 APP"></a>3.3.2 APP</h3> 
+<h2 id="3-3-终端"><a href="#3-3-终端" class="headerlink" title="3.3 终端"></a>3.3 终端</h2><h3 id="3-3-1-基于QT的GUI设计"><a href="#3-3-1-基于QT的GUI设计" class="headerlink" title="3.3.1 基于QT的GUI设计"></a>3.3.1 基于QT的GUI设计</h3><ol>
+<li><p>Publisher实现</p>
+<p><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211114161114158.png" alt="image-20211114161114158"></p>
+<p><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211114171013209.png" alt="image-20211114171013209"></p>
+</li>
+</ol>
+<h3 id="3-3-2-APP"><a href="#3-3-2-APP" class="headerlink" title="3.3.2 APP"></a>3.3.2 APP</h3><h3 id="3-3-3-网页"><a href="#3-3-3-网页" class="headerlink" title="3.3.3 网页"></a>3.3.3 网页</h3> 
       <!-- reward -->
       
     </div>

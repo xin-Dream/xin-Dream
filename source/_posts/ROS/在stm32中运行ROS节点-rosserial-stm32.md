@@ -7,13 +7,16 @@ categories:
     [Linux,ROS]
 ---
 
-> 环境说明：
-> Ubuntu18.04、ROS-melodic、STM32F407VGT6
-> Clion、Stm32CubeMX
+# 前言
+
+环境说明：
+Ubuntu18.04、ROS-melodic、STM32F407VGT6
+Clion、Stm32CubeMX
 
 **这个方法只适用于stm32F3、F4和F7的开发板**
 
-# 1. 创建工作空间
+# 1 创建工作空间
+
 ```bash
 mkdir -p workspace/src
 cd workspace
@@ -24,7 +27,7 @@ catkin_make
 # 将创建的stm32项目整体放入src目录下
 ```
 
-# 2. 创建stm32项目
+# 2  创建stm32项目
 
 在使用USB-TTL时，遇见过几次不稳定情况，另外需要再加模块，有些复杂，所以使用USB转虚拟串口(VCP)。
 
@@ -34,14 +37,14 @@ catkin_make
 
 设置时钟时要注意：{% post_link 单片机/使用CubeMX-CubeIDE配置时钟树注意事项  使用CubeMX/CubeIDE配置时钟树注意事项 %}。如果时钟频率不匹配，会出现端口无法识别。
 
-# 3. 在github中下载rosserial_stm32
+# 3 在github中下载rosserial_stm32
 
 [rosserial_stm32](https://github.com/yoneken/rosserial_stm32)
 不管使用git clone下载，还是使用zip下载，将其也放入workspace中的src目录下。
 
 **如果整个工作空间是github中的repository，在clone下rosserial_stm32后要先删除`.git`和`.gitignore`。否则将工作空间进行push的时候会将下层文件夹当作是子模块。**
 
-# 4. 使用rosserial_stm32编译生成头文件
+# 4 使用rosserial_stm32编译生成头文件
 
 首先回顾下前两步完成后当下工作空间的结构
 
@@ -101,10 +104,12 @@ catkin_make
   ```BASH
   # 编译工作空间后执行
   rosrun rosserial_stm32 make_libraries.py /workspace/src/stm32_project/Core
+  # 需要安装rosserial：sudo apt-get install ros-melodic-r
   #注意这里后面的路径，最好用绝对路径，最后落到32程序的Core文件夹，里面包括Inc和Src文件夹即可
   ```
 
-# 5. 生成后stm32中文件夹目录
+# 5  生成后stm32中文件夹目录
+
 <details>
     <summary>Core中文件夹目录，内容较长，点击展开</summary>
         <li>
@@ -555,8 +560,9 @@ catkin_make
         </li>   
   <!-- <pre><code>title，value，callBack可以缺省</code></pre> -->
 </details>
+# 6 实现下位机发布、上位机订阅
 
-# 6. 下位机程序编写
+ ## 6.1  下位机程序编写
 
 ROS中的程序使用C++编写，所以在stm32中使用C和C++混合编译。
 
@@ -564,257 +570,263 @@ ROS中的程序使用C++编写，所以在stm32中使用C和C++混合编译。
 
 注意修改程序时，内容要放在HAL库注释中间。
 
-1. 新建CPP文件
+1. 在stm32工程中新建CPP文件
 
-    在Src中新建robot.cpp，在Inc中新建robot.h。新建文件的过程参考（{% post_link 单片机/配置CLion开发stm32  配置CLion开发stm32 %}）中注意事项。
+   在Src中新建robot.cpp，在Inc中新建robot.h。新建文件的过程参考（{% post_link 单片机/配置CLion开发stm32  配置CLion开发stm32 %}）中注意事项。
 
-    ```CPP
-    // robot.cpp
-    
-    #include "robot.h"
-    #include <ros.h>
-    #include <std_msgs/String.h>
+   ```C++
+   // robot.cpp
+   
+   #include "robot.h"
+   #include <ros.h>
+   #include <std_msgs/String.h>
+   
+   ros::NodeHandle nh;
+   std_msgs::String str_msg;
+   ros::Publisher chatter("chatter", &str_msg);
+   
+   char hello[] = "Hello world!";
+   
+   void setup(void) {
+       nh.initNode();
+       nh.advertise(chatter);
+   }
+   
+   void loop(void) {
+       HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+   
+       str_msg.data = hello;
+       chatter.publish(&str_msg);
+       nh.spinOnce();
+   
+       HAL_Delay(1000);
+   }	
+   ```
 
+   ```c++
+   //robot.h
+   
+   #ifdef __cplusplus
+   extern "C" {
+   #endif
+   
+   void loop(void);
+   void setup(void);
+   
+   #ifdef __cplusplus
+   }
+   #endif
+   ```
 
-    ros::NodeHandle nh;
-    std_msgs::String str_msg;
-    ros::Publisher chatter("chatter", &str_msg);
-    
-    char hello[] = "Hello world!";
-    
-    void setup(void) {
-        nh.initNode();
-        nh.advertise(chatter);
-    }
-    
-    void loop(void) {
-        HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
-    
-        str_msg.data = hello;
-        chatter.publish(&str_msg);
-        nh.spinOnce();
-    
-        HAL_Delay(1000);
-    }
-    ```
-    
-    ```C
-    //robot.h
-    
-    #ifdef __cplusplus
-    extern "C" {
-    #endif
-
-
-    void loop(void);
-    void setup(void);
-
-
-    #ifdef __cplusplus
-    }
-    #endif
-    
-    ```
+   
 
 2. 修改usbd_cdc_if文件
 
-    ```C
-    //需要修改以下四个地方
-    
-    //============================================================================
-    /* USER CODE BEGIN INCLUDE */
-    
-    #include "string.h"
-    #include "stdarg.h"
-    #include "stdio.h"
-    
-    /* USER CODE END INCLUDE */
-    
-    //============================================================================
-    
-    /* USER CODE BEGIN PRIVATE_VARIABLES */
-    
-    uint8_t usb_rxBuffer[USB_RX_DATA_SIZE];
-    uint32_t usb_rxBufPtrIn = 0;
-    uint32_t usb_rxBufPtrOut = 0;
-    
-    /* USER CODE END PRIVATE_VARIABLES */
-    
-    //============================================================================
-    
-    static int8_t CDC_Receive_FS(uint8_t *Buf, uint32_t *Len) {
-        /* USER CODE BEGIN 6 */
-    
-        uint32_t i;
-        uint16_t in;
-    
-        for (i = 0; i < *Len; ++i) {
-    
-            in = (usb_rxBufPtrIn + 1) % USB_RX_DATA_SIZE;
-            if (in != usb_rxBufPtrIn) {
-                usb_rxBuffer[usb_rxBufPtrIn] = Buf[i];
-                usb_rxBufPtrIn = in;
-            }
-    
-        }
-        USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
-        USBD_CDC_ReceivePacket(&hUsbDeviceFS);
-        return (USBD_OK);
-        /* USER CODE END 6 */
-    }
-    
-    //============================================================================
+   ```c++
+   //需要修改以下四个地方
+   
+   //============================================================================
+   /* USER CODE BEGIN INCLUDE */
+   
+   #include "string.h"
+   #include "stdarg.h"
+   #include "stdio.h"
+   
+   /* USER CODE END INCLUDE */
+   
+   //============================================================================
+   
+   /* USER CODE BEGIN PRIVATE_VARIABLES */
+   
+   uint8_t usb_rxBuffer[USB_RX_DATA_SIZE];
+   uint32_t usb_rxBufPtrIn = 0;
+   uint32_t usb_rxBufPtrOut = 0;
+   
+   /* USER CODE END PRIVATE_VARIABLES */
+   
+   //============================================================================
+   
+   static int8_t CDC_Receive_FS(uint8_t *Buf, uint32_t *Len) {
+       /* USER CODE BEGIN 6 */
+   
+       uint32_t i;
+       uint16_t in;
+   
+       for (i = 0; i < *Len; ++i) {
+   
+           in = (usb_rxBufPtrIn + 1) % USB_RX_DATA_SIZE;
+           if (in != usb_rxBufPtrIn) {
+               usb_rxBuffer[usb_rxBufPtrIn] = Buf[i];
+               usb_rxBufPtrIn = in;
+           }
+   
+       }
+       USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
+       USBD_CDC_ReceivePacket(&hUsbDeviceFS);
+       return (USBD_OK);
+       /* USER CODE END 6 */
+   }
+   
+   //============================================================================
+   /* USER CODE BEGIN PRIVATE_FUNCTIONS_IMPLEMENTATION */
+   
+   int vcp_available(void) {
+       return ((uint32_t) (USB_RX_DATA_SIZE + usb_rxBufPtrIn - usb_rxBufPtrOut)) % USB_RX_DATA_SIZE;
+   }
+   
+   int vcp_read(void) {
+       // if the head isn't ahead of the tail, we don't have any characters
+       if (usb_rxBufPtrIn == usb_rxBufPtrOut) {
+           return -1;
+       } else {
+           unsigned char ch = usb_rxBuffer[usb_rxBufPtrOut];
+           usb_rxBufPtrOut = (uint16_t) (usb_rxBufPtrOut + 1) % USB_RX_DATA_SIZE;
+           return ch;
+       }
+   }
+   
+   void vcp_write(uint8_t *Buf, uint16_t Len) {
+       while (CDC_Transmit_FS(Buf, Len) != HAL_OK);
+   }
+   
+   void vcp_printf(const char *fmt, ...) {
+   
+       va_list arg;
+       va_start (arg, fmt);
+       int32_t len;
+       static char print_buffer[255];
+   
+       len = vsnprintf(print_buffer, 255, fmt, arg);
+       va_end (arg);
+           /*ret = */vcp_write((uint8_t *) print_buffer, len);
+   
+       //return ret;
+   }
+   
+   /* USER CODE END PRIVATE_FUNCTIONS_IMPLEMENTATION */
+   ```
 
+   ```C++
+   
+   // usbd_cdc_if.h
+   
+   //============================================================================
+   
+   /* USER CODE BEGIN EXPORTED_DEFINES */
+   /* Define size for the receive and transmit buffer over CDC */
+   /* It's up to user to redefine and/or remove those define */
+   #define APP_RX_DATA_SIZE  2048
+   #define APP_TX_DATA_SIZE  2048
+   
+   #define USB_RX_DATA_SIZE  2048
+   /* USER CODE END EXPORTED_DEFINES */
+   
+   //============================================================================
+   /* USER CODE BEGIN EXPORTED_FUNCTIONS */
+   
+   int vcp_available(void);
+   
+   int vcp_read(void);
+   
+   void vcp_write(uint8_t *Buf, uint16_t Len);
+   
+   void vcp_printf(const char *fmt, ...);
+   
+   /* USER CODE END EXPORTED_FUNCTIONS */
+   ```
 
-    /* USER CODE BEGIN PRIVATE_FUNCTIONS_IMPLEMENTATION */
-    
-    int vcp_available(void) {
-        return ((uint32_t) (USB_RX_DATA_SIZE + usb_rxBufPtrIn - usb_rxBufPtrOut)) % USB_RX_DATA_SIZE;
-    }
-    
-    int vcp_read(void) {
-        // if the head isn't ahead of the tail, we don't have any characters
-        if (usb_rxBufPtrIn == usb_rxBufPtrOut) {
-            return -1;
-        } else {
-            unsigned char ch = usb_rxBuffer[usb_rxBufPtrOut];
-            usb_rxBufPtrOut = (uint16_t) (usb_rxBufPtrOut + 1) % USB_RX_DATA_SIZE;
-            return ch;
-        }
-    }
-    
-    void vcp_write(uint8_t *Buf, uint16_t Len) {
-        while (CDC_Transmit_FS(Buf, Len) != HAL_OK);
-    }
-    
-    void vcp_printf(const char *fmt, ...) {
-    
-        va_list arg;
-        va_start (arg, fmt);
-        int32_t len;
-        static char print_buffer[255];
-    
-        len = vsnprintf(print_buffer, 255, fmt, arg);
-        va_end (arg);
-
-
-        /*ret = */vcp_write((uint8_t *) print_buffer, len);
-    
-        //return ret;
-    }
-    
-    /* USER CODE END PRIVATE_FUNCTIONS_IMPLEMENTATION */
-    
-    ```
-    
-    ```C
-    // usbd_cdc_if.h
-    
-    //============================================================================
-    
-    /* USER CODE BEGIN EXPORTED_DEFINES */
-    /* Define size for the receive and transmit buffer over CDC */
-    /* It's up to user to redefine and/or remove those define */
-    #define APP_RX_DATA_SIZE  2048
-    #define APP_TX_DATA_SIZE  2048
-    
-    #define USB_RX_DATA_SIZE  2048
-    /* USER CODE END EXPORTED_DEFINES */
-    
-    //============================================================================
-
-
-    /* USER CODE BEGIN EXPORTED_FUNCTIONS */
-    
-    int vcp_available(void);
-    
-    int vcp_read(void);
-    
-    void vcp_write(uint8_t *Buf, uint16_t Len);
-    
-    void vcp_printf(const char *fmt, ...);
-    
-    /* USER CODE END EXPORTED_FUNCTIONS */
-    ```
+   
 
 3. 修改STM32Hardware.h
 
-    ```C
-    int read() {
-        if (vcp_available()) {
-            return vcp_read();
-        } else {
-            return -1;
-        }
-    }
-    
-    void write(uint8_t *data, int length) {
-        vcp_write(data, length);
-    }
-    
-    ```
+   ```
+   int read() {
+       if (vcp_available()) {
+           return vcp_read();
+       } else {
+           return -1;
+       }
+   }
+   
+   void write(uint8_t *data, int length) {
+       vcp_write(data, length);
+   }
+   ```
+
 4. 在主程序中调用loop函数
 
-    这里我用的是FreeRTOS，把setup和loop放在了其中一个任务中，如果是一般的程序，可以放在main函数中，注意loop函数放在while(1)中即可。
+   这里我用的是FreeRTOS，把setup和loop放在了其中一个任务中，如果是一般的程序，可以放在main函数中，注意loop函数放在while(1)中即可。
 
-    ```C
-    /* USER CODE END Header_DataProcessTask */
-    void DataProcessTask(void const *argument) {
-        /* USER CODE BEGIN DataProcessTask */
-    
-        setup();
-    
-        /* Infinite loop */
-        for (;;) {
-    
-            loop();
-    
-            osDelay(200);
-        }
-        /* USER CODE END DataProcessTask */
-    }
-    ```
+   ```C++
+   /* USER CODE END Header_DataProcessTask */
+   void DataProcessTask(void const *argument) {
+       /* USER CODE BEGIN DataProcessTask */
+   
+       setup();
+   
+       /* Infinite loop */
+       for (;;) {
+   
+           loop();
+   
+           osDelay(200);
+       }
+       /* USER CODE END DataProcessTask */
+   }
+   ```
+
+   
+
+## 6.2 上位机查看数据
+
+1. 启动节点
+
+   ~~~bash
+   使用一根USB线连接单片机和ROS主机
+   
+   ```BASH
+   # 安装rosserial_python包
+   sudo apt-get install ros-melodic-rosserial-python
+   
+   # 查看串口
+   lsusb
+   ls /dev/tty*
+   # 这里会显示有ttyACM0。
+   # 注意一点，使用USB-TTL时会显示ttyUSB*，使用虚拟串口会显示ttyACM*
+   
+   # 赋给串口权限，这里是用于测试，后期项目中需要绑定串口
+   sudo chmod 777 /dev/ttyACM0
+   
+   # 借助rosserial_python显示ros节点信息
+   roscore
+   rosrun rosserial_python serial_node.py _port:=/dev/ttyACM0 _baud=57600
+   
+   # 当显示以下内容说明连接正常
+   [INFO] [1629459555.223735]: ROS Serial Python Node
+   [INFO] [1629459555.234876]: Connecting to /dev/ttyACM0 at 57600 baud
+   [INFO] [1629459557.343339]: Requesting topics...
+   [INFO] [1629459558.233538]: Note: publish buffer size is 512 bytes
+   [INFO] [1629459558.236526]: Setup publisher on chatter [std_msgs/String]
+   ~~~
+
+   
+
+2. 查看内容
+
+   ~~~bash
+   # 查看单片机话题内容
+   rostopic list
+   # 会显示有chatter、diagnostics、rosout、rosout_agg四个话题
+   # 其中chatter是单片机中的话题，diagnostics是serial_node话题
+   
+   rostopic echo /chatter
+   ```
+   ~~~
+
+# 7 实现上位机发布、下位机订阅
 
 
-# 7. 上位机查看数据
-
-    使用一根USB线连接单片机和ROS主机
-    
-    ```BASH
-    # 安装rosserial_python包
-    sudo apt-get install ros-melodic-rosserial-python
-    
-    # 查看串口
-    lsusb
-    ls /dev/tty*
-    # 这里会显示有ttyACM0。
-    # 注意一点，使用USB-TTL时会显示ttyUSB*，使用虚拟串口会显示ttyACM*
-    
-    # 赋给串口权限，这里是用于测试，后期项目中需要绑定串口
-    sudo chmod 777 /dev/ttyACM0
-    
-    # 借助rosserial_python显示ros节点信息
-    roscore
-    rosrun rosserial_python serial_node.py _port:=/dev/ttyACM0 _baud=57600
-    
-    # 当显示以下内容说明连接正常
-    [INFO] [1629459555.223735]: ROS Serial Python Node
-    [INFO] [1629459555.234876]: Connecting to /dev/ttyACM0 at 57600 baud
-    [INFO] [1629459557.343339]: Requesting topics...
-    [INFO] [1629459558.233538]: Note: publish buffer size is 512 bytes
-    [INFO] [1629459558.236526]: Setup publisher on chatter [std_msgs/String]
 
 
-    # 查看单片机话题内容
-    rostopic list
-    # 会显示有chatter、diagnostics、rosout、rosout_agg四个话题
-    # 其中chatter是单片机中的话题，diagnostics是serial_node话题
-    
-    rostopic echo /chatter
-    ```
-
-
-​    
-​    
-​    
+​      
 

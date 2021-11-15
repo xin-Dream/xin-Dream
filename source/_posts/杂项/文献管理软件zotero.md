@@ -26,6 +26,8 @@ categories: [杂项]
 2.2 Jasminum
 2.3 DOI Manager
 
+2.4 [zutilo](https://github.com/wshanks/Zutilo)
+
 # 3 配置Webdav网盘同步
 
 Zotero中的容量较小，所以设置网盘同步，这里选用TeraCloud，有免费的10G+5G空间，理论上比较充足
