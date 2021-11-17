@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-11-14T13:15:30.484Z</updated>
+  <updated>2021-11-16T04:21:41.818Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Pycharm/Clion远程开发要注意的问题</title>
-    <link href="http://example.com/2021/11/14/%E6%9D%82%E9%A1%B9/Pycharm-Clion%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://example.com/2021/11/14/%E6%9D%82%E9%A1%B9/Pycharm-Clion%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98/</id>
-    <published>2021-11-14T13:15:30.000Z</published>
-    <updated>2021-11-14T13:15:30.484Z</updated>
+    <title>使用自定义消息实现ROS与stm32通讯</title>
+    <link href="http://example.com/2021/11/16/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/"/>
+    <id>http://example.com/2021/11/16/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/</id>
+    <published>2021-11-16T04:21:41.000Z</published>
+    <updated>2021-11-16T04:21:41.818Z</updated>
     
     
     
@@ -30,11 +30,36 @@
   </entry>
   
   <entry>
+    <title>Pycharm/Clion远程开发要注意的问题</title>
+    <link href="http://example.com/2021/11/14/%E6%9D%82%E9%A1%B9/Pycharm-Clion%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://example.com/2021/11/14/%E6%9D%82%E9%A1%B9/Pycharm-Clion%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98/</id>
+    <published>2021-11-14T13:15:30.000Z</published>
+    <updated>2021-11-15T05:46:39.499Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-换行符&quot;&gt;&lt;a href=&quot;#1-换行符&quot; class=&quot;headerlink&quot; title=&quot;1 换行符&quot;&gt;&lt;/a&gt;1</summary>
+        
+      
+    
+    
+    
+    <category term="杂项" scheme="http://example.com/categories/%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="远程开发" scheme="http://example.com/tags/%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PyQt5开发ROS界面1--Button实现Publish</title>
     <link href="http://example.com/2021/11/14/ROS/PyQt5%E5%BC%80%E5%8F%91ROS%E7%95%8C%E9%9D%A2-Button%E5%AE%9E%E7%8E%B0Publish/"/>
     <id>http://example.com/2021/11/14/ROS/PyQt5%E5%BC%80%E5%8F%91ROS%E7%95%8C%E9%9D%A2-Button%E5%AE%9E%E7%8E%B0Publish/</id>
     <published>2021-11-14T13:14:59.000Z</published>
-    <updated>2021-11-14T13:34:38.080Z</updated>
+    <updated>2021-11-15T03:24:29.707Z</updated>
     
     
       
@@ -178,19 +203,6 @@
   </entry>
   
   <entry>
-    <title>Ubuntu18.04安装OpenPose</title>
-    <link href="http://example.com/2021/11/03/Linux/Ubuntu18-04%E5%AE%89%E8%A3%85OpenPose/"/>
-    <id>http://example.com/2021/11/03/Linux/Ubuntu18-04%E5%AE%89%E8%A3%85OpenPose/</id>
-    <published>2021-11-03T12:09:29.000Z</published>
-    <updated>2021-11-03T12:09:29.259Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>Ubuntu18.04安装AlphaPose</title>
     <link href="http://example.com/2021/11/03/Linux/Ubuntu18-04%E5%AE%89%E8%A3%85AlphaPose/"/>
     <id>http://example.com/2021/11/03/Linux/Ubuntu18-04%E5%AE%89%E8%A3%85AlphaPose/</id>
@@ -249,7 +261,7 @@
     <link href="http://example.com/2021/11/01/%E6%9D%82%E9%A1%B9/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
     <id>http://example.com/2021/11/01/%E6%9D%82%E9%A1%B9/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/</id>
     <published>2021-11-01T14:37:12.000Z</published>
-    <updated>2021-11-14T09:10:14.562Z</updated>
+    <updated>2021-11-16T13:06:51.386Z</updated>
     
     
       

@@ -42,9 +42,9 @@
           font-size: 1.6rem;
         }
       </style>
-    
+    <link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
 </head>
   </html>
 </html>
@@ -120,43 +120,21 @@
 <li>待更新</li>
 </ol>
 <h2 id="1-3-UI文件转Python文件"><a href="#1-3-UI文件转Python文件" class="headerlink" title="1.3 UI文件转Python文件"></a>1.3 UI文件转Python文件</h2><p>这个需要在安装有pyqt5的环境中实现</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyuic5 -o myMainWin.py myMainWin.ui	</span><br></pre></td></tr></tbody></table></figure>
+<ol>
+<li><p>命令行使用</p>
+ <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyuic5 -o myMainWin.py myMainWin.ui	</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>Pycharm转换</p>
+</li>
+</ol>
+<h1 id="2-程序实现"><a href="#2-程序实现" class="headerlink" title="2 程序实现"></a>2 程序实现</h1><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> rospy</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这是使用QtDesigner设计后转化的python文件</span></span><br><span class="line"><span class="keyword">from</span> firstMainWin <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment">#这里使用的Twist要使用rostopic查询turtle的话题</span></span><br><span class="line"><span class="keyword">from</span> geometry_msgs.msg <span class="keyword">import</span> Twist</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyMainWindow</span>(<span class="params">QMainWindow, Ui_MainWindow</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, parent=<span class="literal">None</span></span>):</span></span><br><span class="line">        <span class="built_in">super</span>(MyMainWindow, self).__init__(parent)</span><br><span class="line">        self.setupUi(self)</span><br><span class="line"></span><br><span class="line">        self.setWindowTitle(<span class="string">"小乌龟控制"</span>)</span><br><span class="line">        self.resize(<span class="number">1000</span>, <span class="number">700</span>)</span><br><span class="line"></span><br><span class="line">        topic_name = <span class="string">"/turtle1/cmd_vel"</span></span><br><span class="line">        self.publisher = rospy.Publisher(topic_name, Twist, queue_size=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">        self.send_btn.clicked.connect(<span class="keyword">lambda</span>: self.click_send())</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">click_send</span>(<span class="params">self</span>):</span></span><br><span class="line">        linear = self.Linear.text()</span><br><span class="line">        angular = self.Angula.text()</span><br><span class="line"></span><br><span class="line">        twist = Twist()</span><br><span class="line">        twist.linear.x = <span class="built_in">float</span>(linear)</span><br><span class="line">        twist.angular.z = <span class="built_in">float</span>(angular)</span><br><span class="line">        self.publisher.publish(twist)</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    rospy.init_node(<span class="string">"tutrle_ctrl_node"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># QT UI</span></span><br><span class="line">    app = QApplication(sys.argv)</span><br><span class="line"></span><br><span class="line">    window = MyMainWindow()</span><br><span class="line">    window.show()</span><br><span class="line"></span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></tbody></table></figure>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h1 id="3-运行验证"><a href="#3-运行验证" class="headerlink" title="3 运行验证"></a>3 运行验证</h1><blockquote>
+<p>这里的环境要说明一下，由于我在JetsonTX2的workspace中写的程序，所以是在启动roscore后使用rosrun运行。由于catkin_make需要，要在CMakelist文件中添加定义。</p>
+<p>使用MobaXterm运行时需要在bashrc或zshrc中设置远程显示，这样在JetsonTX2中运行显示的窗口会在windows中显示，但是会稍有卡顿。后面希望改进为在windows中运行，可能会需要wsl环境。</p>
+</blockquote>
+<p><img src="/images/PyQt5%E5%BC%80%E5%8F%91ROS%E7%95%8C%E9%9D%A2-Button%E5%AE%9E%E7%8E%B0Publish/image-20211114171013209.png" alt="image-20211114171013209"></p>
  
       <!-- reward -->
       
