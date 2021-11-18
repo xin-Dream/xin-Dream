@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-11-16T04:21:41.818Z</updated>
+  <updated>2021-11-18T13:30:08.988Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -18,14 +18,30 @@
   
   <entry>
     <title>使用自定义消息实现ROS与stm32通讯</title>
-    <link href="http://example.com/2021/11/16/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/"/>
-    <id>http://example.com/2021/11/16/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/</id>
+    <link href="http://example.com/2021/11/16/ROS/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/"/>
+    <id>http://example.com/2021/11/16/ROS/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/</id>
     <published>2021-11-16T04:21:41.000Z</published>
-    <updated>2021-11-16T04:21:41.818Z</updated>
+    <updated>2021-11-18T13:30:08.988Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
     
     
     
+    <category term="Linux" scheme="http://example.com/categories/Linux/"/>
     
+    <category term="ROS" scheme="http://example.com/categories/Linux/ROS/"/>
+    
+    
+    <category term="ROS" scheme="http://example.com/tags/ROS/"/>
+    
+    <category term="stm32" scheme="http://example.com/tags/stm32/"/>
     
   </entry>
   

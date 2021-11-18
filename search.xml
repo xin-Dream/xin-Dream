@@ -217,8 +217,39 @@
   </entry>
   <entry>
     <title>使用自定义消息实现ROS与stm32通讯</title>
-    <url>/2021/11/16/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/</url>
-    <content><![CDATA[]]></content>
+    <url>/2021/11/16/ROS/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>之前可能需要自定义单片机与ROS的通讯内容，在之前的博客中实现了在stm32中运行ROS节点，所以如果我们可以同步ROS工作空间中自定义的消息格式，那么只要在单片机中完成消息内容赋值后，就可以使用publish或service直接实现消息的发送</p>
+</blockquote>
+<h1 id="1-在ROS工作空间内自定义消息"><a href="#1-在ROS工作空间内自定义消息" class="headerlink" title="1 在ROS工作空间内自定义消息"></a>1 在ROS工作空间内自定义消息</h1><ol>
+<li><p>创建工作空间</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">mkdir -p robot_ws/src</span><br><span class="line"><span class="built_in">cd</span> robot_ws</span><br><span class="line">catkin_make</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>clone rosserial_stm32</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> robot_ws/src</span><br><span class="line">git <span class="built_in">clone</span> &lt;https://github.com/yoneken/rosserial_stm32.git&gt;</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">catkin_make</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>创建自定义消息</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> robot_ws/src</span><br><span class="line">catkin_create ros_stm32_bridge rospy roscpp std_msgs</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在上一步创建的功能包 ros_stm32_bridge中创建msg目录，在msg文件夹内创建消息文件</span></span><br><span class="line">robot_ws</span><br><span class="line">	ros_stm32_bridge</span><br><span class="line">		msg</span><br><span class="line">			stm32_motor.msg</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>添加依赖</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># package.xml</span></span><br><span class="line">&lt;build_depend&gt;message_generation&lt;/build_depend&gt;</span><br><span class="line">&lt;exec_depend&gt;message_runtime&lt;/exec_depend&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># CMakeLists.txt</span></span><br><span class="line">find_package(catkin REQUIRED COMPONENTS</span><br><span class="line">  roscpp</span><br><span class="line">  rospy</span><br><span class="line">  std_msgs</span><br><span class="line">  message_generation</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">add_message_files(</span><br><span class="line">  FILES</span><br><span class="line">  Person.msg</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">generate_messages(</span><br><span class="line">  DEPENDENCIES</span><br><span class="line">  std_msgs</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">catkin_package(</span><br><span class="line"><span class="comment">#  INCLUDE_DIRS include</span></span><br><span class="line"><span class="comment">#  LIBRARIES demo02_talker_listener</span></span><br><span class="line">  CATKIN_DEPENDS roscpp rospy std_msgs message_runtime</span><br><span class="line"><span class="comment">#  DEPENDS system_lib</span></span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>将自定义消息添加到rospack</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">rospack profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看rospack</span></span><br><span class="line">rospack list</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="/images/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/image-20211118212916258.png" alt="image-20211118212916258"></p>
+<p>使用rospack list查看，发现了如下路径，说明ros_stm32_bridge已经被添加进去了</p>
+<p><img src="/images/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/image-20211118212929773.png" alt="image-20211118212929773"></p>
+</li>
+</ol>
+<h1 id="2-使用Rosserial-stm32编译生成头文件"><a href="#2-使用Rosserial-stm32编译生成头文件" class="headerlink" title="2 使用Rosserial_stm32编译生成头文件"></a>2 使用Rosserial_stm32编译生成头文件</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">rosrun rosserial_stm32 make_libraries.py stm32_project/Core</span><br><span class="line"><span class="comment"># 请注意这里最后指向的目录，要指向Inc目录的上一级</span></span><br><span class="line"><span class="comment"># 完成后可以进入到Inc目录下查看生成的文件</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img src="/images/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/image-20211118212942241.png" alt="image-20211118212942241"></p>
+<p>接下来就可以去stm32中创建节点发布消息了</p>
+<h1 id="3-ROS与stm32通信验证"><a href="#3-ROS与stm32通信验证" class="headerlink" title="3 ROS与stm32通信验证"></a>3 ROS与stm32通信验证</h1><p>TODO</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+        <tag>stm32</tag>
+      </tags>
   </entry>
   <entry>
     <title>Pycharm/Clion远程开发要注意的问题</title>
@@ -721,7 +752,7 @@
   </entry>
   <entry>
     <title>C/C++混合编译要注意的问题</title>
-    <url>/2021/09/08/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/C_C++/C-C-%E6%B7%B7%E5%90%88%E7%BC%96%E8%AF%91%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <url>/2021/09/08/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/C-C-%E6%B7%B7%E5%90%88%E7%BC%96%E8%AF%91%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="1-undefined-reference-to"><a href="#1-undefined-reference-to" class="headerlink" title="1. undefined reference to"></a>1. undefined reference to</h1><p>C++代码调用C语言库的时候，应在调用头文件的时候添加声明，如下</p>
 <figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span>{</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"test.h"</span></span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>]]></content>
       <categories>
@@ -1340,7 +1371,7 @@
   </entry>
   <entry>
     <title>IDEA/AndroidStudio创建GetSet</title>
-    <url>/2021/08/02/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Android/IDEA-AndroidStudio%E5%88%9B%E5%BB%BAGetSet/</url>
+    <url>/2021/08/02/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/IDEA-AndroidStudio%E5%88%9B%E5%BB%BAGetSet/</url>
     <content><![CDATA[<p>Code -&gt; Generate </p>
 <p>选择需要的变量</p>
 ]]></content>
@@ -1354,7 +1385,7 @@
   </entry>
   <entry>
     <title>配置Tomcat服务器</title>
-    <url>/2021/08/02/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Android/%E9%85%8D%E7%BD%AETomcat%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <url>/2021/08/02/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E9%85%8D%E7%BD%AETomcat%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
     <content><![CDATA[<h1 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h1><h2 id="下载Tomcat"><a href="#下载Tomcat" class="headerlink" title="下载Tomcat"></a>下载Tomcat</h2><p><a href="https://tomcat.apache.org/download-80.cgi">下载地址</a></p>
 <p>下载后无需安装，将其解压到安装位置</p>
 <h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><ol>
@@ -1380,8 +1411,9 @@
   </entry>
   <entry>
     <title>Android判断文本输入框是否为空</title>
-    <url>/2021/08/02/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Android/Android%E5%88%A4%E6%96%AD%E6%96%87%E6%9C%AC%E8%BE%93%E5%85%A5%E6%A1%86%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA/</url>
-    <content><![CDATA[]]></content>
+    <url>/2021/08/02/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Android%E5%88%A4%E6%96%AD%E6%96%87%E6%9C%AC%E8%BE%93%E5%85%A5%E6%A1%86%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA/</url>
+    <content><![CDATA[<p><img src="/images/Android%E5%88%A4%E6%96%AD%E6%96%87%E6%9C%AC%E8%BE%93%E5%85%A5%E6%A1%86%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA/01.png" alt="01"></p>
+]]></content>
       <categories>
         <category>程序设计</category>
         <category>Android</category>
@@ -1392,8 +1424,8 @@
   </entry>
   <entry>
     <title>==和equal的区别</title>
-    <url>/2021/08/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Android/%E5%92%8Cequal%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<p>文中比较两字符串，发现==和equal的区别</p>
+    <url>/2021/08/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E5%92%8Cequal%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<p><img src="/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E5%92%8Cequal%E7%9A%84%E5%8C%BA%E5%88%AB.assets/image-20211118215254000.png" alt="image-20211118215254000"><br>文中比较两字符串，发现==和equal的区别</p>
 <h1 id=""><a href="#" class="headerlink" title="=="></a>==</h1><ol>
 <li>基本数据类型比较的是值</li>
 <li>引用数据类型比较的是地址<h1 id="equals"><a href="#equals" class="headerlink" title="equals()"></a>equals()</h1></li>
@@ -1412,8 +1444,9 @@
   </entry>
   <entry>
     <title>Android模拟器长时间运行后不显示Toast</title>
-    <url>/2021/08/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Android/Android%E6%A8%A1%E6%8B%9F%E5%99%A8%E9%95%BF%E6%97%B6%E9%97%B4%E8%BF%90%E8%A1%8C%E5%90%8E%E4%B8%8D%E6%98%BE%E7%A4%BAToast/</url>
-    <content><![CDATA[]]></content>
+    <url>/2021/08/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Android%E6%A8%A1%E6%8B%9F%E5%99%A8%E9%95%BF%E6%97%B6%E9%97%B4%E8%BF%90%E8%A1%8C%E5%90%8E%E4%B8%8D%E6%98%BE%E7%A4%BAToast/</url>
+    <content><![CDATA[<p><a href="https://gray-dirigible-eff.notion.site/a8498eabc6ca48e9830d702fe5f66bb4">https://gray-dirigible-eff.notion.site/a8498eabc6ca48e9830d702fe5f66bb4</a></p>
+]]></content>
       <categories>
         <category>程序设计</category>
         <category>Android</category>
@@ -1424,8 +1457,10 @@
   </entry>
   <entry>
     <title>Cannot_resolve_method_makeText</title>
-    <url>/2021/07/31/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Android/Cannot-resolve-method-makeText/</url>
-    <content><![CDATA[]]></content>
+    <url>/2021/07/31/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Cannot-resolve-method-makeText/</url>
+    <content><![CDATA[<p><img src="/images/Cannot-resolve-method-makeText/01.png" alt="01"></p>
+<p><img src="/images/Cannot-resolve-method-makeText/02.png" alt="02"></p>
+]]></content>
       <categories>
         <category>程序设计</category>
         <category>Android</category>
@@ -1723,7 +1758,7 @@
   </entry>
   <entry>
     <title>LeetCode-202-happy-number</title>
-    <url>/2021/07/18/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/LeetCode/LeetCode-202-happy-number/</url>
+    <url>/2021/07/18/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/LeetCode-202-happy-number/</url>
     <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>编写一个算法来判断一个数 n 是不是快乐数。</p>
 <p>「快乐数」定义为：</p>
 <ul>
@@ -1949,7 +1984,7 @@
   </entry>
   <entry>
     <title>在Clion上开始LeetCode</title>
-    <url>/2021/06/13/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/LeetCode/%E5%9C%A8Clion%E4%B8%8A%E5%BC%80%E5%A7%8BLeetCode/</url>
+    <url>/2021/06/13/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E5%9C%A8Clion%E4%B8%8A%E5%BC%80%E5%A7%8BLeetCode/</url>
     <content><![CDATA[<ol>
 <li><p>在github上新建Repository后clone到本地，在clion中打开文件夹</p>
 </li>
@@ -1991,7 +2026,7 @@
   </entry>
   <entry>
     <title>Python多文件访问全局变量</title>
-    <url>/2021/06/13/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Python/Python%E5%A4%9A%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/</url>
+    <url>/2021/06/13/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Python%E5%A4%9A%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/</url>
     <content><![CDATA[<p>在Python文件中不能像C语言文件一样包含头文件，所以多文件中的全局变量比较复杂</p>
 <ol>
 <li>单独建立一个变量管理的文件–variable_manage.py</li>
@@ -2015,12 +2050,11 @@
   </entry>
   <entry>
     <title>git问题解决</title>
-    <url>/2021/05/29/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git/git%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</url>
+    <url>/2021/05/29/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</url>
     <content><![CDATA[<ol>
 <li>fatal: Could not read from remote repository.Please make sure you have the correct access rights</li>
 </ol>
-
-
+<p><img src="/images/git%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/1.png" alt="1"></p>
 <p>重新配置用户信息，删除C:\Users\dream.ssh中的known_hosts</p>
 <figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">git config --global user.name "xin-Dream"</span><br><span class="line">git config --global user.email "1812752073@qq.com"</span><br></pre></td></tr></tbody></table></figure>
 ]]></content>
@@ -2046,7 +2080,7 @@
   </entry>
   <entry>
     <title>PyCharm无法识别自己导入的模块</title>
-    <url>/2021/05/28/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Python/pycharm%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E8%87%AA%E5%B7%B1%E5%AF%BC%E5%85%A5%E7%9A%84%E6%A8%A1%E5%9D%97/</url>
+    <url>/2021/05/28/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/pycharm%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E8%87%AA%E5%B7%B1%E5%AF%BC%E5%85%A5%E7%9A%84%E6%A8%A1%E5%9D%97/</url>
     <content><![CDATA[<p>解决：同级目录中自己写的文件，在其他文件中不能调用</p>
 <ol>
 <li>File-&gt;settings-&gt;Build,Excution,Deployment-&gt;Console-&gt;Python Console</li>
@@ -2081,7 +2115,7 @@
   </entry>
   <entry>
     <title>Python创建列表</title>
-    <url>/2021/05/13/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Python/Python%E5%88%9B%E5%BB%BA%E5%88%97%E8%A1%A8/</url>
+    <url>/2021/05/13/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Python%E5%88%9B%E5%BB%BA%E5%88%97%E8%A1%A8/</url>
     <content><![CDATA[<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">list1=[<span class="literal">None</span>]*<span class="number">5</span></span><br></pre></td></tr></tbody></table></figure>
 <p>使用这种方式创建一个普通的一维列表是没问题的<br>可以检测一下</p>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">list1=[<span class="literal">None</span>]*<span class="number">5</span></span><br><span class="line">list1[<span class="number">3</span>]=<span class="number">1</span></span><br><span class="line">print(list1)</span><br><span class="line"></span><br><span class="line">[<span class="literal">None</span>, <span class="literal">None</span>, <span class="literal">None</span>, <span class="number">1</span>, <span class="literal">None</span>]</span><br></pre></td></tr></tbody></table></figure>
@@ -2226,7 +2260,8 @@
     <url>/2021/04/30/ROS/ROS%E5%AE%89%E8%A3%85%E5%8C%85%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h1 id="1-使用串口与stm32通信"><a href="#1-使用串口与stm32通信" class="headerlink" title="1. 使用串口与stm32通信"></a>1. 使用串口与stm32通信</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get install ros-melodic-rosserial</span><br></pre></td></tr></tbody></table></figure>
 <h1 id="2-gmapping建图"><a href="#2-gmapping建图" class="headerlink" title="2. gmapping建图"></a>2. gmapping建图</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get install ros-melodic-gmapping</span><br><span class="line">sudo apt-get install ros-melodic-slam-gmapping</span><br><span class="line">sudo apt-get install ros-melodic-map-server</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h1 id="3-rosserial"><a href="#3-rosserial" class="headerlink" title="3. rosserial"></a>3. rosserial</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get install ros-melodic-rosserial-python</span><br><span class="line">sudo apt-get install ros-melodic-rosserial-c</span><br></pre></td></tr></tbody></table></figure>]]></content>
+<h1 id="3-rosserial"><a href="#3-rosserial" class="headerlink" title="3. rosserial"></a>3. rosserial</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get install ros-melodic-rosserial-python</span><br><span class="line">sudo apt-get install ros-melodic-rosserial-c</span><br></pre></td></tr></tbody></table></figure>
+]]></content>
       <categories>
         <category>Linux</category>
         <category>ROS</category>
@@ -2879,7 +2914,7 @@
   </entry>
   <entry>
     <title>git使用笔记</title>
-    <url>/2021/01/28/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git/git%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</url>
+    <url>/2021/01/28/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="git基本操作"><a href="#git基本操作" class="headerlink" title="git基本操作"></a>git基本操作</h1><h2 id="下载与配置"><a href="#下载与配置" class="headerlink" title="下载与配置"></a>下载与配置</h2><p>windows中可以去官网下载git：<a href="https://git-scm.com/downloads">下载地址</a><br>ubuntu中可以直接终端下载，比较方便</p>
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></tbody></table></figure>
 <p>设置用户名和邮箱地址</p>
@@ -3150,7 +3185,7 @@
   </entry>
   <entry>
     <title>AndroidStudio错误“Gradle sync failed”</title>
-    <url>/2021/01/28/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Android/AndroidStudio%E9%94%99%E8%AF%AF%E2%80%9CGradle%20sync%20failed%E2%80%9D/</url>
+    <url>/2021/01/28/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/AndroidStudio%E9%94%99%E8%AF%AF%E2%80%9CGradle%20sync%20failed%E2%80%9D/</url>
     <content><![CDATA[<h1 id="Gradle-sync-failed-你的主机中的软件中止了一个已建立的连接"><a href="#Gradle-sync-failed-你的主机中的软件中止了一个已建立的连接" class="headerlink" title="Gradle sync failed: 你的主机中的软件中止了一个已建立的连接"></a>Gradle sync failed: 你的主机中的软件中止了一个已建立的连接</h1><p>win10关闭移动热点</p>
 ]]></content>
       <categories>
