@@ -541,7 +541,7 @@
 <li><a href="https://teracloud.jp/en/">TeraCloud</a></li>
 <li>在My Page界面，找到Apps Connection，如下图，使用Reissue即可生成密码。这个URL和密码要在zotero中用到。</li>
 <li>在Zotero中找到：编辑-&gt;首选项-&gt;同步-&gt;文件同步，在使用的下拉框中选择WebDAV</li>
-<li>在WebDAV中填入上图中的URL、用户名（ID）、密码，然后选择验证服务器</li>
+<li>在WebDAV中填入上图中的URL、用户名（ID）、密码，然后选择验证服务器<img src="../../images/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6zotero/01.png" alt="01"></li>
 </ul>
 <h1 id="3-2-zotero中的路径设置"><a href="#3-2-zotero中的路径设置" class="headerlink" title="3.2 zotero中的路径设置"></a>3.2 zotero中的路径设置</h1><ul>
 <li>编辑-&gt;首选项-&gt;高级-&gt;文件和文件夹</li>
@@ -549,8 +549,8 @@
 <li>这两个页面的设置，一定要按下图设置，否则在papership中不能打开pdf文件</li>
 <li>这样设置完成后，将PDF拖入Zotero后，pdf会自动重命名存储到E:\007-zoterodata\storage</li>
 </ul>
-
-
+<p><img src="../../images/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6zotero/02-163724446536114.png" alt="02"></p>
+<p><img src="../../images/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6zotero/03-163724446952915.png" alt="03"></p>
 ]]></content>
       <categories>
         <category>杂项</category>
@@ -659,11 +659,10 @@
     <content><![CDATA[<h1 id="创建评论系统的repository"><a href="#创建评论系统的repository" class="headerlink" title="创建评论系统的repository"></a>创建评论系统的repository</h1>
 
 <h1 id="在GitHub上注册新应用"><a href="#在GitHub上注册新应用" class="headerlink" title="在GitHub上注册新应用"></a>在GitHub上注册新应用</h1><p><a href="https://github.com/settings/applications/new">应用注册界面</a></p>
-
-
+<p><img src="../../images/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8gitalk%E8%AF%84%E8%AE%BA/01.png" alt="01"></p>
 <p>在注册结束后，可以看到如下信息</p>
-
-
+<p><img src="../../images/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8gitalk%E8%AF%84%E8%AE%BA/02.png" alt="02"></p>
+<p><img src="../../images/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8gitalk%E8%AF%84%E8%AE%BA/03-163724456934516.png" alt="03"></p>
 <h1 id="在hexo博客中填写gitalk信息"><a href="#在hexo博客中填写gitalk信息" class="headerlink" title="在hexo博客中填写gitalk信息"></a>在hexo博客中填写gitalk信息</h1><p>将上面的Client ID和Client secrets及其他信息填入到博客主题的信息设置中</p>
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">gitalk:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span> <span class="comment"># true</span></span><br><span class="line">  clientID:  <span class="comment"># GitHub Application Client ID</span></span><br><span class="line">  clientSecret:  <span class="comment"># Client Secret</span></span><br><span class="line">  repo: Blog_comments  <span class="comment"># Repository name</span></span><br><span class="line">  owner: xin-Dream <span class="comment"># GitHub ID</span></span><br><span class="line">  admin: xin-Dream <span class="comment"># GitHub ID</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 <h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>使用gitalk评论系统后，发布的文章需要由管理者进入初始化后才能开启评论。</p>
@@ -980,21 +979,18 @@
 <h1 id="二、-Clion设置"><a href="#二、-Clion设置" class="headerlink" title="二、 Clion设置"></a>二、 Clion设置</h1><ol>
 <li>Toolchains</li>
 </ol>
-<p>File -&gt; Build,Execution,Deployment -&gt; Toolchains<br>新建一个设置，参考下图</p>
-
-
+<p>File -&gt; Build,Execution,Deployment -&gt; Toolchains<br>新建一个设置，参考下图<br><img src="../../images/Ubuntu18-04%E9%85%8D%E7%BD%AEClion%E5%BC%80%E5%8F%91stm32/01.png" alt="01"></p>
 <ol start="2">
 <li>CMake</li>
 </ol>
 <p>File -&gt; Build,Execution,Deployment -&gt; CMake<br>配置参考下图</p>
-
-
+<p><img src="../../images/Ubuntu18-04%E9%85%8D%E7%BD%AEClion%E5%BC%80%E5%8F%91stm32/02.png" alt="02"></p>
 <ol start="3">
 <li><p>下载器</p>
 <ul>
 <li>自己找个位置新建config文件夹，用于存放不同下载器得cfg文件，新建一个daplink.cfg（这里我用cmsis_dap调试器）</li>
-<li>在daplink.cfg文件中添加内容<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> [find interface/cmsis-dap.cfg]</span><br><span class="line">transport select swd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 0x10000 = 64K Flash Size</span></span><br><span class="line"><span class="built_in">set</span> FLASH_SIZE=0x160000</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> [find target/stm32f4x.cfg]</span><br></pre></td></tr></tbody></table></figure></li>
-<li>在下载选项中选择Edit configuration,参考下图设置</li>
+<li>在daplink.cfg文件中添加内容<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> [find interface/cmsis-dap.cfg]</span><br><span class="line">transport select swd</span><br><span class="line">   </span><br><span class="line"><span class="comment"># 0x10000 = 64K Flash Size</span></span><br><span class="line"><span class="built_in">set</span> FLASH_SIZE=0x160000</span><br><span class="line">   </span><br><span class="line"><span class="built_in">source</span> [find target/stm32f4x.cfg]</span><br></pre></td></tr></tbody></table></figure></li>
+<li>在下载选项中选择Edit configuration,参考下图设置<img src="../../images/Ubuntu18-04%E9%85%8D%E7%BD%AEClion%E5%BC%80%E5%8F%91stm32/03.png" alt="03"></li>
 </ul>
 </li>
 <li><p>编译、下载测试</p>
@@ -1020,8 +1016,7 @@
 <li>需要注册登录后使用</li>
 <li>在下图中添加自己创建的原理图库和封装库，后续搜索后的元件会自动添加到以下库</li>
 </ul>
-
-
+<p><img src="../../images/AltiumDesigner%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BA%93/01.png" alt="01"></p>
 <p>也可以在<a href="https://componentsearchengine.com/">Electronic Component Search Engine</a>中搜索元件，下载模型后通过插件手动添加</p>
 ]]></content>
       <categories>
@@ -1074,15 +1069,12 @@
 <br>
 <br>
 
-
-
+<p><img src="../../images/%E4%BD%BF%E7%94%A8CubeMX-CubeIDE%E9%85%8D%E7%BD%AE%E6%97%B6%E9%92%9F%E6%A0%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/01.png" alt="01"></p>
 <br>
 <br>
 查看开发板中是8MHz的晶振，所以软件中的设定要与之匹配。
 
-
-
-
+<p><img src="%E4%BD%BF%E7%94%A8CubeMX-CubeIDE%E9%85%8D%E7%BD%AE%E6%97%B6%E9%92%9F%E6%A0%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/02.png" alt="02"></p>
 ]]></content>
       <categories>
         <category>单片机</category>
@@ -1308,25 +1300,14 @@
     <content><![CDATA[<blockquote>
 <p><a href="https://u.tools/">utools下载地址</a><br>相关utools的使用不具体描述</p>
 </blockquote>
-<h1 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h1>
-
-
-<h1 id="快捷命令创建"><a href="#快捷命令创建" class="headerlink" title="快捷命令创建"></a>快捷命令创建</h1>
-
-<br>
-<br>
-这里设置的关键字，表示我们在唤出utools后，输入这个关键字即可执行这个快捷命令
-<br>
-<br>
-
-
+<h1 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h1><p><img src="../../images/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/01.png" alt="01"></p>
+<p><img src="../../images/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/02.png" alt="02"></p>
+<h1 id="快捷命令创建"><a href="#快捷命令创建" class="headerlink" title="快捷命令创建"></a>快捷命令创建</h1><p><br><img src="../../images/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/03.png" alt="03"><br><br><br>这里设置的关键字，表示我们在唤出utools后，输入这个关键字即可执行这个快捷命令<br><br><br><br><br><img src="../../images/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/04.png" alt="04"></p>
 <h1 id="设置全局快捷键"><a href="#设置全局快捷键" class="headerlink" title="设置全局快捷键"></a>设置全局快捷键</h1><p>完成以上操作后，我们在utools中输入new，然后输入要创建的文章的名称就能在相应的posts目录下生成新的文章。</p>
 <p>设置全局快捷键，可以让我们在任意时刻，通过快捷键直接进入输入文章名的步骤。</p>
-
-
+<p><img src="../../images/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/05.png" alt="05"></p>
 <h1 id="插入固定文本"><a href="#插入固定文本" class="headerlink" title="插入固定文本"></a>插入固定文本</h1><p>写文章或写程序时，有一部分内容是完全一样的，比如插入图片、引用本地其他文章等。可以通过备忘快贴这个插件实现。</p>
- 
-
+<p><img src="../../images/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/06.png" alt="06"></p>
 <p>同理，在设置好全局快捷键后，就可以直接快捷键粘贴固定内容</p>
 ]]></content>
       <categories>
@@ -1361,6 +1342,7 @@
     <url>/2021/08/04/%E6%9D%82%E9%A1%B9/%E5%9C%A8word%E4%B8%AD%E6%8F%92%E5%85%A5%E4%BB%A3%E7%A0%81/</url>
     <content><![CDATA[<p><a href="http://www.codeinword.com/">CodeInWord</a></p>
 <p>将代码复制到左侧，选择对应的语言，点击高亮后，将右侧内容直接复制到word中即可。<br>注意复制时选择源格式。</p>
+<p><img src="../../images/%E5%9C%A8word%E4%B8%AD%E6%8F%92%E5%85%A5%E4%BB%A3%E7%A0%81/01.png" alt="01"></p>
 ]]></content>
       <categories>
         <category>杂项</category>
@@ -1412,7 +1394,7 @@
   <entry>
     <title>Android判断文本输入框是否为空</title>
     <url>/2021/08/02/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Android%E5%88%A4%E6%96%AD%E6%96%87%E6%9C%AC%E8%BE%93%E5%85%A5%E6%A1%86%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA/</url>
-    <content><![CDATA[<p><img src="/images/Android%E5%88%A4%E6%96%AD%E6%96%87%E6%9C%AC%E8%BE%93%E5%85%A5%E6%A1%86%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA/01.png" alt="01"></p>
+    <content><![CDATA[<p><img src="/images/Android%E5%88%A4%E6%96%AD%E6%96%87%E6%9C%AC%E8%BE%93%E5%85%A5%E6%A1%86%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA/01-163724420940512.png" alt="01"></p>
 ]]></content>
       <categories>
         <category>程序设计</category>
@@ -1445,7 +1427,7 @@
   <entry>
     <title>Android模拟器长时间运行后不显示Toast</title>
     <url>/2021/08/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Android%E6%A8%A1%E6%8B%9F%E5%99%A8%E9%95%BF%E6%97%B6%E9%97%B4%E8%BF%90%E8%A1%8C%E5%90%8E%E4%B8%8D%E6%98%BE%E7%A4%BAToast/</url>
-    <content><![CDATA[<p><a href="https://gray-dirigible-eff.notion.site/a8498eabc6ca48e9830d702fe5f66bb4">https://gray-dirigible-eff.notion.site/a8498eabc6ca48e9830d702fe5f66bb4</a></p>
+    <content><![CDATA[<p><img src="../../images/Android%E6%A8%A1%E6%8B%9F%E5%99%A8%E9%95%BF%E6%97%B6%E9%97%B4%E8%BF%90%E8%A1%8C%E5%90%8E%E4%B8%8D%E6%98%BE%E7%A4%BAToast/01-163724422538013.png" alt="01"></p>
 ]]></content>
       <categories>
         <category>程序设计</category>
@@ -1459,7 +1441,7 @@
     <title>Cannot_resolve_method_makeText</title>
     <url>/2021/07/31/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Cannot-resolve-method-makeText/</url>
     <content><![CDATA[<p><img src="/images/Cannot-resolve-method-makeText/01.png" alt="01"></p>
-<p><img src="/images/Cannot-resolve-method-makeText/02.png" alt="02"></p>
+<p><img src="/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Cannot-resolve-method-makeText/02.png" alt="02"></p>
 ]]></content>
       <categories>
         <category>程序设计</category>
@@ -1562,7 +1544,8 @@
     <content><![CDATA[<p>下载以下型材库<br>链接：<a href="https://pan.baidu.com/s/170qEkA8MN5nfCuDD1jZFgg">https://pan.baidu.com/s/170qEkA8MN5nfCuDD1jZFgg</a><br>提取码：2vyt </p>
 <p>将压缩包解压，SolidWorks安装目录中找到</p>
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">~\SOLIDWORKS\lang\chinese-simplified\weldment profiles</span><br></pre></td></tr></tbody></table></figure>
-<p>在里面新建GB文件夹，将下载的文件复制进去，注意按下图层级复制进去<br></p>]]></content>
+<p>在里面新建GB文件夹，将下载的文件复制进去，注意按下图层级复制进去<br><img src="../../images/Solidworks%E7%84%8A%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9E%8B%E6%9D%90/01.png" alt="01"></p>
+]]></content>
       <categories>
         <category>机械</category>
         <category>Solidworks</category>
@@ -1656,7 +1639,8 @@
   <entry>
     <title>solidworks中子装配体可动</title>
     <url>/2021/07/25/%E6%9C%BA%E6%A2%B0%E7%B1%BB/solidworks%E4%B8%AD%E5%AD%90%E8%A3%85%E9%85%8D%E4%BD%93%E5%8F%AF%E5%8A%A8/</url>
-    <content><![CDATA[<p></p>]]></content>
+    <content><![CDATA[<p><img src="solidworks%E4%B8%AD%E5%AD%90%E8%A3%85%E9%85%8D%E4%BD%93%E5%8F%AF%E5%8A%A8/01.png" alt="01"></p>
+]]></content>
       <categories>
         <category>机械</category>
         <category>Solidworks</category>
@@ -1774,9 +1758,7 @@
 <h3 id="第三种思路"><a href="#第三种思路" class="headerlink" title="第三种思路"></a>第三种思路</h3><p>这种思路基于<strong>弗洛伊德的乌龟-兔子循环寻找</strong>。可以在环形链表中找到环形的入口节点。<br>如下图，一快一慢的龟兔会相继进入一个圈内，当两个点相遇的时候，设置一个从相遇点出发，另一个从起点出发，再次相遇，即为环形入口。</p>
 <p>至于更深层次的解释，还没想好怎么表述。</p>
 <p>下图的算法图解在<a href="https://visualgo.net/en">https://visualgo.net/en</a></p>
-
-<br>
-<br>
+<p><img src="../../images/LeetCode-202-happy-number/01.png" alt="01"><br><br><br><br></p>
 <figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n)</span></span>{</span><br><span class="line">    <span class="comment">//  龟兔赛跑循环</span></span><br><span class="line">    <span class="keyword">int</span> slow = n;</span><br><span class="line">    <span class="keyword">int</span> fast = n;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">do</span> {</span><br><span class="line">        slow = next_n(slow);</span><br><span class="line">        fast = next_n(next_n(fast));</span><br><span class="line">        <span class="comment">//fast = next_n(fast);</span></span><br><span class="line">    } <span class="keyword">while</span> (slow != fast);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> fast == <span class="number">1</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 
@@ -1824,21 +1806,16 @@
 <p>实测后，发现作为应急或打发时间用还是可以的，博客完全交给ipad可能会把人逼疯。</p>
 </blockquote>
 <h1 id="PPhub"><a href="#PPhub" class="headerlink" title="PPhub"></a>PPhub</h1><p>软件付费¥12<br>用来浏览github还是不错的，直接使用github也是可以的</p>
-
-
-
+<p><img src="../../images/%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/01.PNG" alt="01">!<a href="%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/02.PNG">02</a><img src="../../images/%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/02.PNG" alt="02"></p>
 <h1 id="Working-Copy"><a href="#Working-Copy" class="headerlink" title="Working Copy"></a>Working Copy</h1><blockquote>
 <p>在这个软件里可以实现git clone、pull、commit等，push需要解锁高级版</p>
 </blockquote>
 <p>在clone repository的时候，建议使用ssh方式，在github上验证一下，这样可以通过push</p>
 <p>使用http clone的在push的时候会出错</p>
-
-
+<p><img src="../../images/%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/03.PNG" alt="03"></p>
 <p>在编辑完成后，可以看到changes，有前后对比，修改后可以本地commit</p>
-
-
-
-
+<p><img src="../../images/%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/04.PNG" alt="04"></p>
+<p><img src="../../images/%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/05.PNG" alt="05"></p>
 <p>写完后只能推送到github，并不能发布博客，发布方法待探索……</p>
 ]]></content>
       <categories>
@@ -1997,8 +1974,7 @@
 <li><p>安装好插件后，在侧边栏找到LeetCode插件，在LeetCode的菜单栏找到设置</p>
 </li>
 </ol>
-
-
+<p><img src="/images/%E5%9C%A8Clion%E4%B8%8A%E5%BC%80%E5%A7%8BLeetCode/01.png" alt="01"></p>
 <ol start="4">
 <li>设置界面信息<ol>
 <li>填写LeetCode的邮箱（LoginName）和密码（Password）</li>
@@ -2069,7 +2045,8 @@
   <entry>
     <title>solidworks装配体整体3D打印</title>
     <url>/2021/05/29/%E6%9C%BA%E6%A2%B0%E7%B1%BB/solidworks%E8%A3%85%E9%85%8D%E4%BD%93%E6%95%B4%E4%BD%933D%E6%89%93%E5%8D%B0/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p><img src="../../images/solidworks%E8%A3%85%E9%85%8D%E4%BD%93%E6%95%B4%E4%BD%933D%E6%89%93%E5%8D%B0/1.png" alt="1"></p>
+]]></content>
       <categories>
         <category>机械</category>
         <category>Solidworks</category>
@@ -3385,7 +3362,7 @@ EFI系统分区：
 </blockquote>
 <h1 id="2-系列链接"><a href="#2-系列链接" class="headerlink" title="2. 系列链接"></a>2. 系列链接</h1><blockquote>
 <ol>
-<li><a href="/2021/01/28/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git/git%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/" title="git使用笔记">git使用笔记</a></li>
+<li><a href="#">Post not found: 程序设计/git/git使用笔记</a></li>
 <li><a href="/2021/01/25/hexo/hexo%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/" title="hexo配置记录">hexo配置记录</a></li>
 <li><a href="/2021/04/14/windows/windows%E9%85%8D%E7%BD%AEJAVA%E7%8E%AF%E5%A2%83/" title="windows配置JAVA环境">windows配置JAVA环境</a>
 
