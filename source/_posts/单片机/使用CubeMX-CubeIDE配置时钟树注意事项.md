@@ -5,6 +5,7 @@ tags:
     [CubeMX] 
 categories: 
     [单片机,STM32]
+typora-root-url: ..\..
 ---
 
 
@@ -20,13 +21,11 @@ categories:
 其实软件设定的只是每个芯片的可匹配的频率，对不同的开发板，我们用的最多的外部晶振其实是不一样的，如果设定与实际频率不同，就会出大问题。
 
 </br>
-</br>
-
-![01](../../images/使用CubeMX-CubeIDE配置时钟树注意事项/01.png)
+</br>![01](/images/使用CubeMX-CubeIDE配置时钟树注意事项/01.png)
 
 </br>
 </br>
 查看开发板中是8MHz的晶振，所以软件中的设定要与之匹配。
 
-![02](使用CubeMX-CubeIDE配置时钟树注意事项/02.png)
+![02](/images/使用CubeMX-CubeIDE配置时钟树注意事项/02.png)
 

@@ -5,7 +5,7 @@ tags:
     [LeetCode] 
 categories: 
     [程序设计,LeetCode]
-
+typora-root-url: ..\..
 ---
 
 # 题目描述
@@ -119,7 +119,7 @@ bool isHappy(int n){
 
 下图的算法图解在https://visualgo.net/en
 
-![01](../../images/LeetCode-202-happy-number/01.png)
+![01](/images/LeetCode-202-happy-number/01.png)
 </br>
 </br>
 

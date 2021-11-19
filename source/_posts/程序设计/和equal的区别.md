@@ -7,7 +7,7 @@ categories:
     [程序设计,Android]
 typora-root-url: ..\..
 ---
-![image-20211118215254000](/_posts/程序设计/和equal的区别.assets/image-20211118215254000.png)
+![image-20211118215254000](/images/和equal的区别/image-20211118215254000.png)
 文中比较两字符串，发现==和equal的区别
 
 # ==

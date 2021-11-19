@@ -5,6 +5,7 @@ tags:
     [ubuntu18.04,JetsonTX2,Archiconda] 
 categories: 
     [Linux,ubuntu]
+typora-root-url: ..\..
 ---
 
 # 前言
@@ -24,7 +25,7 @@ bash ~/Downloads/Archiconda3-0.2.3-Linux-aarch64.sh
 ```
 过程中按问题选择即可，以下为安装成功截图
 
-![01](../../images/Arm架构ubuntu18-04安装Archiconda/01.jpg)
+![01](/images/Arm架构ubuntu18-04安装Archiconda/01.jpg)
 
 ## 3. 测试
 

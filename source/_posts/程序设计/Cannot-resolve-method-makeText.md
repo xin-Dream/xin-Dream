@@ -11,4 +11,4 @@ typora-root-url: ..\..
 
 
 
-![02](/_posts/程序设计/Cannot-resolve-method-makeText/02.png)
+![02](/images/Cannot-resolve-method-makeText/02.png)

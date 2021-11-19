@@ -4,6 +4,7 @@ title: hexo博客使用gitalk评论
 date: 2021-10-10 19:09:55
 tags: hexo
 categories: [hexo]
+typora-root-url: ..\..
 ---
 
 # 创建评论系统的repository
@@ -14,13 +15,13 @@ categories: [hexo]
 
 [应用注册界面](https://github.com/settings/applications/new)
 
-![01](../../images/hexo博客使用gitalk评论/01.png)
+![01](/images/hexo博客使用gitalk评论/01.png)
 
 在注册结束后，可以看到如下信息
 
-![02](../../images/hexo博客使用gitalk评论/02.png)
+![02](/images/hexo博客使用gitalk评论/02.png)
 
-![03](../../images/hexo博客使用gitalk评论/03-163724456934516.png)
+![03](/images/hexo博客使用gitalk评论/03-163724456934516.png)
 
 # 在hexo博客中填写gitalk信息
 

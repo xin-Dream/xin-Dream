@@ -5,13 +5,14 @@ tags:
     [WSL] 
 categories: 
     [windows]
+typora-root-url: ..\..
 ---
 
 # 前言
 
 当下网络环境如下图
 
-![01](WSL与移动热点的冲突/01.png)
+![01](/images/WSL与移动热点的冲突/01.png)
 
 # 解决思路
 

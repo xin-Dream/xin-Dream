@@ -3,6 +3,7 @@ title: win10设置有线网络与WIFI网络优先级
 date: 2021-07-27 22:23:24
 tags:
 categories: [windows]
+typora-root-url: ..\..
 ---
 
 > 使用背景：
@@ -15,12 +16,12 @@ categories: [windows]
 # 2. 设置无线网络跃点数
 
 找到要设置的无线网络，右键选择属性。
-![01](../../images/win10设置有线网络与WIFI网络优先级/01.png)
+![01](/images/win10设置有线网络与WIFI网络优先级/01.png)
 
 </br>
 </br>
 然后选择高级，设置跃点数
-![02](../../images/win10设置有线网络与WIFI网络优先级/02.png)
+![02](/images/win10设置有线网络与WIFI网络优先级/02.png)
 
 # 3. 对跃点数设置的说明
 

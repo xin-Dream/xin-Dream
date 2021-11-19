@@ -5,8 +5,8 @@ tags:
     [Android Studio] 
 categories: 
     [程序设计,Android]
-
+typora-root-url: ..\..
 ---
 
-![01](../../images/Android模拟器长时间运行后不显示Toast/01-163724422538013.png)
+![01](/images/Android模拟器长时间运行后不显示Toast/01-163724422538013.png)
 

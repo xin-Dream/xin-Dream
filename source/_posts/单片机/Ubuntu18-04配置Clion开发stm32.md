@@ -5,6 +5,7 @@ tags:
     [stm32,Clion] 
 categories: 
     [单片机,STM32]
+typora-root-url: ..\..
 ---
 
 > 参考windows中的配置过程
@@ -40,14 +41,14 @@ sudo apt install openocd
 
 File -> Build,Execution,Deployment -> Toolchains
 新建一个设置，参考下图
-![01](../../images/Ubuntu18-04配置Clion开发stm32/01.png)
+![01](/images/Ubuntu18-04配置Clion开发stm32/01.png)
 
 2. CMake
 
 File -> Build,Execution,Deployment -> CMake
 配置参考下图
 
-![02](../../images/Ubuntu18-04配置Clion开发stm32/02.png)
+![02](/images/Ubuntu18-04配置Clion开发stm32/02.png)
 
 3. 下载器
    + 自己找个位置新建config文件夹，用于存放不同下载器得cfg文件，新建一个daplink.cfg（这里我用cmsis_dap调试器）
@@ -62,7 +63,7 @@ File -> Build,Execution,Deployment -> CMake
     source [find target/stm32f4x.cfg]
     ```
 
-   + 在下载选项中选择Edit configuration,参考下图设置![03](../../images/Ubuntu18-04配置Clion开发stm32/03.png)
+   + 在下载选项中选择Edit configuration,参考下图设置![03](/images/Ubuntu18-04配置Clion开发stm32/03.png)
 
 4. 编译、下载测试
 

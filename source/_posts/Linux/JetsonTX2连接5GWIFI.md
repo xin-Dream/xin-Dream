@@ -5,6 +5,7 @@ tags:
     [JetsonTX2] 
 categories: 
     [Linux,ubuntu]
+typora-root-url: ..\..
 ---
 
 # 前言
@@ -25,7 +26,7 @@ windows主机刚换了AX200网卡，设置无线模式连接5GHz频段后，网�
 可以看到，可用信道为36、40、44、48、52、56、60、64
 
 
-![01](../../images/JetsonTX2连接5GWIFI/01.png)
+![01](/images/JetsonTX2连接5GWIFI/01.png)
 
 
 # 查看当前网络信道
@@ -33,12 +34,13 @@ windows主机刚换了AX200网卡，设置无线模式连接5GHz频段后，网�
 可以看到，在5.8GHz下有windows热点的信号，正好与JetsonTX2的可用信道避开。
 也就是说，如果在JetsonTX2上设置可以连接149信道，就能使用windows的热点了。
 
-![02](../../images/JetsonTX2连接5GWIFI/02.jpg)
+![02](/images/JetsonTX2连接5GWIFI/02.jpg)
 
 # 修改JetsonTX2的信道
 
 修改WIFI国家码为支持149以上信道的国家
-![03](../../images/JetsonTX2连接5GWIFI/03.png)
+![03](/images/JetsonTX2连接5GWIFI/03.png)
+
 ```bash
 sudo iw reg set CN
 ```
@@ -49,8 +51,8 @@ sudo iw reg set CN
 原来AX200的网卡可设置双频带，这种模式下可以选择热点的频段。
 在设备管理器中选中网卡属性，设置无线模式为双频带
 
-![04](../../images/JetsonTX2连接5GWIFI/04.png)
+![04](/images/JetsonTX2连接5GWIFI/04.png)
 
-![05](../../images/JetsonTX2连接5GWIFI/05.png)
+![05](/images/JetsonTX2连接5GWIFI/05.png)
 
-![06](../../images/JetsonTX2连接5GWIFI/06.png)
+![06](/images/JetsonTX2连接5GWIFI/06.png)
