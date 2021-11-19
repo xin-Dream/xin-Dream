@@ -110,12 +110,12 @@
 <ol>
 <li>在clash中查看端口号</li>
 </ol>
-<p><img src="../../images/WSL%E5%AE%89%E8%A3%85ROS-melodic/01.png" alt="01"></p>
+<p><img src="/images/WSL%E5%AE%89%E8%A3%85ROS-melodic/01.png" alt="01"></p>
 <ol start="2">
 <li>在子系统中添加代理</li>
 </ol>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vim ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> http_proxy=127.0.0.1:7890</span><br><span class="line"><span class="built_in">export</span> https_proxy=127.0.0.1:7890</span><br><span class="line"><span class="comment">#此处7890对应上面端口号</span></span><br></pre></td></tr></tbody></table></figure>
-<p>添加代理后rosdep update 一次通过<br><img src="../../images/WSL%E5%AE%89%E8%A3%85ROS-melodic/02.png" alt="02"></p>
+<p>添加代理后rosdep update 一次通过<br><img src="/images/WSL%E5%AE%89%E8%A3%85ROS-melodic/02.png" alt="02"></p>
 <h1 id="设置可用窗口"><a href="#设置可用窗口" class="headerlink" title="设置可用窗口"></a>设置可用窗口</h1><p>安装完ROS后，使用小海龟测试时在打开窗口时会有错误。请按以下步骤安装Xlaunch，以下步骤可以打开rviz，否则还要改很多。<br><del>目前还没设置好gazebo，后续会设置好会更新。</del><br>内容已修改，gazebo可正常启动</p>
 <ol>
 <li><p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/vcxsrv/">下载Xserver</a></p>
@@ -125,11 +125,11 @@
 </ol>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sudo vim ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment">#在末尾添加以下内容</span></span><br><span class="line"><span class="comment"># export DISPLAY=:0.0</span></span><br><span class="line"><span class="comment"># export LIBGL_ALWAYS_INDIRECT=</span></span><br><span class="line"><span class="comment"># export LIBGL_ALWASY_SOFTWARE=1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#修改为以下内容，rviz与gazebo都能正常显示</span></span><br><span class="line"><span class="built_in">export</span> DISPLAY=localhost:0</span><br><span class="line"></span><br><span class="line"><span class="comment">#wq保存退出后</span></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></tbody></table></figure>
 <ol start="3">
-<li><p>打开XLaunch<br><img src="../../images/WSL%E5%AE%89%E8%A3%85ROS-melodic/03.png" alt="03"></p>
-<p><img src="../../images/WSL%E5%AE%89%E8%A3%85ROS-melodic/04.png" alt="04"></p>
+<li><p>打开XLaunch<br> <img src="/images/WSL%E5%AE%89%E8%A3%85ROS-melodic/03.png" alt="03"></p>
+<p><img src="/images/WSL%E5%AE%89%E8%A3%85ROS-melodic/04.png" alt="04"></p>
 </li>
-<li><p>启动rviz与小乌龟<br><img src="../../images/WSL%E5%AE%89%E8%A3%85ROS-melodic/05.png" alt="05"></p>
-<p><img src="WSL%E5%AE%89%E8%A3%85ROS-melodic/06.png" alt="06"></p>
+<li><p>启动rviz与小乌龟<br> <img src="/images/WSL%E5%AE%89%E8%A3%85ROS-melodic/05.png" alt="05"></p>
+<p><img src="/images/WSL%E5%AE%89%E8%A3%85ROS-melodic/06.png" alt="06"></p>
 </li>
 </ol>
 <p>注. 如果之前安装过Xming，可能会有冲突，卸载掉其中一个就好了</p>

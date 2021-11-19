@@ -193,10 +193,471 @@
 <h3 id="3-3-2-APP"><a href="#3-3-2-APP" class="headerlink" title="3.3.2 APP"></a>3.3.2 APP</h3><h3 id="3-3-3-网页"><a href="#3-3-3-网页" class="headerlink" title="3.3.3 网页"></a>3.3.3 网页</h3>]]></content>
   </entry>
   <entry>
+    <title>WSL与移动热点的冲突</title>
+    <url>/2021/07/22/windows/WSL%E4%B8%8E%E7%A7%BB%E5%8A%A8%E7%83%AD%E7%82%B9%E7%9A%84%E5%86%B2%E7%AA%81/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>当下网络环境如下图</p>
+<p><img src="/images/WSL%E4%B8%8E%E7%A7%BB%E5%8A%A8%E7%83%AD%E7%82%B9%E7%9A%84%E5%86%B2%E7%AA%81/01.png" alt="01"></p>
+<h1 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h1><p>三种思路</p>
+<h2 id="修改整体的网络拓扑，引入路由器。"><a href="#修改整体的网络拓扑，引入路由器。" class="headerlink" title="修改整体的网络拓扑，引入路由器。"></a>修改整体的网络拓扑，引入路由器。</h2><h2 id="从windows本身入手，网络热点的网络地址与WSL分离"><a href="#从windows本身入手，网络热点的网络地址与WSL分离" class="headerlink" title="从windows本身入手，网络热点的网络地址与WSL分离"></a>从windows本身入手，网络热点的网络地址与WSL分离</h2><h2 id="抛弃笔记本电脑ubuntu的界面使用"><a href="#抛弃笔记本电脑ubuntu的界面使用" class="headerlink" title="抛弃笔记本电脑ubuntu的界面使用"></a>抛弃笔记本电脑ubuntu的界面使用</h2><p>在windows主机中，由于配置好了Xface，所以ssh连接笔记本后，可以显示窗口。所以只在windows主机中使用。</p>
+<p>在WSL中使用终归还是问题太多，与学习ROS反而有些冲突，不如直接使用笔记本电脑学习。</p>
+<p>当下未解决其他问题，故先试用这一方案</p>
+]]></content>
+      <categories>
+        <category>windows</category>
+      </categories>
+      <tags>
+        <tag>WSL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>win10设置有线网络与WIFI网络优先级</title>
+    <url>/2021/07/27/windows/win10%E8%AE%BE%E7%BD%AE%E6%9C%89%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8EWIFI%E7%BD%91%E7%BB%9C%E4%BC%98%E5%85%88%E7%BA%A7/</url>
+    <content><![CDATA[<blockquote>
+<p>使用背景：<br>在实验室中配置了ROS服务器，通过路由器与交换机，电脑插上网线即可自动分配IP地址，可在局域网内使用服务器。在校园网中大部分使用无线网络，所以将优先级修改后，电脑既有路由器分配的局域网地址，也可通过WIFi连接校园网上网。</p>
+</blockquote>
+<p><strong>如果无线网络较慢，参考另一篇文章</strong> <a href="/2021/07/29/windows/win10%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E9%A2%91%E6%AE%B5/" title="win10设置网络连接频段">win10设置网络连接频段</a></p>
+<h1 id="1-找到控制面板-网络和Internet-网络连接"><a href="#1-找到控制面板-网络和Internet-网络连接" class="headerlink" title="1. 找到控制面板-网络和Internet-网络连接"></a>1. 找到控制面板-网络和Internet-网络连接</h1><h1 id="2-设置无线网络跃点数"><a href="#2-设置无线网络跃点数" class="headerlink" title="2. 设置无线网络跃点数"></a>2. 设置无线网络跃点数</h1><p>找到要设置的无线网络，右键选择属性。<br><img src="/images/win10%E8%AE%BE%E7%BD%AE%E6%9C%89%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8EWIFI%E7%BD%91%E7%BB%9C%E4%BC%98%E5%85%88%E7%BA%A7/01.png" alt="01"></p>
+<br>
+<br>
+然后选择高级，设置跃点数
+![02](/images/win10设置有线网络与WIFI网络优先级/02.png)
+
+<h1 id="3-对跃点数设置的说明"><a href="#3-对跃点数设置的说明" class="headerlink" title="3. 对跃点数设置的说明"></a>3. 对跃点数设置的说明</h1><p>如果是想让优先级高，就设置为10，优先级低设置为20。跃点数小，表示数据优先从某一网卡转发。</p>
+<p><a href="https://baike.baidu.com/item/%E8%B7%83%E7%82%B9%E6%95%B0/4941127">跃点数</a></p>
+<table>
+<thead>
+<tr>
+<th>跃点数</th>
+<th>链接速度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10</td>
+<td>大于200MB</td>
+</tr>
+<tr>
+<td>20</td>
+<td>大于20MB，并且小于或等于200MB</td>
+</tr>
+<tr>
+<td>30</td>
+<td>大于4MB，并且小于或等于20MB</td>
+</tr>
+<tr>
+<td>40</td>
+<td>大于500KB，并且小于或等于4MB</td>
+</tr>
+<tr>
+<td>50</td>
+<td>小于或等于500KB</td>
+</tr>
+</tbody></table>
+<h1 id="4-设置有线网络优先级"><a href="#4-设置有线网络优先级" class="headerlink" title="4. 设置有线网络优先级"></a>4. 设置有线网络优先级</h1><p>与第二步相同，设置有线网络的优先级，设置为20.</p>
+]]></content>
+      <categories>
+        <category>windows</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>win10设置网络连接频段</title>
+    <url>/2021/07/29/windows/win10%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E9%A2%91%E6%AE%B5/</url>
+    <content><![CDATA[<h1 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h1><p>windows10操作系统，IntelAX200无线网卡</p>
+<h1 id="修改步骤"><a href="#修改步骤" class="headerlink" title="修改步骤"></a>修改步骤</h1><p>在设备管理器中找到无线网卡，右键属性–&gt;高级<br>在下图中课选择合适的频段。<br><img src="/images/win10%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E9%A2%91%E6%AE%B5/01.png" alt="01"></p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>若无线网卡设置为5GHz或2.4GHz，那么移动热点只能设置为与之相同的频段。<br>选择双频段时，可以自由选择热点频段。</p>
+]]></content>
+      <categories>
+        <category>windows</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>多机共享键鼠软件Barrier</title>
+    <url>/2021/05/03/windows/%E5%A4%9A%E6%9C%BA%E5%85%B1%E4%BA%AB%E9%94%AE%E9%BC%A0%E8%BD%AF%E4%BB%B6Barrier/</url>
+    <content><![CDATA[<p>当操作多台设备时，可以无缝切换键盘鼠标，同时可以复制内容</p>
+<p><a href="https://github.com/debauchee/barrier/releases">windows下载地址</a></p>
+<p>Linux安装</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get install barrier</span><br></pre></td></tr></tbody></table></figure>
+<p>安装结束后，选择一台设备作为服务端，其他作为客户端即可</p>
+<p><img src="/images/%E5%A4%9A%E6%9C%BA%E5%85%B1%E4%BA%AB%E9%94%AE%E9%BC%A0%E8%BD%AF%E4%BB%B6Barrier/1.png" alt="1"></p>
+<p>在设置服务端按钮下可以添加屏幕布局<br><img src="/images/%E5%A4%9A%E6%9C%BA%E5%85%B1%E4%BA%AB%E9%94%AE%E9%BC%A0%E8%BD%AF%E4%BB%B6Barrier/2.png" alt="2"></p>
+]]></content>
+      <categories>
+        <category>windows</category>
+      </categories>
+      <tags>
+        <tag>软件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>WSL安装ROS-melodic</title>
+    <url>/2021/04/23/ROS/WSL%E5%AE%89%E8%A3%85ROS-melodic/</url>
+    <content><![CDATA[<h1 id="注"><a href="#注" class="headerlink" title="注"></a>注</h1><p>在子系统中安装ROS有几处需要注意的地方，其他与正常安装无异，请在阅读完本文后，参考<a href="https://blog.csdn.net/qq_45172156/article/details/106479607">ubuntu18.04LTS安装ROS</a>进行安装。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/Undefinedefity/article/details/106187430">WSL (Ubuntu 18.04 LTS) 安装ROS，可运行Rviz和Gazebo</a><br><a href="https://blog.csdn.net/qq_45172156/article/details/106479607">ubuntu18.04LTS安装ROS</a></p>
+<h1 id="设置wsl使用Windows的clash代理"><a href="#设置wsl使用Windows的clash代理" class="headerlink" title="设置wsl使用Windows的clash代理"></a>设置wsl使用Windows的clash代理</h1><p>在安装时<strong>sudo rosdep init</strong>和<strong>rosdep update</strong>时经常会响应超时或连接失败，在子系统中就可以方便多了。</p>
+<ol>
+<li>在clash中查看端口号</li>
+</ol>
+<p><img src="/images/WSL%E5%AE%89%E8%A3%85ROS-melodic/01.png" alt="01"></p>
+<ol start="2">
+<li>在子系统中添加代理</li>
+</ol>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vim ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> http_proxy=127.0.0.1:7890</span><br><span class="line"><span class="built_in">export</span> https_proxy=127.0.0.1:7890</span><br><span class="line"><span class="comment">#此处7890对应上面端口号</span></span><br></pre></td></tr></tbody></table></figure>
+<p>添加代理后rosdep update 一次通过<br><img src="/images/WSL%E5%AE%89%E8%A3%85ROS-melodic/02.png" alt="02"></p>
+<h1 id="设置可用窗口"><a href="#设置可用窗口" class="headerlink" title="设置可用窗口"></a>设置可用窗口</h1><p>安装完ROS后，使用小海龟测试时在打开窗口时会有错误。请按以下步骤安装Xlaunch，以下步骤可以打开rviz，否则还要改很多。<br><del>目前还没设置好gazebo，后续会设置好会更新。</del><br>内容已修改，gazebo可正常启动</p>
+<ol>
+<li><p><a href="https://sourceforge.net/projects/vcxsrv/">下载Xserver</a></p>
+</li>
+<li><p>在wsl中修改配置，修改后务必重启终端</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vim ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment">#在末尾添加以下内容</span></span><br><span class="line"><span class="comment"># export DISPLAY=:0.0</span></span><br><span class="line"><span class="comment"># export LIBGL_ALWAYS_INDIRECT=</span></span><br><span class="line"><span class="comment"># export LIBGL_ALWASY_SOFTWARE=1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#修改为以下内容，rviz与gazebo都能正常显示</span></span><br><span class="line"><span class="built_in">export</span> DISPLAY=localhost:0</span><br><span class="line"></span><br><span class="line"><span class="comment">#wq保存退出后</span></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></tbody></table></figure>
+<ol start="3">
+<li><p>打开XLaunch<br> <img src="/images/WSL%E5%AE%89%E8%A3%85ROS-melodic/03.png" alt="03"></p>
+<p><img src="/images/WSL%E5%AE%89%E8%A3%85ROS-melodic/04.png" alt="04"></p>
+</li>
+<li><p>启动rviz与小乌龟<br> <img src="/images/WSL%E5%AE%89%E8%A3%85ROS-melodic/05.png" alt="05"></p>
+<p><img src="/images/WSL%E5%AE%89%E8%A3%85ROS-melodic/06.png" alt="06"></p>
+</li>
+</ol>
+<p>注. 如果之前安装过Xming，可能会有冲突，卸载掉其中一个就好了</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>WSL</tag>
+        <tag>ROS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Solidworks模型导出urdf</title>
+    <url>/2021/08/14/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/</url>
+    <content><![CDATA[<blockquote>
+<p>环境说明：solidworks2020、Ubuntu18.04、ROS-melodic</p>
+</blockquote>
+<h1 id="一、-建模"><a href="#一、-建模" class="headerlink" title="一、 建模"></a>一、 建模</h1><p>建模时需注意以下几点</p>
+<ol>
+<li>机器人要有一个base_link，为其设置一个坐标原点。我的作图习惯是将base_link在装配时就定义到坐标原点，这样可以直接选用坐标原点设置为base_link的坐标原点。</li>
+<li>为需要旋转的部分设置一个旋转轴，例如下图中机器人的四个轮子和前面的挡板应该是要转动的，所以在其各自旋转轴中设置旋转轴。<br>
+<br>
+![01](/images/Solidworks模型导出urdf/01.png)
+<br>
+<br>
+
+</li>
+</ol>
+<h1 id="二、-插件安装"><a href="#二、-插件安装" class="headerlink" title="二、 插件安装"></a>二、 插件安装</h1><p><a href="https://github.com/ros/solidworks_urdf_exporter/releases">solidworks_urdf_exporter</a><br>下载其中exe文件安装即可</p>
+<h1 id="三、-solidwoks中导出urdf"><a href="#三、-solidwoks中导出urdf" class="headerlink" title="三、 solidwoks中导出urdf"></a>三、 solidwoks中导出urdf</h1><ol>
+<li>在<strong>工具-&gt;Tools-&gt;Export as URDF</strong>中打开刚才安装的sw2urdf工具。或者直接在右上角搜索框输入urdf，比较方便。</li>
+<li>设置base_link。修改途中与base_link相连link个数时会在下方创建Empty_link，由于我已经修改过了，所以名称不一样。</li>
+</ol>
+<p><img src="/images/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/02.png" alt="02"></p>
+<ol start="3">
+<li>设置每个单独的link。在上图框中五个link中选中就会进入每个单独link的设置过程。这里每个link设置就一样了，以一个轮子为例。</li>
+</ol>
+<p>这里的joint类型说明一下：</p>
+<ul>
+<li>revolute：旋转关节，可设定转动范围</li>
+<li>continuous：旋转关节，无位置限制</li>
+<li>prismatic：滑动关节，有位置限制</li>
+<li>fixed：虚拟关节，不可运动</li>
+<li>floating：六自由度关节</li>
+<li>planar：平面关节</li>
+</ul>
+<p><img src="/images/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/03.png" alt="03"></p>
+<ol start="4">
+<li>根据以上步骤设置完所有关节后，开始导出文件。选中下图框中Preview and Export，会自动计算数据，并生成预览。检查没问题后，按照引导导出文件就好。</li>
+</ol>
+<ul>
+<li><p><strong>命名时有个问题需要注意一下</strong>：这里的命名内容包括<strong>小写字母、下划线、数字</strong>，否则在ROS中需要改相当一部分内容的名字，这里最好一步到位。</p>
+</li>
+<li><p>其实这里的建模，最好不要把一些螺栓、螺钉、固定板等比较杂的零件放进去，计算速度会慢，找到主要的主体、传感器、轮子等就好。</p>
+</li>
+</ul>
+<p><img src="/images/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/04.png" alt="04"></p>
+<h1 id="四、-ros中显示"><a href="#四、-ros中显示" class="headerlink" title="四、 ros中显示"></a>四、 ros中显示</h1><ol>
+<li>创建工作空间</li>
+<li>将上一步solidworks插件生成的功能包复制到工作空间的src目录下。</li>
+<li>修改功能包的以下几个地方：<ul>
+<li>package.xml中的邮箱，可以设置个自己的</li>
+<li>display.launch中添加一行代码<code>&lt;node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher"&gt;</code>。<del>因为自动生成的launch文件使用joint_state_publisher_gui，在rviz中出现节点间没有坐标变换的情况</del>，如下图<br><img src="/images/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/05.png" alt="05"></li>
+</ul>
+</li>
+</ol>
+<p><strong>这里修正一下：</strong><br>joint_state_publisher_gui不是不发布坐标变换信息，而是又可能没有安装这个包<br><code>sudo apt-get install ros-melodic-joint-state-publisher-gui</code></p>
+<ol start="4">
+<li>最终使用roslaunch在rviz模型中显示，如下图。<br> <img src="/images/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/06.png" alt="06"></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+        <tag>Solidworks</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ROS主从网络初探</title>
+    <url>/2021/04/23/ROS/ROS%E4%B8%BB%E4%BB%8E%E7%BD%91%E7%BB%9C%E5%88%9D%E6%8E%A2/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在配置Jetson远程连接时看见了<a href="https://zhuanlan.zhihu.com/p/52005221">设置ROS主从网络和远程开发环境</a>，决定跟随大佬的脚步尝试一下。<br>由于我对此了解并不深入，所以大部分参照大佬的教程，文章的目的是为了记录自己的学习过程，并在以后重新配置的时候还可以参考</p>
+<h1 id="配置简介"><a href="#配置简介" class="headerlink" title="配置简介"></a>配置简介</h1><p>win10、VMware15pro、ubuntu18.04（虚拟机）、JetsonTX2（ubuntu18.04）</p>
+<h2 id="1-网络设置"><a href="#1-网络设置" class="headerlink" title="1. 网络设置"></a>1. 网络设置</h2><p>首先应将虚拟机与JetsonTX2连接到同一局域网，请参考<a href="https://blog.csdn.net/qq_45172156/article/details/114766376">虚拟机中连接外部无线网络</a></p>
+<h2 id="2-JetsonTX2与虚拟机时间同步"><a href="#2-JetsonTX2与虚拟机时间同步" class="headerlink" title="2.JetsonTX2与虚拟机时间同步"></a>2.JetsonTX2与虚拟机时间同步</h2><p>以下代码需在虚拟机与JetsonTX2中分别执行</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get install chrony</span><br><span class="line">sudo apt-get install ntpdate</span><br><span class="line"><span class="comment">#同步时间 </span></span><br><span class="line">sudo ntpdate ntp.ubuntu.com</span><br><span class="line"><span class="comment">#验证时间</span></span><br><span class="line">date</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="3-配置网络"><a href="#3-配置网络" class="headerlink" title="3.配置网络"></a>3.配置网络</h2><p>为方便使用，应将JetsonTX2设为主机，虚拟机中的ubuntu设为从机</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 查看各自IP与用户名，下文皆以本段中IP与用户名为例</span></span><br><span class="line">JetsonTX2：</span><br><span class="line">	IP：		192.168.43.143</span><br><span class="line">	Hostname：	nvidia</span><br><span class="line">ubuntu：</span><br><span class="line">	IP：		192.168.43.26</span><br><span class="line">	Hostname：	dream</span><br></pre></td></tr></tbody></table></figure>
+<p>在JetsonTX2中</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vim ~/.bashrc</span><br><span class="line"><span class="comment">#添加如下两行</span></span><br><span class="line"><span class="built_in">export</span> ROS_MASTER_URI=http://192.168.43.143:11311</span><br><span class="line"><span class="built_in">export</span> ROS_HOSTNAME=192.168.43.143</span><br><span class="line"></span><br><span class="line">sudo vim /etc/hosts</span><br><span class="line"><span class="comment">#增加如下两行</span></span><br><span class="line"><span class="comment">#注意IP与hostname间应用Tab键</span></span><br><span class="line">192.168.43.143	nvidia</span><br><span class="line">192.168.43.26	dream</span><br></pre></td></tr></tbody></table></figure>
+<p>在虚拟机中配置：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vim ~/.bashrc</span><br><span class="line"><span class="comment">#添加如下两行</span></span><br><span class="line"><span class="built_in">export</span> ROS_MASTER_URI=http://192.168.43.143:11311</span><br><span class="line"><span class="built_in">export</span> ROS_HOSTNAME=192.168.43.26</span><br><span class="line"></span><br><span class="line">sudo vim /etc/hosts</span><br><span class="line"><span class="comment">#增加如下两行</span></span><br><span class="line"><span class="comment">#注意IP与hostname间应用Tab键</span></span><br><span class="line">192.168.43.143	nvidia</span><br><span class="line">192.168.43.26	dream</span><br></pre></td></tr></tbody></table></figure>
+<p>重启JetsonTX2与虚拟机后即可生效</p>
+<h2 id="4-测试"><a href="#4-测试" class="headerlink" title="4.测试"></a>4.测试</h2><p>可以看到虚拟机中运行的roscore，在JetsonTX2中也可以查看到</p>
+<p><img src="/images/ROS%E4%B8%BB%E4%BB%8E%E7%BD%91%E7%BB%9C%E5%88%9D%E6%8E%A2/%E4%B8%BB%E4%BB%8E%E7%BD%91%E7%BB%9C.png" alt="主从网络"></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+        <tag>主从网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Clion中添加urdf文件类型</title>
+    <url>/2021/08/21/ROS/Clion%E4%B8%AD%E6%B7%BB%E5%8A%A0urdf%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<blockquote>
+<p>前言<br>JetBrains的软件表现一直比较不错，在用Clion开发stm32时也比较舒服。最近在做ROS开发时，尝试用Clion开发ROS，出现了识别不出urdf文件的错误。</p>
+</blockquote>
+<p><img src="/images/Clion%E4%B8%AD%E6%B7%BB%E5%8A%A0urdf%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B/01.png" alt="01"></p>
+<p>其他文件的识别是通过安装了插件后自动实现的，对urdf需要单独添加，语言高亮就没必要了，因为我是用solidworks导出的，所以能识别到就好。</p>
+<ol>
+<li><p>首先在设置中找到文件类型，并点击加号添加文件类型，如下图。<br><img src="/images/Clion%E4%B8%AD%E6%B7%BB%E5%8A%A0urdf%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B/02.png" alt="02"></p>
+</li>
+<li><p>点击加号后添加urdf文件内容，下图供参考<br><img src="/images/Clion%E4%B8%AD%E6%B7%BB%E5%8A%A0urdf%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B/03.png" alt="03"></p>
+</li>
+<li><p>在上一步完成后，在列表中找到urdf，按箭头顺序依次填写内容<br><img src="/images/Clion%E4%B8%AD%E6%B7%BB%E5%8A%A0urdf%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B/04.png" alt="04"></p>
+</li>
+<li><p>返回launch文件就能看到可以找到urdf文件了</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>武术擂台机器人</title>
+    <url>/2021/07/14/ROS/%E6%AD%A6%E6%9C%AF%E6%93%82%E5%8F%B0%E6%9C%BA%E5%99%A8%E4%BA%BA/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="5a420720549380f8b8c8a3b20c9a24415349f286ee8a50aa19cba1a91cdf4cee">e9bbe2abb72500b72821420641f55b9172ae560081c3094acf266437696e1c018ce5d148d2b970c2ffa3263bef855384098abe897ffef53a40d29366fc5f05b6fecf5205903a96936da6dc07120d2cd1218a91c44bf9e4d0119e12b6c66fd81e2bbb53571e6f61ab7e2c77e987917f29987e4fb4a083a4f3dcb97dcc68b6b42ee8d50581144d5e84c68d919f87ef30dc111d91e8b18c3defef5399009209313a4063ded8d5409ecaa143cc6a108c80c56c729bc6b9113e2d70b786b9a14269678ef40ce1f29e49d6e9c730b0b6f8ec01cc890e8ae4fe0d11ace7e843827e164916dc8172900839c0fa0ab114cbfae2f6241020c463a3fb1ef3d24e8c57c9e5a6e3bfe17f4ff97fe0761f0cfd94ed0aab3ecab84ef75ec9a07b926c815ed6e76377118abe2a03a73cc12b25e619d87e4989ccfc026b51f6c436e872d605fe34ea02eaa953637c310a1de78b03c694b2ccb0dfa8f290be35e955f5d2791ca0c8d3bd3c26a5717d3b1dd2847bb825b149999ab425e5392cf281e454e7d833f90884e61c9fc4c627a1ea555c5cd5be611337a6d6029dbf39b2ddba6290f85f7461c7174decdf35466822057e7b6b5b86713bed3198bb897b7b921368d84789fbc37afdab542cd4e49ca23f035733d0d6c24c59ad18fc9f68022f029e0bc8dfd6d9d4b6c0dc663e800f73f710b9471ef102558bd9334afcfa8701538987ec0e5f42a6a3b78a4f637259b2a5a1cc1d8bcb883cfe88b46d9b44caa76d5b609d033ff2c8a048544ee31ce436a3d24004b0f12d3e036e4ec44af22e74176e169e075965a9d029030cc889be516b80a908608d191973053b9b467ef51410fc0c74190d6bf2df0937d00d9aa9a9bb989b810403fc7c95d76e7f93232a0aebc83805ead9029b6a8faf6fb1a33163c06060149359605a1aae063a6279720a024b3290922934ab1c1fafb163a611f2d65b42804a40547f262158293953e280732482ffa2930860a59514a3b3c35dbcccc0001be2d326d89906a224bc08fd4b2051820b58b2e6caf5c7f430c72d8e84eb5c09f18a848492f44a437b2687ba40ae512871f827c2e022716526bb1046e08101446da43b680d7e5ea56664ebbb98efedf52e361ace8a63988ba100f1e08c6cccd0b567dbf74af4a51b7d15052b2ab5f66b027e6213bc4143122e305fd1b58dc1e4e89e3b8003029fddc9f4dd3b6c12afe50313c54c092bb1e30bd8f32507e5f2cade50ea48a028d7f3aaa2410f00f16990f5e44dff922018250232eaa0bf9c87271b11f465e742d04eb1f6f66f24f088fa27cfd3097b3783a928de94ffa960cd783484afeb7b6147b6de8960ddbfa71df20ba17ced9486482fba2b7c7776246e6e13971af8e09dc911c530e5975b791d93dbfc8b6bbc85382813cb26a4877c0df8c0f18e1a664dcadc746deb80bb644953e68d4cff28938e8b04ffd5e41fea5a74f796f1f99f0872691f49fb9bce276aac07dd9461bf758a4579673ae2ffb4fa9c2fa48f9527cc3175d90958c66e450fbf08e32543f039c5ff6448feaeacfb803f24facc285c6fb5242583cac3e3ec30f75a44e12fc6bd8799b4e7fff3a242afcc69d4068bf943b06722dee20e008139d153c11f816ab17757935943accf78258560372cc415286a156ee9058bcf152e0e3af7b7056fbbb3e4b31768203b70f6a1d7d7f4380a6582f87e45b7af1568a5b8ac53a4f4b42d294f03c36414e0710b44ebc63445b572fbb23dbc04048e3277da5388c5c971ab4ba331e1bc492b57d6011be2b8925c2df808a7288dffe54039e61722aa1ae78e0c1068d080e4b0c0e0f6ac149469d2505091eacb0bc17909a42d9d7820df2edcee0db1eccef4e9a273929cf0f98aaa847ed90f5db7f1d8f9d3f0625cc19351bb1ae1fa3fd82711f3fcbd8bcfbf81c90780cf2707e6acfa7c450a55e9f5b86512a64e5a28929d0a9e27b8f8c9a3bd22ab11b2b4ce1843383a467aa7076fa1d064d360c53ae86c04287645cd811379f85fd8158c00a82ce8ee6d7fffb4c1637a2db58a500ab5962b20b3ab95b563b630b2e54b61dead7a3564acd526fbe331c3996d1ac6e36ed01cda38f999195ac1128639c0cd5efd2e1977f42ab5d62f9ad610b8445a66b5d58668f9f172e730d57416d9c863798d42623cdf10493935baebd7d13042a6eb5105e12a9613383b94c4c71bbc2258aa3590f00470bac15cc8aced558e7cca2bf06343b53c3bd87588e193239a98366e1344f42217a379398090427e4b11696a074d5c042ac5d3a4c49cac541c718153b514912a03a8a100727791f85a48f7844c585a5853c399ac4984ea4ae996da369bd8dd4599911677adf849fa93cdde018a408d4b715c4dc69195d0423ec12e622273e540dad04fd994680d848cdda6318ffc7bc7478b7793aa93bb5f79a4abdb54a88d23969eee4ab1e93f3efc1e0905ac2b835b3ba24d9d5d16395a7e09ea6b5099e5d261ccc9d2359b108884199a4f1966816a07211eb594b5f234ec7f83838840112d3f6bb647cc250832232737472617a9e92a043808d204c5cda901f58f0354a9da506ab0eb45840df4200c403f526d892db49464c260fc360fdb49fe3f355f9eb917a260dee6f03836ccd8f69a956ec0425c630485a3c7d422caccfa078df665ea9e61d7cd6edf838c50aa0eaec6ccceecb18577673a120211dd7c60a377c162d11c4f72f2754891aed5acbfd8f7c7bc0b9d49f42712860e81e6a6583bc125aa0e4884bd2290c923986cfe60104a08fd55e490fc904e7ff2785df1a9a73d624ccb0b341a1f1c4863c685ef76d1f01b0c3c4a6685f631c7382d3359ee85a86095277b07ebdd78dc2d5807aab977f7a4a0784053d7ad31b6cb3cb709a1b52828b8b3580cf539be254bcb30f51d54ea0d6f1ab284e805b400672107ee455f331b0be29ebca6c8f38cf7ebd83847c78a699fe091a80de94af3b529cebef913ad60ff04f91b117f7ecf70a08d370d39323eed328ce7cafcc0c03e67ad23c6c69ddc91c1e15b227447cb957bc90598ddf5de959af124535e96478cb0e5de9ad7edb82835647bec106a2a52be62e9b5e96a1f7a2d4a59400d20e459389e6271556bce9bafaa138a91c1ae25a821b0fe0270f7e3f94118bb3fc47c7ed50b36f8c2168ec5540e6d51816f3cb37ed280e66ab2336aeb3f5bb4b5bfd668da2a20d166532800f23916597f670968ea7ff9d5c6e7fe089eded907bbc381f2d3ef634a6a51d24eff24f920b74978f8baea945a7bc2e62e3eecceac74c45dd7a164875ef265b7934b3426674d9bd28d6c95c8d9f14811a6d7b756bcc51b7d9ee50fc20ea6e8eccfd1e66cf039f44451020e75d7fe9ac28578c6a91e18bcac86d8738f6da6c90d9ae5b653e26a11083b00f9dee9a94eae84916ec2b13bd369d33a71046ca54a55c39a5bf39687328d84833827fa2a5d02b435c63844590f865f0bbab931ce8695844a959c699a6538eb6bccad492f4aa08f55c129c1ae55784ff693d42d4a1eb9dda7d4d8788323700f522fcb3aba9835d744bcbc44b252012700a789d5988b2decc67e80188dc38fd5c7063a9940beb7821df5ebf30c3088cb5781f09321d3f175ac26d81ca58be6b6c396f0f8ffcb5ebbed2dddf802c07695426df5f3e712a35c2c288b6c605b36d56c6c631491e4c1a8aab0704d553ccfdc1800bba0059df2d68bf19cc4ea86e3036e166070767fcf1cf8554d81024ba915bd47ddc6405665858f8e2ce90293415ce24ba274bd5ca31a7aef823ac98eec2254ddb32ddd14d7f4e6a0498fc11f705d5651ed151488a7f85efec044e63cbb3955c8dcc383d24397d7ece410b1a2ec70831f5226c1538d86ab1ded6b8891145bb5cd333391944de4eee19ea64d1688774ae1b9795065836f3860182be73337f31cf3962173b8d7d2918282614d857f647e2d3802a59a0bc9ed372e2e605a5c2da8d9cc2010deb8c0bcf563091a0b4a24367e8e0579a1e754248e5aa29aa0a9de143de4d4adc6dbf0f18e1917a30adbb7d47fdaf57c96b3c3d147ab026ca3acffcebbdb747f814fccd10e86f5f1cb720ea8abdb2ce9b27f2e9af623fa861eeec164894838ed1393402988b437b04ed85686fac4c3eff82ae7e6a09c35671f0de591f16e3a38529ba678899948f72f30a2dbfef35c8be2063194048329aa805d3e05210187f7ce772f53c9d7132db331d92f1a36cbbc4a5d96af42b85b10c457bb3911ed8bc0a30fb669c7155188affe14d70b02ef29aa5244b3afb5180b40f2fad4c6c99c256abd998a00d95e3863f42fda4cea77ee12b3be0f0a207c8a889788c15378ff67b0c882209c095644d2789f40db0e53e8eaf2d878e4cb87b0c3554956cd0880adc62065d42bf4b0997f06ae417b716dde3509c507c59fa9a0f0e69b43f1a6642c15cb85202d597a94b2606331a00fa3e43de08cf5a8292146c80cbe04515f3d8bb631e0dcdc4dc98b2be527921d8d7c7f04c39bb70ac19253de5813e2a2952bc9f21fa441603e9938456ff480a79f15328bdf7b436fab291de92f4eac9aa8783e5ffff2b6fa55fe9b8382690cb40667f0c061df4754bced89ae43fc8986f24b2b5679754de1569b8d49d32c62519e18c4a8c32088c462e75c7d6df76ed7df9af471662196d87b0e2a9f6f9f960744c4f01fb4508d32b26289b8c747123249985d891ce2dc73155d188fbdffa414e159d279f318097e043fd9116d1ddaf83b9de389bc5ac0a4582ab0c7bc0b5c7613dd674fea38a153aff08fc5b8543ee89b022f6dd8ea178c6d3a8c6cc86808b8dcf0bd8b79e90ff956118ee54aeed72ace8567249ea6b743efcdaaf1c0715060917136d0106e993707264ee94e61d67c09d42687a8c8d0bf193e5aae64af7f4bb89a63d29c7f7633bc9dee2ce71553d6fb50a3764a582c55485e0c6faf093e81686b28744412790316df745024294d8d7fcbc6dabeeb0f546e041aaf8fd405ca26c1b881c31157fc68142f1edaea952931412a6fa27d653c7c3e2349e138c45dfa28d2cb5e485abc72d363dbe7e4d0f9f2cb10fe7e43a57242f0d44b3ae8b978d454beebd00fbab5d844ac2cb5d6622cbc7fac943ee210afd10f79ced29b27ed8e05d299605f64246256b4d90de868c0661d0fb10c5c842ca5d3dbe82647bd7e429fcf45554480602d9e568f72ef80ea2c0e248e4dac6a66fb51401af5be0b20ada7ef580b348d1b67d67008edcb9a7677744a16a6cc2b4f15ae83e2706de8cd47bd32f9f04058ccf28c4cf7066301da585e6737f46e9db45389b8bb1e7b4034b7ca69575b01cb24e31aa158dad608e8231ce016e83e30b28313ce0638917e4977887fbf7b57641166690959eddb169e7229febe920f2d796179fee1f3a1678c11660ab93e33eb844c22a484156b7c8c2d5153ebdb61c0350e085f93cefba648a551ec255456e47924e196031b5f46c6c9060fb1281e916d553fe8488cf234b4d79a77f5e3702140746ba9985185afcfc28156b14a4e21802c8ed4b195b5be96b20315c5e3f15e14e82202b51ebbb2f2afcafe60235660b801ab0169a45c957eebaee98300ceb7414a32814a8d83832c09859ef0c22570fded3d693142b28839006503889dc6e3af653b388ed788ef52178ce6bf873e5a7bb74d74578f2e54375ca4766d2107b2f057945e8d919ceb8199798e5f31b0fef98c0ab2b6398132287e2e4fdb0acbebe13f5998bc48b981e99fdfc4842fd6b94939f324235b5d2c771b09b37d843e7a28d7936ffe8d35a5354538b7a99130a8c1d003b313374393674a8a6e3a30e9143952cadfccadd589fc535b3044e562eb433d1a9ebe638a9f2e55b258b2ef8da20339b8cde150b57d98ee2ceaccc889f2113d5d2629b2312ea5630c7af383962dbb29451c077398d85964045d001fb47c85f3d56abca9074216abbd0e0b3e9db1ef676ae243f6d08d57573eb92a69f6c80a2894c0741d5adf34256224dfddcdb807f402239a2e44580ae1df525556d69610e3b4cac0161e7f3ba9ab5d9db5a9abc44f332485ea1a62988dad80cd3696df5b5896be72397cffca3dfda6d5395558d9d1354efed7975e4643b34fb008abef55e1a19717070bfb82f5ac9826e0e7804bd37c865eeae6173267ba7c0b393abc5caae7328949635aa92ee23af7b19ba3c3457ad6b405b9c9f1953833587c14c8145cffc17cfb36fe644dcb96c6abc51ee92824ea467ae327fdd8c3d736bf2d5535e57db81de39643df1995118e28c9c70fa12b4c8842aedc025b0c11ede130620389928cc7f7cc7b3605bd910f5f4c31df21688720a8dc6908804ead309acbabdfa2da0a2debb4186c4587a9e02f6d64857c5bb08654ef8e7bd7e14cd4b73ba01fabd3b2ec4ade3c804e2d78b383bfa92dd4ba6cc48a4136bad293d5b99ace8ff3d35ffff6d1ff8bc6cc9eb6487acf1cd988ef54b1c87061bf789a0debf363f858b83c946df4c06674e6dab724fb50e3922b4b47234aa0250084d87450cf693113a64d9c983ebd7d982c73d4c5d612816cb390245558abfa39d29a15918d7dea1e4d387a3aaa703658f2ba6842f3fed6037fb6a1bcd649bdbaabf226f7de95a8c97bfab9fa890c40d342e873184126167db486473ab2b51504f0511a2ca3e09fe453c4cc90883dada5ab366553b0cfc27d4e7770cca2835efd33cd595043129ed485b094bb1dfc1b340cae2f321f250e4c7722baa6cc1a63abe7ea05d403ab71e59ac4fb87ff2a7b701ca5225eb7efac824caf753fa8a4f78e258afbffceea65c150a1868c10ff6c30989936760cb08f2cf6e553d15661b94d9dec30e76f8bee2a53a81a161a967cace4139e7a0626efac9c2acf53c4a9e83eed8e915dbe51a6d934e62032a44dae3634700eb066a829c865722e23569160e30efe57a85d5db3c22f715a3680ef738873fd6357b3197cef548abaed62dceff20fa79e92e6e11f11c9c870ab0a7d0e0c09ce9c774ac4927e8aae68db7e70bc0659d8db005f420da912373a8eac05fc6ffbfc6378496bc3fc8337d145559b9695d39735292499c2478eeb02db28eba1bf81fabc7a178c2144469775569db5093ce6ede6eba1e1fbf434ae95d2daf514cbcaf05c448632a87883526219c7640777766ca2617d81fa1b6af4ef593962c8b9a9cd72a33b07698668846166856dcbacc6f05ba2ad1c0bd3dccfd6f033b655ffc89c9a77f16d8a4da90df74adef26a308064c5c7bdb0fe76ee382443cbb017190d38041261c143716c28d60137561bfc8f88b189ee3f5a6044f220353c06d4dcb624d931569537a689f7c32fd25cdf4621aaf3dcd87b8cb468c1d8296e037cab7dae0cf2438a14018be90349fe22e96b3dbd84d94bba4c0defa6c2759f726567c6297f55118ce204cd256496bb7ead6882fe34b82576f598291c1b04382bc9494c93031d6145a65798aa4464c038049e06b3f24174b1c978fa96776e241976fb4f954d633754d01986c91c1f0839bf08b630f08c1b957a2af57c2b77587a7476c39ea0d8b66c0e76c7b47d109e4fc1a9f09a095e0d9c0e45e273795e3413f845d4c6b9340c642613487ea68a1307fcf11f5214e0b98fefa248f57cfa052af9f1c91c1bfb8a64e4031151cfe57b8d6b1c8fcc280185dea05605febfac643ba4731030b3c959b1df2691b5122c9c0f5dff632f2ddcc3722a0a7901415ae9eeb351b3f8a85d87e50c2f72c6d91f0bc9b060db6a3117a208f94ef26b9298909b19ddc6ef50e028f7ccc801178c4512d6d2f6e3d406a5deecac8044c379243a382e6fe917d6c02e9d4d6b86d6c0fe1583047b337ddfc4a1546cc1db9fac41b7172e84bba4e3558b535e3a09c8bcf07e83a2fbcb0af52e5d1a6f814f7602106d4078d416e48e68825889f3932e7fae92609fb4fa128fa7355c332d130b47d6426fa3d73e450e18c4194d2d51186836f93e16550d3694adf322caf8a2bed5353f54b7422c341b637baabfa6c94ddf85819d910dce88f61c8ac573ab47c4067a8121d554fc0604aaf795799a5ed071fb4dd86c1bbd7d5af22c2261081c76cc8734fe70cd15e7f37b61ed775b140837443b8ac60ac665d0ed50b2738ec6d3b736fe76778e9fb3e5fa1a754f6716f3719f0002414da12eed6dc9794fbb89b997c2f4e8dece9cec3a8f734e4b48aec20900c57c992a8d048f6b632c4d5b52ee0285da63bb57523c59f9511d1d670d8adc81d4d8263c8411baa4e1b5a9ab42579e645eefd12a76a4c5f00b8e537c5504593b8c171f79850a890269f35cda1d56931984d4fa80fe5b2d34c0bd1540a64067e06cc562a76527675d0fadb3e0144ebd0bff490bd3bf6e94746cdc38acc35e29bcb4efb46acb4a8f4e35226fd2f89365fa0d741a56d78c4bb167195218bd74094ef2ce6bda97eb083150305024fe2e441669820458abd146b8daabcff794ddf56c40947990d2b0e63c7ca4fa52eee7409fad2ace69fa5cf09b7ed3c510fcce30a2854757007ca8cf5908b2649ecf01a8dccaafdc5b0d9963900d26fab3da94d19ad084216c65e07700f0e9753f5177ea55c1e64d7383e09c9acd023cc97971ef220465721a7d066d610ce4827f98a4984a60</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">请输入密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Win10在非系统盘安装WSL(ubuntu18.04)</title>
+    <url>/2021/04/23/Linux/Win10%E5%9C%A8%E9%9D%9E%E7%B3%BB%E7%BB%9F%E7%9B%98%E5%AE%89%E8%A3%85WSL-ubuntu18-04/</url>
+    <content><![CDATA[<h1 id="注：安装为WSL1，后续将对其升级"><a href="#注：安装为WSL1，后续将对其升级" class="headerlink" title="注：安装为WSL1，后续将对其升级"></a>注：安装为WSL1，后续将对其升级</h1><h1 id="在Windows中修改配置"><a href="#在Windows中修改配置" class="headerlink" title="在Windows中修改配置"></a>在Windows中修改配置</h1><ol>
+<li>在设置中打开  “开发人员模式”</li>
+</ol>
+<p><img src="/images/Win10%E5%9C%A8%E9%9D%9E%E7%B3%BB%E7%BB%9F%E7%9B%98%E5%AE%89%E8%A3%85WSL-ubuntu18-04/%E8%AE%BE%E7%BD%AE.png" alt="设置"></p>
+<ol start="2">
+<li>在控制面板中打开程序与功能，打开  “应用或关闭Windows功能”，选择“适用于Linux的Windows子系统“并重启。</li>
+</ol>
+<p><img src="/images/Win10%E5%9C%A8%E9%9D%9E%E7%B3%BB%E7%BB%9F%E7%9B%98%E5%AE%89%E8%A3%85WSL-ubuntu18-04/%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF.png" alt="控制面板"></p>
+<h1 id="下载子系统安装包"><a href="#下载子系统安装包" class="headerlink" title="下载子系统安装包"></a>下载子系统安装包</h1><p>选择喜欢的安装包下载到非系统盘的位置。<br>建议在安装软件的分区内新建Ubuntu文件夹，并下载到里面，因为后续将会安装在这个文件夹。</p>
+<p><a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-manual">手动下载适用于 Linux 的 Windows 子系统发行版包</a></p>
+<h1 id="安装并启动"><a href="#安装并启动" class="headerlink" title="安装并启动"></a>安装并启动</h1><p>找到刚才的文件夹，将下载好的安装包后缀名改为zip，并解压。<br>解压后运行ubuntu18.04.exe，安装完成后就可以设置用户名与密码。<br><img src="/images/Win10%E5%9C%A8%E9%9D%9E%E7%B3%BB%E7%BB%9F%E7%9B%98%E5%AE%89%E8%A3%85WSL-ubuntu18-04/%E7%BB%93%E6%9E%8401.png" alt="结构01"></p>
+<h1 id="安装后的结构"><a href="#安装后的结构" class="headerlink" title="安装后的结构"></a>安装后的结构</h1><p>注：升级到wsl2后目录结构将有所变化<br><img src="/images/Win10%E5%9C%A8%E9%9D%9E%E7%B3%BB%E7%BB%9F%E7%9B%98%E5%AE%89%E8%A3%85WSL-ubuntu18-04/%E7%BB%93%E6%9E%8402.png" alt="结构02"></p>
+<p><img src="/images/Win10%E5%9C%A8%E9%9D%9E%E7%B3%BB%E7%BB%9F%E7%9B%98%E5%AE%89%E8%A3%85WSL-ubuntu18-04/%E7%BB%93%E6%9E%8403.png" alt="结构03"></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>WSL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JetsonTX2连接windows热点</title>
+    <url>/2021/07/21/Linux/JetsonTX2%E8%BF%9E%E6%8E%A55GWIFI/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>windows主机刚换了AX200网卡，设置无线模式连接5GHz频段后，网速终于赶上了校园网中的前列。<br>这里发现个新问题，<strong>windows连接5GHz的无线网，开启的热点也是5GHz。</strong><br>在使用JetsonTX2的时候，发现找不到5GHz的热点。</p>
+<h1 id="JetsonTX2网卡"><a href="#JetsonTX2网卡" class="headerlink" title="JetsonTX2网卡"></a>JetsonTX2网卡</h1><p>一开始以为JetsonTX2不支持5GHz的无线网，好奇的是这么高端的开发板会不支持5G？<br><br><br><br><br>查了下技术手册，发现JetsonTX2支持连接到802.11acWi-Fi，也就是透过5GHz频带提供高通量的无线局域网（WLAN），<strong>俗称5G WiFi （5th Generation of Wi-Fi）</strong>。理论上它能够提供最少1Gbps带宽进行多站式无线局域网通信，或是最少500Mbps的单一连线传输带宽。</p>
+<h1 id="查看JetsonTX2可用信道"><a href="#查看JetsonTX2可用信道" class="headerlink" title="查看JetsonTX2可用信道"></a>查看JetsonTX2可用信道</h1><p>可以看到，可用信道为36、40、44、48、52、56、60、64</p>
+<p><img src="/images/JetsonTX2%E8%BF%9E%E6%8E%A55GWIFI/01.png" alt="01"></p>
+<h1 id="查看当前网络信道"><a href="#查看当前网络信道" class="headerlink" title="查看当前网络信道"></a>查看当前网络信道</h1><p>可以看到，在5.8GHz下有windows热点的信号，正好与JetsonTX2的可用信道避开。<br>也就是说，如果在JetsonTX2上设置可以连接149信道，就能使用windows的热点了。</p>
+<p><img src="/images/JetsonTX2%E8%BF%9E%E6%8E%A55GWIFI/02.jpg" alt="02"></p>
+<h1 id="修改JetsonTX2的信道"><a href="#修改JetsonTX2的信道" class="headerlink" title="修改JetsonTX2的信道"></a>修改JetsonTX2的信道</h1><p>修改WIFI国家码为支持149以上信道的国家<br><img src="/images/JetsonTX2%E8%BF%9E%E6%8E%A55GWIFI/03.png" alt="03"></p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo iw reg <span class="built_in">set</span> CN</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="经过以上修改，理论上应该出现149及以上信道，但JetsonTX2中并未出现"><a href="#经过以上修改，理论上应该出现149及以上信道，但JetsonTX2中并未出现" class="headerlink" title="经过以上修改，理论上应该出现149及以上信道，但JetsonTX2中并未出现"></a>经过以上修改，理论上应该出现149及以上信道，但JetsonTX2中并未出现</h1><h1 id="设置windows热点频段"><a href="#设置windows热点频段" class="headerlink" title="设置windows热点频段"></a>设置windows热点频段</h1><p>原来AX200的网卡可设置双频带，这种模式下可以选择热点的频段。<br>在设备管理器中选中网卡属性，设置无线模式为双频带</p>
+<p><img src="/images/JetsonTX2%E8%BF%9E%E6%8E%A55GWIFI/04.png" alt="04"></p>
+<p><img src="/images/JetsonTX2%E8%BF%9E%E6%8E%A55GWIFI/05.png" alt="05"></p>
+<p><img src="/images/JetsonTX2%E8%BF%9E%E6%8E%A55GWIFI/06.png" alt="06"></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>JetsonTX2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Arm架构ubuntu18.04安装Archiconda &amp; conda命令</title>
+    <url>/2021/04/22/Linux/Arm%E6%9E%B6%E6%9E%84ubuntu18-04%E5%AE%89%E8%A3%85Archiconda/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在ubuntu中的学习过程，希望有一些单独的隔离环境使用Python，避免互相产生干扰。<br>由于JetsonTX2属于ARM架构，所以不能使用Anaconda。<br><strong>Archiconda</strong>是将conda移植到aarch64平台中的工具，操作和Anaconda类似。</p>
+<h1 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h1><h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1. 下载"></a>1. 下载</h2><p>选择适当的版本下载 <a href="https://github.com/Archiconda/build-tools/releases">Archiconda下载地址</a></p>
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h2><p>在终端中输入</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">bash ~/Downloads/Archiconda3-0.2.3-Linux-aarch64.sh</span><br></pre></td></tr></tbody></table></figure>
+<p>过程中按问题选择即可，以下为安装成功截图</p>
+<p><img src="/images/Arm%E6%9E%B6%E6%9E%84ubuntu18-04%E5%AE%89%E8%A3%85Archiconda/01.jpg" alt="01"></p>
+<h2 id="3-测试"><a href="#3-测试" class="headerlink" title="3. 测试"></a>3. 测试</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">conda --version</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h1><ol>
+<li>环境操作</li>
+</ol>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">#创建环境</span></span><br><span class="line">conda create --name env_name python=2.7</span><br><span class="line">conda create --name env_name python=3</span><br><span class="line">conda create --name env_name python=3.5</span><br><span class="line"></span><br><span class="line">conda create --name your_env_name python=3.5 numpy scipy</span><br><span class="line"></span><br><span class="line"><span class="comment">#列举环境</span></span><br><span class="line">conda env list</span><br><span class="line"></span><br><span class="line"><span class="comment">#进入环境</span></span><br><span class="line">activate your_env_name</span><br><span class="line"></span><br><span class="line"><span class="comment">#退出环境</span></span><br><span class="line">deactivate</span><br><span class="line"></span><br><span class="line"><span class="comment">#删除环境</span></span><br><span class="line">conda remove --name your_env_name --all</span><br><span class="line"></span><br><span class="line"><span class="comment">#复制环境</span></span><br><span class="line">conda create --name new_env_name --<span class="built_in">clone</span> old_env_name </span><br></pre></td></tr></tbody></table></figure>
+<ol start="2">
+<li>环境中的包</li>
+</ol>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">conda list</span><br><span class="line"><span class="comment">#列举某一个环境中的包</span></span><br><span class="line">conda list -n your_env_name</span><br><span class="line"></span><br><span class="line"><span class="comment">#为某一个环境安装包</span></span><br><span class="line">conda install -n env_name package_name</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>ubuntu18.04</tag>
+        <tag>JetsonTX2</tag>
+        <tag>Archiconda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo博客使用gitalk评论</title>
+    <url>/2021/10/10/hexo/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8gitalk%E8%AF%84%E8%AE%BA/</url>
+    <content><![CDATA[<h1 id="创建评论系统的repository"><a href="#创建评论系统的repository" class="headerlink" title="创建评论系统的repository"></a>创建评论系统的repository</h1>
+
+<h1 id="在GitHub上注册新应用"><a href="#在GitHub上注册新应用" class="headerlink" title="在GitHub上注册新应用"></a>在GitHub上注册新应用</h1><p><a href="https://github.com/settings/applications/new">应用注册界面</a></p>
+<p><img src="/images/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8gitalk%E8%AF%84%E8%AE%BA/01.png" alt="01"></p>
+<p>在注册结束后，可以看到如下信息</p>
+<p><img src="/images/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8gitalk%E8%AF%84%E8%AE%BA/02.png" alt="02"></p>
+<p><img src="/images/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8gitalk%E8%AF%84%E8%AE%BA/03-163724456934516.png" alt="03"></p>
+<h1 id="在hexo博客中填写gitalk信息"><a href="#在hexo博客中填写gitalk信息" class="headerlink" title="在hexo博客中填写gitalk信息"></a>在hexo博客中填写gitalk信息</h1><p>将上面的Client ID和Client secrets及其他信息填入到博客主题的信息设置中</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">gitalk:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span> <span class="comment"># true</span></span><br><span class="line">  clientID:  <span class="comment"># GitHub Application Client ID</span></span><br><span class="line">  clientSecret:  <span class="comment"># Client Secret</span></span><br><span class="line">  repo: Blog_comments  <span class="comment"># Repository name</span></span><br><span class="line">  owner: xin-Dream <span class="comment"># GitHub ID</span></span><br><span class="line">  admin: xin-Dream <span class="comment"># GitHub ID</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>使用gitalk评论系统后，发布的文章需要由管理者进入初始化后才能开启评论。</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在ipad上写博客</title>
+    <url>/2021/07/18/hexo/%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<blockquote>
+<p>实测后，发现作为应急或打发时间用还是可以的，博客完全交给ipad可能会把人逼疯。</p>
+</blockquote>
+<h1 id="PPhub"><a href="#PPhub" class="headerlink" title="PPhub"></a>PPhub</h1><p>软件付费¥12<br>用来浏览github还是不错的，直接使用github也是可以的</p>
+<p><img src="/images/%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/01.PNG" alt="01">!<a href="%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/02.PNG">02</a><img src="/images/%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/02.PNG" alt="02"></p>
+<h1 id="Working-Copy"><a href="#Working-Copy" class="headerlink" title="Working Copy"></a>Working Copy</h1><blockquote>
+<p>在这个软件里可以实现git clone、pull、commit等，push需要解锁高级版</p>
+</blockquote>
+<p>在clone repository的时候，建议使用ssh方式，在github上验证一下，这样可以通过push</p>
+<p>使用http clone的在push的时候会出错</p>
+<p><img src="/images/%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/03.PNG" alt="03"></p>
+<p>在编辑完成后，可以看到changes，有前后对比，修改后可以本地commit</p>
+<p><img src="/images/%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/04.PNG" alt="04"></p>
+<p><img src="/images/%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/05.PNG" alt="05"></p>
+<p>写完后只能推送到github，并不能发布博客，发布方法待探索……</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用utools快速新建hexo博客</title>
+    <url>/2021/08/06/hexo/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<blockquote>
+<p><a href="https://u.tools/">utools下载地址</a><br>相关utools的使用不具体描述</p>
+</blockquote>
+<h1 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h1><p><img src="/images/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/01.png" alt="01"></p>
+<p><img src="/images/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/02.png" alt="02"></p>
+<h1 id="快捷命令创建"><a href="#快捷命令创建" class="headerlink" title="快捷命令创建"></a>快捷命令创建</h1><p><br><img src="/images/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/03.png" alt="03"><br><br><br>这里设置的关键字，表示我们在唤出utools后，输入这个关键字即可执行这个快捷命令<br><br><br><br><br><img src="/images/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/04.png" alt="04"></p>
+<h1 id="设置全局快捷键"><a href="#设置全局快捷键" class="headerlink" title="设置全局快捷键"></a>设置全局快捷键</h1><p>完成以上操作后，我们在utools中输入new，然后输入要创建的文章的名称就能在相应的posts目录下生成新的文章。</p>
+<p>设置全局快捷键，可以让我们在任意时刻，通过快捷键直接进入输入文章名的步骤。</p>
+<p><img src="/images/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/05.png" alt="05"></p>
+<h1 id="插入固定文本"><a href="#插入固定文本" class="headerlink" title="插入固定文本"></a>插入固定文本</h1><p>写文章或写程序时，有一部分内容是完全一样的，比如插入图片、引用本地其他文章等。可以通过备忘快贴这个插件实现。</p>
+<p><img src="/images/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/06.png" alt="06"></p>
+<p>同理，在设置好全局快捷键后，就可以直接快捷键粘贴固定内容</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>桌面工作台计划</title>
+    <url>/2021/11/07/%E6%9D%82%E9%A1%B9/%E6%A1%8C%E9%9D%A2%E5%B7%A5%E4%BD%9C%E5%8F%B0%E8%AE%A1%E5%88%92/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>杂项</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>在word中插入代码</title>
+    <url>/2021/08/04/%E6%9D%82%E9%A1%B9/%E5%9C%A8word%E4%B8%AD%E6%8F%92%E5%85%A5%E4%BB%A3%E7%A0%81/</url>
+    <content><![CDATA[<p><a href="http://www.codeinword.com/">CodeInWord</a></p>
+<p>将代码复制到左侧，选择对应的语言，点击高亮后，将右侧内容直接复制到word中即可。<br>注意复制时选择源格式。</p>
+<p><img src="/images/%E5%9C%A8word%E4%B8%AD%E6%8F%92%E5%85%A5%E4%BB%A3%E7%A0%81/01.png" alt="01"></p>
+]]></content>
+      <categories>
+        <category>杂项</category>
+      </categories>
+      <tags>
+        <tag>word</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>文献管理软件zotero</title>
     <url>/2021/10/29/%E6%9D%82%E9%A1%B9/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6zotero/</url>
-    <content><![CDATA[<p>[TOC]</p>
-<h1 id="视频演示"><a href="#视频演示" class="headerlink" title="视频演示"></a>视频演示</h1><iframe src="//player.bilibili.com/player.html?aid=764323062&amp;bvid=BV1Br4y1k7j7&amp;cid=445025775&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height="400" width="800"> </iframe>
+    <content><![CDATA[<h1 id="视频演示"><a href="#视频演示" class="headerlink" title="视频演示"></a>视频演示</h1><iframe src="//player.bilibili.com/player.html?aid=764323062&amp;bvid=BV1Br4y1k7j7&amp;cid=445025775&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height="400" width="800"> </iframe>
 
 <blockquote>
 <p>视频中展示的为最终的使用流程：</p>
@@ -269,26 +730,143 @@
       </tags>
   </entry>
   <entry>
-    <title>武术擂台机器人</title>
-    <url>/2021/07/14/ROS/%E6%AD%A6%E6%9C%AF%E6%93%82%E5%8F%B0%E6%9C%BA%E5%99%A8%E4%BA%BA/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="7ffec3aed8e01704395cc078fef6948162989603fa41fb7d4d4820e2b5d51ecb">e9bbe2abb72500b72821420641f55b9172ae560081c3094acf266437696e1c018ce5d148d2b970c2ffa3263bef855384098abe897ffef53a40d29366fc5f05b6fecf5205903a96936da6dc07120d2cd1218a91c44bf9e4d0119e12b6c66fd81e2bbb53571e6f61ab7e2c77e987917f29987e4fb4a083a4f3dcb97dcc68b6b42ee8d50581144d5e84c68d919f87ef30dc111d91e8b18c3defef5399009209313a4063ded8d5409ecaa143cc6a108c80c56c729bc6b9113e2d70b786b9a14269678ef40ce1f29e49d6e9c730b0b6f8ec01cc890e8ae4fe0d11ace7e843827e164916dc8172900839c0fa0ab114cbfae2f6241020c463a3fb1ef3d24e8c57c9e5a6e3bfe17f4ff97fe0761f0cfd94ed0aab3ecab84ef75ec9a07b926c815ed6e76377118abe2a03a73cc12b25e619d87e4989ccfc026b51f6c436e872d605fe34ea02eaa953637c310a1de78b03c694b2ccb0dfa8f290be35e955f5d2791ca0c8d3bd3c26a5717d3b1dd2847bb825b149999ab425e5392cf281e454e7d833f90884e61c9fc4c627a1ea555c5cd5be611337a6d6029dbf39b2ddba6290f85f7461c7174decdf35466822057e7b6b5b86713bed3198bb897b7b921368d84789fbc37afdab542cd4e49ca23f035733d0d6c24c59ad18fc9f68022f029e0bc8dfd6d9d4b6c0dc663e800f73f710b9471ef102558bd9334afcfa8701538987ec0e5f42a6a3b78a4f637259b2a5a1cc1d8bcb883cfe88b46d9b44caa76d5b609d033ff2c8a048544ee31ce436a3d24004b0f12d3e036e4ec44af22e74176e169e075965a9d029030cc889be516b80a908608d191973053b9b467ef51410fc0c74190d6bf2df0937d00d9aa9a9bb989b810403fc7c95d76e7f93232a0aebc83805ead9029b6a8faf6fb1a33163c06060149359605a1aae063a6279720a024b3290922934ab1c1fafb163a611f2d65b42804a40547f262158293953e280732482ffa2930860a59514a3b3c35dbcccc0001be2d326d89906a224bc08fd4b2051820b58b2e6caf5c7f430c72d8e84eb5c09f18a848492f44a437b2687ba40ae512871f827c2e022716526bb1046e08101446da43b680d7e5ea56664ebbb98efedf52e361ace8a63988ba100f1e08c6cccd0b567dbf74af4a51b7d15052b2ab5f66b027e6213bc4143122e305fd1b58dc1e4e89e3b8003029fddc9f4dd3b6c12afe50313c54c092bb1e30bd8f32507e5f2cade50ea48a028d7f3aaa2410f00f16990f5e44dff92ef2a6322496884b51fc1f2589b95ed1df238db52c683e138824cec9524a169f892b84c8313154b4a79b82d9d3170d22f1775e823479e827d5c93894ffeb0995a0944270ec380893943243501b59481f9db1f95a309ef11957c854c444d09d6f0b3209938449b8088bf5117252527590d75233195e682008e099d4da6316d82799d49c76935c7452c7541ec78c92a03f9b8078c2c731c2756b2d4474b973ea71d7717cd51958488c6e649b5ac6138bbc26da239c0d249ff67d843d70b4d4d8ba1af0e1ef1a967d3ae17ec2b75516b34ccc31bde62740b9b60e61ca973198f9d77aa60a7fd65e02c2808df7694a687a8797de66bc5625e9666df9e67ec80fc1b5ef75532214a2d0faffc866b48b1ffe4f61f1355e131e9443c19fc34ac888aaee5ab9cb9b524802e64b93aa9e2f0f95c70e71bd0835ed3930a38a0a22c67a1f526cbecbf736d66ff08f689266f70abc129e6282edb959e5e380abbaad95e02ad916df78d7b7216d82bd668912af5502c852302519d9f9f0b0ff9074385c4830c23561a81812345d00bd4d8cbf53ad038938fa86b9c276eb5b4c8c70d84e599638061ed03c1b6f923535baaca57f1caa05e3176eb3b813113094f0e633ba5b11042c9a68583671956fb8f933737e717f8aa730d77c608cfeb885cd2802ff6c5c26c92d8d1dff62921d0f5354b61c2df04a3e126d076db4bb124b76359ab3dbf50d04a8ffb1b0577ad93bfbe76bf3921eb15f726681c34422e447509f80eb3dbc1f0989a8c4e04879e3fb20d27fd7788ac62360d56f36c60009384359c8ee4475849d10c780b26f6cb0aeb9576d4984aa40088c68c0af1951872eb9374d30a28a0cc74cfaca3fb721728125fdafcfa94cef9d4baac13fd9d6d3bff0d4c31137cfcd85f944881d79540c15851127ef4fbd7399f789d98c67d7fe65c6e7c98cf350830a5c02243a23a4e3b859a51348e4368641b15e65515544e12dbd389921646ac2af1745cd4769871ecf73b04ef2093ac97f314b78043ab80d3383d5a4c994f7dd9cef6298ddf1e2be4da3e9803d0e8e9c20837e5e70f03fac3244a4b1b1ff6c4defcb6bbdc525ef0724c315968f7dcab9dfb8804dd19d799ef53134c6a0ac1f6bf77303827f839f25578ec639f180f5c8183a63ba47867f1ab4b7bae8a4c7d6138a52d8a887f9f7f6d82b1d8f87c24345949aa2f606d49728530d7af2c0b75cd60315cbc6fa7f228c0c2b011d7c84c74a203710261a596a2f2d90adb803dd5504bd8b956b1e58a42df29a8b172b47fef7bce948e0c257851699b03950ad304b821efc735bf573c2f9027f4a78d99bff82eaf8e3c8a5f08435ab024e29e12c23dcd8eae6306a894237488481319a206bee227abc7cf49581b1e3a50f0f3275c3ce507e1aa3d06d1d441d43bb651dc2701e1883eec4b47ddd14cd05c7801dbba4cd6994ef0a9cecc8017582f1c79df583592c57b18c6cd6f5f88645dd7edbbca9403f7c95f85a52bfeb296ee78ae0fadf92f044335ac0acabe165b96202bf428517090a53a4863e42d4e795a79f22a8c7d58403597b8cd6aadc831e440da4dbdcdf1af8fd0836c49193acf1788f2b4c31d5844f5521599322bccb02e021db0ade1399b66499c22767c02f848a61fc97b1fa3c2c5c74a734aeaa0aa5db4d8ea0b18fa8a35ab8beb22296f5069d757d1a9cdedf67be64d647109d968b64018c214506fd6cb902f6ed2bb6574c2f2bbda7e166e0f6e4b6ae6c89787efa64ba60c194e06648d45ceffd822012b76a60b0b9077aba62db94436513d66bb760f9832cd60245626e616d868dde07e63dfb689112e6255d18f8e71e00f6999afacc46d41e13a18b2e8b40849d8f5f98b0529dc6949e9c62ba1917539e109948c40c1f3fdebb26ba7babbfc72d5dce02260c5b6398b6d956d87b6c03c6c055ebcd186cfdcecac1f8fcbedd680714d00eb2f3883aa881f945fdefe65a7651343f320b021bb300f4f3c85889606167750c716ff4bd3a0e0b88a049816e59077759f9dfe52814b7ff9dd31d2d7548d3b5b37f7914b10779a8d96badaa7e556326141c5dda23a36bae4836035820b39f0d43ddd86709367a470fdffd565e1e8449d31a126e1d2e27926650961beb0f6ba5ab844a18210f6dae893bac63265de2623b4487dcd8e70afbab74f058aab5f725902dd90701cc4bc89973385ce55e5b351f1dc49e0a113bdc698b461a29f68be1d7b9e81ca5ead24ed8e42d9b72788514eee160e33450d163956676f96056530408f1fa4276645c4c725858ec32f400be93be8f131c86f01e86b9f6bd9884e0b10a68ca3ed8ee3c5ae59dc88fd70c97a9c4d874b632b939619e900f61e29d00051140f81a6c715a55b64a9f25b8ecfa6d3a9438de8852bb6fea71c659dada9f5fab52cb6616e1dbad7346a2712f324c00e5e5ccd0fc0231ce377993689dbad3cfe3580160d24e5773de6b250d71c70b80aedae2bab19d2cf66bbd33bc331fd043da05a06d1d44d8a71d4d97405f5d443dfd1beaecdfc39bc777ee947bcced78a43a18f8403e5194b99a2a4370f1be0979e9b6fa26cc820c8c4157bd19e8ed79ca66225eeae744911a5fe5407731b19b575d318f411b78d27ddba1f795aa05c59784cbc9c49bdc1531514c8eea73bcab5bf0d26704fae9ebad9b57dc34ed3f014bc37df366ab2c1be345b10171b34360d1f4ac93a73ef695b444509be8f9adf720bb9ed4e9773bf0e104e0f3645c986c80eb7c3155461564eab50294eb525499d420163adb3b50bdb1fd243cd4477c036d96566b974182f4ee49719dbc0f22aad04cd495a02a8c514d81361d4d5e610a0e05e5604cd94647a99dbc0872f7a1f16fd9deed4066844d6d41c0a0f803ac07278c0e1d8b9fa99e6d9025e2170046372e0e2824fcf521cc654cae9e6af2838edf23a1122e1e99c85838d7014f934bd9bf42c36bacd0093711f67a3cc2383854683fd48c2cc5503ce6fe3c9235dd7bdcfea16b9c06b5df6cae9a1f934e55aa8daae0bd1a97239e61439d32eb590a99c59d0f6268a595a92d6cacc3a18d22507269eed4adbde6407d6b8dbf18ff990ca262e3eef18e3b16a222dc8a72e08dae53fb166850ae41dd5f1934f7e28ff7d6fc23b39f45b7ce37e3cf61f51808ac974549b371b8e39de0622dc884e84bf799f88951aa942c099431dcef4d841c24e2c6765ad01a4916b1b20fc09f6b4a14b15de4c698675ef58db758af1ce50818e0bba6a94f88244b9a4742922f3d81612c678f86d3f0e509043e79ffa87d758b52d14311280634767932d1c1e2f4a7ab82bfd4eda04e1adf23188a2a77b2370f5888325eb95d696ee5427160cdbcb17f367d0bcf206d7bf8c0ef15857c3e5e2507a8aaa86ec51e6d49f1ddc715cf65ecd6a3c25abf57911f899a3fd7bc97c801fed54cd810e62a238bf0e7efe4adf6c779a107610f9d6c8038b09008e4fa2c9fbbd89deaa02dac90be764a49278d3e3f347a9054c755c1087326b8c28e0db46e992c4d4d4fd1e2da8a4dc8667676e97d95214229c39e58c42e76e16aaefc1d9a570d790a20c1b03889bf2053449fad2ebaab05cbcb9fc1166563b36c746e5be3c4985ecb07b3810d226eedd3f4b032ae91a04e56b704143426d60ed0a96e56a2c3ca42d220c17cebab655f0253a525816daa83ef570e5ed1baa7c4c2cdae2ab0a06bb77107ab5069aa9b99bc9295c4e58d6c1124c3bf87f4909551eed9671514bda0b99f4a62f208c69bdd91955e9f4763050dfca9cfc0eb13a27979cc80931ebc4c95f13fe290df48bb11e9aa2e4d35203b70c7601a49cf75f8b75fb95e3ad3f520b21fb87f04dc4c6d6b04f4d2c2b8f359b92048e258c0957da6959ab98385e8004ad20cccb46315a6d8dcb4f9a7936163815d442457aaebb4ec45a9f8bc44f0ea7270a714393968c7fb74e5bf2cffc4e9b8fdfae775e8f290d256731afdf70bdc7b37521700464bf67861b4f68f238b6f6c404e17425a97a355564e4ab417d4035dfa685f163838dfa9f81f668fe018cf7aa3146011b08827fcd23f457261ffa68c374282523dd95ebdc695064aeb81c61b8b1136a8e147dcb17781497d5d46e2e526100cdf4508b0e0b12cc3c10a234b57156efa3ef5aea3f994032ee21b9c7b73d311c3507c631c5fdd7c7e07041bdc634891b08532546f9c6302afbb645d66f93d98c401720bc60a1938ae6b5f60439808a6ad1a8ca142c8f6692e6bfc2b74375eeb8cd23c4af64c5781a2390e1f0c794855eaef625cc4531ec626827f34b449a82804daba928a73c1ed742903e1a6e3d9bb03f3a43e48b3a943f08423e72b6c39b0127ffbb837bd6e7def1f3aaeae5071caeec57929d1671245d0b7cfe792c7b70ee78aaa33123234def634d6e911724d8f427dcc01128d3ade89dfd802eec126d4136cc75926a7941c06c312ef9ef251b3a49226138c7725422f629ece9ce992310e88f72707d9e4a4e3599f3f4e52916ebd7e268f8c0217c05a9d8678364e2601fc118bdf8658fd914b3e60c8f3450b51c96ae39703b0e324e6b6e30ab3499cf79c4f03502091ac5b5aecf63bf0efce40ca46d4e6f9495300098a36115c9af9e9bc99711008a9bdc0dd1da00c1fb085fec6d99dd39c0bb3ee4584a201f6044efff47512c17a38e04e54c19115ee92c0d69cad58a2b0a631c3793e29102830a9aef9f84864d9f15467a79b0b1ca2e2c6a87390fd2d355b5ae4d3391d0308eeec1f5d1d0b81c35140925a20cc96e009993bbe134df1a1a4b8efc9bc86f9d447aa0b0f29ce9902e34f489d7922fd50623fb5658ce2018f2ab197e30bacd99ac125c22f0b0dcaf20e2d6f33f41bb99bfa2c8882d675c2c926b155526ae590a61baf20bdcce845cbe74b62937aa603d2ae0223f6b7dbd67b52d0b07eb2619dd3b1d12452f58571af39ca906a5561c3cc287f5420b2c044d4f1a30c055bcac1777e4e54449db0d1784b940a841bdaa30d3f4e692f04ac40757c74eabb961b2212a963447e135ce9267d74a062b5f08c9a3f53dba2232f3481bc5a02853a6bfe005744ef87f4c595c7ae66c23824a268a0848368d5685b7e40533b9f4e5fae4108661d4856d078d4074f7d9cd5d19849c6338c4e0066a1b5ac03653848af0c1486d92247251309713cf2c1663204e629b213c7370791f809e8039d22c84a5fcf760b7a8665b439e1b0fc43ca2750aead5f8c21d36ec7629eb19e3c973ebfbad59c93319e055de22cf00eaadbae8b27571cd0ea1ce1e2a117c15a0df3e06aa477fe26ea5b9bb06b7889e3f515783ba350cb2d570fa4f533f36db883db3803fce18423a679b7792ceb2c8084c9e92ca93c6eda3ff8499aa818b6044b6ae36a8845db308573c612e6c5938a5a931c3c44e4063c6f3bffcc503533ead84790f818e20e62a56e323e0b649cbc02fc3e3a8f8f006ec74e5a9ef8906360b1fc0cd197de275b5ec238400a234568249d5d4a8728f97afcfa7d06c8d272e37a21892f0e67df3759dff638b6554ab30c1f52a66a02030786261ff91a7445b1c3e4f0da7e4eb41bb374f930e062739e091c12cae637f457c58d1c5304a91e2f1883a25a4d21b3cdb741f7c65ae6db13d4a927dfbac2d7fd65505b3623e39bf4b1ed65fd69e3d29dc6efbcd92083f7625beed33b21a43d93685a2f3a99727e49ac35c3a558ca4e503b0eb26fa319648710bb5b5579c2bafff15117cc8027680806d97853f0cb085fd7c4835f33bea84cedb729661dfad1ffe2c5189738824f1c11e874f5eee3e2ae04042adad14286ee842b4df0d9df3bd40ea664283dfc0aeeff46da3c670f141160d4765400129a6523029d18670adab0485471c1649b72158baaccb785005c06341ab6d6b5b2484f6621b3cfccab3969afebec343283c0cee895979653230a49684dba25bfafb6cbfd6e9092df4d694074909acffb097fdebb8c0f030c4bc3d40dd2c95a895878167faa1f9a8826f65e8940bcfcde4de71bab7f626071d21be00f8dcd86b17a9f225af3ec398bf4809966aa9de51da4f762d90f9231bf0f1f3b72533743506c4d1c7e47204c7086fc27ed5d5408f8da12cfadb869173aeabfc5401daed783575b53c334ad51e029ec164f019aafcaf74df034d038eb6aad50148afd1d119bc017926768535504d4e3428060c0ebf3a85faaff3c519fb4f47a4a1e6da296766786b8dc01363e1a7c2c8048e302b0fde08fa7aa431a9ca0bb13f1c0f44a1797dfbbd47b1eaf1a2f3c62d13f89de6154897c87407c28163710480fbc99a3a30c1880d4c3e83d3db112abe33d51d57d7505ee97260e1612125dc9f85fd88c0f57bf68a9bbdbb0c8db62c7839737387e907670f54586b54bb32cddc22c08f59e348be2659d7c02fbfcc0953184bda340b483d2581e729e1daa19a23b5f70a87dff8874c3fe9c3ab6a06d5c53cc85078d6e63fc86c90540cfdce4211d105b54e3ef4b1ae5bc0ede35c0cdbc0d1b9ffbee0acf26b07a420e937ac6204fa7e49fa90aeb052864a2ce3c3affef15fdcbd222d18973d8a2962c17c38847fa7969fbd5a232938e844a88714822c88a7012ece390da4c77a8b77599a400f4979b8b98f820b6af63e39963155505d889521a7accddf60bb05f68165bf8617a15866d35f0eef72efcac23bb387d0d52301afa91d2f11864dcfaced30dfcae2c7ead5addd6ddf0758eb6611cb254151d1d4e83d85790603aa0e0a785f9c0c9b373c402e09016c95f4f0fe62f1c4468acd375f4d1d92e8172144b9ea5934498a28f51831e8fc30e2ab22ae7b60374d3c5c251d4ed9dade59864977a220ff5ef5a472025c4bf3685a856859f5c33a996788657f00568800ea38366968acc8a438b687e1d05ff464aa670e3168f79f3cbb8636f474cb611439f6b3739f493a09b58b489a19344a3aa7b7c82d1b30ffc8bcaa85384e34b1b9d48e534c124801b8184e3d0ca4a9fa5413eee14838ecb9cecf5d95749ee137bbb4405466d2c06938dddf6818dd3b46f82ca47199a0f5dd1d5d4705c149ddb323724f5f3f23c6e9b0a2661733abe24e8f06ed986604c214ed39fac87aa9ceff422708b9bec25e6db7bc714ff22a87444b13f3ba276871a1fd05a5978045fa04589f4bb2487704e89d8f14bf9b4e193fb2d096e87df46085211fef5a03e3a11dac28b525d760b46fc44e55baa0f47ab44169675398e99dbcd86c6dc8c1276ed0900a761b756151d92bf1c97cb3fd5362f6ab76878caf145ed1383e020be6bbe21b0ef2e890e8813534c403a39491499ede15e18a40c3d8c4ecd5238b39078d06976ed7</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">请输入密码</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+    <title>solidworks装配体整体3D打印</title>
+    <url>/2021/05/29/%E6%9C%BA%E6%A2%B0%E7%B1%BB/solidworks%E8%A3%85%E9%85%8D%E4%BD%93%E6%95%B4%E4%BD%933D%E6%89%93%E5%8D%B0/</url>
+    <content><![CDATA[<p><img src="/images/solidworks%E8%A3%85%E9%85%8D%E4%BD%93%E6%95%B4%E4%BD%933D%E6%89%93%E5%8D%B0/1.png" alt="1"></p>
+]]></content>
       <categories>
-        <category>Linux</category>
-        <category>ROS</category>
+        <category>机械</category>
+        <category>Solidworks</category>
       </categories>
       <tags>
-        <tag>ROS</tag>
+        <tag>Solidworks</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>solidworks中子装配体可动</title>
+    <url>/2021/07/25/%E6%9C%BA%E6%A2%B0%E7%B1%BB/solidworks%E4%B8%AD%E5%AD%90%E8%A3%85%E9%85%8D%E4%BD%93%E5%8F%AF%E5%8A%A8/</url>
+    <content><![CDATA[<p><img src="/images/solidworks%E4%B8%AD%E5%AD%90%E8%A3%85%E9%85%8D%E4%BD%93%E5%8F%AF%E5%8A%A8/01.png" alt="01"></p>
+]]></content>
+      <categories>
+        <category>机械</category>
+        <category>Solidworks</category>
+      </categories>
+      <tags>
+        <tag>Solidworks</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Solidworks焊件结构中添加型材</title>
+    <url>/2021/07/27/%E6%9C%BA%E6%A2%B0%E7%B1%BB/Solidworks%E7%84%8A%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9E%8B%E6%9D%90/</url>
+    <content><![CDATA[<p>下载以下型材库<br>链接：<a href="https://pan.baidu.com/s/170qEkA8MN5nfCuDD1jZFgg">https://pan.baidu.com/s/170qEkA8MN5nfCuDD1jZFgg</a><br>提取码：2vyt </p>
+<p>将压缩包解压，SolidWorks安装目录中找到</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">~\SOLIDWORKS\lang\chinese-simplified\weldment profiles</span><br></pre></td></tr></tbody></table></figure>
+<p>在里面新建GB文件夹，将下载的文件复制进去，注意按下图层级复制进去<br><img src="/images/Solidworks%E7%84%8A%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9E%8B%E6%9D%90/01.png" alt="01"></p>
+]]></content>
+      <categories>
+        <category>机械</category>
+        <category>Solidworks</category>
+      </categories>
+      <tags>
+        <tag>Solidworks</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AltiumDesigner创建自己的库</title>
+    <url>/2021/08/24/%E7%94%B5%E8%B7%AF/AltiumDesigner%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BA%93/</url>
+    <content><![CDATA[<h1 id="使用插件搜索芯片自动建库"><a href="#使用插件搜索芯片自动建库" class="headerlink" title="使用插件搜索芯片自动建库"></a>使用插件搜索芯片自动建库</h1><p><a href="https://www.samacsys.com/altium-designer-library-instructions/">Altium Library Loader</a></p>
+<p>链接内可下载，有详细的教程</p>
+<ul>
+<li>需要AD17及以上版本才能使用</li>
+<li>需要注册登录后使用</li>
+<li>在下图中添加自己创建的原理图库和封装库，后续搜索后的元件会自动添加到以下库</li>
+</ul>
+<p><img src="/images/AltiumDesigner%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BA%93/01.png" alt="01"></p>
+<p>也可以在<a href="https://componentsearchengine.com/">Electronic Component Search Engine</a>中搜索元件，下载模型后通过插件手动添加</p>
+]]></content>
+      <categories>
+        <category>电路</category>
+      </categories>
+      <tags>
+        <tag>AltiumDesigner18</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu18.04配置Clion开发stm32</title>
+    <url>/2021/08/27/%E5%8D%95%E7%89%87%E6%9C%BA/Ubuntu18-04%E9%85%8D%E7%BD%AEClion%E5%BC%80%E5%8F%91stm32/</url>
+    <content><![CDATA[<blockquote>
+<p>参考windows中的配置过程</p>
+<a href="#">Post not found: 单片机/配置Clion开发stm32 配置Clion开发stm32</a>
+</blockquote>
+<h1 id="一、-环境准备"><a href="#一、-环境准备" class="headerlink" title="一、 环境准备"></a>一、 环境准备</h1><ol>
+<li>gcc-arm-none-eabi</li>
+</ol>
+<p><a href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads">下载地址</a><br>下载后解压到合适位置，并再etc/profile中添加path</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/dream/gcc-arm-none-eabi-10.3-2021.07/bin</span><br></pre></td></tr></tbody></table></figure>
+<p>注意安装完成后要source一下</p>
+<p>使用<code>sudo apt install gcc-arm-none-eabi</code>也可以，但是后面需要设置他的路径，这个路径不好找。</p>
+<ol start="2">
+<li>openocd</li>
+</ol>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt install openocd</span><br></pre></td></tr></tbody></table></figure>
+<ol start="3">
+<li>Clion</li>
+<li>STM32CubeMX</li>
+</ol>
+<h1 id="二、-Clion设置"><a href="#二、-Clion设置" class="headerlink" title="二、 Clion设置"></a>二、 Clion设置</h1><ol>
+<li>Toolchains</li>
+</ol>
+<p>File -&gt; Build,Execution,Deployment -&gt; Toolchains<br>新建一个设置，参考下图<br><img src="/images/Ubuntu18-04%E9%85%8D%E7%BD%AEClion%E5%BC%80%E5%8F%91stm32/01.png" alt="01"></p>
+<ol start="2">
+<li>CMake</li>
+</ol>
+<p>File -&gt; Build,Execution,Deployment -&gt; CMake<br>配置参考下图</p>
+<p><img src="/images/Ubuntu18-04%E9%85%8D%E7%BD%AEClion%E5%BC%80%E5%8F%91stm32/02.png" alt="02"></p>
+<ol start="3">
+<li><p>下载器</p>
+<ul>
+<li>自己找个位置新建config文件夹，用于存放不同下载器得cfg文件，新建一个daplink.cfg（这里我用cmsis_dap调试器）</li>
+<li>在daplink.cfg文件中添加内容<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> [find interface/cmsis-dap.cfg]</span><br><span class="line">transport select swd</span><br><span class="line">   </span><br><span class="line"><span class="comment"># 0x10000 = 64K Flash Size</span></span><br><span class="line"><span class="built_in">set</span> FLASH_SIZE=0x160000</span><br><span class="line">   </span><br><span class="line"><span class="built_in">source</span> [find target/stm32f4x.cfg]</span><br></pre></td></tr></tbody></table></figure></li>
+<li>在下载选项中选择Edit configuration,参考下图设置<img src="/images/Ubuntu18-04%E9%85%8D%E7%BD%AEClion%E5%BC%80%E5%8F%91stm32/03.png" alt="03"></li>
+</ul>
+</li>
+<li><p>编译、下载测试</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>单片机</category>
+        <category>STM32</category>
+      </categories>
+      <tags>
+        <tag>stm32</tag>
+        <tag>Clion</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用CubeMX/CubeIDE配置时钟树注意事项</title>
+    <url>/2021/08/20/%E5%8D%95%E7%89%87%E6%9C%BA/%E4%BD%BF%E7%94%A8CubeMX-CubeIDE%E9%85%8D%E7%BD%AE%E6%97%B6%E9%92%9F%E6%A0%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
+    <content><![CDATA[<p>一直在用CubeMX配置stm32程序，特别是时钟配置格外方便，没想到一直没注意的时钟树一旦出错，花了我两天时间才找到问题。<br><br><br><br></p>
+<blockquote>
+<p>问题描述：<br>在使用stm32的USB做虚拟串口时，无论是windows还是在Ubuntu上都显示设备不能识别，连端口号都不显示。<br><br></p>
+</blockquote>
+<p>使用CubeMX时一般我习惯直接修改HCLK为168MHz，软件会自动匹配其余时钟。</p>
+<p>其实软件设定的只是每个芯片的可匹配的频率，对不同的开发板，我们用的最多的外部晶振其实是不一样的，如果设定与实际频率不同，就会出大问题。</p>
+<br>
+<br>![01](/images/使用CubeMX-CubeIDE配置时钟树注意事项/01.png)
+
+<br>
+<br>
+查看开发板中是8MHz的晶振，所以软件中的设定要与之匹配。
+
+<p><img src="/images/%E4%BD%BF%E7%94%A8CubeMX-CubeIDE%E9%85%8D%E7%BD%AE%E6%97%B6%E9%92%9F%E6%A0%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/02.png" alt="02"></p>
+]]></content>
+      <categories>
+        <category>单片机</category>
+        <category>STM32</category>
+      </categories>
+      <tags>
+        <tag>CubeMX</tag>
       </tags>
   </entry>
   <entry>
@@ -307,12 +885,12 @@
 <li>可在命令行使用”gcc -v”、”arm-none-eabi-gcc -v”、”openocd -v”验证</li>
 </ul>
 <h1 id="3-Clion配置"><a href="#3-Clion配置" class="headerlink" title="3. Clion配置"></a>3. Clion配置</h1><ul>
-<li><img src="../../images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/01.png" alt="01"></li>
-<li><img src="../../images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/02.png" alt="02"></li>
-<li><img src="../../images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/03.png" alt="03"></li>
+<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/01.png" alt="01"></li>
+<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/02.png" alt="02"></li>
+<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/03.png" alt="03"></li>
 </ul>
 <h1 id="4-新建stm32项目"><a href="#4-新建stm32项目" class="headerlink" title="4. 新建stm32项目"></a>4. 新建stm32项目</h1><ul>
-<li><img src="../../images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/04.png" alt="04"></li>
+<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/04.png" alt="04"></li>
 <li>新建项目后，编辑区会出现Open with STM32CubeMX，即可使用CubeMX配置程序</li>
 <li>配置完成后注意CubeMX中路径要与刚才路径一致</li>
 <li>后期若移动位置，需在新位置打开CubeMX的ioc文档并修改</li>
@@ -325,8 +903,8 @@
 <li>首先编写下载的cfg文件，这个我习惯在工作区建一个文件夹config，然后新建F4-stlink.cfg文件</li>
 <li>以下代码为F407使用stlink下载器的设置，粘贴到新建的文件夹即可</li>
 <li>然后在Clion的下载选项中选择这个文件，如下图</li>
-<li><img src="../../images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/05.png" alt="05"></li>
-<li><img src="../../images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/06.png" alt="06"></li>
+<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/05.png" alt="05"></li>
+<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/06.png" alt="06"></li>
 <li>配置完成后使用运行按钮即可下载<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># This is for using the onboard STLINK/V2</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> [find interface/stlink.cfg]</span><br><span class="line"></span><br><span class="line">transport select hla_swd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 0x10000 = 64K Flash Size</span></span><br><span class="line"><span class="built_in">set</span> WORKAREASIZE 0x20000</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> [find target/stm32f4x.cfg] </span><br></pre></td></tr></tbody></table></figure>
 <h1 id="7-无线下载器"><a href="#7-无线下载器" class="headerlink" title="7. 无线下载器"></a>7. 无线下载器</h1></li>
 </ul>
@@ -334,9 +912,9 @@
 <p>按上一步添加cfg文件</p>
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># This is for using the onboard STLINK/V2</span></span><br><span class="line">adapter driver cmsis-dap</span><br><span class="line"></span><br><span class="line">transport select swd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 0x10000 = 64K Flash Size</span></span><br><span class="line"><span class="built_in">set</span> FLASH_SIZE 0x160000</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> [find target/stm32f4x.cfg]</span><br><span class="line"></span><br><span class="line">adapter speed 2000</span><br></pre></td></tr></tbody></table></figure>
 <h1 id="8-注意事项"><a href="#8-注意事项" class="headerlink" title="8. 注意事项"></a>8. 注意事项</h1><ul>
-<li><p>在Clion中选择文件时按下图配置，这样在CMakeLists中会是单独一行，如果删除文件后还有残留可以自己查到删除<img src="../../images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/07.png" alt="07"><img src="../../images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/08.png" alt="08"></p>
+<li><p>在Clion中选择文件时按下图配置，这样在CMakeLists中会是单独一行，如果删除文件后还有残留可以自己查到删除<img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/07.png" alt="07"><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/08.png" alt="08"></p>
  <br> </li>
-<li><p>在使用FreeRTOS时，编译会报错。默认情况下，硬件浮点运算是关闭的，<del>需要在CMakeLists里设置一下</del>需要在CMakeLists_template.txt和CMakeLists.txt中修改，否则重新生成stm32程序时CMakeLists.txt会再次取消浮点运算<img src="../../images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/09.png" alt="09"><br><br>  <strong>取消框选内容的注释就好了。</strong> <br><br></p>
+<li><p>在使用FreeRTOS时，编译会报错。默认情况下，硬件浮点运算是关闭的，<del>需要在CMakeLists里设置一下</del>需要在CMakeLists_template.txt和CMakeLists.txt中修改，否则重新生成stm32程序时CMakeLists.txt会再次取消浮点运算<img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/09.png" alt="09"><br><br>  <strong>取消框选内容的注释就好了。</strong> <br><br></p>
 <p><br><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/10.png" alt="10"> </p>
 <br></li>
 <li><p>CubeMX不生成CMakeList</p>
@@ -356,6 +934,52 @@
       <tags>
         <tag>stm32</tag>
         <tag>Clion</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode-202-happy-number</title>
+    <url>/2021/07/18/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/LeetCode-202-happy-number/</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>编写一个算法来判断一个数 n 是不是快乐数。</p>
+<p>「快乐数」定义为：</p>
+<ul>
+<li>对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和。</li>
+<li>然后重复这个过程直到这个数变为 1，也可能是 无限循环 但始终变不到 1。</li>
+<li>如果 可以变为  1，那么这个数就是快乐数。<br>如果 <code>n</code> 是快乐数就返回 <code>true</code> ；不是，则返回 <code>false</code> 。</li>
+</ul>
+<h2 id="示例1："><a href="#示例1：" class="headerlink" title="示例1："></a>示例1：</h2><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line">输入：<span class="number">19</span></span><br><span class="line">输出：<span class="literal">true</span></span><br><span class="line">解释：</span><br><span class="line"><span class="number">12</span> + <span class="number">92</span> = <span class="number">82</span></span><br><span class="line"><span class="number">82</span> + <span class="number">22</span> = <span class="number">68</span></span><br><span class="line"><span class="number">62</span> + <span class="number">82</span> = <span class="number">100</span></span><br><span class="line"><span class="number">12</span> + <span class="number">02</span> + <span class="number">02</span> = <span class="number">1</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="示例2："><a href="#示例2：" class="headerlink" title="示例2："></a>示例2：</h2><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line">输入：n = <span class="number">2</span></span><br><span class="line">输出：<span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
+<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><h2 id="C语言"><a href="#C语言" class="headerlink" title="C语言"></a>C语言</h2><h3 id="第一种思路"><a href="#第一种思路" class="headerlink" title="第一种思路"></a>第一种思路</h3><p>累计相除后取余，得出每一位数</p>
+<figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//第一种实现方式</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n)</span></span>{</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> m = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= <span class="number">10</span>; k++) {</span><br><span class="line">        <span class="keyword">int</span> d = n / m % <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, d);</span><br><span class="line">        sum += d * d;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (k &lt; <span class="number">10</span>) {</span><br><span class="line">            m *= <span class="number">10</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"sum=%d\n"</span>, sum);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二种实现</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n)</span></span>{</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">1000000000</span>; m &gt;= <span class="number">1</span>; m /= <span class="number">10</span>) {</span><br><span class="line">        <span class="keyword">int</span> d = n / m % <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, d);</span><br><span class="line">        sum += d * d;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="第二种思路"><a href="#第二种思路" class="headerlink" title="第二种思路"></a>第二种思路</h3><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//    s=12345</span></span><br><span class="line"><span class="comment">//    d = s % 10;   d:5</span></span><br><span class="line"><span class="comment">//    s / 10;       s:1234</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//    d = s % 10;   d:4</span></span><br><span class="line"><span class="comment">//    s / 10;       s:123</span></span><br><span class="line"><span class="comment">//    以下内容写入函数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n)</span></span>{ </span><br><span class="line">    <span class="keyword">while</span> (n != <span class="number">0</span>) {</span><br><span class="line">        <span class="keyword">int</span> d = n % <span class="number">10</span>;</span><br><span class="line">        n /= <span class="number">10</span>;</span><br><span class="line">        sum += d * d;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> history[<span class="number">1000</span>];</span><br><span class="line">    <span class="keyword">int</span> size = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (!contains(history, size, n)) {</span><br><span class="line">        history[size] = n;</span><br><span class="line">        size++;</span><br><span class="line"></span><br><span class="line">        n = next_n(n);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> n == <span class="number">1</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="第三种思路"><a href="#第三种思路" class="headerlink" title="第三种思路"></a>第三种思路</h3><p>这种思路基于<strong>弗洛伊德的乌龟-兔子循环寻找</strong>。可以在环形链表中找到环形的入口节点。<br>如下图，一快一慢的龟兔会相继进入一个圈内，当两个点相遇的时候，设置一个从相遇点出发，另一个从起点出发，再次相遇，即为环形入口。</p>
+<p>至于更深层次的解释，还没想好怎么表述。</p>
+<p>下图的算法图解在<a href="https://visualgo.net/en">https://visualgo.net/en</a></p>
+<p><img src="/images/LeetCode-202-happy-number/01.png" alt="01"><br><br><br><br></p>
+<figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n)</span></span>{</span><br><span class="line">    <span class="comment">//  龟兔赛跑循环</span></span><br><span class="line">    <span class="keyword">int</span> slow = n;</span><br><span class="line">    <span class="keyword">int</span> fast = n;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">do</span> {</span><br><span class="line">        slow = next_n(slow);</span><br><span class="line">        fast = next_n(next_n(fast));</span><br><span class="line">        <span class="comment">//fast = next_n(fast);</span></span><br><span class="line">    } <span class="keyword">while</span> (slow != fast);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> fast == <span class="number">1</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+]]></content>
+      <categories>
+        <category>程序设计</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Android模拟器长时间运行后不显示Toast</title>
+    <url>/2021/08/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Android%E6%A8%A1%E6%8B%9F%E5%99%A8%E9%95%BF%E6%97%B6%E9%97%B4%E8%BF%90%E8%A1%8C%E5%90%8E%E4%B8%8D%E6%98%BE%E7%A4%BAToast/</url>
+    <content><![CDATA[<p><img src="/images/Android%E6%A8%A1%E6%8B%9F%E5%99%A8%E9%95%BF%E6%97%B6%E9%97%B4%E8%BF%90%E8%A1%8C%E5%90%8E%E4%B8%8D%E6%98%BE%E7%A4%BAToast/01-163724422538013.png" alt="01"></p>
+]]></content>
+      <categories>
+        <category>程序设计</category>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Android Studio</tag>
       </tags>
   </entry>
   <entry>
@@ -393,239 +1017,6 @@
       </tags>
   </entry>
   <entry>
-    <title>多机共享键鼠软件Barrier</title>
-    <url>/2021/05/03/windows/%E5%A4%9A%E6%9C%BA%E5%85%B1%E4%BA%AB%E9%94%AE%E9%BC%A0%E8%BD%AF%E4%BB%B6Barrier/</url>
-    <content><![CDATA[<p>当操作多台设备时，可以无缝切换键盘鼠标，同时可以复制内容</p>
-<p><a href="https://github.com/debauchee/barrier/releases">windows下载地址</a></p>
-<p>Linux安装</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get install barrier</span><br></pre></td></tr></tbody></table></figure>
-<p>安装结束后，选择一台设备作为服务端，其他作为客户端即可</p>
-<p><img src="../../images/%E5%A4%9A%E6%9C%BA%E5%85%B1%E4%BA%AB%E9%94%AE%E9%BC%A0%E8%BD%AF%E4%BB%B6Barrier/1.png" alt="1"></p>
-<p>在设置服务端按钮下可以添加屏幕布局<br><img src="%E5%A4%9A%E6%9C%BA%E5%85%B1%E4%BA%AB%E9%94%AE%E9%BC%A0%E8%BD%AF%E4%BB%B6Barrier/2.png" alt="2"></p>
-]]></content>
-      <categories>
-        <category>windows</category>
-      </categories>
-      <tags>
-        <tag>软件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>WSL与移动热点的冲突</title>
-    <url>/2021/07/22/windows/WSL%E4%B8%8E%E7%A7%BB%E5%8A%A8%E7%83%AD%E7%82%B9%E7%9A%84%E5%86%B2%E7%AA%81/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>当下网络环境如下图</p>
-<p><img src="WSL%E4%B8%8E%E7%A7%BB%E5%8A%A8%E7%83%AD%E7%82%B9%E7%9A%84%E5%86%B2%E7%AA%81/01.png" alt="01"></p>
-<h1 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h1><p>三种思路</p>
-<h2 id="修改整体的网络拓扑，引入路由器。"><a href="#修改整体的网络拓扑，引入路由器。" class="headerlink" title="修改整体的网络拓扑，引入路由器。"></a>修改整体的网络拓扑，引入路由器。</h2><h2 id="从windows本身入手，网络热点的网络地址与WSL分离"><a href="#从windows本身入手，网络热点的网络地址与WSL分离" class="headerlink" title="从windows本身入手，网络热点的网络地址与WSL分离"></a>从windows本身入手，网络热点的网络地址与WSL分离</h2><h2 id="抛弃笔记本电脑ubuntu的界面使用"><a href="#抛弃笔记本电脑ubuntu的界面使用" class="headerlink" title="抛弃笔记本电脑ubuntu的界面使用"></a>抛弃笔记本电脑ubuntu的界面使用</h2><p>在windows主机中，由于配置好了Xface，所以ssh连接笔记本后，可以显示窗口。所以只在windows主机中使用。</p>
-<p>在WSL中使用终归还是问题太多，与学习ROS反而有些冲突，不如直接使用笔记本电脑学习。</p>
-<p>当下未解决其他问题，故先试用这一方案</p>
-]]></content>
-      <categories>
-        <category>windows</category>
-      </categories>
-      <tags>
-        <tag>WSL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>win10设置有线网络与WIFI网络优先级</title>
-    <url>/2021/07/27/windows/win10%E8%AE%BE%E7%BD%AE%E6%9C%89%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8EWIFI%E7%BD%91%E7%BB%9C%E4%BC%98%E5%85%88%E7%BA%A7/</url>
-    <content><![CDATA[<blockquote>
-<p>使用背景：<br>在实验室中配置了ROS服务器，通过路由器与交换机，电脑插上网线即可自动分配IP地址，可在局域网内使用服务器。在校园网中大部分使用无线网络，所以将优先级修改后，电脑既有路由器分配的局域网地址，也可通过WIFi连接校园网上网。</p>
-</blockquote>
-<p><strong>如果无线网络较慢，参考另一篇文章</strong> <a href="/2021/07/29/windows/win10%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E9%A2%91%E6%AE%B5/" title="win10设置网络连接频段">win10设置网络连接频段</a></p>
-<h1 id="1-找到控制面板-网络和Internet-网络连接"><a href="#1-找到控制面板-网络和Internet-网络连接" class="headerlink" title="1. 找到控制面板-网络和Internet-网络连接"></a>1. 找到控制面板-网络和Internet-网络连接</h1><h1 id="2-设置无线网络跃点数"><a href="#2-设置无线网络跃点数" class="headerlink" title="2. 设置无线网络跃点数"></a>2. 设置无线网络跃点数</h1><p>找到要设置的无线网络，右键选择属性。<br><img src="../../images/win10%E8%AE%BE%E7%BD%AE%E6%9C%89%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8EWIFI%E7%BD%91%E7%BB%9C%E4%BC%98%E5%85%88%E7%BA%A7/01.png" alt="01"></p>
-<br>
-<br>
-然后选择高级，设置跃点数
-![02](../../images/win10设置有线网络与WIFI网络优先级/02.png)
-
-<h1 id="3-对跃点数设置的说明"><a href="#3-对跃点数设置的说明" class="headerlink" title="3. 对跃点数设置的说明"></a>3. 对跃点数设置的说明</h1><p>如果是想让优先级高，就设置为10，优先级低设置为20。跃点数小，表示数据优先从某一网卡转发。</p>
-<p><a href="https://baike.baidu.com/item/%E8%B7%83%E7%82%B9%E6%95%B0/4941127">跃点数</a></p>
-<table>
-<thead>
-<tr>
-<th>跃点数</th>
-<th>链接速度</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>10</td>
-<td>大于200MB</td>
-</tr>
-<tr>
-<td>20</td>
-<td>大于20MB，并且小于或等于200MB</td>
-</tr>
-<tr>
-<td>30</td>
-<td>大于4MB，并且小于或等于20MB</td>
-</tr>
-<tr>
-<td>40</td>
-<td>大于500KB，并且小于或等于4MB</td>
-</tr>
-<tr>
-<td>50</td>
-<td>小于或等于500KB</td>
-</tr>
-</tbody></table>
-<h1 id="4-设置有线网络优先级"><a href="#4-设置有线网络优先级" class="headerlink" title="4. 设置有线网络优先级"></a>4. 设置有线网络优先级</h1><p>与第二步相同，设置有线网络的优先级，设置为20.</p>
-]]></content>
-      <categories>
-        <category>windows</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>win10设置网络连接频段</title>
-    <url>/2021/07/29/windows/win10%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E9%A2%91%E6%AE%B5/</url>
-    <content><![CDATA[<h1 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h1><p>windows10操作系统，IntelAX200无线网卡</p>
-<h1 id="修改步骤"><a href="#修改步骤" class="headerlink" title="修改步骤"></a>修改步骤</h1><p>在设备管理器中找到无线网卡，右键属性–&gt;高级<br>在下图中课选择合适的频段。<br><img src="../../images/win10%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E9%A2%91%E6%AE%B5/01.png" alt="01"></p>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>若无线网卡设置为5GHz或2.4GHz，那么移动热点只能设置为与之相同的频段。<br>选择双频段时，可以自由选择热点频段。</p>
-]]></content>
-      <categories>
-        <category>windows</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>WSL安装ROS-melodic</title>
-    <url>/2021/04/23/ROS/WSL%E5%AE%89%E8%A3%85ROS-melodic/</url>
-    <content><![CDATA[<h1 id="注"><a href="#注" class="headerlink" title="注"></a>注</h1><p>在子系统中安装ROS有几处需要注意的地方，其他与正常安装无异，请在阅读完本文后，参考<a href="https://blog.csdn.net/qq_45172156/article/details/106479607">ubuntu18.04LTS安装ROS</a>进行安装。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/Undefinedefity/article/details/106187430">WSL (Ubuntu 18.04 LTS) 安装ROS，可运行Rviz和Gazebo</a><br><a href="https://blog.csdn.net/qq_45172156/article/details/106479607">ubuntu18.04LTS安装ROS</a></p>
-<h1 id="设置wsl使用Windows的clash代理"><a href="#设置wsl使用Windows的clash代理" class="headerlink" title="设置wsl使用Windows的clash代理"></a>设置wsl使用Windows的clash代理</h1><p>在安装时<strong>sudo rosdep init</strong>和<strong>rosdep update</strong>时经常会响应超时或连接失败，在子系统中就可以方便多了。</p>
-<ol>
-<li>在clash中查看端口号</li>
-</ol>
-<p><img src="../../images/WSL%E5%AE%89%E8%A3%85ROS-melodic/01.png" alt="01"></p>
-<ol start="2">
-<li>在子系统中添加代理</li>
-</ol>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vim ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> http_proxy=127.0.0.1:7890</span><br><span class="line"><span class="built_in">export</span> https_proxy=127.0.0.1:7890</span><br><span class="line"><span class="comment">#此处7890对应上面端口号</span></span><br></pre></td></tr></tbody></table></figure>
-<p>添加代理后rosdep update 一次通过<br><img src="../../images/WSL%E5%AE%89%E8%A3%85ROS-melodic/02.png" alt="02"></p>
-<h1 id="设置可用窗口"><a href="#设置可用窗口" class="headerlink" title="设置可用窗口"></a>设置可用窗口</h1><p>安装完ROS后，使用小海龟测试时在打开窗口时会有错误。请按以下步骤安装Xlaunch，以下步骤可以打开rviz，否则还要改很多。<br><del>目前还没设置好gazebo，后续会设置好会更新。</del><br>内容已修改，gazebo可正常启动</p>
-<ol>
-<li><p><a href="https://sourceforge.net/projects/vcxsrv/">下载Xserver</a></p>
-</li>
-<li><p>在wsl中修改配置，修改后务必重启终端</p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vim ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment">#在末尾添加以下内容</span></span><br><span class="line"><span class="comment"># export DISPLAY=:0.0</span></span><br><span class="line"><span class="comment"># export LIBGL_ALWAYS_INDIRECT=</span></span><br><span class="line"><span class="comment"># export LIBGL_ALWASY_SOFTWARE=1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#修改为以下内容，rviz与gazebo都能正常显示</span></span><br><span class="line"><span class="built_in">export</span> DISPLAY=localhost:0</span><br><span class="line"></span><br><span class="line"><span class="comment">#wq保存退出后</span></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></tbody></table></figure>
-<ol start="3">
-<li><p>打开XLaunch<br><img src="../../images/WSL%E5%AE%89%E8%A3%85ROS-melodic/03.png" alt="03"></p>
-<p><img src="../../images/WSL%E5%AE%89%E8%A3%85ROS-melodic/04.png" alt="04"></p>
-</li>
-<li><p>启动rviz与小乌龟<br><img src="../../images/WSL%E5%AE%89%E8%A3%85ROS-melodic/05.png" alt="05"></p>
-<p><img src="WSL%E5%AE%89%E8%A3%85ROS-melodic/06.png" alt="06"></p>
-</li>
-</ol>
-<p>注. 如果之前安装过Xming，可能会有冲突，卸载掉其中一个就好了</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>ROS</category>
-      </categories>
-      <tags>
-        <tag>WSL</tag>
-        <tag>ROS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Solidworks模型导出urdf</title>
-    <url>/2021/08/14/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/</url>
-    <content><![CDATA[<blockquote>
-<p>环境说明：solidworks2020、Ubuntu18.04、ROS-melodic</p>
-</blockquote>
-<h1 id="一、-建模"><a href="#一、-建模" class="headerlink" title="一、 建模"></a>一、 建模</h1><p>建模时需注意以下几点</p>
-<ol>
-<li>机器人要有一个base_link，为其设置一个坐标原点。我的作图习惯是将base_link在装配时就定义到坐标原点，这样可以直接选用坐标原点设置为base_link的坐标原点。</li>
-<li>为需要旋转的部分设置一个旋转轴，例如下图中机器人的四个轮子和前面的挡板应该是要转动的，所以在其各自旋转轴中设置旋转轴。<br>
-<br>
-![01](../../images/Solidworks模型导出urdf/01.png)
-<br>
-<br>
-
-</li>
-</ol>
-<h1 id="二、-插件安装"><a href="#二、-插件安装" class="headerlink" title="二、 插件安装"></a>二、 插件安装</h1><p><a href="https://github.com/ros/solidworks_urdf_exporter/releases">solidworks_urdf_exporter</a><br>下载其中exe文件安装即可</p>
-<h1 id="三、-solidwoks中导出urdf"><a href="#三、-solidwoks中导出urdf" class="headerlink" title="三、 solidwoks中导出urdf"></a>三、 solidwoks中导出urdf</h1><ol>
-<li>在<strong>工具-&gt;Tools-&gt;Export as URDF</strong>中打开刚才安装的sw2urdf工具。或者直接在右上角搜索框输入urdf，比较方便。</li>
-<li>设置base_link。修改途中与base_link相连link个数时会在下方创建Empty_link，由于我已经修改过了，所以名称不一样。</li>
-</ol>
-<p><img src="../../images/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/02.png" alt="02"></p>
-<ol start="3">
-<li>设置每个单独的link。在上图框中五个link中选中就会进入每个单独link的设置过程。这里每个link设置就一样了，以一个轮子为例。</li>
-</ol>
-<p>这里的joint类型说明一下：</p>
-<ul>
-<li>revolute：旋转关节，可设定转动范围</li>
-<li>continuous：旋转关节，无位置限制</li>
-<li>prismatic：滑动关节，有位置限制</li>
-<li>fixed：虚拟关节，不可运动</li>
-<li>floating：六自由度关节</li>
-<li>planar：平面关节</li>
-</ul>
-<p><img src="../../images/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/03.png" alt="03"></p>
-<ol start="4">
-<li>根据以上步骤设置完所有关节后，开始导出文件。选中下图框中Preview and Export，会自动计算数据，并生成预览。检查没问题后，按照引导导出文件就好。</li>
-</ol>
-<ul>
-<li><p><strong>命名时有个问题需要注意一下</strong>：这里的命名内容包括<strong>小写字母、下划线、数字</strong>，否则在ROS中需要改相当一部分内容的名字，这里最好一步到位。</p>
-</li>
-<li><p>其实这里的建模，最好不要把一些螺栓、螺钉、固定板等比较杂的零件放进去，计算速度会慢，找到主要的主体、传感器、轮子等就好。</p>
-</li>
-</ul>
-<p><img src="../../images/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/04.png" alt="04"></p>
-<h1 id="四、-ros中显示"><a href="#四、-ros中显示" class="headerlink" title="四、 ros中显示"></a>四、 ros中显示</h1><ol>
-<li>创建工作空间</li>
-<li>将上一步solidworks插件生成的功能包复制到工作空间的src目录下。</li>
-<li>修改功能包的以下几个地方：<ul>
-<li>package.xml中的邮箱，可以设置个自己的</li>
-<li>display.launch中添加一行代码<code>&lt;node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher"&gt;</code>。<del>因为自动生成的launch文件使用joint_state_publisher_gui，在rviz中出现节点间没有坐标变换的情况</del>，如下图<br><img src="../../images/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/05.png" alt="05"></li>
-</ul>
-</li>
-</ol>
-<p><strong>这里修正一下：</strong><br>joint_state_publisher_gui不是不发布坐标变换信息，而是又可能没有安装这个包<br><code>sudo apt-get install ros-melodic-joint-state-publisher-gui</code></p>
-<ol start="4">
-<li>最终使用roslaunch在rviz模型中显示，如下图。<br><img src="Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/06.png" alt="06"></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>ROS</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
-        <tag>Solidworks</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ROS主从网络初探</title>
-    <url>/2021/04/23/ROS/ROS%E4%B8%BB%E4%BB%8E%E7%BD%91%E7%BB%9C%E5%88%9D%E6%8E%A2/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在配置Jetson远程连接时看见了<a href="https://zhuanlan.zhihu.com/p/52005221">设置ROS主从网络和远程开发环境</a>，决定跟随大佬的脚步尝试一下。<br>由于我对此了解并不深入，所以大部分参照大佬的教程，文章的目的是为了记录自己的学习过程，并在以后重新配置的时候还可以参考</p>
-<h1 id="配置简介"><a href="#配置简介" class="headerlink" title="配置简介"></a>配置简介</h1><p>win10、VMware15pro、ubuntu18.04（虚拟机）、JetsonTX2（ubuntu18.04）</p>
-<h2 id="1-网络设置"><a href="#1-网络设置" class="headerlink" title="1. 网络设置"></a>1. 网络设置</h2><p>首先应将虚拟机与JetsonTX2连接到同一局域网，请参考<a href="https://blog.csdn.net/qq_45172156/article/details/114766376">虚拟机中连接外部无线网络</a></p>
-<h2 id="2-JetsonTX2与虚拟机时间同步"><a href="#2-JetsonTX2与虚拟机时间同步" class="headerlink" title="2.JetsonTX2与虚拟机时间同步"></a>2.JetsonTX2与虚拟机时间同步</h2><p>以下代码需在虚拟机与JetsonTX2中分别执行</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get install chrony</span><br><span class="line">sudo apt-get install ntpdate</span><br><span class="line"><span class="comment">#同步时间 </span></span><br><span class="line">sudo ntpdate ntp.ubuntu.com</span><br><span class="line"><span class="comment">#验证时间</span></span><br><span class="line">date</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="3-配置网络"><a href="#3-配置网络" class="headerlink" title="3.配置网络"></a>3.配置网络</h2><p>为方便使用，应将JetsonTX2设为主机，虚拟机中的ubuntu设为从机</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 查看各自IP与用户名，下文皆以本段中IP与用户名为例</span></span><br><span class="line">JetsonTX2：</span><br><span class="line">	IP：		192.168.43.143</span><br><span class="line">	Hostname：	nvidia</span><br><span class="line">ubuntu：</span><br><span class="line">	IP：		192.168.43.26</span><br><span class="line">	Hostname：	dream</span><br></pre></td></tr></tbody></table></figure>
-<p>在JetsonTX2中</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vim ~/.bashrc</span><br><span class="line"><span class="comment">#添加如下两行</span></span><br><span class="line"><span class="built_in">export</span> ROS_MASTER_URI=http://192.168.43.143:11311</span><br><span class="line"><span class="built_in">export</span> ROS_HOSTNAME=192.168.43.143</span><br><span class="line"></span><br><span class="line">sudo vim /etc/hosts</span><br><span class="line"><span class="comment">#增加如下两行</span></span><br><span class="line"><span class="comment">#注意IP与hostname间应用Tab键</span></span><br><span class="line">192.168.43.143	nvidia</span><br><span class="line">192.168.43.26	dream</span><br></pre></td></tr></tbody></table></figure>
-<p>在虚拟机中配置：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vim ~/.bashrc</span><br><span class="line"><span class="comment">#添加如下两行</span></span><br><span class="line"><span class="built_in">export</span> ROS_MASTER_URI=http://192.168.43.143:11311</span><br><span class="line"><span class="built_in">export</span> ROS_HOSTNAME=192.168.43.26</span><br><span class="line"></span><br><span class="line">sudo vim /etc/hosts</span><br><span class="line"><span class="comment">#增加如下两行</span></span><br><span class="line"><span class="comment">#注意IP与hostname间应用Tab键</span></span><br><span class="line">192.168.43.143	nvidia</span><br><span class="line">192.168.43.26	dream</span><br></pre></td></tr></tbody></table></figure>
-<p>重启JetsonTX2与虚拟机后即可生效</p>
-<h2 id="4-测试"><a href="#4-测试" class="headerlink" title="4.测试"></a>4.测试</h2><p>可以看到虚拟机中运行的roscore，在JetsonTX2中也可以查看到</p>
-<p><img src="../../images/ROS%E4%B8%BB%E4%BB%8E%E7%BD%91%E7%BB%9C%E5%88%9D%E6%8E%A2/%E4%B8%BB%E4%BB%8E%E7%BD%91%E7%BB%9C.png" alt="主从网络"></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>ROS</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
-        <tag>主从网络</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ROS中使用棋盘格标定摄像头</title>
     <url>/2021/09/05/ROS/ROS%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%A3%8B%E7%9B%98%E6%A0%BC%E6%A0%87%E5%AE%9A%E6%91%84%E5%83%8F%E5%A4%B4/</url>
     <content><![CDATA[<h1 id="1-打开摄像头"><a href="#1-打开摄像头" class="headerlink" title="1. 打开摄像头"></a>1. 打开摄像头</h1><p>在robot_vision功能包中新建usb_cam.launch</p>
@@ -660,358 +1051,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Clion中添加urdf文件类型</title>
-    <url>/2021/08/21/ROS/Clion%E4%B8%AD%E6%B7%BB%E5%8A%A0urdf%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B/</url>
-    <content><![CDATA[<blockquote>
-<p>前言<br>JetBrains的软件表现一直比较不错，在用Clion开发stm32时也比较舒服。最近在做ROS开发时，尝试用Clion开发ROS，出现了识别不出urdf文件的错误。</p>
-</blockquote>
-<p><img src="../../images/Clion%E4%B8%AD%E6%B7%BB%E5%8A%A0urdf%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B/01.png" alt="01"></p>
-<p>其他文件的识别是通过安装了插件后自动实现的，对urdf需要单独添加，语言高亮就没必要了，因为我是用solidworks导出的，所以能识别到就好。</p>
-<ol>
-<li><p>首先在设置中找到文件类型，并点击加号添加文件类型，如下图。<br><img src="../../images/Clion%E4%B8%AD%E6%B7%BB%E5%8A%A0urdf%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B/02.png" alt="02"></p>
-</li>
-<li><p>点击加号后添加urdf文件内容，下图供参考<br><img src="../../images/Clion%E4%B8%AD%E6%B7%BB%E5%8A%A0urdf%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B/03.png" alt="03"></p>
-</li>
-<li><p>在上一步完成后，在列表中找到urdf，按箭头顺序依次填写内容<br><img src="../../images/Clion%E4%B8%AD%E6%B7%BB%E5%8A%A0urdf%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B/04.png" alt="04"></p>
-</li>
-<li><p>返回launch文件就能看到可以找到urdf文件了</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>ROS</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Win10在非系统盘安装WSL(ubuntu18.04)</title>
-    <url>/2021/04/23/Linux/Win10%E5%9C%A8%E9%9D%9E%E7%B3%BB%E7%BB%9F%E7%9B%98%E5%AE%89%E8%A3%85WSL-ubuntu18-04/</url>
-    <content><![CDATA[<h1 id="注：安装为WSL1，后续将对其升级"><a href="#注：安装为WSL1，后续将对其升级" class="headerlink" title="注：安装为WSL1，后续将对其升级"></a>注：安装为WSL1，后续将对其升级</h1><h1 id="在Windows中修改配置"><a href="#在Windows中修改配置" class="headerlink" title="在Windows中修改配置"></a>在Windows中修改配置</h1><ol>
-<li>在设置中打开  “开发人员模式”</li>
-</ol>
-<p><img src="../../images/Win10%E5%9C%A8%E9%9D%9E%E7%B3%BB%E7%BB%9F%E7%9B%98%E5%AE%89%E8%A3%85WSL-ubuntu18-04/%E8%AE%BE%E7%BD%AE.png" alt="设置"></p>
-<ol start="2">
-<li>在控制面板中打开程序与功能，打开  “应用或关闭Windows功能”，选择“适用于Linux的Windows子系统“并重启。</li>
-</ol>
-<p><img src="../../images/Win10%E5%9C%A8%E9%9D%9E%E7%B3%BB%E7%BB%9F%E7%9B%98%E5%AE%89%E8%A3%85WSL-ubuntu18-04/%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF.png" alt="控制面板"></p>
-<h1 id="下载子系统安装包"><a href="#下载子系统安装包" class="headerlink" title="下载子系统安装包"></a>下载子系统安装包</h1><p>选择喜欢的安装包下载到非系统盘的位置。<br>建议在安装软件的分区内新建Ubuntu文件夹，并下载到里面，因为后续将会安装在这个文件夹。</p>
-<p><a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-manual">手动下载适用于 Linux 的 Windows 子系统发行版包</a></p>
-<h1 id="安装并启动"><a href="#安装并启动" class="headerlink" title="安装并启动"></a>安装并启动</h1><p>找到刚才的文件夹，将下载好的安装包后缀名改为zip，并解压。<br>解压后运行ubuntu18.04.exe，安装完成后就可以设置用户名与密码。<br><img src="../../images/Win10%E5%9C%A8%E9%9D%9E%E7%B3%BB%E7%BB%9F%E7%9B%98%E5%AE%89%E8%A3%85WSL-ubuntu18-04/%E7%BB%93%E6%9E%8401.png" alt="结构01"></p>
-<h1 id="安装后的结构"><a href="#安装后的结构" class="headerlink" title="安装后的结构"></a>安装后的结构</h1><p>注：升级到wsl2后目录结构将有所变化<br><img src="../../images/Win10%E5%9C%A8%E9%9D%9E%E7%B3%BB%E7%BB%9F%E7%9B%98%E5%AE%89%E8%A3%85WSL-ubuntu18-04/%E7%BB%93%E6%9E%8402.png" alt="结构02"></p>
-<p><img src="../../images/Win10%E5%9C%A8%E9%9D%9E%E7%B3%BB%E7%BB%9F%E7%9B%98%E5%AE%89%E8%A3%85WSL-ubuntu18-04/%E7%BB%93%E6%9E%8403.png" alt="结构03"></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>ubuntu</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>WSL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JetsonTX2连接windows热点</title>
-    <url>/2021/07/21/Linux/JetsonTX2%E8%BF%9E%E6%8E%A55GWIFI/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>windows主机刚换了AX200网卡，设置无线模式连接5GHz频段后，网速终于赶上了校园网中的前列。<br>这里发现个新问题，<strong>windows连接5GHz的无线网，开启的热点也是5GHz。</strong><br>在使用JetsonTX2的时候，发现找不到5GHz的热点。</p>
-<h1 id="JetsonTX2网卡"><a href="#JetsonTX2网卡" class="headerlink" title="JetsonTX2网卡"></a>JetsonTX2网卡</h1><p>一开始以为JetsonTX2不支持5GHz的无线网，好奇的是这么高端的开发板会不支持5G？<br><br><br><br><br>查了下技术手册，发现JetsonTX2支持连接到802.11acWi-Fi，也就是透过5GHz频带提供高通量的无线局域网（WLAN），<strong>俗称5G WiFi （5th Generation of Wi-Fi）</strong>。理论上它能够提供最少1Gbps带宽进行多站式无线局域网通信，或是最少500Mbps的单一连线传输带宽。</p>
-<h1 id="查看JetsonTX2可用信道"><a href="#查看JetsonTX2可用信道" class="headerlink" title="查看JetsonTX2可用信道"></a>查看JetsonTX2可用信道</h1><p>可以看到，可用信道为36、40、44、48、52、56、60、64</p>
-<p><img src="../../images/JetsonTX2%E8%BF%9E%E6%8E%A55GWIFI/01.png" alt="01"></p>
-<h1 id="查看当前网络信道"><a href="#查看当前网络信道" class="headerlink" title="查看当前网络信道"></a>查看当前网络信道</h1><p>可以看到，在5.8GHz下有windows热点的信号，正好与JetsonTX2的可用信道避开。<br>也就是说，如果在JetsonTX2上设置可以连接149信道，就能使用windows的热点了。</p>
-<p><img src="../../images/JetsonTX2%E8%BF%9E%E6%8E%A55GWIFI/02.jpg" alt="02"></p>
-<h1 id="修改JetsonTX2的信道"><a href="#修改JetsonTX2的信道" class="headerlink" title="修改JetsonTX2的信道"></a>修改JetsonTX2的信道</h1><p>修改WIFI国家码为支持149以上信道的国家<br><img src="../../images/JetsonTX2%E8%BF%9E%E6%8E%A55GWIFI/03.png" alt="03"></p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo iw reg <span class="built_in">set</span> CN</span><br></pre></td></tr></tbody></table></figure>
-<h1 id="经过以上修改，理论上应该出现149及以上信道，但JetsonTX2中并未出现"><a href="#经过以上修改，理论上应该出现149及以上信道，但JetsonTX2中并未出现" class="headerlink" title="经过以上修改，理论上应该出现149及以上信道，但JetsonTX2中并未出现"></a>经过以上修改，理论上应该出现149及以上信道，但JetsonTX2中并未出现</h1><h1 id="设置windows热点频段"><a href="#设置windows热点频段" class="headerlink" title="设置windows热点频段"></a>设置windows热点频段</h1><p>原来AX200的网卡可设置双频带，这种模式下可以选择热点的频段。<br>在设备管理器中选中网卡属性，设置无线模式为双频带</p>
-<p><img src="../../images/JetsonTX2%E8%BF%9E%E6%8E%A55GWIFI/04.png" alt="04"></p>
-<p><img src="../../images/JetsonTX2%E8%BF%9E%E6%8E%A55GWIFI/05.png" alt="05"></p>
-<p><img src="../../images/JetsonTX2%E8%BF%9E%E6%8E%A55GWIFI/06.png" alt="06"></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>ubuntu</category>
-      </categories>
-      <tags>
-        <tag>JetsonTX2</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Arm架构ubuntu18.04安装Archiconda &amp; conda命令</title>
-    <url>/2021/04/22/Linux/Arm%E6%9E%B6%E6%9E%84ubuntu18-04%E5%AE%89%E8%A3%85Archiconda/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在ubuntu中的学习过程，希望有一些单独的隔离环境使用Python，避免互相产生干扰。<br>由于JetsonTX2属于ARM架构，所以不能使用Anaconda。<br><strong>Archiconda</strong>是将conda移植到aarch64平台中的工具，操作和Anaconda类似。</p>
-<h1 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h1><h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1. 下载"></a>1. 下载</h2><p>选择适当的版本下载 <a href="https://github.com/Archiconda/build-tools/releases">Archiconda下载地址</a></p>
-<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h2><p>在终端中输入</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">bash ~/Downloads/Archiconda3-0.2.3-Linux-aarch64.sh</span><br></pre></td></tr></tbody></table></figure>
-<p>过程中按问题选择即可，以下为安装成功截图</p>
-<p><img src="../../images/Arm%E6%9E%B6%E6%9E%84ubuntu18-04%E5%AE%89%E8%A3%85Archiconda/01.jpg" alt="01"></p>
-<h2 id="3-测试"><a href="#3-测试" class="headerlink" title="3. 测试"></a>3. 测试</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">conda --version</span><br></pre></td></tr></tbody></table></figure>
-<h1 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h1><ol>
-<li>环境操作</li>
-</ol>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">#创建环境</span></span><br><span class="line">conda create --name env_name python=2.7</span><br><span class="line">conda create --name env_name python=3</span><br><span class="line">conda create --name env_name python=3.5</span><br><span class="line"></span><br><span class="line">conda create --name your_env_name python=3.5 numpy scipy</span><br><span class="line"></span><br><span class="line"><span class="comment">#列举环境</span></span><br><span class="line">conda env list</span><br><span class="line"></span><br><span class="line"><span class="comment">#进入环境</span></span><br><span class="line">activate your_env_name</span><br><span class="line"></span><br><span class="line"><span class="comment">#退出环境</span></span><br><span class="line">deactivate</span><br><span class="line"></span><br><span class="line"><span class="comment">#删除环境</span></span><br><span class="line">conda remove --name your_env_name --all</span><br><span class="line"></span><br><span class="line"><span class="comment">#复制环境</span></span><br><span class="line">conda create --name new_env_name --<span class="built_in">clone</span> old_env_name </span><br></pre></td></tr></tbody></table></figure>
-<ol start="2">
-<li>环境中的包</li>
-</ol>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">conda list</span><br><span class="line"><span class="comment">#列举某一个环境中的包</span></span><br><span class="line">conda list -n your_env_name</span><br><span class="line"></span><br><span class="line"><span class="comment">#为某一个环境安装包</span></span><br><span class="line">conda install -n env_name package_name</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>ubuntu</category>
-      </categories>
-      <tags>
-        <tag>ubuntu18.04</tag>
-        <tag>JetsonTX2</tag>
-        <tag>Archiconda</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在ipad上写博客</title>
-    <url>/2021/07/18/hexo/%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<blockquote>
-<p>实测后，发现作为应急或打发时间用还是可以的，博客完全交给ipad可能会把人逼疯。</p>
-</blockquote>
-<h1 id="PPhub"><a href="#PPhub" class="headerlink" title="PPhub"></a>PPhub</h1><p>软件付费¥12<br>用来浏览github还是不错的，直接使用github也是可以的</p>
-<p><img src="../../images/%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/01.PNG" alt="01">!<a href="%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/02.PNG">02</a><img src="../../images/%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/02.PNG" alt="02"></p>
-<h1 id="Working-Copy"><a href="#Working-Copy" class="headerlink" title="Working Copy"></a>Working Copy</h1><blockquote>
-<p>在这个软件里可以实现git clone、pull、commit等，push需要解锁高级版</p>
-</blockquote>
-<p>在clone repository的时候，建议使用ssh方式，在github上验证一下，这样可以通过push</p>
-<p>使用http clone的在push的时候会出错</p>
-<p><img src="../../images/%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/03.PNG" alt="03"></p>
-<p>在编辑完成后，可以看到changes，有前后对比，修改后可以本地commit</p>
-<p><img src="../../images/%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/04.PNG" alt="04"></p>
-<p><img src="../../images/%E5%9C%A8ipad%E4%B8%8A%E5%86%99%E5%8D%9A%E5%AE%A2/05.PNG" alt="05"></p>
-<p>写完后只能推送到github，并不能发布博客，发布方法待探索……</p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo博客使用gitalk评论</title>
-    <url>/2021/10/10/hexo/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8gitalk%E8%AF%84%E8%AE%BA/</url>
-    <content><![CDATA[<h1 id="创建评论系统的repository"><a href="#创建评论系统的repository" class="headerlink" title="创建评论系统的repository"></a>创建评论系统的repository</h1>
-
-<h1 id="在GitHub上注册新应用"><a href="#在GitHub上注册新应用" class="headerlink" title="在GitHub上注册新应用"></a>在GitHub上注册新应用</h1><p><a href="https://github.com/settings/applications/new">应用注册界面</a></p>
-<p><img src="../../images/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8gitalk%E8%AF%84%E8%AE%BA/01.png" alt="01"></p>
-<p>在注册结束后，可以看到如下信息</p>
-<p><img src="../../images/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8gitalk%E8%AF%84%E8%AE%BA/02.png" alt="02"></p>
-<p><img src="../../images/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8gitalk%E8%AF%84%E8%AE%BA/03-163724456934516.png" alt="03"></p>
-<h1 id="在hexo博客中填写gitalk信息"><a href="#在hexo博客中填写gitalk信息" class="headerlink" title="在hexo博客中填写gitalk信息"></a>在hexo博客中填写gitalk信息</h1><p>将上面的Client ID和Client secrets及其他信息填入到博客主题的信息设置中</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">gitalk:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span> <span class="comment"># true</span></span><br><span class="line">  clientID:  <span class="comment"># GitHub Application Client ID</span></span><br><span class="line">  clientSecret:  <span class="comment"># Client Secret</span></span><br><span class="line">  repo: Blog_comments  <span class="comment"># Repository name</span></span><br><span class="line">  owner: xin-Dream <span class="comment"># GitHub ID</span></span><br><span class="line">  admin: xin-Dream <span class="comment"># GitHub ID</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>使用gitalk评论系统后，发布的文章需要由管理者进入初始化后才能开启评论。</p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用utools快速新建hexo博客</title>
-    <url>/2021/08/06/hexo/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<blockquote>
-<p><a href="https://u.tools/">utools下载地址</a><br>相关utools的使用不具体描述</p>
-</blockquote>
-<h1 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h1><p><img src="../../images/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/01.png" alt="01"></p>
-<p><img src="../../images/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/02.png" alt="02"></p>
-<h1 id="快捷命令创建"><a href="#快捷命令创建" class="headerlink" title="快捷命令创建"></a>快捷命令创建</h1><p><br><img src="../../images/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/03.png" alt="03"><br><br><br>这里设置的关键字，表示我们在唤出utools后，输入这个关键字即可执行这个快捷命令<br><br><br><br><br><img src="../../images/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/04.png" alt="04"></p>
-<h1 id="设置全局快捷键"><a href="#设置全局快捷键" class="headerlink" title="设置全局快捷键"></a>设置全局快捷键</h1><p>完成以上操作后，我们在utools中输入new，然后输入要创建的文章的名称就能在相应的posts目录下生成新的文章。</p>
-<p>设置全局快捷键，可以让我们在任意时刻，通过快捷键直接进入输入文章名的步骤。</p>
-<p><img src="../../images/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/05.png" alt="05"></p>
-<h1 id="插入固定文本"><a href="#插入固定文本" class="headerlink" title="插入固定文本"></a>插入固定文本</h1><p>写文章或写程序时，有一部分内容是完全一样的，比如插入图片、引用本地其他文章等。可以通过备忘快贴这个插件实现。</p>
-<p><img src="../../images/%E4%BD%BF%E7%94%A8utools%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/06.png" alt="06"></p>
-<p>同理，在设置好全局快捷键后，就可以直接快捷键粘贴固定内容</p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在word中插入代码</title>
-    <url>/2021/08/04/%E6%9D%82%E9%A1%B9/%E5%9C%A8word%E4%B8%AD%E6%8F%92%E5%85%A5%E4%BB%A3%E7%A0%81/</url>
-    <content><![CDATA[<p><a href="http://www.codeinword.com/">CodeInWord</a></p>
-<p>将代码复制到左侧，选择对应的语言，点击高亮后，将右侧内容直接复制到word中即可。<br>注意复制时选择源格式。</p>
-<p><img src="../../images/%E5%9C%A8word%E4%B8%AD%E6%8F%92%E5%85%A5%E4%BB%A3%E7%A0%81/01.png" alt="01"></p>
-]]></content>
-      <categories>
-        <category>杂项</category>
-      </categories>
-      <tags>
-        <tag>word</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>solidworks装配体整体3D打印</title>
-    <url>/2021/05/29/%E6%9C%BA%E6%A2%B0%E7%B1%BB/solidworks%E8%A3%85%E9%85%8D%E4%BD%93%E6%95%B4%E4%BD%933D%E6%89%93%E5%8D%B0/</url>
-    <content><![CDATA[<p><img src="../../images/solidworks%E8%A3%85%E9%85%8D%E4%BD%93%E6%95%B4%E4%BD%933D%E6%89%93%E5%8D%B0/1.png" alt="1"></p>
-]]></content>
-      <categories>
-        <category>机械</category>
-        <category>Solidworks</category>
-      </categories>
-      <tags>
-        <tag>Solidworks</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>solidworks中子装配体可动</title>
-    <url>/2021/07/25/%E6%9C%BA%E6%A2%B0%E7%B1%BB/solidworks%E4%B8%AD%E5%AD%90%E8%A3%85%E9%85%8D%E4%BD%93%E5%8F%AF%E5%8A%A8/</url>
-    <content><![CDATA[<p><img src="solidworks%E4%B8%AD%E5%AD%90%E8%A3%85%E9%85%8D%E4%BD%93%E5%8F%AF%E5%8A%A8/01.png" alt="01"></p>
-]]></content>
-      <categories>
-        <category>机械</category>
-        <category>Solidworks</category>
-      </categories>
-      <tags>
-        <tag>Solidworks</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Solidworks焊件结构中添加型材</title>
-    <url>/2021/07/27/%E6%9C%BA%E6%A2%B0%E7%B1%BB/Solidworks%E7%84%8A%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9E%8B%E6%9D%90/</url>
-    <content><![CDATA[<p>下载以下型材库<br>链接：<a href="https://pan.baidu.com/s/170qEkA8MN5nfCuDD1jZFgg">https://pan.baidu.com/s/170qEkA8MN5nfCuDD1jZFgg</a><br>提取码：2vyt </p>
-<p>将压缩包解压，SolidWorks安装目录中找到</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">~\SOLIDWORKS\lang\chinese-simplified\weldment profiles</span><br></pre></td></tr></tbody></table></figure>
-<p>在里面新建GB文件夹，将下载的文件复制进去，注意按下图层级复制进去<br><img src="../../images/Solidworks%E7%84%8A%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9E%8B%E6%9D%90/01.png" alt="01"></p>
-]]></content>
-      <categories>
-        <category>机械</category>
-        <category>Solidworks</category>
-      </categories>
-      <tags>
-        <tag>Solidworks</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>AltiumDesigner创建自己的库</title>
-    <url>/2021/08/24/%E7%94%B5%E8%B7%AF/AltiumDesigner%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BA%93/</url>
-    <content><![CDATA[<h1 id="使用插件搜索芯片自动建库"><a href="#使用插件搜索芯片自动建库" class="headerlink" title="使用插件搜索芯片自动建库"></a>使用插件搜索芯片自动建库</h1><p><a href="https://www.samacsys.com/altium-designer-library-instructions/">Altium Library Loader</a></p>
-<p>链接内可下载，有详细的教程</p>
-<ul>
-<li>需要AD17及以上版本才能使用</li>
-<li>需要注册登录后使用</li>
-<li>在下图中添加自己创建的原理图库和封装库，后续搜索后的元件会自动添加到以下库</li>
-</ul>
-<p><img src="../../images/AltiumDesigner%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BA%93/01.png" alt="01"></p>
-<p>也可以在<a href="https://componentsearchengine.com/">Electronic Component Search Engine</a>中搜索元件，下载模型后通过插件手动添加</p>
-]]></content>
-      <categories>
-        <category>电路</category>
-      </categories>
-      <tags>
-        <tag>AltiumDesigner18</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用CubeMX/CubeIDE配置时钟树注意事项</title>
-    <url>/2021/08/20/%E5%8D%95%E7%89%87%E6%9C%BA/%E4%BD%BF%E7%94%A8CubeMX-CubeIDE%E9%85%8D%E7%BD%AE%E6%97%B6%E9%92%9F%E6%A0%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
-    <content><![CDATA[<p>一直在用CubeMX配置stm32程序，特别是时钟配置格外方便，没想到一直没注意的时钟树一旦出错，花了我两天时间才找到问题。<br><br><br><br></p>
-<blockquote>
-<p>问题描述：<br>在使用stm32的USB做虚拟串口时，无论是windows还是在Ubuntu上都显示设备不能识别，连端口号都不显示。<br><br></p>
-</blockquote>
-<p>使用CubeMX时一般我习惯直接修改HCLK为168MHz，软件会自动匹配其余时钟。</p>
-<p>其实软件设定的只是每个芯片的可匹配的频率，对不同的开发板，我们用的最多的外部晶振其实是不一样的，如果设定与实际频率不同，就会出大问题。</p>
-<br>
-<br>
-
-<p><img src="../../images/%E4%BD%BF%E7%94%A8CubeMX-CubeIDE%E9%85%8D%E7%BD%AE%E6%97%B6%E9%92%9F%E6%A0%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/01.png" alt="01"></p>
-<br>
-<br>
-查看开发板中是8MHz的晶振，所以软件中的设定要与之匹配。
-
-<p><img src="%E4%BD%BF%E7%94%A8CubeMX-CubeIDE%E9%85%8D%E7%BD%AE%E6%97%B6%E9%92%9F%E6%A0%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/02.png" alt="02"></p>
-]]></content>
-      <categories>
-        <category>单片机</category>
-        <category>STM32</category>
-      </categories>
-      <tags>
-        <tag>CubeMX</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu18.04配置Clion开发stm32</title>
-    <url>/2021/08/27/%E5%8D%95%E7%89%87%E6%9C%BA/Ubuntu18-04%E9%85%8D%E7%BD%AEClion%E5%BC%80%E5%8F%91stm32/</url>
-    <content><![CDATA[<blockquote>
-<p>参考windows中的配置过程</p>
-<a href="#">Post not found: 单片机/配置Clion开发stm32 配置Clion开发stm32</a>
-</blockquote>
-<h1 id="一、-环境准备"><a href="#一、-环境准备" class="headerlink" title="一、 环境准备"></a>一、 环境准备</h1><ol>
-<li>gcc-arm-none-eabi</li>
-</ol>
-<p><a href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads">下载地址</a><br>下载后解压到合适位置，并再etc/profile中添加path</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/dream/gcc-arm-none-eabi-10.3-2021.07/bin</span><br></pre></td></tr></tbody></table></figure>
-<p>注意安装完成后要source一下</p>
-<p>使用<code>sudo apt install gcc-arm-none-eabi</code>也可以，但是后面需要设置他的路径，这个路径不好找。</p>
-<ol start="2">
-<li>openocd</li>
-</ol>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt install openocd</span><br></pre></td></tr></tbody></table></figure>
-<ol start="3">
-<li>Clion</li>
-<li>STM32CubeMX</li>
-</ol>
-<h1 id="二、-Clion设置"><a href="#二、-Clion设置" class="headerlink" title="二、 Clion设置"></a>二、 Clion设置</h1><ol>
-<li>Toolchains</li>
-</ol>
-<p>File -&gt; Build,Execution,Deployment -&gt; Toolchains<br>新建一个设置，参考下图<br><img src="../../images/Ubuntu18-04%E9%85%8D%E7%BD%AEClion%E5%BC%80%E5%8F%91stm32/01.png" alt="01"></p>
-<ol start="2">
-<li>CMake</li>
-</ol>
-<p>File -&gt; Build,Execution,Deployment -&gt; CMake<br>配置参考下图</p>
-<p><img src="../../images/Ubuntu18-04%E9%85%8D%E7%BD%AEClion%E5%BC%80%E5%8F%91stm32/02.png" alt="02"></p>
-<ol start="3">
-<li><p>下载器</p>
-<ul>
-<li>自己找个位置新建config文件夹，用于存放不同下载器得cfg文件，新建一个daplink.cfg（这里我用cmsis_dap调试器）</li>
-<li>在daplink.cfg文件中添加内容<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> [find interface/cmsis-dap.cfg]</span><br><span class="line">transport select swd</span><br><span class="line">   </span><br><span class="line"><span class="comment"># 0x10000 = 64K Flash Size</span></span><br><span class="line"><span class="built_in">set</span> FLASH_SIZE=0x160000</span><br><span class="line">   </span><br><span class="line"><span class="built_in">source</span> [find target/stm32f4x.cfg]</span><br></pre></td></tr></tbody></table></figure></li>
-<li>在下载选项中选择Edit configuration,参考下图设置<img src="../../images/Ubuntu18-04%E9%85%8D%E7%BD%AEClion%E5%BC%80%E5%8F%91stm32/03.png" alt="03"></li>
-</ul>
-</li>
-<li><p>编译、下载测试</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>单片机</category>
-        <category>STM32</category>
-      </categories>
-      <tags>
-        <tag>stm32</tag>
-        <tag>Clion</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Android模拟器长时间运行后不显示Toast</title>
-    <url>/2021/08/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Android%E6%A8%A1%E6%8B%9F%E5%99%A8%E9%95%BF%E6%97%B6%E9%97%B4%E8%BF%90%E8%A1%8C%E5%90%8E%E4%B8%8D%E6%98%BE%E7%A4%BAToast/</url>
-    <content><![CDATA[<p><img src="../../images/Android%E6%A8%A1%E6%8B%9F%E5%99%A8%E9%95%BF%E6%97%B6%E9%97%B4%E8%BF%90%E8%A1%8C%E5%90%8E%E4%B8%8D%E6%98%BE%E7%A4%BAToast/01-163724422538013.png" alt="01"></p>
-]]></content>
-      <categories>
-        <category>程序设计</category>
-        <category>Android</category>
-      </categories>
-      <tags>
-        <tag>Android Studio</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Android判断文本输入框是否为空</title>
     <url>/2021/08/02/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Android%E5%88%A4%E6%96%AD%E6%96%87%E6%9C%AC%E8%BE%93%E5%85%A5%E6%A1%86%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA/</url>
     <content><![CDATA[<p><img src="/images/Android%E5%88%A4%E6%96%AD%E6%96%87%E6%9C%AC%E8%BE%93%E5%85%A5%E6%A1%86%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA/01-163724420940512.png" alt="01"></p>
@@ -1040,39 +1079,6 @@
       </categories>
       <tags>
         <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode-202-happy-number</title>
-    <url>/2021/07/18/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/LeetCode-202-happy-number/</url>
-    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>编写一个算法来判断一个数 n 是不是快乐数。</p>
-<p>「快乐数」定义为：</p>
-<ul>
-<li>对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和。</li>
-<li>然后重复这个过程直到这个数变为 1，也可能是 无限循环 但始终变不到 1。</li>
-<li>如果 可以变为  1，那么这个数就是快乐数。<br>如果 <code>n</code> 是快乐数就返回 <code>true</code> ；不是，则返回 <code>false</code> 。</li>
-</ul>
-<h2 id="示例1："><a href="#示例1：" class="headerlink" title="示例1："></a>示例1：</h2><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line">输入：<span class="number">19</span></span><br><span class="line">输出：<span class="literal">true</span></span><br><span class="line">解释：</span><br><span class="line"><span class="number">12</span> + <span class="number">92</span> = <span class="number">82</span></span><br><span class="line"><span class="number">82</span> + <span class="number">22</span> = <span class="number">68</span></span><br><span class="line"><span class="number">62</span> + <span class="number">82</span> = <span class="number">100</span></span><br><span class="line"><span class="number">12</span> + <span class="number">02</span> + <span class="number">02</span> = <span class="number">1</span></span><br></pre></td></tr></tbody></table></figure>
-<h2 id="示例2："><a href="#示例2：" class="headerlink" title="示例2："></a>示例2：</h2><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line">输入：n = <span class="number">2</span></span><br><span class="line">输出：<span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
-<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><h2 id="C语言"><a href="#C语言" class="headerlink" title="C语言"></a>C语言</h2><h3 id="第一种思路"><a href="#第一种思路" class="headerlink" title="第一种思路"></a>第一种思路</h3><p>累计相除后取余，得出每一位数</p>
-<figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//第一种实现方式</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n)</span></span>{</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> m = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= <span class="number">10</span>; k++) {</span><br><span class="line">        <span class="keyword">int</span> d = n / m % <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, d);</span><br><span class="line">        sum += d * d;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (k &lt; <span class="number">10</span>) {</span><br><span class="line">            m *= <span class="number">10</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"sum=%d\n"</span>, sum);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二种实现</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n)</span></span>{</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">1000000000</span>; m &gt;= <span class="number">1</span>; m /= <span class="number">10</span>) {</span><br><span class="line">        <span class="keyword">int</span> d = n / m % <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, d);</span><br><span class="line">        sum += d * d;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h3 id="第二种思路"><a href="#第二种思路" class="headerlink" title="第二种思路"></a>第二种思路</h3><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//    s=12345</span></span><br><span class="line"><span class="comment">//    d = s % 10;   d:5</span></span><br><span class="line"><span class="comment">//    s / 10;       s:1234</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//    d = s % 10;   d:4</span></span><br><span class="line"><span class="comment">//    s / 10;       s:123</span></span><br><span class="line"><span class="comment">//    以下内容写入函数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n)</span></span>{ </span><br><span class="line">    <span class="keyword">while</span> (n != <span class="number">0</span>) {</span><br><span class="line">        <span class="keyword">int</span> d = n % <span class="number">10</span>;</span><br><span class="line">        n /= <span class="number">10</span>;</span><br><span class="line">        sum += d * d;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> history[<span class="number">1000</span>];</span><br><span class="line">    <span class="keyword">int</span> size = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (!contains(history, size, n)) {</span><br><span class="line">        history[size] = n;</span><br><span class="line">        size++;</span><br><span class="line"></span><br><span class="line">        n = next_n(n);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> n == <span class="number">1</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="第三种思路"><a href="#第三种思路" class="headerlink" title="第三种思路"></a>第三种思路</h3><p>这种思路基于<strong>弗洛伊德的乌龟-兔子循环寻找</strong>。可以在环形链表中找到环形的入口节点。<br>如下图，一快一慢的龟兔会相继进入一个圈内，当两个点相遇的时候，设置一个从相遇点出发，另一个从起点出发，再次相遇，即为环形入口。</p>
-<p>至于更深层次的解释，还没想好怎么表述。</p>
-<p>下图的算法图解在<a href="https://visualgo.net/en">https://visualgo.net/en</a></p>
-<p><img src="../../images/LeetCode-202-happy-number/01.png" alt="01"><br><br><br><br></p>
-<figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n)</span></span>{</span><br><span class="line">    <span class="comment">//  龟兔赛跑循环</span></span><br><span class="line">    <span class="keyword">int</span> slow = n;</span><br><span class="line">    <span class="keyword">int</span> fast = n;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">do</span> {</span><br><span class="line">        slow = next_n(slow);</span><br><span class="line">        fast = next_n(next_n(fast));</span><br><span class="line">        <span class="comment">//fast = next_n(fast);</span></span><br><span class="line">    } <span class="keyword">while</span> (slow != fast);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> fast == <span class="number">1</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-
-]]></content>
-      <categories>
-        <category>程序设计</category>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>LeetCode</tag>
       </tags>
   </entry>
   <entry>
@@ -1325,14 +1331,6 @@
       <tags>
         <tag>C/C++</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>桌面工作台计划</title>
-    <url>/2021/11/07/%E6%9D%82%E9%A1%B9/%E6%A1%8C%E9%9D%A2%E5%B7%A5%E4%BD%9C%E5%8F%B0%E8%AE%A1%E5%88%92/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1>]]></content>
-      <categories>
-        <category>杂项</category>
-      </categories>
   </entry>
   <entry>
     <title>使用Typora写hexo博客</title>
@@ -2511,19 +2509,6 @@
       <tags>
         <tag>stm32</tag>
         <tag>cubeIDE</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>FreeRTOS学习目录</title>
-    <url>/2021/07/14/%E5%8D%95%E7%89%87%E6%9C%BA/FreeRTOS%E5%AD%A6%E4%B9%A0%E7%9B%AE%E5%BD%95/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>单片机</category>
-        <category>FreeRTOS</category>
-      </categories>
-      <tags>
-        <tag>stm32</tag>
-        <tag>FreeRTOS</tag>
       </tags>
   </entry>
   <entry>
