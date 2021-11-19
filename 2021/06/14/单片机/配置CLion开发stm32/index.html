@@ -105,13 +105,11 @@
     <div class="article-entry" itemprop="articleBody">
        
   <p>参考链接：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/145801160">配置CLion用于STM32开发【优雅の嵌入式开发】</a></p>
-<h1 id="1-相关工具下载"><a href="#1-相关工具下载" class="headerlink" title="1. 相关工具下载"></a>1. 相关工具下载</h1><ol>
-<li><a target="_blank" rel="noopener" href="https://www.st.com/zh/development-tools/stm32-software-development-tools.html">STM32CubeMX</a></li>
-<li><a target="_blank" rel="noopener" href="https://gnutoolchains.com/arm-eabi/openocd/">OpenOCD</a>（下载好后解压到指定目录后不要动了）</li>
-<li><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/sjlj/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0.7z/download?use_mirror=udomain">MinGW-w64</a>（下载好后解压到指定目录后不要动了）</li>
-<li><a target="_blank" rel="noopener" href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads">gcc-arm-none-eabi</a>（下载好后解压到指定目录后不要动了）</li>
-<li><a target="_blank" rel="noopener" href="https://www.jetbrains.com/clion/">Clion</a>（这个可以到Jetbrain申请教育账号，就可以使用专业版了，应该需要一年验证一次）</li>
-</ol>
+<h1 id="1-相关工具下载"><a href="#1-相关工具下载" class="headerlink" title="1. 相关工具下载"></a>1. 相关工具下载</h1><pre><code>  1. [STM32CubeMX](https://www.st.com/zh/development-tools/stm32-software-development-tools.html)
+  2. [OpenOCD](https://gnutoolchains.com/arm-eabi/openocd/)（下载好后解压到指定目录后不要动了）
+  3. [MinGW-w64](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/sjlj/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0.7z/download?use_mirror=udomain)（下载好后解压到指定目录后不要动了）
+  4. [gcc-arm-none-eabi](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)（下载好后解压到指定目录后不要动了）
+  5. [Clion](https://www.jetbrains.com/clion/)（这个可以到Jetbrain申请教育账号，就可以使用专业版了，应该需要一年验证一次）</code></pre>
 <h1 id="2-添加环境变量"><a href="#2-添加环境变量" class="headerlink" title="2. 添加环境变量"></a>2. 添加环境变量</h1><ul>
 <li>将上一步下载的MinGW-w64、gcc-arm-none-eabi、OpenOCD的bin目录添加到环境变量</li>
 <li><strong>D:\052-MinGW\bin</strong>、<strong>D:\053-gcc-arm-none-eabi\bin</strong>、<strong>D:\053-gcc-arm-none-eabi\bin</strong></li>
@@ -119,12 +117,12 @@
 <li>可在命令行使用”gcc -v”、”arm-none-eabi-gcc -v”、”openocd -v”验证</li>
 </ul>
 <h1 id="3-Clion配置"><a href="#3-Clion配置" class="headerlink" title="3. Clion配置"></a>3. Clion配置</h1><ul>
-<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/01.png" alt="01"></li>
-<li><img src="images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/02.png" alt="02"></li>
-<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/03.png" alt="03"></li>
+<li><img src="../../images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/01.png" alt="01"></li>
+<li><img src="../../images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/02.png" alt="02"></li>
+<li><img src="../../images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/03.png" alt="03"></li>
 </ul>
 <h1 id="4-新建stm32项目"><a href="#4-新建stm32项目" class="headerlink" title="4. 新建stm32项目"></a>4. 新建stm32项目</h1><ul>
-<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/04.png" alt="04"></li>
+<li><img src="../../images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/04.png" alt="04"></li>
 <li>新建项目后，编辑区会出现Open with STM32CubeMX，即可使用CubeMX配置程序</li>
 <li>配置完成后注意CubeMX中路径要与刚才路径一致</li>
 <li>后期若移动位置，需在新位置打开CubeMX的ioc文档并修改</li>
@@ -137,8 +135,8 @@
 <li>首先编写下载的cfg文件，这个我习惯在工作区建一个文件夹config，然后新建F4-stlink.cfg文件</li>
 <li>以下代码为F407使用stlink下载器的设置，粘贴到新建的文件夹即可</li>
 <li>然后在Clion的下载选项中选择这个文件，如下图</li>
-<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/05.png" alt="05"></li>
-<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/06.png" alt="06"></li>
+<li><img src="../../images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/05.png" alt="05"></li>
+<li><img src="../../images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/06.png" alt="06"></li>
 <li>配置完成后使用运行按钮即可下载<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This is for using the onboard STLINK/V2</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> [find interface/stlink.cfg]</span><br><span class="line"></span><br><span class="line">transport select hla_swd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 0x10000 = 64K Flash Size</span></span><br><span class="line"><span class="built_in">set</span> WORKAREASIZE 0x20000</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> [find target/stm32f4x.cfg] </span><br></pre></td></tr></tbody></table></figure>
 <h1 id="7-无线下载器"><a href="#7-无线下载器" class="headerlink" title="7. 无线下载器"></a>7. 无线下载器</h1></li>
 </ul>
@@ -146,14 +144,19 @@
 <p>按上一步添加cfg文件</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This is for using the onboard STLINK/V2</span></span><br><span class="line">adapter driver cmsis-dap</span><br><span class="line"></span><br><span class="line">transport select swd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 0x10000 = 64K Flash Size</span></span><br><span class="line"><span class="built_in">set</span> FLASH_SIZE 0x160000</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> [find target/stm32f4x.cfg]</span><br><span class="line"></span><br><span class="line">adapter speed 2000</span><br></pre></td></tr></tbody></table></figure>
 <h1 id="8-注意事项"><a href="#8-注意事项" class="headerlink" title="8. 注意事项"></a>8. 注意事项</h1><ul>
-<li>在Clion中选择文件时按下图配置，这样在CMakeLists中会是单独一行，如果删除文件后还有残留可以自己查到删除<img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/07.png" alt="07"><img src="./images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/08.png" alt="08"> <br> </li>
-<li>在使用FreeRTOS时，编译会报错。默认情况下，硬件浮点运算是关闭的，<del>需要在CMakeLists里设置一下</del>需要在CMakeLists_template.txt和CMakeLists.txt中修改，否则重新生成stm32程序时CMakeLists.txt会再次取消浮点运算<img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/09.png" alt="09"><br><br>  <strong>取消框选内容的注释就好了。</strong> <br><br><br><br><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/10.png" alt="10"> <br></li>
-<li>CubeMX不生成CMakeList<ul>
+<li><p>在Clion中选择文件时按下图配置，这样在CMakeLists中会是单独一行，如果删除文件后还有残留可以自己查到删除<img src="../../images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/07.png" alt="07"><img src="../../images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/08.png" alt="08"></p>
+ <br> </li>
+<li><p>在使用FreeRTOS时，编译会报错。默认情况下，硬件浮点运算是关闭的，<del>需要在CMakeLists里设置一下</del>需要在CMakeLists_template.txt和CMakeLists.txt中修改，否则重新生成stm32程序时CMakeLists.txt会再次取消浮点运算<img src="../../images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/09.png" alt="09"><br><br>  <strong>取消框选内容的注释就好了。</strong> <br><br></p>
+<p><br><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/10.png" alt="10"> </p>
+<br></li>
+<li><p>CubeMX不生成CMakeList</p>
+<ul>
 <li>CMakeList不是CubeMX生成的，是CLion生成的 </li>
 <li>当项目名中含“.”时，不生成CMakeList</li>
 </ul>
 </li>
-<li><strong>待更新+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</strong></li>
+<li><p><strong>待更新+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</strong></p>
+</li>
 </ul>
  
       <!-- reward -->
