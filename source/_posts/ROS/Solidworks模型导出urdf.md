@@ -15,7 +15,7 @@ categories:
 2. 为需要旋转的部分设置一个旋转轴，例如下图中机器人的四个轮子和前面的挡板应该是要转动的，所以在其各自旋转轴中设置旋转轴。
 </br>
 </br>
-{% asset_image 01.png This is an image %}
+![01](../../images/Solidworks模型导出urdf/01.png)
 </br>
 </br>
 
@@ -29,7 +29,7 @@ categories:
 1. 在**工具->Tools->Export as URDF**中打开刚才安装的sw2urdf工具。或者直接在右上角搜索框输入urdf，比较方便。
 2. 设置base_link。修改途中与base_link相连link个数时会在下方创建Empty_link，由于我已经修改过了，所以名称不一样。
 
-{% asset_image 02.png This is an image %}
+![02](../../images/Solidworks模型导出urdf/02.png)
 
 3. 设置每个单独的link。在上图框中五个link中选中就会进入每个单独link的设置过程。这里每个link设置就一样了，以一个轮子为例。
 
@@ -41,7 +41,7 @@ categories:
    + floating：六自由度关节
    + planar：平面关节
 
-{% asset_image 03.png This is an image %}
+![03](../../images/Solidworks模型导出urdf/03.png)
 
 4. 根据以上步骤设置完所有关节后，开始导出文件。选中下图框中Preview and Export，会自动计算数据，并生成预览。检查没问题后，按照引导导出文件就好。
 
@@ -49,7 +49,7 @@ categories:
 
 + 其实这里的建模，最好不要把一些螺栓、螺钉、固定板等比较杂的零件放进去，计算速度会慢，找到主要的主体、传感器、轮子等就好。
 
-{% asset_image 04.png This is an image %}
+![04](../../images/Solidworks模型导出urdf/04.png)
 
 # 四、 ros中显示
 
@@ -58,11 +58,11 @@ categories:
 3. 修改功能包的以下几个地方：
    + package.xml中的邮箱，可以设置个自己的
    + display.launch中添加一行代码`<node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">`。~~因为自动生成的launch文件使用joint_state_publisher_gui，在rviz中出现节点间没有坐标变换的情况~~，如下图
-{% asset_image 05.png This is an image %}
+   ![05](../../images/Solidworks模型导出urdf/05.png)
 
 **这里修正一下：**
 joint_state_publisher_gui不是不发布坐标变换信息，而是又可能没有安装这个包
 `sudo apt-get install ros-melodic-joint-state-publisher-gui`
 
 4. 最终使用roslaunch在rviz模型中显示，如下图。
-{% asset_image 06.png This is an image %}
+  ![06](Solidworks模型导出urdf/06.png)

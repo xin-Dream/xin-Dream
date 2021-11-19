@@ -65,7 +65,7 @@ rosrun camera_calibration cameracalibrator.py --size 6x4 --square 0.025 image:=/
 
 标定过程应该让图中彩色的横条尽量变为绿色。
 
-{% asset_img 01.png This is an image %}
+![01](ROS中使用棋盘格标定摄像头/01.png)
 
 
 

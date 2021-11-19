@@ -18,7 +18,7 @@ sudo apt-get install barrier
 
 安装结束后，选择一台设备作为服务端，其他作为客户端即可
 
-{% asset_img 1.png This is an image %}
+![1](../../images/多机共享键鼠软件Barrier/1.png)
 
 在设置服务端按钮下可以添加屏幕布局
-{% asset_img 2.png This is an image %}
+![2](多机共享键鼠软件Barrier/2.png)

@@ -5,4 +5,4 @@ tags: [Solidworks]
 categories: [机械,Solidworks]
 ---
 
-{% asset_img 1.png This is an image %}
+![1](../../images/solidworks装配体整体3D打印/1.png)

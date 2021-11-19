@@ -15,12 +15,12 @@ categories: [windows]
 # 2. 设置无线网络跃点数
 
 找到要设置的无线网络，右键选择属性。
-{% asset_image 01.png a image %}
+![01](../../images/win10设置有线网络与WIFI网络优先级/01.png)
 
 </br>
 </br>
 然后选择高级，设置跃点数
-{% asset_image 02.png a image %}
+![02](../../images/win10设置有线网络与WIFI网络优先级/02.png)
 
 # 3. 对跃点数设置的说明
 

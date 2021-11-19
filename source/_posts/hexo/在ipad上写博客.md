@@ -11,8 +11,7 @@ categories: [hexo]
 软件付费¥12
 用来浏览github还是不错的，直接使用github也是可以的
 
-{% asset_img 01.PNG This is an image %}
-{% asset_img 02.PNG This is an image %}
+![01](../../images/在ipad上写博客/01.PNG)\![02](在ipad上写博客/02.PNG)![02](../../images/在ipad上写博客/02.PNG)
 
 # Working Copy
 
@@ -22,12 +21,15 @@ categories: [hexo]
 
 使用http clone的在push的时候会出错
 
-{% asset_img 03.PNG This is an image %}
+![03](../../images/在ipad上写博客/03.PNG)
 
 在编辑完成后，可以看到changes，有前后对比，修改后可以本地commit
 
-{% asset_img 04.PNG This is an image %}
-{% asset_img 05.PNG This is an image %}
+![04](../../images/在ipad上写博客/04.PNG)
+
+![05](../../images/在ipad上写博客/05.PNG)
+
+
 
 
 写完后只能推送到github，并不能发布博客，发布方法待探索......

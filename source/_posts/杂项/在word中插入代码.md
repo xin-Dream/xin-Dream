@@ -9,4 +9,5 @@ categories: [杂项]
 将代码复制到左侧，选择对应的语言，点击高亮后，将右侧内容直接复制到word中即可。
 注意复制时选择源格式。
 
-{% asset_image 01.png This is an image %}
+![01](../../images/在word中插入代码/01.png)
+

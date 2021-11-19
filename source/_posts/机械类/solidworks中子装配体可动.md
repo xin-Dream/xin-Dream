@@ -5,4 +5,4 @@ tags: [Solidworks]
 categories: [机械,Solidworks]
 ---
 
-{% asset_image 01.png a image}
+![01](solidworks中子装配体可动/01.png)

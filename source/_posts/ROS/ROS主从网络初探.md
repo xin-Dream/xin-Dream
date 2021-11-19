@@ -72,7 +72,7 @@ sudo vim /etc/hosts
 ## 4.测试
 可以看到虚拟机中运行的roscore，在JetsonTX2中也可以查看到
 
-{% asset_img 主从网络.png This is an image %}
+![主从网络](../../images/ROS主从网络初探/主从网络.png)
 
 
 

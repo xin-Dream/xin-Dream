@@ -19,7 +19,7 @@ categories:
 
 1. 在clash中查看端口号
 
-{% asset_img 01.png This is an image %}
+![01](../../images/WSL安装ROS-melodic/01.png)
 
 2. 在子系统中添加代理
 
@@ -31,7 +31,7 @@ export https_proxy=127.0.0.1:7890
 #此处7890对应上面端口号
 ```
 添加代理后rosdep update 一次通过
-{% asset_img 02.png This is an image %}
+![02](../../images/WSL安装ROS-melodic/02.png)
 
 
 # 设置可用窗口
@@ -58,11 +58,14 @@ export DISPLAY=localhost:0
 source ~/.bashrc
 ```
 3. 打开XLaunch
-{% asset_img 03.png This is an image %}
-{% asset_img 04.png This is an image %}
+  ![03](../../images/WSL安装ROS-melodic/03.png)
+
+  ![04](../../images/WSL安装ROS-melodic/04.png)
+
 4. 启动rviz与小乌龟
-{% asset_img 05.png This is an image %}
-{% asset_img 06.png This is an image %}
+  ![05](../../images/WSL安装ROS-melodic/05.png)
+
+  ![06](WSL安装ROS-melodic/06.png)
 
 
 注. 如果之前安装过Xming，可能会有冲突，卸载掉其中一个就好了

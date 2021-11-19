@@ -22,12 +22,11 @@ categories:
 </br>
 </br>
 
-{% asset_image 01.png This is an image %}
+![01](../../images/使用CubeMX-CubeIDE配置时钟树注意事项/01.png)
 
 </br>
 </br>
 查看开发板中是8MHz的晶振，所以软件中的设定要与之匹配。
 
-{% asset_image 02.png This is an image %}
-
+![02](使用CubeMX-CubeIDE配置时钟树注意事项/02.png)
 

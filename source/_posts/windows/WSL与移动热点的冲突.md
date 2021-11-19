@@ -11,7 +11,7 @@ categories:
 
 当下网络环境如下图
 
-{% asset_image 01.png This is an image %}
+![01](WSL与移动热点的冲突/01.png)
 
 # 解决思路
 

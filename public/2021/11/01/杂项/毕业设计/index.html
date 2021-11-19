@@ -101,7 +101,7 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>毕业设计首先要继续完成对SLAM的实践部分，所以机器人的主要功能要在ROS平台中完成建图与导航的基本功能。结合与研究生导师的联系，准备开始接触人体行为检测。人体行为检测主要是在深度学习基础上完成对人体骨骼关键节点的检测，判断人的动作与行为。<br>本文会当作毕业设计的草稿，尽量详细的写清楚。</p>
+<p>毕业设计首先要继续完成对SLAM的实践部分，所以机器人的主要功能要在ROS平台中完成建图与导航的基本功能。开始接触人体行为检测。人体行为检测主要是在深度学习基础上完成对人体骨骼关键节点的检测，判断人的动作与行为。<br>本文会当作毕业设计的草稿。</p>
 </blockquote>
 <h1 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h1><p>机器人操作系统（ROS）、同步定位与地图构建（SLAM）、人体行为检测、深度学习、stm32</p>
 <h1 id="1-结构设计"><a href="#1-结构设计" class="headerlink" title="1 结构设计"></a>1 结构设计</h1><h2 id="1-1-机器人底盘"><a href="#1-1-机器人底盘" class="headerlink" title="1.1 机器人底盘"></a>1.1 机器人底盘</h2><h3 id="1-1-1-论文中的底盘布置方案"><a href="#1-1-1-论文中的底盘布置方案" class="headerlink" title="1.1.1 论文中的底盘布置方案"></a>1.1.1 论文中的底盘布置方案</h3><ol>
@@ -113,6 +113,7 @@
 <li><p>机器人底盘振动对测量影响实验</p>
 <ul>
 <li>巡检机器人底盘振动对激光雷达测距的影响</li>
+<li><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211119134716233.png" alt="image-20211119134716233"></li>
 </ul>
 </li>
 </ol>
@@ -194,9 +195,69 @@
 </ol>
 <p><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211113142314349.png" alt="image-20211113142314349"></p>
 </li>
+<li><p><a href="zotero://select/library/items/9EBT5P49">宋, 《四轮转向车辆操纵稳定性仿真分析》.</a></p>
+<ol>
+<li>四轮转向特点</li>
+<li>横摆率反馈</li>
+<li>忽略汽车侧倾与俯仰时的四轮转向动力学模型</li>
+<li>Matlab分析结论：保持车辆对操纵反应的灵敏、一致又不过度，在降低驾驶员操纵难度的情况下，改善了车辆在高速时的瞬态操纵稳定性</li>
+<li>可用于写摘要或底盘设计时的引言</li>
 </ol>
-<p><strong>根据以上文献和大部分结构形式，最终选定与第四篇、第七篇相同的结构</strong></p>
-<h3 id="1-1-2-电机选型"><a href="#1-1-2-电机选型" class="headerlink" title="1.1.2 电机选型"></a>1.1.2 电机选型</h3><h1 id="2-硬件"><a href="#2-硬件" class="headerlink" title="2 硬件"></a>2 硬件</h1><h2 id="2-1-硬件平台选型"><a href="#2-1-硬件平台选型" class="headerlink" title="2.1 硬件平台选型"></a>2.1 硬件平台选型</h2><ul>
+</li>
+<li><p><a href="zotero://select/library/items/XTKJ27I9">屈等, 《基于模糊算法的四轮线控转向汽车操稳性研究》.</a></p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/381150351">线控转向</a></li>
+<li>模糊转向补偿控制器，在提高快速性的同时能显著降低横摆角速度的超调量，有较强的稳定性</li>
+</ol>
+</li>
+<li><p><a href="zotero://select/library/items/XPNHVB5T">李等, 《基于阿克曼理论的四轮转向汽车转向梯形优化设计》.</a></p>
+<ol>
+<li><p>倒梯形布置时，转向梯形更容易满足传动角关系，误差更小</p>
+<p><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211116200740082.png" alt="image-20211116200740082"></p>
+</li>
+<li><p>正梯形极有可能出现四点，即横拉杆与转向节臂夹角为180°时不能继续转动</p>
+</li>
+</ol>
+</li>
+<li><p><a href="zotero://select/library/items/R4KXVXEH">李, 《轮轂电机驱动电动汽车的四轮转向操纵稳定性分析》.</a></p>
+<ol>
+<li><p>模糊控制策略建立</p>
+</li>
+<li><p>操纵稳定性：前轮转向&lt;四轮转向&lt;<strong>带有模糊控制的四轮转向</strong></p>
+<p><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211116201326972.png" alt="image-20211116201326972"></p>
+</li>
+</ol>
+</li>
+<li><p><a href="zotero://select/library/items/GB4KK2A4">郑, 《某轿车主动后轮转向系统转向电机控制研究》.</a></p>
+<ol>
+<li>硕士论文<strong>待精读</strong></li>
+<li>发展现状对4WS介绍很全面</li>
+</ol>
+</li>
+<li><p><a href="zotero://select/library/items/J23KV6JQ">陈, 《轮毂电机驱动的四轮转向样车试验及仿真研究》.</a></p>
+<ol>
+<li>轮毂电机技术发展现状（至2020年5月30日）</li>
+<li>Carsim</li>
+</ol>
+</li>
+<li><p><a href="zotero://select/library/items/4PXG4P5P">朱, 《基于多Agent框架的4WID电动汽车四轮主动转向控制及路径跟踪研究》.</a></p>
+</li>
+</ol>
+<ol start="19">
+<li><p><a href="zotero://select/library/items/73J4EB83">张, 《四轮转向车辆建模与转向稳定性研究》.</a></p>
+</li>
+<li><p><a href="zotero://select/library/items/NV4DUZQN">胡, 《四轮独立驱动电动车差速转向性能研究》.</a></p>
+</li>
+<li><p><a href="zotero://select/library/items/TW3BM9A9">陈, 《后轮随动转向车辆的半主动控制及智能随动转向系统研究》.</a></p>
+</li>
+<li><p><a href="zotero://select/library/items/KTLNQ5M5">韩, 《烟田作业车四轮转向系统的机构设计及转向控制》.</a></p>
+</li>
+<li><p><a href="zotero://select/library/items/RVIBRIGM">周, 《四轮转向系统控制策略对比研究》.</a></p>
+</li>
+<li><p><a href="zotero://select/library/items/ZQHJ9HA2">刘, 《四轮转向汽车侧向动力学最优控制和内外环联合控制研究》.</a></p>
+</li>
+</ol>
+<h1 id="2-硬件"><a href="#2-硬件" class="headerlink" title="2 硬件"></a>2 硬件</h1><h2 id="2-1-硬件平台选型"><a href="#2-1-硬件平台选型" class="headerlink" title="2.1 硬件平台选型"></a>2.1 硬件平台选型</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://www.nvidia.cn/autonomous-machines/embedded-systems/jetson-tx2/">JetsonTX2</a></li>
 <li><a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?spm=a1z09.2.0.0.6c4d2e8dDQN5Gf&amp;id=582677940441&amp;_u=22ph6ufjad4a">STM32F407VET6</a></li>
 <li><a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?spm=a230r.1.14.18.557c3f68qS9ACg&amp;id=630983815382&amp;ns=1&amp;abbucket=15#detail">杉川雷达</a></li>

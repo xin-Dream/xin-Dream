@@ -14,13 +14,15 @@ categories: [hexo]
 
 [应用注册界面](https://github.com/settings/applications/new)
 
-{% asset_image 01.png This is an image %}
+![01](../../images/hexo博客使用gitalk评论/01.png)
 
 在注册结束后，可以看到如下信息
 
-{% asset_image 02.png This is an image %}
+![02](../../images/hexo博客使用gitalk评论/02.png)
 
-# 在hexo博客中填写gitalk信息 
+![03](../../images/hexo博客使用gitalk评论/03-163724456934516.png)
+
+# 在hexo博客中填写gitalk信息
 
 将上面的Client ID和Client secrets及其他信息填入到博客主题的信息设置中
 

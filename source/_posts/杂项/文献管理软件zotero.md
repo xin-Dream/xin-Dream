@@ -35,9 +35,9 @@ Zotero中的容量较小，所以设置网盘同步，这里选用TeraCloud，�
 # 3.1 注册与设置网盘
 
 + [TeraCloud](https://teracloud.jp/en/)
-+ 在My Page界面，找到Apps Connection，如下图，使用Reissue即可生成密码。这个URL和密码要在zotero中用到。{% asset_image 01.png This is an image %}
++ 在My Page界面，找到Apps Connection，如下图，使用Reissue即可生成密码。这个URL和密码要在zotero中用到。
 + 在Zotero中找到：编辑->首选项->同步->文件同步，在使用的下拉框中选择WebDAV
-+ 在WebDAV中填入上图中的URL、用户名（ID）、密码，然后选择验证服务器
++ 在WebDAV中填入上图中的URL、用户名（ID）、密码，然后选择验证服务器![01](../../images/文献管理软件zotero/01.png)
 
 # 3.2 zotero中的路径设置
 
@@ -46,5 +46,6 @@ Zotero中的容量较小，所以设置网盘同步，这里选用TeraCloud，�
 + 这两个页面的设置，一定要按下图设置，否则在papership中不能打开pdf文件
 + 这样设置完成后，将PDF拖入Zotero后，pdf会自动重命名存储到E:\007-zoterodata\storage
 
-{% asset_image 02.png This is an image %}
-{% asset_image 03.png This is an image %}
+![02](../../images/文献管理软件zotero/02-163724446536114.png)
+
+![03](../../images/文献管理软件zotero/03-163724446952915.png)

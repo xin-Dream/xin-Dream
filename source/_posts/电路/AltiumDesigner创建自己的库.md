@@ -17,7 +17,7 @@ categories:
 + 需要注册登录后使用
 + 在下图中添加自己创建的原理图库和封装库，后续搜索后的元件会自动添加到以下库
 
-{% asset_image 01.png This is an image %}
+![01](../../images/AltiumDesigner创建自己的库/01.png)
 
 也可以在[Electronic Component Search Engine](https://componentsearchengine.com/)中搜索元件，下载模型后通过插件手动添加
 

@@ -14,4 +14,4 @@ categories: [机械,Solidworks]
 ~\SOLIDWORKS\lang\chinese-simplified\weldment profiles
 ```
 在里面新建GB文件夹，将下载的文件复制进去，注意按下图层级复制进去
-{% asset_image 01.png this is an image}
+![01](../../images/Solidworks焊件结构中添加型材/01.png)
