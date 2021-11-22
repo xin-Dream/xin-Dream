@@ -9,6 +9,12 @@ typora-root-url: ..\..
 ---
 > 环境说明：solidworks2020、Ubuntu18.04、ROS-melodic
 
+# 补充说明：
+
+操作前请先看新更新的文章，注意开头的细节。
+
+{% post_link ROS/控制sw2urdf导出模型在Rviz和Gazebo中运动  控制sw2urdf导出模型在Rviz和Gazebo中运动 %}
+
 # 一、 建模
 
 建模时需注意以下几点
