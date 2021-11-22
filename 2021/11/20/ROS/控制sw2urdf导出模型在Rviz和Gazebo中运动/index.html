@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>ubuntu系统重装配置 |  Dream</title>
+      <title>控制sw2urdf导出模型在Rviz和Gazebo中运动 |  Dream</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/badminton.ico" />
@@ -68,7 +68,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Linux/ubuntu系统重装配置"
+  id="post-ROS/控制sw2urdf导出模型在Rviz和Gazebo中运动"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -79,7 +79,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  ubuntu系统重装配置
+  控制sw2urdf导出模型在Rviz和Gazebo中运动
 </h1>
  
 
@@ -87,11 +87,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2021/04/29/Linux/ubuntu%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85%E9%85%8D%E7%BD%AE/" class="article-date">
-  <time datetime="2021-04-29T15:58:55.000Z" itemprop="datePublished">2021-04-29</time>
+      <a href="/2021/11/20/ROS/%E6%8E%A7%E5%88%B6sw2urdf%E5%AF%BC%E5%87%BA%E6%A8%A1%E5%9E%8B%E5%9C%A8Rviz%E5%92%8CGazebo%E4%B8%AD%E8%BF%90%E5%8A%A8/" class="article-date">
+  <time datetime="2021-11-20T11:22:24.000Z" itemprop="datePublished">2021-11-20</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Linux/">Linux</a> / <a class="article-category-link" href="/categories/Linux/ubuntu/">ubuntu</a>
+    <a class="article-category-link" href="/categories/Linux/">Linux</a> / <a class="article-category-link" href="/categories/Linux/ROS/">ROS</a>
   </div>
  
     </div>
@@ -104,28 +104,26 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="1-安装WIFI"><a href="#1-安装WIFI" class="headerlink" title="1. 安装WIFI"></a>1. 安装WIFI</h1><p>可以在 software&amp;updates -&gt; Additional Drivers里选择合适的显卡驱动和WIFI驱动<br>若没有WIFI驱动，可以先换源或update</p>
-<h1 id="2-修改启动时系统选择等待时间"><a href="#2-修改启动时系统选择等待时间" class="headerlink" title="2. 修改启动时系统选择等待时间"></a>2. 修改启动时系统选择等待时间</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/default/grub</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改GRUB_TIMEOUT后的数值</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新启动菜单</span></span><br><span class="line">sudo update-grub2</span><br></pre></td></tr></tbody></table></figure>
-<h1 id="3-设置sudo免密码"><a href="#3-设置sudo免密码" class="headerlink" title="3. 设置sudo免密码"></a>3. 设置sudo免密码</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/sudoers</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改%sudo ALL=(ALL:ALL) ALL为</span></span><br><span class="line">%sudo ALL=(ALL) NOPASSWD:ALL</span><br></pre></td></tr></tbody></table></figure>
-<h1 id="4-常用软件安装"><a href="#4-常用软件安装" class="headerlink" title="4. 常用软件安装"></a>4. 常用软件安装</h1><a href="/2021/01/28/Linux/ubuntu%E4%B8%AD%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" title="ubuntu中常用软件安装">ubuntu中常用软件安装</a>
+  <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在之前的文章中，实现了solidworks模型在Rviz和Gazebo中的显示，但是在实现其在Rviz或Gazebo中的运动时还有些需要修改的地方。</p>
+<a href="/2021/08/14/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/" title="Solidworks模型导出urdf">Solidworks模型导出urdf</a>
 
-<h1 id="5-双系统时间不统一"><a href="#5-双系统时间不统一" class="headerlink" title="5. 双系统时间不统一"></a>5. 双系统时间不统一</h1><p>参考<a target="_blank" rel="noopener" href="https://juejin.im/post/5eb3a1556fb9a0434b73545c#heading-31">写给工程师的ubuntu20.04的最佳配置指南</a></p>
+<h1 id="1-Solidworks中模型设置"><a href="#1-Solidworks中模型设置" class="headerlink" title="1 Solidworks中模型设置"></a>1 Solidworks中模型设置</h1><p>在之前的文章中说明了为轮子设置旋转轴，当时的坐标系是由软件自动生成的，虽然方便，但在运动时就会出现群魔乱舞的情况。<strong>所以在设置Link时一定要指定自己的坐标系。</strong></p>
 <ol>
-<li>原因如下：</li>
+<li>ROS中坐标系的说明</li>
 </ol>
 <ul>
-<li>UTC(Coordinated Universal Time)，协调世界时（世界统一时间)；</li>
-<li>GMT(Greenwich Mean Time)，格林威治标准时间。</li>
-<li>Windows 把计算机硬件时间当作本地时间(local time)，所以在 Windows 系统中显示的时间跟 BIOS 中显示的时间是一样的。</li>
-<li>类 Unix 系统把计算机硬件时间当作 UTC， 所以系统启动后会在该时间的基础上，加上电脑设置的时区数(比中国就加8)，因此 Ubuntu 中显示的时间总是比 Windows 中显示的时间快 8 小时。</li>
+<li>ROS中坐标系为右手坐标系。如果我们食指向上，那么食指指向为Z轴，中指指向X轴，拇指指向Y轴。</li>
+<li>多说一句，在URDF文件中，xyz很简单，就是指三轴指向。rpy分别表示roll、pitch、yaw，这里是分别指绕x轴、y轴、z轴旋转的弧度。</li>
+<li>在我们使用cmd_vel控制机器人运动时，使用rostopic可以查看到是使用Twist消息控制运动的。Twist包括linear（float64 x、float64 y、float64 z）和angular（float64 x、float64 y、float64 z）。</li>
+<li>在地面移动机器人的运动中，使用twist.linear.x表示其线速度，twist.angular.y表示其旋转时的角速度。所以要想让机器人的指向与建模方向移植，那机器人的头部要指向X轴正向。</li>
 </ul>
 <ol start="2">
-<li>解决方案：<br>禁用ubuntu中的UTC</li>
+<li><p>sw模型中的坐标系建立</p>
+</li>
+<li><p>导出模型时的注意事项</p>
+</li>
 </ol>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-local-rtc 1 --adjust-system-clock</span><br></pre></td></tr></tbody></table></figure>
-<h1 id="6-安装pip"><a href="#6-安装pip" class="headerlink" title="6. 安装pip"></a>6. 安装pip</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3-pip</span><br></pre></td></tr></tbody></table></figure>
-<h1 id="7-设置终端走代理"><a href="#7-设置终端走代理" class="headerlink" title="7. 设置终端走代理"></a>7. 设置终端走代理</h1><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vim ~/.bashrc</span><br><span class="line"></span><br><span class="line">export http_proxy=127.0.0.1:1080</span><br><span class="line">export https_proxy=127.0.0.1:1080</span><br><span class="line">export socks_proxy=127.0.0.1:1080</span><br></pre></td></tr></tbody></table></figure>
- 
+<h1 id="2-URDF文件转XACRO"><a href="#2-URDF文件转XACRO" class="headerlink" title="2 URDF文件转XACRO"></a>2 URDF文件转XACRO</h1><h1 id="3-Arbotix控制在Rviz中的运动"><a href="#3-Arbotix控制在Rviz中的运动" class="headerlink" title="3 Arbotix控制在Rviz中的运动"></a>3 Arbotix控制在Rviz中的运动</h1><h1 id="4-ros-control控制在Gazebo中的运动"><a href="#4-ros-control控制在Gazebo中的运动" class="headerlink" title="4 ros_control控制在Gazebo中的运动"></a>4 ros_control控制在Gazebo中的运动</h1> 
       <!-- reward -->
       
     </div>
@@ -189,12 +187,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zhangguixin.com/2021/04/29/Linux/ubuntu%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85%E9%85%8D%E7%BD%AE/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zhangguixin.com/2021/11/20/ROS/%E6%8E%A7%E5%88%B6sw2urdf%E5%AF%BC%E5%87%BA%E6%A8%A1%E5%9E%8B%E5%9C%A8Rviz%E5%92%8CGazebo%E4%B8%AD%E8%BF%90%E5%8A%A8/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ROS/" rel="tag">ROS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Solidworks/" rel="tag">Solidworks</a></li></ul>
 
     </footer>
   </div>
@@ -202,19 +200,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2021/04/30/ROS/ROS%E5%AE%89%E8%A3%85%E5%8C%85%E8%AE%B0%E5%BD%95/" class="article-nav-link">
+      <a href="/2021/11/20/ROS/PyQt5%E5%BC%80%E5%8F%91ROS%E7%95%8C%E9%9D%A2-%E4%BD%BF%E7%94%A8%E6%BB%91%E6%9D%A1%E5%8F%91%E5%B8%83Twist%E6%B6%88%E6%81%AF/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            ROS安装包记录
+            PyQt5开发ROS界面2-使用滑条发布Twist消息
           
         </div>
       </a>
     
     
-      <a href="/2021/04/23/ROS/WSL%E5%AE%89%E8%A3%85ROS-melodic/" class="article-nav-link">
+      <a href="/2021/11/16/ROS/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">WSL安装ROS-melodic</div>
+        <div class="article-nav-title">使用自定义消息实现ROS与stm32通讯</div>
       </a>
     
   </nav>
