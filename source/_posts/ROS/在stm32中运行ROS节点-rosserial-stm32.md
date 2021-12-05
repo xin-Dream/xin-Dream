@@ -562,7 +562,7 @@ catkin_make
 </details>
 # 6 实现下位机发布、上位机订阅
 
- ## 6.1  下位机程序编写
+## 6.1  下位机程序编写
 
 ROS中的程序使用C++编写，所以在stm32中使用C和C++混合编译。
 
@@ -820,13 +820,45 @@ ROS中的程序使用C++编写，所以在stm32中使用C和C++混合编译。
    # 其中chatter是单片机中的话题，diagnostics是serial_node话题
    
    rostopic echo /chatter
-   ```
+   ``
    ~~~
 
 # 7 实现上位机发布、下位机订阅
 
-
-
+1. 上位机发布消息就不多赘述了，注意话题名称一致即可
+2. 下位机订阅实现：
 
 ​      
+
+```c++
+// robot.cpp
+#include <std_msgs/UInt8.h>
+#include <ros.h>
+
+ros::Subscriber<std_msgs::UInt8> oled_sub("oled_show", &oled_set);
+
+void setup(void) {
+    nh.initNode();
+    nh.subscribe(oled_sub);
+}
+
+void loop(void) {
+
+    nh.spinOnce();
+
+    HAL_Delay(100);
+}
+
+int a = 0;
+
+void oled_set(const std_msgs::UInt8 &msg) {
+    uint8_t number = msg.data;
+    a++;
+
+    HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+
+    OLED_ShowNum(20, 12, a, 6, 12);
+    OLED_Refresh_Gram();
+}
+```
 

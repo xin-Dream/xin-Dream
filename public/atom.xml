@@ -6,7 +6,7 @@
   <link href="http://zhangguixin.com/atom.xml" rel="self"/>
   
   <link href="http://zhangguixin.com/"/>
-  <updated>2021-11-22T09:47:53.486Z</updated>
+  <updated>2021-12-05T03:44:24.661Z</updated>
   <id>http://zhangguixin.com/</id>
   
   <author>
@@ -17,12 +17,106 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ROS与Anaconda共存</title>
+    <link href="http://zhangguixin.com/2021/12/05/ROS/ROS%E4%B8%8EAnaconda%E5%85%B1%E5%AD%98/"/>
+    <id>http://zhangguixin.com/2021/12/05/ROS/ROS%E4%B8%8EAnaconda%E5%85%B1%E5%AD%98/</id>
+    <published>2021-12-05T03:43:41.000Z</published>
+    <updated>2021-12-05T03:44:24.661Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="http://zhangguixin.com/categories/Linux/"/>
+    
+    <category term="ROS" scheme="http://zhangguixin.com/categories/Linux/ROS/"/>
+    
+    
+    <category term="ROS" scheme="http://zhangguixin.com/tags/ROS/"/>
+    
+    <category term="Anaconda" scheme="http://zhangguixin.com/tags/Anaconda/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu20.04编译安装opencv</title>
+    <link href="http://zhangguixin.com/2021/12/05/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/Ubuntu20-04%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85opencv/"/>
+    <id>http://zhangguixin.com/2021/12/05/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/Ubuntu20-04%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85opencv/</id>
+    <published>2021-12-05T03:10:43.000Z</published>
+    <updated>2021-12-05T03:39:31.233Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-下载OpenCV&quot;&gt;&lt;a href=&quot;#1-下载OpenCV&quot; class=&quot;headerlink&quot; title=&quot;1 下载OpenCV&quot;&gt;&lt;/a&gt;1 下载OpenCV&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="机器视觉" scheme="http://zhangguixin.com/categories/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/"/>
+    
+    <category term="opencv" scheme="http://zhangguixin.com/categories/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/opencv/"/>
+    
+    
+    <category term="opencv" scheme="http://zhangguixin.com/tags/opencv/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu配置KinectV2</title>
+    <link href="http://zhangguixin.com/2021/12/05/Linux/Ubuntu%E9%85%8D%E7%BD%AEKinectV2/"/>
+    <id>http://zhangguixin.com/2021/12/05/Linux/Ubuntu%E9%85%8D%E7%BD%AEKinectV2/</id>
+    <published>2021-12-05T03:00:39.000Z</published>
+    <updated>2021-12-05T03:29:39.035Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-下载libfreenect2资源&quot;&gt;&lt;a href=&quot;#1-下载libfreenect2资源&quot; class=&quot;headerlink&quot; title=&quot;1 下载libfreenect2资源&quot;&gt;&lt;/a&gt;1 下载libfreenect2资源&lt;/h1&gt;&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="http://zhangguixin.com/categories/Linux/"/>
+    
+    <category term="ubuntu" scheme="http://zhangguixin.com/categories/Linux/ubuntu/"/>
+    
+    
+    <category term="ubuntu" scheme="http://zhangguixin.com/tags/ubuntu/"/>
+    
+    <category term="KinectV2" scheme="http://zhangguixin.com/tags/KinectV2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PyQt5开发ROS界面2-使用滑条发布Twist消息</title>
     <link href="http://zhangguixin.com/2021/11/20/ROS/PyQt5%E5%BC%80%E5%8F%91ROS%E7%95%8C%E9%9D%A2-%E4%BD%BF%E7%94%A8%E6%BB%91%E6%9D%A1%E5%8F%91%E5%B8%83Twist%E6%B6%88%E6%81%AF/"/>
     <id>http://zhangguixin.com/2021/11/20/ROS/PyQt5%E5%BC%80%E5%8F%91ROS%E7%95%8C%E9%9D%A2-%E4%BD%BF%E7%94%A8%E6%BB%91%E6%9D%A1%E5%8F%91%E5%B8%83Twist%E6%B6%88%E6%81%AF/</id>
     <published>2021-11-20T11:48:58.000Z</published>
-    <updated>2021-11-22T09:47:53.486Z</updated>
+    <updated>2021-12-05T03:42:38.232Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-UI界面设计&quot;&gt;&lt;a href=&quot;#1-UI界面设计&quot; class=&quot;headerlink&quot; title=&quot;1 UI界面设计&quot;&gt;&lt;/a&gt;1 UI界面设计&lt;/h1&gt;&lt;p&gt;与上文一致，使用QtDesigner配置界面&lt;/p&gt;
+&lt;h1 id=&quot;2-程序实现&quot;&gt;&lt;a</summary>
+        
+      
     
     
     
@@ -38,11 +132,11 @@
   </entry>
   
   <entry>
-    <title>控制sw2urdf导出模型在Rviz和Gazebo中运动</title>
+    <title>控制sw2urdf导出模型在Gazebo中运动并在Rviz中同步显示数据</title>
     <link href="http://zhangguixin.com/2021/11/20/ROS/%E6%8E%A7%E5%88%B6sw2urdf%E5%AF%BC%E5%87%BA%E6%A8%A1%E5%9E%8B%E5%9C%A8Rviz%E5%92%8CGazebo%E4%B8%AD%E8%BF%90%E5%8A%A8/"/>
     <id>http://zhangguixin.com/2021/11/20/ROS/%E6%8E%A7%E5%88%B6sw2urdf%E5%AF%BC%E5%87%BA%E6%A8%A1%E5%9E%8B%E5%9C%A8Rviz%E5%92%8CGazebo%E4%B8%AD%E8%BF%90%E5%8A%A8/</id>
     <published>2021-11-20T11:22:24.000Z</published>
-    <updated>2021-11-22T11:26:06.391Z</updated>
+    <updated>2021-11-25T07:20:18.557Z</updated>
     
     
       
@@ -71,7 +165,7 @@
     <link href="http://zhangguixin.com/2021/11/16/ROS/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/"/>
     <id>http://zhangguixin.com/2021/11/16/ROS/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/</id>
     <published>2021-11-16T04:21:41.000Z</published>
-    <updated>2021-11-18T13:30:08.988Z</updated>
+    <updated>2021-12-04T09:31:24.269Z</updated>
     
     
       
@@ -194,7 +288,7 @@
     <link href="http://zhangguixin.com/2021/11/06/hexo/hexo%E5%8D%9A%E5%AE%A2%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/"/>
     <id>http://zhangguixin.com/2021/11/06/hexo/hexo%E5%8D%9A%E5%AE%A2%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/</id>
     <published>2021-11-06T12:10:50.000Z</published>
-    <updated>2021-11-06T12:34:32.015Z</updated>
+    <updated>2021-11-19T09:11:44.448Z</updated>
     
     
       
@@ -219,7 +313,7 @@
     <link href="http://zhangguixin.com/2021/11/06/hexo/%E4%BD%BF%E7%94%A8Typora%E5%86%99hexo%E5%8D%9A%E5%AE%A2/"/>
     <id>http://zhangguixin.com/2021/11/06/hexo/%E4%BD%BF%E7%94%A8Typora%E5%86%99hexo%E5%8D%9A%E5%AE%A2/</id>
     <published>2021-11-06T08:40:02.000Z</published>
-    <updated>2021-11-07T06:47:12.952Z</updated>
+    <updated>2021-11-19T09:10:03.805Z</updated>
     
     
       
@@ -319,7 +413,7 @@
     <link href="http://zhangguixin.com/2021/11/01/Linux/jetsonTX2%E5%BC%80%E5%90%AF%E9%A3%8E%E6%89%87/"/>
     <id>http://zhangguixin.com/2021/11/01/Linux/jetsonTX2%E5%BC%80%E5%90%AF%E9%A3%8E%E6%89%87/</id>
     <published>2021-11-01T14:36:52.000Z</published>
-    <updated>2021-11-01T14:40:38.361Z</updated>
+    <updated>2021-12-05T03:04:19.709Z</updated>
     
     
       
@@ -337,7 +431,7 @@
     <category term="ubuntu" scheme="http://zhangguixin.com/categories/Linux/ubuntu/"/>
     
     
-    <category term="ubuntu18.04" scheme="http://zhangguixin.com/tags/ubuntu18-04/"/>
+    <category term="ubuntu" scheme="http://zhangguixin.com/tags/ubuntu/"/>
     
     <category term="JetsonTX2" scheme="http://zhangguixin.com/tags/JetsonTX2/"/>
     
@@ -442,86 +536,6 @@
     
     <category term="杂项" scheme="http://zhangguixin.com/categories/%E6%9D%82%E9%A1%B9/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>hexo博客插入视频</title>
-    <link href="http://zhangguixin.com/2021/10/21/hexo/hexo%E5%8D%9A%E5%AE%A2%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91/"/>
-    <id>http://zhangguixin.com/2021/10/21/hexo/hexo%E5%8D%9A%E5%AE%A2%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91/</id>
-    <published>2021-10-21T04:03:51.000Z</published>
-    <updated>2021-10-21T07:12:40.783Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;一、使用插件hexo-tag-dplayer&quot;&gt;&lt;a href=&quot;#一、使用插件hexo-tag-dplayer&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="hexo" scheme="http://zhangguixin.com/categories/hexo/"/>
-    
-    
-    <category term="hexo" scheme="http://zhangguixin.com/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo博客使用gitalk评论</title>
-    <link href="http://zhangguixin.com/2021/10/10/hexo/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8gitalk%E8%AF%84%E8%AE%BA/"/>
-    <id>http://zhangguixin.com/2021/10/10/hexo/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8gitalk%E8%AF%84%E8%AE%BA/</id>
-    <published>2021-10-10T11:09:55.000Z</published>
-    <updated>2021-11-19T09:12:05.781Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;创建评论系统的repository&quot;&gt;&lt;a href=&quot;#创建评论系统的repository&quot; class=&quot;headerlink&quot; title=&quot;创建评论系统的repository&quot;&gt;&lt;/a&gt;创建评论系统的repository&lt;/h1&gt;
-
-&lt;h1</summary>
-        
-      
-    
-    
-    
-    <category term="hexo" scheme="http://zhangguixin.com/categories/hexo/"/>
-    
-    
-    <category term="hexo" scheme="http://zhangguixin.com/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在一台电脑中部署两个hexo博客</title>
-    <link href="http://zhangguixin.com/2021/10/04/hexo/%E5%9C%A8%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%AD%E9%83%A8%E7%BD%B2%E4%B8%A4%E4%B8%AAhexo%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://zhangguixin.com/2021/10/04/hexo/%E5%9C%A8%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%AD%E9%83%A8%E7%BD%B2%E4%B8%A4%E4%B8%AAhexo%E5%8D%9A%E5%AE%A2/</id>
-    <published>2021-10-04T08:01:37.000Z</published>
-    <updated>2021-10-04T11:56:45.585Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;环境简介：&lt;br&gt;现有两个Github账号，比如分别为xinDream、robotcenter&lt;br&gt;在.ssh文件夹下有两份密钥文件，如：id_xindream_rsa、id_robotcenter_rsa&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;</summary>
-        
-      
-    
-    
-    
-    <category term="hexo" scheme="http://zhangguixin.com/categories/hexo/"/>
-    
-    
-    <category term="hexo" scheme="http://zhangguixin.com/tags/hexo/"/>
     
   </entry>
   

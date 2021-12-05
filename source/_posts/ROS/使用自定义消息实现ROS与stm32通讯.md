@@ -109,4 +109,148 @@ rosrun rosserial_stm32 make_libraries.py stm32_project/Core
 
 # 3 ROS与stm32通信验证
 
-TODO
+## 3.1 功能包说明
+
+在一个机器人的设计中，上位机与下位机间通讯的内容可能包含很多类，所以需要自定义的消息也会有多类，所以将自定义的msg和srv单独放到一个功能包内，应该会更方便些。
+
+经过上面的文章已经可以生成自定义消息了，我们重新整理下功能包中的结构：
+
+```bash
+src
+    ├── custom_msg                 # 自定义消息的功能包
+    │   ├── CMakeLists.txt
+    │   ├── include
+    │   │   └── custom_msg
+    │   ├── msg
+    │   │   └── IMU.msg           # 自定义的消息文件
+    │   ├── package.xml
+    │   └── src
+    └── ros_stm32_bridge           # 与stm32通讯的功能包
+        ├── CMakeLists.txt
+        ├── include
+        │   └── ros_stm32_bridge
+        ├── launch
+        │   └── ros_talk_stm32.launch
+        ├── package.xml
+        ├── scripts
+        │   └── 01_data_transform.py   # 调用自定义消息的python文件
+        └── src
+            ├── data_pub.cpp
+            └── data_sub.cpp
+```
+
+## 3.2 stm32中发送自定义消息
+
+当我们使用前面的步骤生成头文件后，将头文件复制到stm32的Inc文件夹内，即可编译运行，在之前的文章中有说明。具体如何在stm32中运行ROS节点，参考上一篇文章。
+
+```cpp
+// robot.cpp
+#include <robot.h>
+#include <ros.h>
+#include <custom_msg/IMU.h>
+
+ros::NodeHandle nh;
+
+// 发布IMU消息
+custom_msg::IMU imu_msg;
+ros::Publisher Arena_imu("Arena_imu",&imu_msg);
+
+void setup(void) {
+    nh.initNode();
+
+    nh.advertise(Arena_imu);
+}
+
+void loop(void) {
+
+    imu_msg.PITCH=(float) sensors.PITCH/ 32768 * 180;
+    imu_msg.ROLL=(float) sensors.ROLL/ 32768 * 180;
+    imu_msg.YAW=(float) sensors.YAW/ 32768 * 180;
+
+    Arena_imu.publish(&imu_msg);
+
+    nh.spinOnce();
+
+    HAL_Delay(100);
+}
+```
+
+## 3.3 上位机中接收自定义消息
+
+1. 功能包设置
+
+   要在功能包ros_stm32_bridge中订阅到custom_msg功能包中自定义的消息，需要修改一下ros_stm32_bridge中的两个配置文件，如下：
+
+   ```bash
+   # CMakeLists.txt
+   
+   find_package(catkin REQUIRED COMPONENTS
+     roscpp
+     rospy
+     std_msgs
+     custom_msg                     # 添加我们自定义的功能包名称
+   )
+   
+   ## Specify additional locations of header files
+   ## Your package locations should be listed before other locations
+   include_directories(
+     include
+     ${catkin_INCLUDE_DIRS}
+   )
+   ```
+
+   ```bash
+   # package.xml
+   
+   # 添加如下两项
+   <build_depend>custom_msg</build_depend>
+   <exec_depend>custom_msg</exec_depend>
+   ```
+
+2. 订阅者
+
+   这里我通过订阅IMU的消息，将两个角度信息转化为速度发布给仿真环境下的机器人
+
+   ```python
+   import rospy
+   from custom_msg.msg import IMU
+   from geometry_msgs.msg import Twist
+   
+   def doIMU(IMU):
+       pitch=IMU.PITCH
+       roll=IMU.ROLL
+       yaw=IMU.YAW
+       twist = Twist()
+   
+       Arena_pub=rospy.Publisher("/cmd_vel",Twist,queue_size=10)
+   
+       if pitch>180:
+           pitch=pitch-360
+       if roll>180:
+           roll=roll-360
+   
+       pitch2linear=pitch/20
+       roll2angular=roll/20
+   
+       if pitch<10 and pitch>350:
+           pitch2linear = 0
+   
+       if roll<10 and roll>350.0:
+           roll2angular = 0
+   
+       twist.linear.x = pitch2linear
+       twist.angular.z = roll2angular
+   
+       Arena_pub.publish(twist)
+   
+   if __name__ == '__main__':
+       rospy.init_node("transformer")
+   
+       sub=rospy.Subscriber("Arena_imu",IMU,doIMU,queue_size=20)
+       rospy.spin()
+       
+   ```
+
+   # 实现效果
+
+   ![mmexport1638451113780](/images/使用自定义消息实现ROS与stm32通讯/mmexport1638451113780.gif)

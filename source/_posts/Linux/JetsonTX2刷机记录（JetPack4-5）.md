@@ -2,7 +2,7 @@
 title: JetsonTX2刷机记录（JetPack4.5）
 date: 2021-02-08 16:49:44
 tags: 
-    [ubuntu18.04,JetsonTX2] 
+    [ubuntu,JetsonTX2] 
 categories: 
     [Linux,ubuntu]
 ---

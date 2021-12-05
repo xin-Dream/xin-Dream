@@ -2,7 +2,7 @@
 title: ubuntu18.04中串口绑定
 date: 2021-04-23 09:40:30
 tags: 
-    [串口,ubuntu18.04] 
+    [串口,ubuntu] 
 categories: 
     [Linux,ubuntu]
     

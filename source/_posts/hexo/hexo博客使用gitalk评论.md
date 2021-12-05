@@ -39,7 +39,8 @@ gitalk:
 ```
 # 注意事项
 
-使用gitalk评论系统后，发布的文章需要由管理者进入初始化后才能开启评论。
-
-
+1. 使用gitalk评论系统后，发布的文章需要由管理者进入初始化后才能开启评论。
+2. 绑定域名后需要及时更新App中的域名地址
+   1. [更新地址](https://github.com/settings/developers)
+   2. ![image-20211205115925072](/images/hexo博客使用gitalk评论/image-20211205115925072.png)
 

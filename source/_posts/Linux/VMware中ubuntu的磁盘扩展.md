@@ -2,7 +2,7 @@
 title: VMware中ubuntu的磁盘扩展
 date: 2021-02-08 16:53:40
 tags: 
-    [ubuntu18.04,虚拟机] 
+    [ubuntu,虚拟机] 
 categories: 
     [Linux,ubuntu]
 ---

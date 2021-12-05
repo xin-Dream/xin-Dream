@@ -3,7 +3,7 @@ layout: post
 title: jetsonTX2开启风扇
 date: 2021-11-01 22:36:52
 tags: 
-    [ubuntu18.04,JetsonTX2] 
+    [ubuntu,JetsonTX2] 
 categories: 
     [Linux,ubuntu]
 ---
