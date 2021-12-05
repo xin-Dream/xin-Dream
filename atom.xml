@@ -288,7 +288,7 @@
     <link href="http://zhangguixin.com/2021/11/06/hexo/hexo%E5%8D%9A%E5%AE%A2%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/"/>
     <id>http://zhangguixin.com/2021/11/06/hexo/hexo%E5%8D%9A%E5%AE%A2%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/</id>
     <published>2021-11-06T12:10:50.000Z</published>
-    <updated>2021-11-06T12:34:32.015Z</updated>
+    <updated>2021-11-19T09:11:44.448Z</updated>
     
     
       
@@ -313,7 +313,7 @@
     <link href="http://zhangguixin.com/2021/11/06/hexo/%E4%BD%BF%E7%94%A8Typora%E5%86%99hexo%E5%8D%9A%E5%AE%A2/"/>
     <id>http://zhangguixin.com/2021/11/06/hexo/%E4%BD%BF%E7%94%A8Typora%E5%86%99hexo%E5%8D%9A%E5%AE%A2/</id>
     <published>2021-11-06T08:40:02.000Z</published>
-    <updated>2021-11-07T06:47:12.952Z</updated>
+    <updated>2021-11-19T09:10:03.805Z</updated>
     
     
       
@@ -431,9 +431,9 @@
     <category term="ubuntu" scheme="http://zhangguixin.com/categories/Linux/ubuntu/"/>
     
     
-    <category term="JetsonTX2" scheme="http://zhangguixin.com/tags/JetsonTX2/"/>
-    
     <category term="ubuntu" scheme="http://zhangguixin.com/tags/ubuntu/"/>
+    
+    <category term="JetsonTX2" scheme="http://zhangguixin.com/tags/JetsonTX2/"/>
     
   </entry>
   
