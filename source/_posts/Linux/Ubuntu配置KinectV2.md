@@ -10,6 +10,13 @@ typora-root-url: ..\..
 
 ---
 
+
+# 前言
+
+[libfreenect2](https://github.com/OpenKinect/libfreenect2/blob/master/README.md#linux)
+
+
+
 # 1 下载libfreenect2资源
 
 ```bash
@@ -51,7 +58,7 @@ sudo apt-get install opencl-headers
 cd libfreenect2
 mkdir build
 cd build
-cmake ..
+cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/freenect2
 make
 sudo make install
 ```
