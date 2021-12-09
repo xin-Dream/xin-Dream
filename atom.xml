@@ -6,7 +6,7 @@
   <link href="http://zhangguixin.com/atom.xml" rel="self"/>
   
   <link href="http://zhangguixin.com/"/>
-  <updated>2021-12-05T03:44:24.661Z</updated>
+  <updated>2021-12-05T08:56:37.371Z</updated>
   <id>http://zhangguixin.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ROS-noetic中使用KinecV2</title>
+    <link href="http://zhangguixin.com/2021/12/05/ROS/ROS%E4%B8%AD%E4%BD%BF%E7%94%A8KinecV2/"/>
+    <id>http://zhangguixin.com/2021/12/05/ROS/ROS%E4%B8%AD%E4%BD%BF%E7%94%A8KinecV2/</id>
+    <published>2021-12-05T08:28:06.000Z</published>
+    <updated>2021-12-05T08:56:37.371Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在前面的文章中实现了Ubuntu中安装了KinectV2的驱动，要在ROS中使用还需要借助iai_kinect2&lt;/p&gt;
+&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="http://zhangguixin.com/categories/Linux/"/>
+    
+    <category term="ROS" scheme="http://zhangguixin.com/categories/Linux/ROS/"/>
+    
+    
+    <category term="KinectV2" scheme="http://zhangguixin.com/tags/KinectV2/"/>
+    
+    <category term="ROS" scheme="http://zhangguixin.com/tags/ROS/"/>
+    
+  </entry>
   
   <entry>
     <title>ROS与Anaconda共存</title>
@@ -77,14 +107,14 @@
     <link href="http://zhangguixin.com/2021/12/05/Linux/Ubuntu%E9%85%8D%E7%BD%AEKinectV2/"/>
     <id>http://zhangguixin.com/2021/12/05/Linux/Ubuntu%E9%85%8D%E7%BD%AEKinectV2/</id>
     <published>2021-12-05T03:00:39.000Z</published>
-    <updated>2021-12-05T03:29:39.035Z</updated>
+    <updated>2021-12-05T08:53:16.798Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;1-下载libfreenect2资源&quot;&gt;&lt;a href=&quot;#1-下载libfreenect2资源&quot; class=&quot;headerlink&quot; title=&quot;1 下载libfreenect2资源&quot;&gt;&lt;/a&gt;1 下载libfreenect2资源&lt;/h1&gt;&lt;figure</summary>
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
         
       
     
@@ -513,29 +543,6 @@
     
     
     <category term="word" scheme="http://zhangguixin.com/tags/word/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>学习交流会</title>
-    <link href="http://zhangguixin.com/2021/10/21/%E6%9D%82%E9%A1%B9/%E5%AD%A6%E4%B9%A0%E4%BA%A4%E6%B5%81%E4%BC%9A/"/>
-    <id>http://zhangguixin.com/2021/10/21/%E6%9D%82%E9%A1%B9/%E5%AD%A6%E4%B9%A0%E4%BA%A4%E6%B5%81%E4%BC%9A/</id>
-    <published>2021-10-21T04:05:26.000Z</published>
-    <updated>2021-11-02T12:00:59.768Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;一、经验分享&quot;&gt;&lt;a href=&quot;#一、经验分享&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="杂项" scheme="http://zhangguixin.com/categories/%E6%9D%82%E9%A1%B9/"/>
-    
     
   </entry>
   

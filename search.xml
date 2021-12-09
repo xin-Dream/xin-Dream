@@ -197,6 +197,104 @@
 <h3 id="3-3-2-APP"><a href="#3-3-2-APP" class="headerlink" title="3.3.2 APP"></a>3.3.2 APP</h3><h3 id="3-3-3-网页"><a href="#3-3-3-网页" class="headerlink" title="3.3.3 网页"></a>3.3.3 网页</h3>]]></content>
   </entry>
   <entry>
+    <title>ROS-noetic中使用KinecV2</title>
+    <url>/2021/12/05/ROS/ROS%E4%B8%AD%E4%BD%BF%E7%94%A8KinecV2/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在前面的文章中实现了Ubuntu中安装了KinectV2的驱动，要在ROS中使用还需要借助iai_kinect2</p>
+<a href="/2021/12/05/Linux/Ubuntu%E9%85%8D%E7%BD%AEKinectV2/" title="Ubuntu配置KinectV2">Ubuntu配置KinectV2</a>
+
+
+
+<p>本文参考：</p>
+<ul>
+<li><a href="https://blog.csdn.net/qq_34935373/article/details/121424754">Kinect V2 在ros-noetic使用（ubuntu20.04）</a></li>
+<li><a href="https://github.com/code-iai/iai_kinect2/tree/master">IAI Kinect2</a></li>
+<li><a href="https://answers.ros.org/question/237451/run-rosdep-install-r-from-paths-error-when-i-install-iai_kinect2/">run “rosdep install -r –from-paths .” error when I install iai_kinect2</a></li>
+<li><a href="https://itpcb.com/a/1824181">ROS下kinect2驱动安装流程记录和遇到的问题解决心得</a></li>
+<li></li>
+</ul>
+<p>​    </p>
+<h1 id="1-下载并编译IAI-Kinect2"><a href="#1-下载并编译IAI-Kinect2" class="headerlink" title="1 下载并编译IAI Kinect2"></a>1 下载并编译IAI Kinect2</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/catkin_ws/src/</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/code-iai/iai_kinect2.git</span><br><span class="line"><span class="built_in">cd</span> iai_kinect2 </span><br><span class="line">rosdep install -r --from-paths . --ignore-src -r</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> ~/catkin_ws</span><br><span class="line">catkin_make -DCMAKE_BUILD_TYPE=<span class="string">"Release"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="2-编译时遇到的问题"><a href="#2-编译时遇到的问题" class="headerlink" title="2 编译时遇到的问题"></a>2 编译时遇到的问题</h1><ol>
+<li><p>在上一篇文章<a href="/2021/12/05/Linux/Ubuntu%E9%85%8D%E7%BD%AEKinectV2/" title="Ubuntu配置KinectV2">Ubuntu配置KinectV2</a>的第四步中，有一个指定的路径<code>cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/freenect2</code>。如果这个freenect2不是在HOME下，需要使用以下命令编译。DIR后是上篇文章中freenect2的位置</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">catkin_make -Dfreenect2_DIR=/home/dream/02-software/007-libfreenect2/lib/cmake/freenect2 -DCMAKE_BUILD_TYPE=<span class="string">"Release"</span></span><br></pre></td></tr></tbody></table></figure></li>
+<li><p><code>error: #error PCL requires C++14 or above</code></p>
+<p>仔细看以下这个错误对应的哪一个功能包，在对应的功能包的CMakeLists.txt中加入</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ADD_COMPILE_OPTIONS(-std=c++11 )</span><br><span class="line">ADD_COMPILE_OPTIONS(-std=c++14 )</span><br><span class="line"><span class="built_in">set</span>( CMAKE_CXX_FLAGS <span class="string">"-std=c++11 -O3"</span> )</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p><code>error: CV_IMWRITE_JPEG_QUALITY was not declared in this scope</code></p>
+<p>在对应文件内，找到报错的那一行代码，进行如下规则的替换。注意没报错的不要改，报错的先看下是不是下面的两条，不是的话再修改</p>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line">CV_IMWRITE_JPEG_QUALITY</span><br><span class="line"><span class="comment">// 更改为</span></span><br><span class="line">cv::IMWRITE_JPEG_QUALITY</span><br></pre></td></tr></tbody></table></figure>
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p><code>error: CV_BGR2GRAY was not declared in this scope</code></p>
+<p>在对应文件内添加头文件。这个应该是在kinect2_bridge/src/kinect2_bridge.cpp。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/imgproc/types_c.h&gt; </span></span></span><br></pre></td></tr></tbody></table></figure></li>
+<li><p><code>error: CV_AA was not declared in this scope</code></p>
+<p>在对应的文件内添加头文件。这个应该是在kinect2_viewer/src/viewer.cpp。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;opencv2/imgproc/imgproc_c.h&gt;</span></span></span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>编译到100%后还会有两个错误，目前还没解决，但对后面使用不影响，只是kinect2_viewer不能使用</p>
+</li>
+</ol>
+<h1 id="3-运行程序验证"><a href="#3-运行程序验证" class="headerlink" title="3 运行程序验证"></a>3 运行程序验证</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">roslaunch kinect2_bridge kinect2_bridge.launch</span><br><span class="line"></span><br><span class="line">rosrun image_view image_view image:=/kinect2/qhd/image_color</span><br></pre></td></tr></tbody></table></figure>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>KinectV2</tag>
+        <tag>ROS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu配置KinectV2</title>
+    <url>/2021/12/05/Linux/Ubuntu%E9%85%8D%E7%BD%AEKinectV2/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><a href="https://github.com/OpenKinect/libfreenect2/blob/master/README.md#linux">libfreenect2</a></p>
+<h1 id="1-下载libfreenect2资源"><a href="#1-下载libfreenect2资源" class="headerlink" title="1 下载libfreenect2资源"></a>1 下载libfreenect2资源</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/OpenKinect/libfreenect2.git</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="2-安装opencv"><a href="#2-安装opencv" class="headerlink" title="2 安装opencv"></a>2 安装opencv</h1><a href="/2021/12/05/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/Ubuntu20-04%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85opencv/" title="Ubuntu20-04编译安装opencv">Ubuntu20-04编译安装opencv</a>
+
+<h1 id="3-安装Kinect依赖"><a href="#3-安装Kinect依赖" class="headerlink" title="3 安装Kinect依赖"></a>3 安装Kinect依赖</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get install build-essential cmake pkg-config libturbojpeg libjpeg-turbo8-dev mesa-common-de libxrandr-dev libxi-dev </span><br><span class="line">sudo apt-get install libglfw3-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># lisbusb</span></span><br><span class="line">sudo apt-get install libusb-1.0-0-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># TurboJPEG</span></span><br><span class="line">sudo apt-get install libturbojpeg0-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># OpenGL</span></span><br><span class="line">sudo apt-get install libgl1-mesa-dev</span><br><span class="line">sudo apt-get install libglu1-mesa-dev</span><br><span class="line">sudo apt-get install freeglut3-dev</span><br><span class="line">sudo apt-get install libglew1.8 libglew-dev</span><br><span class="line">sudo apt-get install libgl1-mesa-glx</span><br><span class="line">sudo apt-get install libxmu-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># OpenCl</span></span><br><span class="line">sudo apt-get install opencl-headers</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="4-编译安装"><a href="#4-编译安装" class="headerlink" title="4 编译安装"></a>4 编译安装</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> libfreenect2</span><br><span class="line">mkdir build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake .. -DCMAKE_INSTALL_PREFIX=<span class="variable">$HOME</span>/freenect2</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="5-添加USB文件"><a href="#5-添加USB文件" class="headerlink" title="5 添加USB文件"></a>5 添加USB文件</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo cp libfreenect2/platform/linux/udev/90-kinect2.rules /etc/udev/rules.d/</span><br></pre></td></tr></tbody></table></figure>
+<p>这个文件里表示的是kinect的串口号</p>
+<h1 id="6-安装OpenNI2"><a href="#6-安装OpenNI2" class="headerlink" title="6 安装OpenNI2"></a>6 安装OpenNI2</h1><ol>
+<li><p>下载</p>
+<p><a href="https://structure.io/openni">OpenNI2 SDK 下载地址</a></p>
+</li>
+<li><p>添加变量</p>
+<ol>
+<li><p>在解压目录下执行install.sh</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo ./install.sh</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>将OpenNIDevEnvironment添加到终端</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">cat OpenNIDevEnvironment &gt;&gt; ~/.zshrc</span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+</li>
+<li><p>安装</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /OpenNI-Linux-x64-2.2.0.33/OpenNI-Linux-x64-2.2</span><br><span class="line">sudo cp -r ./Include /usr/include/openni2</span><br><span class="line"><span class="built_in">cd</span> Redist/</span><br><span class="line">sudo cp libOpenNI2.jni.so /usr/lib/</span><br><span class="line">sudo cp libOpenNI2.so /usr/lib/</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>检测</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pkg-config --modversion libopenni2</span><br></pre></td></tr></tbody></table></figure>
+
+
+</li>
+</ol>
+<h1 id="7-运行"><a href="#7-运行" class="headerlink" title="7 运行"></a>7 运行</h1><p>进入下载的libfreenect2里的build文件夹内，分别运行下述命令，可以分别测试各项能否运行。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line"># openGL</span><br><span class="line">./bin/Protonect pl</span><br><span class="line"></span><br><span class="line"># OpenCL</span><br><span class="line">./bin/Protonect cl</span><br><span class="line"></span><br><span class="line"># CPU</span><br><span class="line">./bin/Protonect cpu</span><br><span class="line"></span><br><span class="line">./bin/Protonect</span><br></pre></td></tr></tbody></table></figure>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>KinectV2</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo博客使用gitalk评论</title>
     <url>/2021/10/10/hexo/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8gitalk%E8%AF%84%E8%AE%BA/</url>
     <content><![CDATA[<h1 id="创建评论系统的repository"><a href="#创建评论系统的repository" class="headerlink" title="创建评论系统的repository"></a>创建评论系统的repository</h1>
@@ -274,50 +372,6 @@
       </categories>
       <tags>
         <tag>opencv</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu配置KinectV2</title>
-    <url>/2021/12/05/Linux/Ubuntu%E9%85%8D%E7%BD%AEKinectV2/</url>
-    <content><![CDATA[<h1 id="1-下载libfreenect2资源"><a href="#1-下载libfreenect2资源" class="headerlink" title="1 下载libfreenect2资源"></a>1 下载libfreenect2资源</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/OpenKinect/libfreenect2.git</span><br></pre></td></tr></tbody></table></figure>
-<h1 id="2-安装opencv"><a href="#2-安装opencv" class="headerlink" title="2 安装opencv"></a>2 安装opencv</h1><a href="/2021/12/05/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/Ubuntu20-04%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85opencv/" title="Ubuntu20-04编译安装opencv">Ubuntu20-04编译安装opencv</a>
-
-<h1 id="3-安装Kinect依赖"><a href="#3-安装Kinect依赖" class="headerlink" title="3 安装Kinect依赖"></a>3 安装Kinect依赖</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get install build-essential cmake pkg-config libturbojpeg libjpeg-turbo8-dev mesa-common-de libxrandr-dev libxi-dev </span><br><span class="line">sudo apt-get install libglfw3-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># lisbusb</span></span><br><span class="line">sudo apt-get install libusb-1.0-0-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># TurboJPEG</span></span><br><span class="line">sudo apt-get install libturbojpeg0-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># OpenGL</span></span><br><span class="line">sudo apt-get install libgl1-mesa-dev</span><br><span class="line">sudo apt-get install libglu1-mesa-dev</span><br><span class="line">sudo apt-get install freeglut3-dev</span><br><span class="line">sudo apt-get install libglew1.8 libglew-dev</span><br><span class="line">sudo apt-get install libgl1-mesa-glx</span><br><span class="line">sudo apt-get install libxmu-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># OpenCl</span></span><br><span class="line">sudo apt-get install opencl-headers</span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="4-编译安装"><a href="#4-编译安装" class="headerlink" title="4 编译安装"></a>4 编译安装</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> libfreenect2</span><br><span class="line">mkdir build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="5-添加USB文件"><a href="#5-添加USB文件" class="headerlink" title="5 添加USB文件"></a>5 添加USB文件</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo cp libfreenect2/platform/linux/udev/90-kinect2.rules /etc/udev/rules.d/</span><br></pre></td></tr></tbody></table></figure>
-<p>这个文件里表示的是kinect的串口号</p>
-<h1 id="6-安装OpenNI2"><a href="#6-安装OpenNI2" class="headerlink" title="6 安装OpenNI2"></a>6 安装OpenNI2</h1><ol>
-<li><p>下载</p>
-<p><a href="https://structure.io/openni">OpenNI2 SDK 下载地址</a></p>
-</li>
-<li><p>添加变量</p>
-<ol>
-<li><p>在解压目录下执行install.sh</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo ./install.sh</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>将OpenNIDevEnvironment添加到终端</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">cat OpenNIDevEnvironment &gt;&gt; ~/.zshrc</span><br></pre></td></tr></tbody></table></figure></li>
-</ol>
-</li>
-<li><p>安装</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /OpenNI-Linux-x64-2.2.0.33/OpenNI-Linux-x64-2.2</span><br><span class="line">sudo cp -r ./Include /usr/include/openni2</span><br><span class="line"><span class="built_in">cd</span> Redist/</span><br><span class="line">sudo cp libOpenNI2.jni.so /usr/lib/</span><br><span class="line">sudo cp libOpenNI2.so /usr/lib/</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>检测</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pkg-config --modversion libopenni2</span><br></pre></td></tr></tbody></table></figure>
-
-
-</li>
-</ol>
-<h1 id="7-运行"><a href="#7-运行" class="headerlink" title="7 运行"></a>7 运行</h1><p>进入下载的libfreenect2里的build文件夹内，分别运行下述命令，可以分别测试各项能否运行。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line"># openGL</span><br><span class="line">./bin/Protonect pl</span><br><span class="line"></span><br><span class="line"># OpenCL</span><br><span class="line">./bin/Protonect cl</span><br><span class="line"></span><br><span class="line"># CPU</span><br><span class="line">./bin/Protonect cpu</span><br><span class="line"></span><br><span class="line">./bin/Protonect</span><br></pre></td></tr></tbody></table></figure>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>ubuntu</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>KinectV2</tag>
       </tags>
   </entry>
   <entry>
