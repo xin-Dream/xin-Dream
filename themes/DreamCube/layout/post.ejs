@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-    <meta charset="utf-8">
-</head>
-<body>
+<div>
+    <span id="post-author">作者: <%- theme.author %></span>
+    <span id="post-date"><%- date(page.date, "YYYY-MM-DD HH:mm:ss") %></span>
+</div>
 
-    这里是 post.ejs
-    这里是 post.ejs
-
+<div id="article">
     <%- page.content %>
-    
-
-</body>
-</html>
+</div>

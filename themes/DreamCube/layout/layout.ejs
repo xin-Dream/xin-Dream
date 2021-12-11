@@ -1,55 +1,57 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title></title>
+    <title>
+        <%- theme.title %>
+            <%- theme.author %>
+    </title>
     <meta charset="utf-8">
+
+    <!-- 引入配置文件 -->
+    <%- css('CSS/main.css') %>
+    <!-- 字体图片库 -->
+    <%- css('lib/font-awesome/css/font-awesome.min.css') %>
+    <!-- 代码高亮库 -->
+    <%- css('/lib/highlight/styles/atom-one-light') %>
+
 </head>
+
 <body>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
 
-    网站整改，开始创作自己的主题，内容还能看，每页最下面是文章内容。
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+    <div id="main">
+        <!-- 引入侧边栏 -->
+        <aside id="#aside">
+            <%- include('aside.ejs') %>
+        </aside>
 
-    <!-- 一般在写逻辑的时候会用到这个标签，这个标签不会输出到页面上 -->
-    <%  %>
+        <!-- 引入导航 -->
+        <nav>
+            <%- include('nav.ejs') %>
+        </nav>
 
-    <!-- 这个标签会输出到页面上，是带着非转义符号的 -->
-    <% 
-        var test = "基本上，就用这两组标签，其他的也用不上。";
-    %>
+        <!-- 引入正文 -->
+        <div id="content">
+            <%- body %>
+        </div>
+
+    </div>
+
+    <!-- 引入 jquery -->
+    <%- js('/lib/jQuery.min.js') %>
+
+    <!-- 引入代码高亮的 js -->
+    <%- js('/lib/highlight/highlight.pack.js') %>
+
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <!-- 引入 js 文件 -->
+    <%- js('js/main.js') %>
 
 
-    <br />
-
-    <% site.posts.forEach(function(post){ %>
-
-        <%- post.path %>
-        <br />
-        <%- post.slug %>
-        <br />
-        <%- post._id %>
-        <br />
-        <%- post.title %>
-        <br />
-        <%- post.date %>
-        <br />
-
-        <a href="/<%- post.path %>"><%- post.title %></a>
-
-    <% }); %>
-  
-![](https://img2018.cnblogs.com/blog/626593/201906/626593-20190620152507609-296007299.png)
-
-  <%- body %>
 
 </body>
+
 </html>
