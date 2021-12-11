@@ -6,7 +6,7 @@
   <link href="http://zhangguixin.com/atom.xml" rel="self"/>
   
   <link href="http://zhangguixin.com/"/>
-  <updated>2021-12-05T08:56:37.371Z</updated>
+  <updated>2021-12-11T04:00:07.503Z</updated>
   <id>http://zhangguixin.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>人体姿态识别算法特点概括</title>
+    <link href="http://zhangguixin.com/2021/12/11/%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E8%AF%86%E5%88%AB%E7%AE%97%E6%B3%95%E7%89%B9%E7%82%B9%E6%A6%82%E6%8B%AC/"/>
+    <id>http://zhangguixin.com/2021/12/11/%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E8%AF%86%E5%88%AB%E7%AE%97%E6%B3%95%E7%89%B9%E7%82%B9%E6%A6%82%E6%8B%AC/</id>
+    <published>2021-12-11T02:49:16.000Z</published>
+    <updated>2021-12-11T04:00:07.503Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Human-Pose-Estimation-Benchmarking-and-Action-Recognition&quot;&gt;&lt;a href=&quot;#Human-Pose-Estimation-Benchmarking-and-Action-Recognition&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>ROS-noetic中使用KinecV2</title>
@@ -518,31 +539,6 @@
     
     
     <category term="Zotero" scheme="http://zhangguixin.com/tags/Zotero/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>创建自己的word模板</title>
-    <link href="http://zhangguixin.com/2021/10/22/%E6%9D%82%E9%A1%B9/%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84word%E6%A8%A1%E6%9D%BF/"/>
-    <id>http://zhangguixin.com/2021/10/22/%E6%9D%82%E9%A1%B9/%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84word%E6%A8%A1%E6%9D%BF/</id>
-    <published>2021-10-22T07:43:46.000Z</published>
-    <updated>2021-10-22T07:47:30.482Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="杂项" scheme="http://zhangguixin.com/categories/%E6%9D%82%E9%A1%B9/"/>
-    
-    
-    <category term="word" scheme="http://zhangguixin.com/tags/word/"/>
     
   </entry>
   
