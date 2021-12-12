@@ -6,7 +6,7 @@
   <link href="http://zhangguixin.com/atom.xml" rel="self"/>
   
   <link href="http://zhangguixin.com/"/>
-  <updated>2021-12-12T08:28:04.068Z</updated>
+  <updated>2021-12-12T13:56:35.066Z</updated>
   <id>http://zhangguixin.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>cartographer安装与使用</title>
+    <link href="http://zhangguixin.com/2021/12/12/ROS/cartographer%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
+    <id>http://zhangguixin.com/2021/12/12/ROS/cartographer%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</id>
+    <published>2021-12-12T13:47:24.000Z</published>
+    <updated>2021-12-12T13:56:35.066Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>人体姿态识别算法特点概括</title>
@@ -515,31 +536,6 @@
     <category term="JetsonTX2" scheme="http://zhangguixin.com/tags/JetsonTX2/"/>
     
     <category term="pytorch" scheme="http://zhangguixin.com/tags/pytorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>文献管理软件zotero</title>
-    <link href="http://zhangguixin.com/2021/10/29/%E6%9D%82%E9%A1%B9/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6zotero/"/>
-    <id>http://zhangguixin.com/2021/10/29/%E6%9D%82%E9%A1%B9/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6zotero/</id>
-    <published>2021-10-28T18:53:41.000Z</published>
-    <updated>2021-11-19T09:08:47.961Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;视频演示&quot;&gt;&lt;a href=&quot;#视频演示&quot; class=&quot;headerlink&quot; title=&quot;视频演示&quot;&gt;&lt;/a&gt;视频演示&lt;/h1&gt;&lt;iframe</summary>
-        
-      
-    
-    
-    
-    <category term="杂项" scheme="http://zhangguixin.com/categories/%E6%9D%82%E9%A1%B9/"/>
-    
-    
-    <category term="Zotero" scheme="http://zhangguixin.com/tags/Zotero/"/>
     
   </entry>
   
