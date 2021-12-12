@@ -46,13 +46,17 @@ post_asset_folder: false
 
 relative_link: false
 future: true
+
+# 代码高亮，与主题冲突
 highlight:
-  enable: true
-  line_number: true
+  enable: false
+  line_number: false
   auto_detect: false
   tab_replace: ''
-  wrap: true
+  wrap: false
   hljs: false
+
+
 prismjs:
   enable: false
   preprocess: true

@@ -45,6 +45,10 @@ npm config set registry http://registry.npm.taobao.org
 
 #安装hexo
 npm install hexo-cli
+
+# 安装hexo后，需要为hexo创建软链接，才能使用hexo命令
+sudo ln -s /home/dream/002-software/006-node-v14.17.6/bin/hexo /usr/local/bin/hexo 
+
 ```
 
 

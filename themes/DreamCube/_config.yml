@@ -1,0 +1,14 @@
+# hexo主题配置文件
+# DreamCube主题
+
+title: DreamCube
+
+author: ZGX
+
+menus: 
+  主页: /
+  关于: /about
+
+language: en
+
+
