@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>
+            DreamCube
+                ZGX
+        </title>
+        <meta charset="utf-8">
+
+        <!-- 引入配置文件 -->
+        
+<link rel="stylesheet" href="/CSS/main.css">
+
+        <!-- 字体图片库 -->
+        
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+        <!-- 代码高亮库 -->
+        
+<link rel="stylesheet" href="/lib/highlight/styles/atom-one-light.css">
+
+
+    <meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
+</head>
+
+    <header>
+        <span class="name">DreamCube </span>
+        <div class="options">
+            <a href="Home.html">首页</a>
+            <a href="paging/control.html">..</a>
+            <a href="paging/code.html">..</a>
+            <a href="paging/debug.html">..</a>
+            <a href="paging/explanation.html">..</a>
+        </div>          
+    </header>
+
+    <body>
+
+
+        <div class="home_container">
+
+            <div id="home_content">
+                <div id="home_con_top">
+                    <h1>Dream</h1>
+                    <h1>怕什么真理无穷，进一寸有一寸的欢喜</h1>
+                </div>
+                <div id="home_introduction">
+                    <div>
+    <span id="post-author">作者: ZGX</span>
+    <span id="post-date">2021-12-11 10:49:16</span>
+</div>
+
+<div id="article">
+    <h1 id="Human-Pose-Estimation-Benchmarking-and-Action-Recognition"><a href="#Human-Pose-Estimation-Benchmarking-and-Action-Recognition" class="headerlink" title="Human Pose Estimation Benchmarking and Action Recognition"></a>Human Pose Estimation Benchmarking and Action Recognition</h1><h2 id="1-特点概述"><a href="#1-特点概述" class="headerlink" title="1. 特点概述"></a>1. 特点概述</h2><ol>
+<li>对比了AlphaPose和OpenPose在不同准确性下的性能与GPU使用，在单人和多人场景下测试了不同模式</li>
+<li>实时多人动作识别基于：tf-pose-estimation</li>
+<li>参照online-realtime-action-recognition-based on openpose构建了深度学习模型。该模型使用Keras和Tensorflow在training.py中实现。</li>
+</ol>
+<h1 id="Real-time-2D-Multi-Person-Pose-Estimation-on-CPU-Lightweight-OpenPose"><a href="#Real-time-2D-Multi-Person-Pose-Estimation-on-CPU-Lightweight-OpenPose" class="headerlink" title="Real-time 2D Multi-Person Pose Estimation on CPU: Lightweight OpenPose"></a>Real-time 2D Multi-Person Pose Estimation on CPU: Lightweight OpenPose</h1><h2 id="1-特点概述-1"><a href="#1-特点概述-1" class="headerlink" title="1. 特点概述"></a>1. 特点概述</h2><ol>
+<li>只能实现人体骨骼点的识别</li>
+<li>主要是对OpenPose进行了优化</li>
+<li>目的是改进到适合于实时性边缘计算设备</li>
+</ol>
+<h2 id="2-文章重点"><a href="#2-文章重点" class="headerlink" title="2. 文章重点"></a>2. 文章重点</h2><ol>
+<li>Related Works<ol>
+<li>top-down<ol>
+<li>对每个人的检测</li>
+</ol>
+</li>
+<li>bottom-up<ol>
+<li>对多人场景更加鲁棒</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Analysis of the Original OpenPose<ol>
+<li>OpenPose pipeline<ol>
+<li>神经网络提供两个张量：keypoint heatmaps、pairwise</li>
+<li>按人员实例对关键点分组</li>
+</ol>
+</li>
+<li>Complexity Analysis</li>
+</ol>
+</li>
+<li>Optimization<ol>
+<li>Network Design：只保留初始和第一个细化阶段<ol>
+<li>Lightweight Backbone<ol>
+<li>为了节省空间分辨率和重用骨干权重，使用了扩张卷积</li>
+</ol>
+</li>
+<li>Lightweight Refinement Stage<ol>
+<li>在heatmap和paf之间共享大部分计算，并在初始和细化阶段使用单一预测分支。除了最后两个层，共享所有层</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Fast Post-processing<ol>
+<li>删除了额外的内存分配，用OpenCV的例程并行提取关键点。</li>
+<li>跳过调整大小步骤，直接对网络输出进行分组，但准确性显著下降。因此，与上采样特征映射的步进是不可避免的，但在输入图像大小的情况下没有必要这样做。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="AdaFuse-Adaptive-Multiview-Fusion-for-Accurate-Human-Pose-Estimation-in-the-Wild"><a href="#AdaFuse-Adaptive-Multiview-Fusion-for-Accurate-Human-Pose-Estimation-in-the-Wild" class="headerlink" title="AdaFuse: Adaptive Multiview Fusion for Accurate Human Pose Estimation in the Wild"></a><em>AdaFuse</em>: Adaptive Multiview Fusion for Accurate Human Pose Estimation in the Wild</h1><h2 id="1-工作流程概述"><a href="#1-工作流程概述" class="headerlink" title="1. 工作流程概述"></a>1. 工作流程概述</h2><ol>
+<li>使用相机参数计算多视图的点线对应关系</li>
+<li>通过表示稀疏性的热力图找到多视图间的匹配点</li>
+<li>融合不同视图的特征</li>
+</ol>
+<h2 id="2-特点概括"><a href="#2-特点概括" class="headerlink" title="2. 特点概括"></a>2. 特点概括</h2><ol>
+<li>可以利用可见视图中的特征来增强遮挡视图中的特征</li>
+<li>每个相机视图有一个自适应融合权重，能有效<strong>防止低质量视图对高质量视图的影响</strong></li>
+<li>模型和网络可以直接应用于新的相机，无需进行额外的调整</li>
+<li>在Human3.6M、Total Capture和CMU Panoptic数据集中表现都优于其他算法</li>
+</ol>
+<h2 id="3-文章重点"><a href="#3-文章重点" class="headerlink" title="3. 文章重点"></a>3. 文章重点</h2><ol>
+<li><p>Introduction</p>
+<ol>
+<li>三维人体姿态的识别的通常解决框架<ol>
+<li>检测所有相机视图中的二维姿态，如：卷积神经网络</li>
+<li>通过二维姿态复原三维姿态，如：分析方法、判别模型</li>
+</ol>
+</li>
+<li>一些提高复杂环境中的姿态估计性能的方式<ol>
+<li>增加训练数据集</li>
+<li>使用传感器，如IMU</li>
+</ol>
+</li>
+<li>本文工作流程，见第一条工作流程概述</li>
+</ol>
+</li>
+<li><p>Related Work</p>
+<ol>
+<li>多视图人体姿态估计方法<ol>
+<li>基于模型的方法（综合分析法）<ol>
+<li>通过多视图的观察对人体模型不断更新，直到可以使用图像特征表示</li>
+<li>缺点：采样技术成本高、优化较难</li>
+<li>优势：处理遮挡的能力</li>
+</ol>
+</li>
+<li>无模型方法<ol>
+<li>首先检测出二维姿态，然后在相机参数的帮助下，使用三角测量或图形结构模型恢复3D姿态</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>提高户外表现<ol>
+<li>传感器（IMU）<ol>
+<li>精度受漂移问题限制</li>
+<li>某些情境中，无法佩戴外设</li>
+</ol>
+</li>
+<li>数据增强<ol>
+<li>生成合成图像用于训练</li>
+<li>合成图像与真实图像间的差距</li>
+</ol>
+</li>
+<li>时空上下文模型<ol>
+<li>关节信息从相邻帧间获得</li>
+<li>缺点：缺乏灵活性，要为每个相机训练单独的融合网络</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>共识学习<ol>
+<li>多传感器融合时的基本问题是检测和去除异常值</li>
+<li><strong>不确定性学习：模型预测时，输出反映预测置信度的值</strong></li>
+<li>将不确定性学习用于减小异常值的影响</li>
+<li><strong>受这个思路的启发，本文多视图特征融合使用不确定性学习</strong></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>多视图融合基础</p>
+<ol>
+<li><strong>对极几何</strong></li>
+<li><strong>heatmap融合</strong><ol>
+<li>稀疏性的热力图：能安全的跳过无影响位置</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>多视图融合的自适应权重</p>
+<p>由轻量级神经网络实现，使用两种信息预测</p>
+<ol>
+<li>外观嵌入</li>
+<li>几何嵌入</li>
+</ol>
+</li>
+</ol>
+<ol start="5">
+<li><p>Datasets and Metrics</p>
+<ol>
+<li><p>Datasets</p>
+<ol>
+<li><p>Human3.6M:</p>
+<p>It provides synchronized images captured by <strong>four cameras</strong>. There are seven subjects performing daily actions.</p>
+</li>
+<li><p>Total Capture Dataset:</p>
+<p>It provides synchronized person images captured by <strong>eight cameras</strong>.</p>
+</li>
+<li><p>CMU Panoptic Dataset:</p>
+<p>This recently introduced dataset provides images captured by <strong>dozens of cameras</strong>.</p>
+</li>
+</ol>
+</li>
+<li><p>Metrics</p>
+<ol>
+<li>2D Metrics<ol>
+<li>Percentage of Correct Keypoints (PCK) metric</li>
+</ol>
+</li>
+<li>3D Metrics<ol>
+<li>Mean Per Joint Position Error (MPJPE) </li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Summary and Future Work</p>
+<ol>
+<li><strong>Our next step of work is to leverage temporal information to further</strong><br><strong>improve the pose estimation accuracy.</strong></li>
+</ol>
+</li>
+</ol>
+<p>​    </p>
+
+</div>
+  
+                </div>
+            </div>
+
+        </div>
+        
+
+        <!-- 引入 jquery -->
+        
+<script src="/lib/jQuery.min.js"></script>
+
+
+        <!-- 引入代码高亮的 js -->
+        
+<script src="/lib/highlight/highlight.pack.js"></script>
+
+
+        <!-- 引入 pjax -->
+        
+<script src="/lib/jquery.pjax.js"></script>
+
+
+        <!-- 引入 js 文件 -->
+        
+<script src="/js/main.js"></script>
+
+
+
+
+    </body>
+    <footer class="footer">
+        <span style="font-size: 20px; font-family: '楷体';color: gray;">青岛科技大学 机器人研发中心 机械实验182 张桂新</span>
+    </footer>
+
+</html>
