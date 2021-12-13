@@ -1,60 +1,111 @@
 <!DOCTYPE html>
-<html>
+
+
+<html lang="zh-CN">
+  
 
     <head>
-        <title>
-            DreamCube
-                ZGX
-        </title>
-        <meta charset="utf-8">
+      <meta charset="utf-8" />
+       
+       
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>安装windows10和Ubuntu18.04双系统 |  Dream</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/badminton.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
 
-        <!-- 引入配置文件 -->
-        
-<link rel="stylesheet" href="/CSS/main.css">
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
 
-        <!-- 字体图片库 -->
-        
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
 
-        <!-- 代码高亮库 -->
-        
-<link rel="stylesheet" href="/lib/highlight/styles/atom-one-light.css">
-
-
-    <meta name="generator" content="Hexo 5.3.0">
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
 </head>
+  </html>
+</html>
 
-    <header>
-        <span class="name">DreamCube </span>
-        <div class="options">
-            <a href="Home.html">首页</a>
-            <a href="paging/control.html">..</a>
-            <a href="paging/code.html">..</a>
-            <a href="paging/debug.html">..</a>
-            <a href="paging/explanation.html">..</a>
-        </div>          
+
+<body>
+  <div id="app">
+    
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Linux/安装windows10和Ubuntu18-04双系统"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  安装windows10和Ubuntu18.04双系统
+</h1>
+ 
+
+      
     </header>
+     
+    <div class="article-meta">
+      <a href="/2021/01/28/Linux/%E5%AE%89%E8%A3%85windows10%E5%92%8CUbuntu18-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/" class="article-date">
+  <time datetime="2021-01-28T14:03:54.000Z" itemprop="datePublished">2021-01-28</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a> / <a class="article-category-link" href="/categories/Linux/ubuntu/">ubuntu</a>
+  </div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
 
-    <body>
 
 
-        <div class="home_container">
 
-            <div id="home_content">
-                <div id="home_con_top">
-                    <h1>Dream</h1>
-                    <h1>怕什么真理无穷，进一寸有一寸的欢喜</h1>
-                </div>
-                <div id="home_introduction">
-                    <div>
-    <span id="post-author">作者: ZGX</span>
-    <span id="post-date">2021-01-28 22:03:54</span>
-</div>
-
-<div id="article">
-    <h1 id="我的配置"><a href="#我的配置" class="headerlink" title="我的配置"></a>我的配置</h1><p>华硕飞行堡垒五代，i5+256G固态+1T机械硬盘，ubuntu18.04LTS</p>
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="我的配置"><a href="#我的配置" class="headerlink" title="我的配置"></a>我的配置</h1><p>华硕飞行堡垒五代，i5+256G固态+1T机械硬盘，ubuntu18.04LTS</p>
 <h1 id="制作双系统启动U盘"><a href="#制作双系统启动U盘" class="headerlink" title="制作双系统启动U盘"></a>制作双系统启动U盘</h1><h2 id="需要工具"><a href="#需要工具" class="headerlink" title="需要工具"></a>需要工具</h2><p>微PE工具箱，win10镜像，Ubuntu18.04的ISO镜像，32GU盘（这个制作完成后还会有很大一部分空余，可以用于日常使用，只用于启动盘的话，ubuntu和win10 8G的U盘大概能够）</p>
 <h2 id="制作过程"><a href="#制作过程" class="headerlink" title="制作过程"></a>制作过程</h2><ol>
 <li>用微PE工具箱为U盘制作PE系统，这个是用于安装和维护win10系统的<br>可以参考软件安装管家的<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzIwMjE1MjMyMw==&amp;mid=502719825&amp;idx=1&amp;sn=9104261c8b121d6aaae0b11124e90645&amp;chksm=0ee145bd3996ccab948300376dc86d18305ed1f981ba361cee53850ed001f24552addcb63c63&amp;scene=20&amp;xtrack=1&amp;key=550718b070ec51af153ef2fa7f6561bd89e049c0c95440110b1f4cc8ae1503ab88e011c74375991716f9151ed7adc503eef74aa0bf681d120c2dd4a5426d5a35a6fc4af420d6971699c29501b2681215&amp;ascene=1&amp;uin=MTYxNTIyMDEzOQ==&amp;devicetype=Windows%2010%20x64&amp;version=62090072&amp;lang=zh_CN&amp;exportkey=A74S+18fXHhNvj3ZK2y3NdI=&amp;pass_ticket=lXTBjZUUl17jl5VJK2C+emLrJWEDoeji+S9sM0ESR4E5qBCCcxZJ2xptM6sFbNQT">PE系统安装教程</a></li>
@@ -113,40 +164,491 @@ sudo reboot</code></pre>
 <h2 id="WiFi驱动"><a href="#WiFi驱动" class="headerlink" title="WiFi驱动"></a>WiFi驱动</h2><p>这些设置完就要开始安装WiFi驱动了<br>没有想到，WiFi修改过程简单又刺激</p>
 <p> 在软件与更新–&gt;附加驱动，下面有个开源WiFi驱动，选中，更新，重启<br> 重启之后刺激的是，屏幕一直闪烁，强制关机后再打开就正常了….<br> 这个办法可能不适用于所有人<br> 可以参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/github_33678609/article/details/86502916">ubuntu18.04系统安装完成后显示未发现WiFi适配器</a></p>
 <h1 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h1><p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/github_33678609/article/details/86502916">WiFi</a><br> <a target="_blank" rel="noopener" href="https://blog.csdn.net/bornfree5511/article/details/103915552">安装搜狗输入法</a><br> <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39867394/article/details/80368314">分区方案</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37221466/article/details/81265579">双系统安装教程</a></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
 
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
 </div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zhangguixin.com/2021/01/28/Linux/%E5%AE%89%E8%A3%85windows10%E5%92%8CUbuntu18-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2021/01/28/Linux/ubuntu%E4%B8%AD%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            ubuntu中常用软件安装
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2021/01/28/windows/win10%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">win10重装系统配置笔记</div>
+      </a>
+    
+  </nav>
+
   
+   
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css">
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '90f8027c09cddcac20ef',
+    clientSecret: 'eeb93148bba6bd7e7c3d6774b9ad26c3fb8da534',
+    repo: 'Blog_comments',
+    owner: 'xin-Dream',
+    admin: ['xin-Dream'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021
+        <i class="ri-heart-fill heart_icon"></i> ZGX
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/badminton.svg" alt="Dream"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/Aboutme">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/AliPay.png">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.png">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
         </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+ 
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
         
-
-        <!-- 引入 jquery -->
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
         
-<script src="/lib/jQuery.min.js"></script>
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
 
 
-        <!-- 引入代码高亮的 js -->
-        
-<script src="/lib/highlight/highlight.pack.js"></script>
+    
+    
 
-
-        <!-- 引入 pjax -->
-        
-<script src="/lib/jquery.pjax.js"></script>
-
-
-        <!-- 引入 js 文件 -->
-        
-<script src="/js/main.js"></script>
-
-
-
-
-    </body>
-    <footer class="footer">
-        <span style="font-size: 20px; font-family: '楷体';color: gray;">青岛科技大学 机器人研发中心 张桂新</span>
-    </footer>
+  </div>
+</body>
 
 </html>
