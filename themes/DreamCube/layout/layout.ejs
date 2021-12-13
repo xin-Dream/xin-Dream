@@ -1,57 +1,68 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>
-        <%- theme.title %>
-            <%- theme.author %>
-    </title>
-    <meta charset="utf-8">
+    <head>
+        <title>
+            <%- theme.title %>
+                <%- theme.author %>
+        </title>
+        <meta charset="utf-8">
 
-    <!-- 引入配置文件 -->
-    <%- css('CSS/main.css') %>
-    <!-- 字体图片库 -->
-    <%- css('lib/font-awesome/css/font-awesome.min.css') %>
-    <!-- 代码高亮库 -->
-    <%- css('/lib/highlight/styles/atom-one-light') %>
+        <!-- 引入配置文件 -->
+        <%- css('CSS/main.css') %>
+        <!-- 字体图片库 -->
+        <%- css('lib/font-awesome/css/font-awesome.min.css') %>
+        <!-- 代码高亮库 -->
+        <%- css('/lib/highlight/styles/atom-one-light') %>
 
-</head>
+    </head>
 
-<body>
+    <header>
+        <span class="name">DreamCube </span>
+        <div class="options">
+            <a href="Home.html">首页</a>
+            <a href="paging/control.html">..</a>
+            <a href="paging/code.html">..</a>
+            <a href="paging/debug.html">..</a>
+            <a href="paging/explanation.html">..</a>
+        </div>          
+    </header>
 
-    <div id="main">
-        <!-- 引入侧边栏 -->
-        <aside id="#aside">
-            <%- include('aside.ejs') %>
-        </aside>
+    <body>
 
-        <!-- 引入导航 -->
-        <nav>
-            <%- include('nav.ejs') %>
-        </nav>
 
-        <!-- 引入正文 -->
-        <div id="content">
-            <%- body %>
+        <div class="home_container">
+
+            <div id="home_content">
+                <div id="home_con_top">
+                    <h1>Dream</h1>
+                    <h1>怕什么真理无穷，进一寸有一寸的欢喜</h1>
+                </div>
+                <div id="home_introduction">
+                    <%- body %>  
+                </div>
+            </div>
+
         </div>
+        
 
-    </div>
+        <!-- 引入 jquery -->
+        <%- js('/lib/jQuery.min.js') %>
 
-    <!-- 引入 jquery -->
-    <%- js('/lib/jQuery.min.js') %>
+        <!-- 引入代码高亮的 js -->
+        <%- js('/lib/highlight/highlight.pack.js') %>
 
-    <!-- 引入代码高亮的 js -->
-    <%- js('/lib/highlight/highlight.pack.js') %>
+        <!-- 引入 pjax -->
+        <%- js('/lib/jquery.pjax.js') %>
 
-    <script>
-        hljs.initHighlightingOnLoad();
-    </script>
-
-    <!-- 引入 js 文件 -->
-    <%- js('js/main.js') %>
+        <!-- 引入 js 文件 -->
+        <%- js('js/main.js') %>
 
 
 
-</body>
+    </body>
+    <footer class="footer">
+        <span style="font-size: 20px; font-family: '楷体';color: gray;">青岛科技大学 机器人研发中心 张桂新</span>
+    </footer>
 
 </html>

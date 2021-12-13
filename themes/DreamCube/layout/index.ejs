@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-    <meta charset="utf-8">
-</head>
-<body>
 
-    网页整改
-    创作自己的主题
+<li class="article-li">
+    <div class="post_name">
+        <% site.posts.forEach(function(post) {%>
+            <span class="article-date"><%- date(post.date, "YYYY-MM-DD") %></span>
+            <a href="<%- config.root %><%- post.path %>"><%- post.title %></a>
+            <br/>
+            
+        <% }); %>
+    </div>
+</li>
 
-</body>
-</html>
+ 

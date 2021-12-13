@@ -49,12 +49,12 @@ future: true
 
 # 代码高亮，与主题冲突
 highlight:
-  enable: false
-  line_number: false
-  auto_detect: false
+  enable: true
+  line_number: true
+  auto_detect: true
   tab_replace: ''
-  wrap: false
-  hljs: false
+  wrap: true
+  hljs: true
 
 
 prismjs:
@@ -104,8 +104,8 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-# theme: ayer
-theme: DreamCube
+theme: ayer
+# theme: DreamCube
 # theme: hexo-theme-PureBlue
 
 # Deployment
