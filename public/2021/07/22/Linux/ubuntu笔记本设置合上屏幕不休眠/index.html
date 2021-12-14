@@ -103,45 +103,9 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <pre><code class="BASH">sudo vim /etc/systemd/login.conf</code></pre>
+  <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs BASH">sudo vim /etc/systemd/login.conf<br></code></pre></td></tr></tbody></table></figure>
 <p>添加  HandleLidSwitch=ignore</p>
-<pre><code class="BASH"> #  This file is part of systemd.
- #
- #  systemd is free software; you can redistribute it and/or modify it
- #  under the terms of the GNU Lesser General Public License as published by
- #  the Free Software Foundation; either version 2.1 of the License, or
- #  (at your option) any later version.
- #
- # Entries in this file show the compile time defaults.
- # You can change settings by editing this file.
- # Defaults can be restored by simply deleting this file.
- #
- # See logind.conf(5) for details.
- [Login]
- #NAutoVTs=6
- #ReserveVT=6
- #KillUserProcesses=no
- #KillOnlyUsers=
- #KillExcludeUsers=root
- #InhibitDelayMaxSec=5
- #HandlePowerKey=poweroff
- #HandleSuspendKey=suspend
- #HandleHibernateKey=hibernate
- #HandleLidSwitch=suspend
- #HandleLidSwitchDocked=ignore
-  HandleLidSwitch=ignore
- #PowerKeyIgnoreInhibited=no
- #SuspendKeyIgnoreInhibited=no
- #HibernateKeyIgnoreInhibited=no
- #LidSwitchIgnoreInhibited=yes
- #HoldoffTimeoutSec=30s
- #IdleAction=ignore
- #IdleActionSec=30min
- #RuntimeDirectorySize=10%
- #RemoveIPC=yes
- #InhibitorsMax=8192
- #SessionsMax=8192
- #UserTasksMax=33%</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs BASH"><span class="hljs-comment">#  This file is part of systemd.</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">#  systemd is free software; you can redistribute it and/or modify it</span><br><span class="hljs-comment">#  under the terms of the GNU Lesser General Public License as published by</span><br><span class="hljs-comment">#  the Free Software Foundation; either version 2.1 of the License, or</span><br><span class="hljs-comment">#  (at your option) any later version.</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment"># Entries in this file show the compile time defaults.</span><br><span class="hljs-comment"># You can change settings by editing this file.</span><br><span class="hljs-comment"># Defaults can be restored by simply deleting this file.</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment"># See logind.conf(5) for details.</span><br>[Login]<br><span class="hljs-comment">#NAutoVTs=6</span><br><span class="hljs-comment">#ReserveVT=6</span><br><span class="hljs-comment">#KillUserProcesses=no</span><br><span class="hljs-comment">#KillOnlyUsers=</span><br><span class="hljs-comment">#KillExcludeUsers=root</span><br><span class="hljs-comment">#InhibitDelayMaxSec=5</span><br><span class="hljs-comment">#HandlePowerKey=poweroff</span><br><span class="hljs-comment">#HandleSuspendKey=suspend</span><br><span class="hljs-comment">#HandleHibernateKey=hibernate</span><br><span class="hljs-comment">#HandleLidSwitch=suspend</span><br><span class="hljs-comment">#HandleLidSwitchDocked=ignore</span><br> HandleLidSwitch=ignore<br><span class="hljs-comment">#PowerKeyIgnoreInhibited=no</span><br><span class="hljs-comment">#SuspendKeyIgnoreInhibited=no</span><br><span class="hljs-comment">#HibernateKeyIgnoreInhibited=no</span><br><span class="hljs-comment">#LidSwitchIgnoreInhibited=yes</span><br><span class="hljs-comment">#HoldoffTimeoutSec=30s</span><br><span class="hljs-comment">#IdleAction=ignore</span><br><span class="hljs-comment">#IdleActionSec=30min</span><br><span class="hljs-comment">#RuntimeDirectorySize=10%</span><br><span class="hljs-comment">#RemoveIPC=yes</span><br><span class="hljs-comment">#InhibitorsMax=8192</span><br><span class="hljs-comment">#SessionsMax=8192</span><br><span class="hljs-comment">#UserTasksMax=33%</span><br></code></pre></td></tr></tbody></table></figure>
 <p>然后重启服务或重启电脑<br><code>service systemd-logind restart</code></p>
  
       <!-- reward -->

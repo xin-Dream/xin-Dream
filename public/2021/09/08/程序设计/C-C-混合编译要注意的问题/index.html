@@ -106,10 +106,7 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1 id="1-undefined-reference-to"><a href="#1-undefined-reference-to" class="headerlink" title="1. undefined reference to"></a>1. undefined reference to</h1><p>C++代码调用C语言库的时候，应在调用头文件的时候添加声明，如下</p>
-<pre><code class="cpp">extern "C"{
-    #include "test.h"
-}</code></pre>
- 
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">extern</span> <span class="hljs-string">"C"</span>{<br>    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"test.h"</span></span><br>}<br></code></pre></td></tr></tbody></table></figure> 
       <!-- reward -->
       
     </div>

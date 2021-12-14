@@ -115,22 +115,11 @@
 <p>在下面链接中下载LTS安装包，将其保存到<code>/usr/local/share</code>目录下并解压。这个包是编译好的，所以解压后就不会再动了。</p>
 <p><a target="_blank" rel="noopener" href="https://nodejs.org/en/">nodejs下载地址</a></p>
 <p>为npm创建软链接，这里要注意，<strong>创建软链接的路径一定要是完整路径</strong>。</p>
-<pre><code class="bash">sudo ln -s /home/dream/002-software/006-node-v14.17.6/bin/npm /usr/local/bin/npm
-sudo ln -s /home/dream/002-software/006-node-v14.17.6/bin/npx /usr/local/bin/npx
-sudo ln -s /home/dream/002-software/006-node-v14.17.6/bin/node /usr/local/bin/node </code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ln -s /home/dream/002-software/006-node-v14.17.6/bin/npm /usr/<span class="hljs-built_in">local</span>/bin/npm<br>sudo ln -s /home/dream/002-software/006-node-v14.17.6/bin/npx /usr/<span class="hljs-built_in">local</span>/bin/npx<br>sudo ln -s /home/dream/002-software/006-node-v14.17.6/bin/node /usr/<span class="hljs-built_in">local</span>/bin/node <br></code></pre></td></tr></tbody></table></figure>
 <h1 id="2-安装hexo"><a href="#2-安装hexo" class="headerlink" title="2. 安装hexo"></a>2. 安装hexo</h1><p>这里如果是第一次使用hexo的话，可以参考我的另一篇博客<a href="/2021/01/25/hexo/hexo%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/" title="hexo配置记录">hexo配置记录</a></p>
-<pre><code class="bash"># 使用国内镜像
-npm install -gd express --registry=http://registry.npm.taobao.org
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 使用国内镜像</span><br>npm install -gd express --registry=http://registry.npm.taobao.org<br><br><span class="hljs-comment"># 永久设置镜像地址</span><br>npm config <span class="hljs-built_in">set</span> registry http://registry.npm.taobao.org<br><br><span class="hljs-comment">#安装hexo</span><br>npm install hexo-cli<br><br><span class="hljs-comment"># 安装hexo后，需要为hexo创建软链接，才能使用hexo命令</span><br>sudo ln -s /home/dream/002-software/006-node-v14.17.6/bin/hexo /usr/<span class="hljs-built_in">local</span>/bin/hexo <br><br></code></pre></td></tr></tbody></table></figure>
 
-# 永久设置镜像地址
-npm config set registry http://registry.npm.taobao.org
 
-#安装hexo
-npm install hexo-cli
-
-# 安装hexo后，需要为hexo创建软链接，才能使用hexo命令
-sudo ln -s /home/dream/002-software/006-node-v14.17.6/bin/hexo /usr/local/bin/hexo 
-</code></pre>
 <h1 id="3-clone博客仓库"><a href="#3-clone博客仓库" class="headerlink" title="3. clone博客仓库"></a>3. clone博客仓库</h1><p>我的博客仓库里有两个分支，main和gh-pages，gh-pages是hexo生成的html文件，main中是源格式代码。这里需要注意，如果想要上传源格式代码中，由于有些文件夹内包含git文件，add时可能不会被添加，可以使用<code>git add -f ×</code>。这样在另一台设备中直接clone即可同步主题等。</p>
 <p>clone之后的操作就可以正常操作hexo了，注意每次<code>hexo -d</code>后使用<code>git</code>提交一遍源格式，这样临时换设备就要先<code>git pull</code></p>
  

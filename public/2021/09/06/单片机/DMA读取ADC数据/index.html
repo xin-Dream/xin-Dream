@@ -114,20 +114,13 @@
 <li>在ADC中的DMA Settings中设置Mode 为 Circular</li>
 </ul>
 <h1 id="2-数据结构体定义"><a href="#2-数据结构体定义" class="headerlink" title="2. 数据结构体定义"></a>2. 数据结构体定义</h1><p>在macro.h中定义</p>
-<pre><code class="c">#define ADC_CHANNEL_NUMBER  10
-
-typedef struct {
-
-    uint32_t ADC_Buff[ADC_CHANNEL_NUMBER];
-
-} Sensor_TypeDef;</code></pre>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ADC_CHANNEL_NUMBER  10</span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> {</span><br>    <br>    <span class="hljs-keyword">uint32_t</span> ADC_Buff[ADC_CHANNEL_NUMBER];<br><br>} Sensor_TypeDef;<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="3-结构体定义"><a href="#3-结构体定义" class="headerlink" title="3. 结构体定义"></a>3. 结构体定义</h1><p>在macro.c中</p>
-<pre><code class="c">Sensor_TypeDef sensors;</code></pre>
-<h1 id="4-程序初始化"><a href="#4-程序初始化" class="headerlink" title="4. 程序初始化"></a>4. 程序初始化</h1><p>在main.c中</p>
-<pre><code class="c">extern Sensor_TypeDef sensors;
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">Sensor_TypeDef sensors;<br></code></pre></td></tr></tbody></table></figure>
 
-HAL_ADC_Start_DMA(&amp;hadc1, sensors.ADC_Buff, ADC_CHANNEL_NUMBER);
-//注意开启DMA要在定义函数之后</code></pre>
+
+<h1 id="4-程序初始化"><a href="#4-程序初始化" class="headerlink" title="4. 程序初始化"></a>4. 程序初始化</h1><p>在main.c中</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">extern</span> Sensor_TypeDef sensors;<br><br>HAL_ADC_Start_DMA(&amp;hadc1, sensors.ADC_Buff, ADC_CHANNEL_NUMBER);<br><span class="hljs-comment">//注意开启DMA要在定义函数之后</span><br></code></pre></td></tr></tbody></table></figure>
  
       <!-- reward -->
       

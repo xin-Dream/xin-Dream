@@ -346,7 +346,7 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;安装插件&quot;&gt;&lt;a href=&quot;#安装插件&quot; class=&quot;headerlink&quot; title=&quot;安装插件&quot;&gt;&lt;/a&gt;安装插件&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;npm install hexo-filter-github-emojis</summary>
+    <summary type="html">&lt;h1 id=&quot;安装插件&quot;&gt;&lt;a href=&quot;#安装插件&quot; class=&quot;headerlink&quot; title=&quot;安装插件&quot;&gt;&lt;/a&gt;安装插件&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
         
       
     
@@ -496,8 +496,7 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;开启风扇模式&quot;&gt;&lt;a href=&quot;#开启风扇模式&quot; class=&quot;headerlink&quot; title=&quot;开启风扇模式&quot;&gt;&lt;/a&gt;开启风扇模式&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;sudo /usr/bin/jetson_clocks&lt;/code&gt;&lt;/pre&gt;
-&lt;h1</summary>
+    <summary type="html">&lt;h1 id=&quot;开启风扇模式&quot;&gt;&lt;a href=&quot;#开启风扇模式&quot; class=&quot;headerlink&quot; title=&quot;开启风扇模式&quot;&gt;&lt;/a&gt;开启风扇模式&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
         
       
     

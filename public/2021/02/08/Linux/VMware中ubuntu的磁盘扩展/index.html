@@ -110,18 +110,11 @@
 <li>将虚拟机关机，在编辑虚拟机设置中扩展硬盘容量<br><img src="https://img-blog.csdnimg.cn/20210207004515420.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
 <li>由上一步扩展后需要在虚拟机中重新进行磁盘的分区设置</li>
 </ol>
-<pre><code class="bash"># 安装gparted工具
-sudo apt-get install gparted
-
-# 运行gparted工具
-sudo gparted
-#在打开的界面中进行分区的设置与管理</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装gparted工具</span><br>sudo apt-get install gparted<br><br><span class="hljs-comment"># 运行gparted工具</span><br>sudo gparted<br><span class="hljs-comment">#在打开的界面中进行分区的设置与管理</span><br></code></pre></td></tr></tbody></table></figure>
 <ol start="3">
 <li>磁盘信息验证</li>
 </ol>
-<pre><code class="bash">sudo df
-#查看当前磁盘使用情况</code></pre>
- 
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo df<br><span class="hljs-comment">#查看当前磁盘使用情况</span><br></code></pre></td></tr></tbody></table></figure> 
       <!-- reward -->
       
     </div>

@@ -108,33 +108,15 @@
   <h1 id="Markdown语法："><a href="#Markdown语法：" class="headerlink" title="Markdown语法："></a>Markdown语法：</h1><h2 id="1-缩进"><a href="#1-缩进" class="headerlink" title="1. 缩进"></a>1. 缩进</h2><ul>
 <li>输入 <code>&amp;ensp;</code></li>
 </ul>
-<h2 id="2-添加代码段"><a href="#2-添加代码段" class="headerlink" title="2. 添加代码段"></a>2. 添加代码段</h2><pre><code class="bash">
-&gt; ```语言格式
-&gt; ```
+<h2 id="2-添加代码段"><a href="#2-添加代码段" class="headerlink" title="2. 添加代码段"></a>2. 添加代码段</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br>&gt; ```语言格式<br></code></pre></td></tr></tbody></table></figure>
+<p>注意这里是反单引号，通常是Esc的副功能</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain"><br>## 3. 带选择框的TODO<br><br></code></pre></td></tr></tbody></table></figure>
+<ul>
+<li>[ ]</li>
+<li>[x]<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs plain"><br>## 4. 点击展开内容 &amp; html格式带选择框的TODO<br><br>```html<br><br><br>&lt;details&gt;<br>    &lt;summary&gt;设计结构框架：点击查看详细内容&lt;/summary&gt;<br>        &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 结构设计<br>            &lt;ul&gt;<br>                &lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; 钣金结构设计&lt;/li&gt;<br>              <br>            &lt;/ul&gt;<br>        &lt;/li&gt;<br>        &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 电路设计<br>            &lt;ul&gt;<br>                &lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; 24V、12V、5V、3.3V稳压电路&lt;/li&gt;<br>            &lt;/ul&gt;<br>        &lt;/li&gt;<br>       <br>  &lt;!-- &lt;pre&gt;&lt;code&gt;title，value，callBack可以缺省&lt;/code&gt;&lt;/pre&gt; --&gt;<br>&lt;/details&gt;<br><br></code></pre></td></tr></tbody></table></figure>
 
-注意这里是反单引号，通常是Esc的副功能
-</code></pre>
-<h2 id="3-带选择框的TODO"><a href="#3-带选择框的TODO" class="headerlink" title="3. 带选择框的TODO"></a>3. 带选择框的TODO</h2><pre><code>- [ ]
-- [x]</code></pre>
-<h2 id="4-点击展开内容-amp-html格式带选择框的TODO"><a href="#4-点击展开内容-amp-html格式带选择框的TODO" class="headerlink" title="4. 点击展开内容 &amp; html格式带选择框的TODO"></a>4. 点击展开内容 &amp; html格式带选择框的TODO</h2><pre><code class="html">
-
-&lt;details&gt;
-    &lt;summary&gt;设计结构框架：点击查看详细内容&lt;/summary&gt;
-        &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 结构设计
-            &lt;ul&gt;
-                &lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; 钣金结构设计&lt;/li&gt;
-
-            &lt;/ul&gt;
-        &lt;/li&gt;
-        &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 电路设计
-            &lt;ul&gt;
-                &lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; 24V、12V、5V、3.3V稳压电路&lt;/li&gt;
-            &lt;/ul&gt;
-        &lt;/li&gt;
-
-  &lt;!-- &lt;pre&gt;&lt;code&gt;title，value，callBack可以缺省&lt;/code&gt;&lt;/pre&gt; --&gt;
-&lt;/details&gt;
-</code></pre>
+</li>
+</ul>
 <h1 id="vscode技巧"><a href="#vscode技巧" class="headerlink" title="vscode技巧"></a>vscode技巧</h1><h2 id="1-写文章时类似代码提示"><a href="#1-写文章时类似代码提示" class="headerlink" title="1. 写文章时类似代码提示"></a>1. 写文章时类似代码提示</h2><p>写文章时，vscode会自动提示，但是提示内容是在本文中或当前打开的其他文件中。<br>还是有点用的，比如某些固定的格式或hexo文章中的categories,tags等。</p>
  
       <!-- reward -->

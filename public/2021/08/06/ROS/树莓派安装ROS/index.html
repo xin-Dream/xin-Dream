@@ -106,28 +106,10 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1 id="树莓派安装ubuntu18-04server"><a href="#树莓派安装ubuntu18-04server" class="headerlink" title="树莓派安装ubuntu18.04server"></a>树莓派安装ubuntu18.04server</h1><h2 id="开机连接WIFI"><a href="#开机连接WIFI" class="headerlink" title="开机连接WIFI"></a>开机连接WIFI</h2><p>读取树莓派内存卡，在system-boot中找到network-config文件，按以下内容修改<br>其中<code>Dream</code>是我的热点名称，<code>12345678</code>是热点的密码。<br><br></p>
-<pre><code class="BASH">wifis:
-  wlan0:
-    dhcp4: true
-    optional: true
-    access-points:
-      "Dream":
-        password: "12345678"</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs BASH">wifis:<br>  wlan0:<br>    dhcp4: <span class="hljs-literal">true</span><br>    optional: <span class="hljs-literal">true</span><br>    access-points:<br>      <span class="hljs-string">"Dream"</span>:<br>        password: <span class="hljs-string">"12345678"</span><br></code></pre></td></tr></tbody></table></figure>
 <p>如果失败的话，开机后按以下步骤修改<br>sudo vim /etc/netplan/50-cloud-init.yaml </p>
-<pre><code class="BASH">network:
-    ethernets:
-        eth0:
-            dhcp4: true
-            optional: true
-    version: 2
-    wifis:
-        wlan0:
-            access-points:
-                RoboCenter_2.4:
-                        password: "12345678"
-            dhcp4: true
-            optional: true
-</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs BASH">network:<br>    ethernets:<br>        eth0:<br>            dhcp4: <span class="hljs-literal">true</span><br>            optional: <span class="hljs-literal">true</span><br>    version: 2<br>    wifis:<br>        wlan0:<br>            access-points:<br>                RoboCenter_2.4:<br>                        password: <span class="hljs-string">"12345678"</span><br>            dhcp4: <span class="hljs-literal">true</span><br>            optional: <span class="hljs-literal">true</span><br><br></code></pre></td></tr></tbody></table></figure>
+
 <h1 id="Raspberry3B"><a href="#Raspberry3B" class="headerlink" title="Raspberry3B+"></a>Raspberry3B+</h1><a href="#">Post not found: Linux/ROS/ubuntu18-04LTS安装ROS ubuntu18-04LTS安装ROS</a>
 
 <h1 id="Raspberry4B"><a href="#Raspberry4B" class="headerlink" title="Raspberry4B"></a>Raspberry4B</h1><a href="#">Post not found: Linux/ROS/ubuntu18-04LTS安装ROS ubuntu18-04LTS安装ROS</a> 

@@ -109,33 +109,14 @@
 <p>在ubuntu中可以修改串口、文件等权限自定义使用。在ROS中读取串口信息等也需要修改权限，本文主要介绍权限数字的含义。</p>
 </blockquote>
 <h1 id="1-chmod"><a href="#1-chmod" class="headerlink" title="1. chmod"></a>1. chmod</h1><p>chmod命令我们常用的是<strong>chmod +x</strong>、<strong>chmod 666 a.py</strong>等等。</p>
-<pre><code class="BASH">chmod +x 666
-
-    +/-/= : 增加权限 / 取消权限 / 唯一设定权限
-
-    x/w/r : 可执行   / 可写入   / 可读取 
-</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs BASH">chmod +x 666<br><br>    +/-/= : 增加权限 / 取消权限 / 唯一设定权限<br><br>    x/w/r : 可执行   / 可写入   / 可读取 <br><br></code></pre></td></tr></tbody></table></figure>
 <h1 id="2-数字含义"><a href="#2-数字含义" class="headerlink" title="2. 数字含义"></a>2. 数字含义</h1><h2 id="1-一个数字的含义"><a href="#1-一个数字的含义" class="headerlink" title="1. 一个数字的含义"></a>1. 一个数字的含义</h2><p>按照ubuntu中的定义，为不同权限赋值</p>
-<pre><code class="BASH">r(可读取) = 4
-w(可写入) = 2
-x(可执行) = 1
-
-所以根据以上定义，可以将rwx自由组合，每种组合有一个唯一的数字和
-
-rw  = 6
-rx  = 5
-wx  = 3
-rwx = 7</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs BASH">r(可读取) = 4<br>w(可写入) = 2<br>x(可执行) = 1<br><br>所以根据以上定义，可以将rwx自由组合，每种组合有一个唯一的数字和<br><br>rw  = 6<br>rx  = 5<br>wx  = 3<br>rwx = 7<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="2-三个数字的含义"><a href="#2-三个数字的含义" class="headerlink" title="2. 三个数字的含义"></a>2. 三个数字的含义</h2><p>一个文件可能有不同的拥有者，一个串口对不同的使用者也有不同的权限，ubuntu中将使用者分为三类。</p>
-<pre><code class="BASH">u : User
-g : Group
-o : Other</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs BASH">u : User<br>g : Group<br>o : Other<br></code></pre></td></tr></tbody></table></figure>
 <p>所以三位数字分别代表ugo</p>
-<h1 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a>3. 总结</h1><pre><code class="BASH">chmod +x a.py  # 为a.py增加可执行权限
+<h1 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a>3. 总结</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs BASH">chmod +x a.py  <span class="hljs-comment"># 为a.py增加可执行权限</span><br><br>chmod 666 a.py <br><span class="hljs-comment"># -user-group-other</span><br><span class="hljs-comment"># -rw---rw----rw--</span><br></code></pre></td></tr></tbody></table></figure>
 
-chmod 666 a.py 
-# -user-group-other
-# -rw---rw----rw--</code></pre>
  
       <!-- reward -->
       

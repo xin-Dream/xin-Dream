@@ -106,22 +106,10 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1 id="重定向函数"><a href="#重定向函数" class="headerlink" title="重定向函数"></a>重定向函数</h1><p>在配置好串口之后需要在相关文件中添加以下函数以实现printf函数的重定向</p>
-<pre><code class="c">//注意添加头文件
-#include "stdio.h"
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//注意添加头文件</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"stdio.h"</span></span><br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> __GNUC__</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PUTCHAR_PROTOTYPE int __io_putchar(int ch)</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span><br><br>PUTCHAR_PROTOTYPE<br>{<br>	HAL_UART_Transmit(&amp;huart1, (<span class="hljs-keyword">uint8_t</span>*) &amp;ch, <span class="hljs-number">1</span>, <span class="hljs-number">0xffff</span>);<br>	<span class="hljs-keyword">return</span> ch;<br>}<br></code></pre></td></tr></tbody></table></figure>
 
-#ifdef __GNUC__
-#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
-#else
-#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
-#endif
-
-PUTCHAR_PROTOTYPE
-{
-    HAL_UART_Transmit(&amp;huart1, (uint8_t*) &amp;ch, 1, 0xffff);
-    return ch;
-}</code></pre>
 <h1 id="属性设置"><a href="#属性设置" class="headerlink" title="属性设置"></a>属性设置</h1><p>在添加了重定向函数后需要在工程属性上进行相关设置才能正常进行输出<br>右键工程–&gt;属性<br>1.勾选框中两个选项，保证可以输出浮点数<br><img src="https://img-blog.csdnimg.cn/20200826232630501.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>2.<br>在Other flags中添加标志</p>
-<pre><code class="c">-u_printf</code></pre>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">-u_printf<br></code></pre></td></tr></tbody></table></figure>
 <p><img src="https://img-blog.csdnimg.cn/20200826232753698.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
  
       <!-- reward -->

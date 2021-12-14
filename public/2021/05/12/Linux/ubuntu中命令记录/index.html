@@ -105,53 +105,16 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="1-重新挂载硬盘"><a href="#1-重新挂载硬盘" class="headerlink" title="1. 重新挂载硬盘"></a>1. 重新挂载硬盘</h1><h2 id="安装图形化磁盘管理工具"><a href="#安装图形化磁盘管理工具" class="headerlink" title="+  安装图形化磁盘管理工具"></a>+  安装图形化磁盘管理工具</h2><pre><code class="bash">sudo apt-get install gparted
-
-# 与其他基本工具一样，格式化并新建分区即可</code></pre>
-<h2 id="添加挂载目录"><a href="#添加挂载目录" class="headerlink" title="+ 添加挂载目录"></a>+ 添加挂载目录</h2><pre><code class="bash">sudo vim /etc/fstab
-
-# 按文件中目录添加语句
-&lt;file system&gt;                      &lt;mount point&gt;              &lt;type&gt;  &lt;options&gt;    &lt;dump&gt;  &lt;pass&gt;
-UUID=xx(这一项在gparted中可以查到)  /home/dream/data(挂载目录)  ext4    defaults    0   0
-
-# 重启后即可查看挂载目录</code></pre>
-<h2 id="解锁"><a href="#解锁" class="headerlink" title="+ 解锁"></a>+ 解锁</h2><pre><code class="bash">sudo chmod -R 777 /home/dream/data      #该权限
-sudo chargp dream /home/dream/data      #改所属的组
-sudo chown dream  /home/dream/data      #改所有者</code></pre>
-<h1 id="2-创建软链接"><a href="#2-创建软链接" class="headerlink" title="2. 创建软链接"></a>2. 创建软链接</h1><pre><code class="bash">ln -s [源文件或目录] [目标文件或目录]
-
-ln -s data /home/dream/data
-# 当前目录下data 指向 /home/dream/data</code></pre>
-<h1 id="3-解压命令"><a href="#3-解压命令" class="headerlink" title="3. 解压命令"></a>3. 解压命令</h1><pre><code class="bash"># zip
-unzip dirs.zip
-
-# tar
-tar -xvf dirs.tar
-# -x:解压 -v：显示所有过程 -f：使用档案名字（必须放最后）
-tar -cvf dirs.tar dirs #目录dirs下文件打包
-
-# gz
-gunzip dirs.gz
-
-# tar.gz
-tar -zxvf dirs.tar.gz
-tar -C pos_dirs -zxvf dirs.tar.gz #解压到目标路径
-
-# rar
-rar x dirs.rar      # 解压
-rar a file.rar dirs # 压缩</code></pre>
-<h1 id="4-关机"><a href="#4-关机" class="headerlink" title="4. 关机"></a>4. 关机</h1><pre><code class="bash">shutdown -h now # 立即关机
-shutdown -h +3 # 三分钟后关机
-
-shutdown -r +3 # 三分钟后重启
-shutdown -r now # 立即重启</code></pre>
+  <h1 id="1-重新挂载硬盘"><a href="#1-重新挂载硬盘" class="headerlink" title="1. 重新挂载硬盘"></a>1. 重新挂载硬盘</h1><h2 id="安装图形化磁盘管理工具"><a href="#安装图形化磁盘管理工具" class="headerlink" title="+  安装图形化磁盘管理工具"></a>+  安装图形化磁盘管理工具</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install gparted<br><br><span class="hljs-comment"># 与其他基本工具一样，格式化并新建分区即可</span><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="添加挂载目录"><a href="#添加挂载目录" class="headerlink" title="+ 添加挂载目录"></a>+ 添加挂载目录</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim /etc/fstab<br><br><span class="hljs-comment"># 按文件中目录添加语句</span><br>&lt;file system&gt;                      &lt;mount point&gt;              &lt;<span class="hljs-built_in">type</span>&gt;  &lt;options&gt;    &lt;dump&gt;  &lt;pass&gt;<br>UUID=xx(这一项在gparted中可以查到)  /home/dream/data(挂载目录)  ext4    defaults    0   0<br><br><span class="hljs-comment"># 重启后即可查看挂载目录</span><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="解锁"><a href="#解锁" class="headerlink" title="+ 解锁"></a>+ 解锁</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo chmod -R 777 /home/dream/data      <span class="hljs-comment">#该权限</span><br>sudo chargp dream /home/dream/data      <span class="hljs-comment">#改所属的组</span><br>sudo chown dream  /home/dream/data      <span class="hljs-comment">#改所有者</span><br></code></pre></td></tr></tbody></table></figure>
+<h1 id="2-创建软链接"><a href="#2-创建软链接" class="headerlink" title="2. 创建软链接"></a>2. 创建软链接</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">ln -s [源文件或目录] [目标文件或目录]<br><br>ln -s data /home/dream/data<br><span class="hljs-comment"># 当前目录下data 指向 /home/dream/data</span><br></code></pre></td></tr></tbody></table></figure>
+<h1 id="3-解压命令"><a href="#3-解压命令" class="headerlink" title="3. 解压命令"></a>3. 解压命令</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># zip</span><br>unzip dirs.zip<br><br><span class="hljs-comment"># tar</span><br>tar -xvf dirs.tar<br><span class="hljs-comment"># -x:解压 -v：显示所有过程 -f：使用档案名字（必须放最后）</span><br>tar -cvf dirs.tar <span class="hljs-built_in">dirs</span> <span class="hljs-comment">#目录dirs下文件打包</span><br><br><span class="hljs-comment"># gz</span><br>gunzip dirs.gz<br><br><span class="hljs-comment"># tar.gz</span><br>tar -zxvf dirs.tar.gz<br>tar -C pos_dirs -zxvf dirs.tar.gz <span class="hljs-comment">#解压到目标路径</span><br><br><span class="hljs-comment"># rar</span><br>rar x dirs.rar      <span class="hljs-comment"># 解压</span><br>rar a file.rar <span class="hljs-built_in">dirs</span> <span class="hljs-comment"># 压缩</span><br></code></pre></td></tr></tbody></table></figure>
+<h1 id="4-关机"><a href="#4-关机" class="headerlink" title="4. 关机"></a>4. 关机</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">shutdown -h now <span class="hljs-comment"># 立即关机</span><br>shutdown -h +3 <span class="hljs-comment"># 三分钟后关机</span><br><br>shutdown -r +3 <span class="hljs-comment"># 三分钟后重启</span><br>shutdown -r now <span class="hljs-comment"># 立即重启</span><br></code></pre></td></tr></tbody></table></figure>
 <h1 id="5-解锁文件夹"><a href="#5-解锁文件夹" class="headerlink" title="5. 解锁文件夹"></a>5. 解锁文件夹</h1><blockquote>
 <p>在安装anaconda后，创建环境时会显示文件夹被锁</p>
 </blockquote>
-<pre><code class="bash">sudo chown dream /home/dream/003-software/007-anaconda
-sudo chown dream /home/dream/.conda
-</code></pre>
- 
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo chown dream /home/dream/003-software/007-anaconda<br>sudo chown dream /home/dream/.conda<br><br></code></pre></td></tr></tbody></table></figure> 
       <!-- reward -->
       
     </div>

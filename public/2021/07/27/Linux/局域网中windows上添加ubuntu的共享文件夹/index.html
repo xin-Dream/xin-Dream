@@ -105,34 +105,17 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="1-安装samba"><a href="#1-安装samba" class="headerlink" title="1. 安装samba"></a>1. 安装samba</h1><pre><code class="BASH">sudo apt-get install samba
-sudo apt-get install samba-common</code></pre>
-<h1 id="2-创建共享文件夹"><a href="#2-创建共享文件夹" class="headerlink" title="2. 创建共享文件夹"></a>2. 创建共享文件夹</h1><pre><code class="BASH">sudo mkdir ~/share
-
-sudo chmod 777 ~/share</code></pre>
-<h1 id="3-配置samba"><a href="#3-配置samba" class="headerlink" title="3. 配置samba"></a>3. 配置samba</h1><pre><code class="BASH">sudo vim /etc/samba/smb.conf
-
-# 在文中最后添加以下内容
-
-[share]
-comment = share folder
-browseable = yes
-path = /home/dream/Share
-create mask = 0755
-directory mask = 0755
-valid users = dream     # 注意这里的用户，应为ubuntu账户之一
-force user = dream
-force group = dream
-public = yes
-available = yes
-writable = yes</code></pre>
-<h1 id="4-添加samba用户"><a href="#4-添加samba用户" class="headerlink" title="4. 添加samba用户"></a>4. 添加samba用户</h1><pre><code class="BASH">sudo smbpasswd -a dream  # 这里要和上一步设置的用户一致
-
-# 按照要求设置密码</code></pre>
-<h1 id="5-重启samba服务"><a href="#5-重启samba服务" class="headerlink" title="5. 重启samba服务"></a>5. 重启samba服务</h1><pre><code class="BASH">sudo /etc/init.d/smbd restart</code></pre>
+  <h1 id="1-安装samba"><a href="#1-安装samba" class="headerlink" title="1. 安装samba"></a>1. 安装samba</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs BASH">sudo apt-get install samba<br>sudo apt-get install samba-common<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="2-创建共享文件夹"><a href="#2-创建共享文件夹" class="headerlink" title="2. 创建共享文件夹"></a>2. 创建共享文件夹</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs BASH">sudo mkdir ~/share<br><br>sudo chmod 777 ~/share<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="3-配置samba"><a href="#3-配置samba" class="headerlink" title="3. 配置samba"></a>3. 配置samba</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs BASH">sudo vim /etc/samba/smb.conf<br><br><span class="hljs-comment"># 在文中最后添加以下内容</span><br><br>[share]<br>comment = share folder<br>browseable = yes<br>path = /home/dream/Share<br>create mask = 0755<br>directory mask = 0755<br>valid users = dream     <span class="hljs-comment"># 注意这里的用户，应为ubuntu账户之一</span><br>force user = dream<br>force group = dream<br>public = yes<br>available = yes<br>writable = yes<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="4-添加samba用户"><a href="#4-添加samba用户" class="headerlink" title="4. 添加samba用户"></a>4. 添加samba用户</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs BASH">sudo smbpasswd -a dream  <span class="hljs-comment"># 这里要和上一步设置的用户一致</span><br><br><span class="hljs-comment"># 按照要求设置密码</span><br></code></pre></td></tr></tbody></table></figure>
+<h1 id="5-重启samba服务"><a href="#5-重启samba服务" class="headerlink" title="5. 重启samba服务"></a>5. 重启samba服务</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs BASH">sudo /etc/init.d/smbd restart<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="6-在windows中添加网络文件夹"><a href="#6-在windows中添加网络文件夹" class="headerlink" title="6. 在windows中添加网络文件夹"></a>6. 在windows中添加网络文件夹</h1><p>在此电脑中右键–添加一个网络位置<br>设置地址为</p>
-<pre><code class="BASH"># 这里的网络地址应为与windows位于同一局域网的地址
-\\192.168.0.101\share</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs BASH"><span class="hljs-comment"># 这里的网络地址应为与windows位于同一局域网的地址</span><br>\\192.168.0.101\share<br></code></pre></td></tr></tbody></table></figure>
+
+
+
+
  
       <!-- reward -->
       

@@ -111,15 +111,7 @@
 <h1 id="2-tensorflow安装"><a href="#2-tensorflow安装" class="headerlink" title="2. tensorflow安装"></a>2. tensorflow安装</h1><pre><code>+ [软件包位置](https://www.tensorflow.org/install/pip#system-install)
 + 在Anaconda Prompt中切换到新创建的环境后执行`pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.5.0-cp38-cp38-win_amd64.whl`</code></pre>
 <h1 id="3-验证"><a href="#3-验证" class="headerlink" title="3. 验证"></a>3. 验证</h1><p>Pycharm设置使用conda新建环境中的python，packages中已经显示了安装包。也可以使用下述程序验证</p>
-<pre><code class="python">import tensorflow as tf
-
-if __name__ == '__main__':
-    tf.compat.v1.disable_eager_execution()
-    hello = tf.constant("hello tensorflow")
-    sess = tf.compat.v1.Session()
-    print(sess.run(hello))
-</code></pre>
- 
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    tf.compat.v1.disable_eager_execution()<br>    hello = tf.constant(<span class="hljs-string">"hello tensorflow"</span>)<br>    sess = tf.compat.v1.Session()<br>    print(sess.run(hello))<br><br></code></pre></td></tr></tbody></table></figure> 
       <!-- reward -->
       
     </div>

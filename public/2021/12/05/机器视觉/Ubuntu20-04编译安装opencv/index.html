@@ -106,30 +106,14 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1 id="1-下载OpenCV"><a href="#1-下载OpenCV" class="headerlink" title="1 下载OpenCV"></a>1 下载OpenCV</h1><p><a target="_blank" rel="noopener" href="https://opencv.org/releases/">opencv下载地址</a></p>
-<h1 id="2-安装opencv依赖"><a href="#2-安装opencv依赖" class="headerlink" title="2 安装opencv依赖"></a>2 安装opencv依赖</h1><pre><code class="bash">sudo apt-get install build-essential libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg-dev libswscale-dev libtiff5-dev
-sudo apt-get install libgtk2.0-dev
-sudo apt-get install pkg-config</code></pre>
+<h1 id="2-安装opencv依赖"><a href="#2-安装opencv依赖" class="headerlink" title="2 安装opencv依赖"></a>2 安装opencv依赖</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install build-essential libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg-dev libswscale-dev libtiff5-dev<br>sudo apt-get install libgtk2.0-dev<br>sudo apt-get install pkg-config<br></code></pre></td></tr></tbody></table></figure>
+
 <h1 id="3-编译安装"><a href="#3-编译安装" class="headerlink" title="3 编译安装"></a>3 编译安装</h1><p>在下载的opencv文件夹内新建build文件夹</p>
-<pre><code class="bash">cd build
-cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local ..
-sudo make -j4
-sudo make install    </code></pre>
-<h1 id="4-环境配置"><a href="#4-环境配置" class="headerlink" title="4 环境配置"></a>4 环境配置</h1><pre><code class="bash">sudo vim /etc/ld.so.conf
-# 在文件内添加如下一行
-include /usr/local/lib
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> build<br>cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/<span class="hljs-built_in">local</span> ..<br>sudo make -j4<br>sudo make install	<br></code></pre></td></tr></tbody></table></figure>
 
-sudo vim /etc/bash.bashrc 
-# 文件最后添加如下两行
-PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
-export PKG_CONFIG_PATH</code></pre>
-<h1 id="5-验证"><a href="#5-验证" class="headerlink" title="5 验证"></a>5 验证</h1><pre><code class="bash">pkg-config opencv --modversion
+<h1 id="4-环境配置"><a href="#4-环境配置" class="headerlink" title="4 环境配置"></a>4 环境配置</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim /etc/ld.so.conf<br><span class="hljs-comment"># 在文件内添加如下一行</span><br>include /usr/<span class="hljs-built_in">local</span>/lib<br><br>sudo vim /etc/bash.bashrc <br><span class="hljs-comment"># 文件最后添加如下两行</span><br>PKG_CONFIG_PATH=<span class="hljs-variable">$PKG_CONFIG_PATH</span>:/usr/<span class="hljs-built_in">local</span>/lib/pkgconfig<br><span class="hljs-built_in">export</span> PKG_CONFIG_PATH<br></code></pre></td></tr></tbody></table></figure>
 
-# 或者可以运行opencv中的例程
-cd opencv/sample/cpp/example_cmake
-
-cmake .
-make 
-./opencv_examp</code></pre>
+<h1 id="5-验证"><a href="#5-验证" class="headerlink" title="5 验证"></a>5 验证</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">pkg-config opencv --modversion<br><br><span class="hljs-comment"># 或者可以运行opencv中的例程</span><br><span class="hljs-built_in">cd</span> opencv/sample/cpp/example_cmake<br><br>cmake .<br>make <br>./opencv_examp<br></code></pre></td></tr></tbody></table></figure>
  
       <!-- reward -->
       

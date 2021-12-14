@@ -138,33 +138,12 @@
 <li>然后在Clion的下载选项中选择这个文件，如下图</li>
 <li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/05.png" alt="05"></li>
 <li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/06.png" alt="06"></li>
-<li>配置完成后使用运行按钮即可下载<pre><code class="bash"># This is for using the onboard STLINK/V2
-</code></pre>
-</li>
+<li>配置完成后使用运行按钮即可下载<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># This is for using the onboard STLINK/V2</span><br><br><span class="hljs-built_in">source</span> [find interface/stlink.cfg]<br><br>transport select hla_swd<br><br><span class="hljs-comment"># 0x10000 = 64K Flash Size</span><br><span class="hljs-built_in">set</span> WORKAREASIZE 0x20000<br><br><span class="hljs-built_in">source</span> [find target/stm32f4x.cfg] <br></code></pre></td></tr></tbody></table></figure>
+<h1 id="7-无线下载器"><a href="#7-无线下载器" class="headerlink" title="7. 无线下载器"></a>7. 无线下载器</h1></li>
 </ul>
-<p>source [find interface/stlink.cfg]</p>
-<p>transport select hla_swd</p>
-<h1 id="0x10000-64K-Flash-Size"><a href="#0x10000-64K-Flash-Size" class="headerlink" title="0x10000 = 64K Flash Size"></a>0x10000 = 64K Flash Size</h1><p>set WORKAREASIZE 0x20000</p>
-<p>source [find target/stm32f4x.cfg] </p>
-<pre><code>
-# 7. 无线下载器
-
-[STM32仿真器无线下载AMR单片机远程调试烧录编程STLINK DAPLINK](https://detail.tmall.com/item.htm?id=623728332784&amp;spm=a1z09.2.0.0.46df2e8ddFg2g1&amp;_u=o2ph6ufjfa55)
-
-按上一步添加cfg文件
-
-```bash
-# This is for using the onboard STLINK/V2
-adapter driver cmsis-dap
-
-transport select swd
-
-# 0x10000 = 64K Flash Size
-set FLASH_SIZE 0x160000
-
-source [find target/stm32f4x.cfg]
-
-adapter speed 2000</code></pre>
+<p><a target="_blank" rel="noopener" href="https://detail.tmall.com/item.htm?id=623728332784&amp;spm=a1z09.2.0.0.46df2e8ddFg2g1&amp;_u=o2ph6ufjfa55">STM32仿真器无线下载AMR单片机远程调试烧录编程STLINK DAPLINK</a></p>
+<p>按上一步添加cfg文件</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># This is for using the onboard STLINK/V2</span><br>adapter driver cmsis-dap<br><br>transport select swd<br><br><span class="hljs-comment"># 0x10000 = 64K Flash Size</span><br><span class="hljs-built_in">set</span> FLASH_SIZE 0x160000<br><br><span class="hljs-built_in">source</span> [find target/stm32f4x.cfg]<br><br>adapter speed 2000<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="8-注意事项"><a href="#8-注意事项" class="headerlink" title="8. 注意事项"></a>8. 注意事项</h1><ul>
 <li><p>在Clion中选择文件时按下图配置，这样在CMakeLists中会是单独一行，如果删除文件后还有残留可以自己查到删除<img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/07.png" alt="07"><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/08.png" alt="08"></p>
  <br> </li>

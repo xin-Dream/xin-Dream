@@ -182,3 +182,4 @@ endforeach(dir)
    在启动仿真环境后，再运行上面的launch文件，再RVIZ中添加cartographer插件即可
 
 ![2021-12-12-15-22-42](/images/cartographer安装与使用/2021-12-12-15-22-42.png)
+

@@ -107,136 +107,24 @@
 <h1 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h1><p>安装cartographer确实有点复杂，之前写过一篇文章，<a href="/2021/05/08/ROS/ROS-melodic%E5%AE%89%E8%A3%85cartographer/" title="ROS-melodic安装cartographer">ROS-melodic安装cartographer</a>。文章里是不开代理的流程，有点复杂。</p>
 <p>建议还是开个代理，按照官网教程，一步一步的安装，十分流畅，五分钟就能安装完。</p>
 <p><a target="_blank" rel="noopener" href="https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html">Cartographer_ROS</a></p>
-<h1 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h1><h2 id="1-文件结构"><a href="#1-文件结构" class="headerlink" title="1. 文件结构"></a>1. 文件结构</h2><pre><code class="bash">.
-├── abseil-cpp
-├── build_isolated
-├── devel_isolated
-├── install_isolated                        # 编译安装后主要使用的文件夹，执行的文件都在share文件夹内
-│&nbsp;&nbsp; ├── bin
-│&nbsp;&nbsp; ├── env.sh
-│&nbsp;&nbsp; ├── include
-│&nbsp;&nbsp; ├── lib
-│&nbsp;&nbsp; ├── local_setup.bash
-│&nbsp;&nbsp; ├── local_setup.sh
-│&nbsp;&nbsp; ├── local_setup.zsh
-│&nbsp;&nbsp; ├── setup.bash
-│&nbsp;&nbsp; ├── setup.sh
-│&nbsp;&nbsp; ├── _setup_util.py
-│&nbsp;&nbsp; ├── setup.zsh
-│&nbsp;&nbsp; └── share
-│&nbsp;&nbsp;     ├── autobot_gui
-│&nbsp;&nbsp;     ├── autobot_simulation
-│&nbsp;&nbsp;     ├── cartographer                # cartographer的主要实现
-│&nbsp;&nbsp;     ├── cartographer_ros            # cartographer与ROS的接口，也是我们主要调用的文件夹
-│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── cmake
-│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── configuration_files        # 有lua的配置文件夹
-│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── launch                    # 可执行的launch文件，我们可以参考上面和这个这两个文件夹写自己的文件
-│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── package.xml
-│&nbsp;&nbsp;     │&nbsp;&nbsp; └── urdf
-│&nbsp;&nbsp;     ├── cartographer_ros_msgs
-│&nbsp;&nbsp;     ├── cartographer_rviz
-│&nbsp;&nbsp;     ├── gennodejs
-│&nbsp;&nbsp;     ├── lidar_slam
-│&nbsp;&nbsp;     └── roseus
-└── src
-    ├── autobot_gui                # 除了cartographer的，都是自己创建的功能包
-    ├── autobot_simulation
-    ├── cartographer
-    ├── cartographer_ros
-    ├── CMakeLists.txt -&gt; /opt/ros/noetic/share/catkin/cmake/toplevel.cmake
-    └── lidar_slam</code></pre>
+<h1 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h1><h2 id="1-文件结构"><a href="#1-文件结构" class="headerlink" title="1. 文件结构"></a>1. 文件结构</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs bash">.<br>├── abseil-cpp<br>├── build_isolated<br>├── devel_isolated<br>├── install_isolated						<span class="hljs-comment"># 编译安装后主要使用的文件夹，执行的文件都在share文件夹内</span><br>│&nbsp;&nbsp; ├── bin<br>│&nbsp;&nbsp; ├── env.sh<br>│&nbsp;&nbsp; ├── include<br>│&nbsp;&nbsp; ├── lib<br>│&nbsp;&nbsp; ├── local_setup.bash<br>│&nbsp;&nbsp; ├── local_setup.sh<br>│&nbsp;&nbsp; ├── local_setup.zsh<br>│&nbsp;&nbsp; ├── setup.bash<br>│&nbsp;&nbsp; ├── setup.sh<br>│&nbsp;&nbsp; ├── _setup_util.py<br>│&nbsp;&nbsp; ├── setup.zsh<br>│&nbsp;&nbsp; └── share<br>│&nbsp;&nbsp;     ├── autobot_gui<br>│&nbsp;&nbsp;     ├── autobot_simulation<br>│&nbsp;&nbsp;     ├── cartographer                <span class="hljs-comment"># cartographer的主要实现</span><br>│&nbsp;&nbsp;     ├── cartographer_ros			<span class="hljs-comment"># cartographer与ROS的接口，也是我们主要调用的文件夹</span><br>│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── cmake<br>│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── configuration_files		<span class="hljs-comment"># 有lua的配置文件夹</span><br>│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── launch					<span class="hljs-comment"># 可执行的launch文件，我们可以参考上面和这个这两个文件夹写自己的文件</span><br>│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── package.xml<br>│&nbsp;&nbsp;     │&nbsp;&nbsp; └── urdf<br>│&nbsp;&nbsp;     ├── cartographer_ros_msgs<br>│&nbsp;&nbsp;     ├── cartographer_rviz<br>│&nbsp;&nbsp;     ├── gennodejs<br>│&nbsp;&nbsp;     ├── lidar_slam<br>│&nbsp;&nbsp;     └── roseus<br>└── src<br>    ├── autobot_gui				<span class="hljs-comment"># 除了cartographer的，都是自己创建的功能包</span><br>    ├── autobot_simulation<br>    ├── cartographer<br>    ├── cartographer_ros<br>    ├── CMakeLists.txt -&gt; /opt/ros/noetic/share/catkin/cmake/toplevel.cmake<br>    └── lidar_slam<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="2-使用catkin-make-isolated"><a href="#2-使用catkin-make-isolated" class="headerlink" title="2. 使用catkin_make_isolated"></a>2. 使用catkin_make_isolated</h2><p>以往对于工作空间的编译都是使用catkin_make,在安装有cartographer的工作空间内使用以下命令编译安装。这个命令会把每一个安装包单独编译安装，不会要求每个变量名都是唯一的，对于跨功能包的msg还能不能继续使用，还有待验证。</p>
-<pre><code class="bash">catkin_make_isolated --install --use-ninja</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">catkin_make_isolated --install --use-ninja<br></code></pre></td></tr></tbody></table></figure>
 <p>在使用这个命令编译安装后，要source的目录是’./install_isolated’。在source后会发现，之前的功能包运行launch文件时会找不到目标文件，这里需要修改一下以前功能包的CMakeLists.txt。</p>
-<pre><code class="bash"># 在自己创建功能包的CMakeLists.txt文件内，添加以下内容
-# 下面表示，对功能包内的config、launch、meshes、urdf文件夹内的内容进行安装。注意修改称自己功能包下的文件夹目录。
-
-foreach(dir config launch meshes urdf)
-    install(DIRECTORY ${dir}/
-        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir})
-endforeach(dir)</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 在自己创建功能包的CMakeLists.txt文件内，添加以下内容</span><br><span class="hljs-comment"># 下面表示，对功能包内的config、launch、meshes、urdf文件夹内的内容进行安装。注意修改称自己功能包下的文件夹目录。</span><br><br>foreach(dir config launch meshes urdf)<br>	install(DIRECTORY <span class="hljs-variable">${dir}</span>/<br>		DESTINATION <span class="hljs-variable">${CATKIN_PACKAGE_SHARE_DESTINATION}</span>/<span class="hljs-variable">${dir}</span>)<br>endforeach(dir)<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="3-仿真运行"><a href="#3-仿真运行" class="headerlink" title="3. 仿真运行"></a>3. 仿真运行</h2><p>在上面完成了创建功能包的运行，所以自己的仿真环境可以运行了，接下来就给仿真环境添加cartographer的配置文件。</p>
 <ol>
 <li><p>添加配置文件</p>
 <p>这个配置文件可以复制revo_lds.lua修改</p>
-<pre><code class="lua">include "map_builder.lua"
-include "trajectory_builder.lua"
+<figure class="highlight lua"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs lua">include <span class="hljs-string">"map_builder.lua"</span><br>include <span class="hljs-string">"trajectory_builder.lua"</span><br><br>options = {<br>  map_builder = MAP_BUILDER,<br>  trajectory_builder = TRAJECTORY_BUILDER,<br>  map_frame = <span class="hljs-string">"map"</span>,<br>  <span class="hljs-comment">-- tracking_frame更改为我们机器人的基坐标tf，一般是base_link</span><br>  tracking_frame = <span class="hljs-string">"base_link"</span>,<br>    <br>  <span class="hljs-comment">-- map连接到哪个坐标系</span><br>  published_frame = <span class="hljs-string">"odom"</span>,<br>  odom_frame = <span class="hljs-string">"odom"</span>,<br><br>  <span class="hljs-comment">-- 开关参数</span><br>  provide_odom_frame = <span class="hljs-literal">false</span>,<br>  publish_frame_projected_to_2d = <span class="hljs-literal">false</span>,<br>  use_pose_extrapolator = <span class="hljs-literal">true</span>,<br>  use_odometry = <span class="hljs-literal">false</span>,<br>  use_nav_sat = <span class="hljs-literal">false</span>,<br>  use_landmarks = <span class="hljs-literal">false</span>,<br>  <span class="hljs-comment">-- 激光雷达数量</span><br>  num_laser_scans = <span class="hljs-number">1</span>,<br>  num_multi_echo_laser_scans = <span class="hljs-number">0</span>,<br>  num_subdivisions_per_laser_scan = <span class="hljs-number">1</span>,<br>  num_point_clouds = <span class="hljs-number">0</span>,<br>  lookup_transform_timeout_sec = <span class="hljs-number">0.2</span>,<br>  submap_publish_period_sec = <span class="hljs-number">0.3</span>,<br>  pose_publish_period_sec = <span class="hljs-number">5e-3</span>,<br>  trajectory_publish_period_sec = <span class="hljs-number">30e-3</span>,<br>  rangefinder_sampling_ratio = <span class="hljs-number">1.</span>,<br>  odometry_sampling_ratio = <span class="hljs-number">1.</span>,<br>  fixed_frame_pose_sampling_ratio = <span class="hljs-number">1.</span>,<br>  imu_sampling_ratio = <span class="hljs-number">1.</span>,<br>  landmarks_sampling_ratio = <span class="hljs-number">1.</span>,<br>}<br><br>MAP_BUILDER.use_trajectory_builder_2d = <span class="hljs-literal">true</span><br><br>TRAJECTORY_BUILDER_2D.submaps.num_range_data = <span class="hljs-number">35</span><br>TRAJECTORY_BUILDER_2D.min_range = <span class="hljs-number">0.3</span><br>TRAJECTORY_BUILDER_2D.max_range = <span class="hljs-number">8.</span><br>TRAJECTORY_BUILDER_2D.missing_data_ray_length = <span class="hljs-number">1.</span><br>TRAJECTORY_BUILDER_2D.use_imu_data = <span class="hljs-literal">false</span><br>TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = <span class="hljs-literal">true</span><br>TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.linear_search_window = <span class="hljs-number">0.1</span><br>TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.translation_delta_cost_weight = <span class="hljs-number">10.</span><br>TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.rotation_delta_cost_weight = <span class="hljs-number">1e-1</span><br><br>POSE_GRAPH.optimization_problem.huber_scale = <span class="hljs-number">1e2</span><br>POSE_GRAPH.optimize_every_n_nodes = <span class="hljs-number">35</span><br>POSE_GRAPH.constraint_builder.min_score = <span class="hljs-number">0.65</span><br><br><span class="hljs-keyword">return</span> options<br></code></pre></td></tr></tbody></table></figure>
 
-options = {
-  map_builder = MAP_BUILDER,
-  trajectory_builder = TRAJECTORY_BUILDER,
-  map_frame = "map",
-  -- tracking_frame更改为我们机器人的基坐标tf，一般是base_link
-  tracking_frame = "base_link",
 
-  -- map连接到哪个坐标系
-  published_frame = "odom",
-  odom_frame = "odom",
-
-  -- 开关参数
-  provide_odom_frame = false,
-  publish_frame_projected_to_2d = false,
-  use_pose_extrapolator = true,
-  use_odometry = false,
-  use_nav_sat = false,
-  use_landmarks = false,
-  -- 激光雷达数量
-  num_laser_scans = 1,
-  num_multi_echo_laser_scans = 0,
-  num_subdivisions_per_laser_scan = 1,
-  num_point_clouds = 0,
-  lookup_transform_timeout_sec = 0.2,
-  submap_publish_period_sec = 0.3,
-  pose_publish_period_sec = 5e-3,
-  trajectory_publish_period_sec = 30e-3,
-  rangefinder_sampling_ratio = 1.,
-  odometry_sampling_ratio = 1.,
-  fixed_frame_pose_sampling_ratio = 1.,
-  imu_sampling_ratio = 1.,
-  landmarks_sampling_ratio = 1.,
-}
-
-MAP_BUILDER.use_trajectory_builder_2d = true
-
-TRAJECTORY_BUILDER_2D.submaps.num_range_data = 35
-TRAJECTORY_BUILDER_2D.min_range = 0.3
-TRAJECTORY_BUILDER_2D.max_range = 8.
-TRAJECTORY_BUILDER_2D.missing_data_ray_length = 1.
-TRAJECTORY_BUILDER_2D.use_imu_data = false
-TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = true
-TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.linear_search_window = 0.1
-TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.translation_delta_cost_weight = 10.
-TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.rotation_delta_cost_weight = 1e-1
-
-POSE_GRAPH.optimization_problem.huber_scale = 1e2
-POSE_GRAPH.optimize_every_n_nodes = 35
-POSE_GRAPH.constraint_builder.min_score = 0.65
-
-return options</code></pre>
 </li>
 </ol>
 <ol start="2">
 <li><p>添加launch文件</p>
 <p>可以复制demo_revo_lds..launch的修改</p>
-<pre><code class="xml">&lt;launch&gt;
-  &lt;param name="/use_sim_time" value="true" /&gt;
-
-  &lt;node name="cartographer_node" pkg="cartographer_ros"
-      type="cartographer_node" args="
-          -configuration_directory $(find lidar_slam)/configuration_files
-          -configuration_basename autobot_cartographer.lua"
-      output="screen"&gt;
-
-    &lt;remap from="scan" to="/scan" /&gt;
-    &lt;remap from="odom" to="/odom" /&gt;
-  &lt;/node&gt;
-
-  &lt;node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
-      type="cartographer_occupancy_grid_node" args="-resolution 0.05" /&gt;
-
-&lt;/launch&gt;
-</code></pre>
-</li>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">launch</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">param</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"/use_sim_time"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span> /&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">node</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"cartographer_node"</span> <span class="hljs-attr">pkg</span>=<span class="hljs-string">"cartographer_ros"</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">"cartographer_node"</span> <span class="hljs-attr">args</span>=<span class="hljs-string">"</span></span><br><span class="hljs-tag"><span class="hljs-string">          -configuration_directory $(find lidar_slam)/configuration_files</span></span><br><span class="hljs-tag"><span class="hljs-string">          -configuration_basename autobot_cartographer.lua"</span></span><br><span class="hljs-tag">      <span class="hljs-attr">output</span>=<span class="hljs-string">"screen"</span>&gt;</span><br>      <br>    <span class="hljs-tag">&lt;<span class="hljs-name">remap</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"scan"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/scan"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">remap</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"odom"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/odom"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">node</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">node</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"cartographer_occupancy_grid_node"</span> <span class="hljs-attr">pkg</span>=<span class="hljs-string">"cartographer_ros"</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">"cartographer_occupancy_grid_node"</span> <span class="hljs-attr">args</span>=<span class="hljs-string">"-resolution 0.05"</span> /&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">launch</span>&gt;</span><br><br></code></pre></td></tr></tbody></table></figure></li>
 <li><p>运行</p>
 <p>在启动仿真环境后，再运行上面的launch文件，再RVIZ中添加cartographer插件即可</p>
 </li>

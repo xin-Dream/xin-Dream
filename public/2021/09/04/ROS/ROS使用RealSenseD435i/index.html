@@ -103,19 +103,7 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <pre><code class="bash">cd catkin_ws/src
-git clone  https://github.com/IntelRealSense/realsense-ros.git
-
-# 若缺少功能包
-git clone https://github.com/pal-robotics/ddynamic_reconfigure.git
-
-cd ..
-catkin_make
-source ./devel/setup.bash
-
-roslaunch realsense2_camera rs_camera.launch
-# 在Rviz中添加深度相机订阅即可</code></pre>
- 
+  <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> catkin_ws/src<br>git <span class="hljs-built_in">clone</span>  https://github.com/IntelRealSense/realsense-ros.git<br><br><span class="hljs-comment"># 若缺少功能包</span><br>git <span class="hljs-built_in">clone</span> https://github.com/pal-robotics/ddynamic_reconfigure.git<br><br><span class="hljs-built_in">cd</span> ..<br>catkin_make<br><span class="hljs-built_in">source</span> ./devel/setup.bash<br><br>roslaunch realsense2_camera rs_camera.launch<br><span class="hljs-comment"># 在Rviz中添加深度相机订阅即可</span><br></code></pre></td></tr></tbody></table></figure> 
       <!-- reward -->
       
     </div>

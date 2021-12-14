@@ -103,38 +103,14 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <pre><code class="python">list1=[None]*5</code></pre>
+  <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">list1=[<span class="hljs-literal">None</span>]*<span class="hljs-number">5</span><br></code></pre></td></tr></tbody></table></figure>
 <p>使用这种方式创建一个普通的一维列表是没问题的<br>可以检测一下</p>
-<pre><code class="python">list1=[None]*5
-list1[3]=1
-print(list1)
-
-[None, None, None, 1, None]</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">list1=[<span class="hljs-literal">None</span>]*<span class="hljs-number">5</span><br>list1[<span class="hljs-number">3</span>]=<span class="hljs-number">1</span><br>print(list1)<br><br>[<span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-number">1</span>, <span class="hljs-literal">None</span>]<br></code></pre></td></tr></tbody></table></figure>
 <p>但是，当用这种方式创建一个多维列表时，就会出现以下问题</p>
-<pre><code class="python">list2=[[None]*5]*5\
-list2[2][3] = 1
-print(list2)
-
-[[None, None, None, 1, None], [None, None, None, 1, None],
- [None, None, None, 1, None], [None, None, None, 1, None],
- [None, None, None, 1, None]]</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">list2=[[<span class="hljs-literal">None</span>]*<span class="hljs-number">5</span>]*<span class="hljs-number">5</span>\<br>list2[<span class="hljs-number">2</span>][<span class="hljs-number">3</span>] = <span class="hljs-number">1</span><br>print(list2)<br><br>[[<span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-number">1</span>, <span class="hljs-literal">None</span>], [<span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-number">1</span>, <span class="hljs-literal">None</span>],<br> [<span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-number">1</span>, <span class="hljs-literal">None</span>], [<span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-number">1</span>, <span class="hljs-literal">None</span>],<br> [<span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-number">1</span>, <span class="hljs-literal">None</span>]]<br></code></pre></td></tr></tbody></table></figure>
 <p>这样创建出的多维列表，修改其中一个子列表中元素时，所有子列表的相应元素都会改变。<br>查阅官方文档发现，这种创建的列表只是对一个子列表的引用，所以子列表改变，其余子列表也都会改变</p>
 <p>解决办法就是换一种创建方法，下列几种方案：</p>
-<pre><code class="python">list1=[[0,0,0],[0,0,0]]
-#数据量少的时候这个办法还可以,而且不会出错
-
-list2=[[None for i in range(4)] for i in range(3)]
-#使用for循环创建一个列表，原理上和上一种是一样的
-#可以验证一下
-lis2[0][1]=1
-print(list2)
-
-[[None, 1, None, None], [None, None, None, None],
- [None, None, None, None]]
-
-#再就是用numpy数组，这个在深度学习中经常用
-list3=np.zeros((3,4))</code></pre>
- 
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python">list1=[[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>]]<br><span class="hljs-comment">#数据量少的时候这个办法还可以,而且不会出错</span><br><br>list2=[[<span class="hljs-literal">None</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">4</span>)] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>)]<br><span class="hljs-comment">#使用for循环创建一个列表，原理上和上一种是一样的</span><br><span class="hljs-comment">#可以验证一下</span><br>lis2[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>]=<span class="hljs-number">1</span><br>print(list2)<br><br>[[<span class="hljs-literal">None</span>, <span class="hljs-number">1</span>, <span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>], [<span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>],<br> [<span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>]]<br><br><span class="hljs-comment">#再就是用numpy数组，这个在深度学习中经常用</span><br>list3=np.zeros((<span class="hljs-number">3</span>,<span class="hljs-number">4</span>))<br></code></pre></td></tr></tbody></table></figure> 
       <!-- reward -->
       
     </div>

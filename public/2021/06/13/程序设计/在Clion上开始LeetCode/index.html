@@ -124,18 +124,7 @@
 </ol>
 </li>
 </ol>
-<pre><code class="C">CodeFileName: $!{question.frontendQuestionId}-${question.titleSlug}
-CodeTemplate:   //${question.title}
-                //${question.titleSlug}
-                //$!velocityTool.date()
-
-                ${question.code}
-
-                \#include "stdio.h"
-
-                int main(){
-                    //printf("${question.frontendQuestionId},${question.title}";
-                }   </code></pre>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs C">CodeFileName: $!{question.frontendQuestionId}-${question.titleSlug}<br>CodeTemplate:   <span class="hljs-comment">//${question.title}</span><br>                <span class="hljs-comment">//${question.titleSlug}</span><br>                <span class="hljs-comment">//$!velocityTool.date()</span><br><br>                ${question.code}<br><br>                \<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"stdio.h"</span></span><br><br>                <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{<br>                    <span class="hljs-comment">//printf("${question.frontendQuestionId},${question.title}";</span><br>                }   <br></code></pre></td></tr></tbody></table></figure>
 <ol start="5">
 <li><p>在LeetCode菜单栏第一个按钮即是登录按钮，登录后即可根据难度或顺序选择题目，双击后即可在文件夹中生成程序，右键还可选择题目等。</p>
 </li>

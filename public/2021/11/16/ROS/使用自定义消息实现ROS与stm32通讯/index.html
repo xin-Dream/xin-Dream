@@ -110,189 +110,36 @@
 </blockquote>
 <h1 id="1-在ROS工作空间内自定义消息"><a href="#1-在ROS工作空间内自定义消息" class="headerlink" title="1 在ROS工作空间内自定义消息"></a>1 在ROS工作空间内自定义消息</h1><ol>
 <li><p>创建工作空间</p>
-<pre><code class="bash">mkdir -p robot_ws/src
-cd robot_ws
-catkin_make</code></pre>
-</li>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkdir -p robot_ws/src<br><span class="hljs-built_in">cd</span> robot_ws<br>catkin_make<br></code></pre></td></tr></tbody></table></figure></li>
 <li><p>clone rosserial_stm32</p>
-<pre><code class="bash">cd robot_ws/src
-git clone &lt;https://github.com/yoneken/rosserial_stm32.git&gt;
-cd ..
-catkin_make</code></pre>
-</li>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> robot_ws/src<br>git <span class="hljs-built_in">clone</span> &lt;https://github.com/yoneken/rosserial_stm32.git&gt;<br><span class="hljs-built_in">cd</span> ..<br>catkin_make<br></code></pre></td></tr></tbody></table></figure></li>
 <li><p>创建自定义消息</p>
-<pre><code class="bash">cd robot_ws/src
-catkin_create ros_stm32_bridge rospy roscpp std_msgs
-cd ..
-catkin_make
-
-# 在上一步创建的功能包 ros_stm32_bridge中创建msg目录，在msg文件夹内创建消息文件
-robot_ws
-    ros_stm32_bridge
-        msg
-            stm32_motor.msg</code></pre>
-</li>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> robot_ws/src<br>catkin_create ros_stm32_bridge rospy roscpp std_msgs<br><span class="hljs-built_in">cd</span> ..<br>catkin_make<br><br><span class="hljs-comment"># 在上一步创建的功能包 ros_stm32_bridge中创建msg目录，在msg文件夹内创建消息文件</span><br>robot_ws<br>	ros_stm32_bridge<br>		msg<br>			stm32_motor.msg<br></code></pre></td></tr></tbody></table></figure></li>
 <li><p>添加依赖</p>
-<pre><code class="bash"># package.xml
-&lt;build_depend&gt;message_generation&lt;/build_depend&gt;
-&lt;exec_depend&gt;message_runtime&lt;/exec_depend&gt;
-
-# CMakeLists.txt
-find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  rospy
-  std_msgs
-  message_generation
-)
-
-add_message_files(
-  FILES
-  Person.msg
-)
-
-generate_messages(
-  DEPENDENCIES
-  std_msgs
-)
-
-catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES demo02_talker_listener
-  CATKIN_DEPENDS roscpp rospy std_msgs message_runtime
-#  DEPENDS system_lib
-)</code></pre>
-</li>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># package.xml</span><br>&lt;build_depend&gt;message_generation&lt;/build_depend&gt;<br>&lt;exec_depend&gt;message_runtime&lt;/exec_depend&gt;<br><br><span class="hljs-comment"># CMakeLists.txt</span><br>find_package(catkin REQUIRED COMPONENTS<br>  roscpp<br>  rospy<br>  std_msgs<br>  message_generation<br>)<br><br>add_message_files(<br>  FILES<br>  Person.msg<br>)<br><br>generate_messages(<br>  DEPENDENCIES<br>  std_msgs<br>)<br><br>catkin_package(<br><span class="hljs-comment">#  INCLUDE_DIRS include</span><br><span class="hljs-comment">#  LIBRARIES demo02_talker_listener</span><br>  CATKIN_DEPENDS roscpp rospy std_msgs message_runtime<br><span class="hljs-comment">#  DEPENDS system_lib</span><br>)<br></code></pre></td></tr></tbody></table></figure></li>
 <li><p>将自定义消息添加到rospack</p>
-<pre><code class="bash">rospack profile
-
-# 查看rospack
-rospack list</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">rospack profile<br><br><span class="hljs-comment"># 查看rospack</span><br>rospack list<br></code></pre></td></tr></tbody></table></figure>
 <p><img src="/images/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/image-20211118212916258.png" alt="image-20211118212916258"></p>
 <p>使用rospack list查看，发现了如下路径，说明ros_stm32_bridge已经被添加进去了</p>
 <p><img src="/images/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/image-20211118212929773.png" alt="image-20211118212929773"></p>
 </li>
 </ol>
-<h1 id="2-使用Rosserial-stm32编译生成头文件"><a href="#2-使用Rosserial-stm32编译生成头文件" class="headerlink" title="2 使用Rosserial_stm32编译生成头文件"></a>2 使用Rosserial_stm32编译生成头文件</h1><pre><code class="bash">rosrun rosserial_stm32 make_libraries.py stm32_project/Core
-# 请注意这里最后指向的目录，要指向Inc目录的上一级
-# 完成后可以进入到Inc目录下查看生成的文件</code></pre>
+<h1 id="2-使用Rosserial-stm32编译生成头文件"><a href="#2-使用Rosserial-stm32编译生成头文件" class="headerlink" title="2 使用Rosserial_stm32编译生成头文件"></a>2 使用Rosserial_stm32编译生成头文件</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">rosrun rosserial_stm32 make_libraries.py stm32_project/Core<br><span class="hljs-comment"># 请注意这里最后指向的目录，要指向Inc目录的上一级</span><br><span class="hljs-comment"># 完成后可以进入到Inc目录下查看生成的文件</span><br></code></pre></td></tr></tbody></table></figure>
 <p><img src="/images/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/image-20211118212942241.png" alt="image-20211118212942241"></p>
 <p>接下来就可以去stm32中创建节点发布消息了</p>
 <h1 id="3-ROS与stm32通信验证"><a href="#3-ROS与stm32通信验证" class="headerlink" title="3 ROS与stm32通信验证"></a>3 ROS与stm32通信验证</h1><h2 id="3-1-功能包说明"><a href="#3-1-功能包说明" class="headerlink" title="3.1 功能包说明"></a>3.1 功能包说明</h2><p>在一个机器人的设计中，上位机与下位机间通讯的内容可能包含很多类，所以需要自定义的消息也会有多类，所以将自定义的msg和srv单独放到一个功能包内，应该会更方便些。</p>
 <p>经过上面的文章已经可以生成自定义消息了，我们重新整理下功能包中的结构：</p>
-<pre><code class="bash">src
-    ├── custom_msg                 # 自定义消息的功能包
-    │   ├── CMakeLists.txt
-    │   ├── include
-    │   │   └── custom_msg
-    │   ├── msg
-    │   │   └── IMU.msg           # 自定义的消息文件
-    │   ├── package.xml
-    │   └── src
-    └── ros_stm32_bridge           # 与stm32通讯的功能包
-        ├── CMakeLists.txt
-        ├── include
-        │   └── ros_stm32_bridge
-        ├── launch
-        │   └── ros_talk_stm32.launch
-        ├── package.xml
-        ├── scripts
-        │   └── 01_data_transform.py   # 调用自定义消息的python文件
-        └── src
-            ├── data_pub.cpp
-            └── data_sub.cpp</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs bash">src<br>    ├── custom_msg                 <span class="hljs-comment"># 自定义消息的功能包</span><br>    │   ├── CMakeLists.txt<br>    │   ├── include<br>    │   │   └── custom_msg<br>    │   ├── msg<br>    │   │   └── IMU.msg           <span class="hljs-comment"># 自定义的消息文件</span><br>    │   ├── package.xml<br>    │   └── src<br>    └── ros_stm32_bridge           <span class="hljs-comment"># 与stm32通讯的功能包</span><br>        ├── CMakeLists.txt<br>        ├── include<br>        │   └── ros_stm32_bridge<br>        ├── launch<br>        │   └── ros_talk_stm32.launch<br>        ├── package.xml<br>        ├── scripts<br>        │   └── 01_data_transform.py   <span class="hljs-comment"># 调用自定义消息的python文件</span><br>        └── src<br>            ├── data_pub.cpp<br>            └── data_sub.cpp<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="3-2-stm32中发送自定义消息"><a href="#3-2-stm32中发送自定义消息" class="headerlink" title="3.2 stm32中发送自定义消息"></a>3.2 stm32中发送自定义消息</h2><p>当我们使用前面的步骤生成头文件后，将头文件复制到stm32的Inc文件夹内，即可编译运行，在之前的文章中有说明。具体如何在stm32中运行ROS节点，参考上一篇文章。</p>
-<pre><code class="cpp">// robot.cpp
-#include &lt;robot.h&gt;
-#include &lt;ros.h&gt;
-#include &lt;custom_msg/IMU.h&gt;
-
-ros::NodeHandle nh;
-
-// 发布IMU消息
-custom_msg::IMU imu_msg;
-ros::Publisher Arena_imu("Arena_imu",&amp;imu_msg);
-
-void setup(void) {
-    nh.initNode();
-
-    nh.advertise(Arena_imu);
-}
-
-void loop(void) {
-
-    imu_msg.PITCH=(float) sensors.PITCH/ 32768 * 180;
-    imu_msg.ROLL=(float) sensors.ROLL/ 32768 * 180;
-    imu_msg.YAW=(float) sensors.YAW/ 32768 * 180;
-
-    Arena_imu.publish(&amp;imu_msg);
-
-    nh.spinOnce();
-
-    HAL_Delay(100);
-}</code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// robot.cpp</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;robot.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;ros.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;custom_msg/IMU.h&gt;</span></span><br><br>ros::NodeHandle nh;<br><br><span class="hljs-comment">// 发布IMU消息</span><br>custom_msg::IMU imu_msg;<br><span class="hljs-function">ros::Publisher <span class="hljs-title">Arena_imu</span><span class="hljs-params">(<span class="hljs-string">"Arena_imu"</span>,&amp;imu_msg)</span></span>;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{<br>    nh.initNode();<br><br>    nh.advertise(Arena_imu);<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">loop</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{<br><br>    imu_msg.PITCH=(<span class="hljs-keyword">float</span>) sensors.PITCH/ <span class="hljs-number">32768</span> * <span class="hljs-number">180</span>;<br>    imu_msg.ROLL=(<span class="hljs-keyword">float</span>) sensors.ROLL/ <span class="hljs-number">32768</span> * <span class="hljs-number">180</span>;<br>    imu_msg.YAW=(<span class="hljs-keyword">float</span>) sensors.YAW/ <span class="hljs-number">32768</span> * <span class="hljs-number">180</span>;<br><br>    Arena_imu.publish(&amp;imu_msg);<br><br>    nh.spinOnce();<br><br>    HAL_Delay(<span class="hljs-number">100</span>);<br>}<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="3-3-上位机中接收自定义消息"><a href="#3-3-上位机中接收自定义消息" class="headerlink" title="3.3 上位机中接收自定义消息"></a>3.3 上位机中接收自定义消息</h2><ol>
 <li><p>功能包设置</p>
 <p>要在功能包ros_stm32_bridge中订阅到custom_msg功能包中自定义的消息，需要修改一下ros_stm32_bridge中的两个配置文件，如下：</p>
-<pre><code class="bash"># CMakeLists.txt
-
-find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  rospy
-  std_msgs
-  custom_msg                     # 添加我们自定义的功能包名称
-)
-
-## Specify additional locations of header files
-## Your package locations should be listed before other locations
-include_directories(
-  include
-  ${catkin_INCLUDE_DIRS}
-)</code></pre>
-<pre><code class="bash"># package.xml
-
-# 添加如下两项
-&lt;build_depend&gt;custom_msg&lt;/build_depend&gt;
-&lt;exec_depend&gt;custom_msg&lt;/exec_depend&gt;</code></pre>
-</li>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># CMakeLists.txt</span><br><br>find_package(catkin REQUIRED COMPONENTS<br>  roscpp<br>  rospy<br>  std_msgs<br>  custom_msg                     <span class="hljs-comment"># 添加我们自定义的功能包名称</span><br>)<br><br><span class="hljs-comment">## Specify additional locations of header files</span><br><span class="hljs-comment">## Your package locations should be listed before other locations</span><br>include_directories(<br>  include<br>  <span class="hljs-variable">${catkin_INCLUDE_DIRS}</span><br>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># package.xml</span><br><br><span class="hljs-comment"># 添加如下两项</span><br>&lt;build_depend&gt;custom_msg&lt;/build_depend&gt;<br>&lt;exec_depend&gt;custom_msg&lt;/exec_depend&gt;<br></code></pre></td></tr></tbody></table></figure></li>
 <li><p>订阅者</p>
 <p>这里我通过订阅IMU的消息，将两个角度信息转化为速度发布给仿真环境下的机器人</p>
-<pre><code class="python">import rospy
-from custom_msg.msg import IMU
-from geometry_msgs.msg import Twist
-
-def doIMU(IMU):
-    pitch=IMU.PITCH
-    roll=IMU.ROLL
-    yaw=IMU.YAW
-    twist = Twist()
-
-    Arena_pub=rospy.Publisher("/cmd_vel",Twist,queue_size=10)
-
-    if pitch&gt;180:
-        pitch=pitch-360
-    if roll&gt;180:
-        roll=roll-360
-
-    pitch2linear=pitch/20
-    roll2angular=roll/20
-
-    if pitch&lt;10 and pitch&gt;350:
-        pitch2linear = 0
-
-    if roll&lt;10 and roll&gt;350.0:
-        roll2angular = 0
-
-    twist.linear.x = pitch2linear
-    twist.angular.z = roll2angular
-
-    Arena_pub.publish(twist)
-
-if __name__ == '__main__':
-    rospy.init_node("transformer")
-
-    sub=rospy.Subscriber("Arena_imu",IMU,doIMU,queue_size=20)
-    rospy.spin()
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> rospy<br><span class="hljs-keyword">from</span> custom_msg.msg <span class="hljs-keyword">import</span> IMU<br><span class="hljs-keyword">from</span> geometry_msgs.msg <span class="hljs-keyword">import</span> Twist<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">doIMU</span>(<span class="hljs-params">IMU</span>):</span><br>    pitch=IMU.PITCH<br>    roll=IMU.ROLL<br>    yaw=IMU.YAW<br>    twist = Twist()<br><br>    Arena_pub=rospy.Publisher(<span class="hljs-string">"/cmd_vel"</span>,Twist,queue_size=<span class="hljs-number">10</span>)<br><br>    <span class="hljs-keyword">if</span> pitch&gt;<span class="hljs-number">180</span>:<br>        pitch=pitch-<span class="hljs-number">360</span><br>    <span class="hljs-keyword">if</span> roll&gt;<span class="hljs-number">180</span>:<br>        roll=roll-<span class="hljs-number">360</span><br><br>    pitch2linear=pitch/<span class="hljs-number">20</span><br>    roll2angular=roll/<span class="hljs-number">20</span><br><br>    <span class="hljs-keyword">if</span> pitch&lt;<span class="hljs-number">10</span> <span class="hljs-keyword">and</span> pitch&gt;<span class="hljs-number">350</span>:<br>        pitch2linear = <span class="hljs-number">0</span><br><br>    <span class="hljs-keyword">if</span> roll&lt;<span class="hljs-number">10</span> <span class="hljs-keyword">and</span> roll&gt;<span class="hljs-number">350.0</span>:<br>        roll2angular = <span class="hljs-number">0</span><br><br>    twist.linear.x = pitch2linear<br>    twist.angular.z = roll2angular<br><br>    Arena_pub.publish(twist)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    rospy.init_node(<span class="hljs-string">"transformer"</span>)<br><br>    sub=rospy.Subscriber(<span class="hljs-string">"Arena_imu"</span>,IMU,doIMU,queue_size=<span class="hljs-number">20</span>)<br>    rospy.spin()<br>    <br></code></pre></td></tr></tbody></table></figure>
 <h1 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h1><p><img src="/images/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/mmexport1638451113780.gif" alt="mmexport1638451113780"></p>
 </li>
 </ol>

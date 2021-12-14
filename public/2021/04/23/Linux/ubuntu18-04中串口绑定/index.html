@@ -108,21 +108,11 @@
   <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>设置串口绑定可以有效的模块化设计程序。我们在下位机、雷达等程序中可以为串口命名为arduino、lidar等，在移植程序时，只需保证下位机等在上位机串口中的的串口名称一致即可。</p>
 </blockquote>
-<h1 id="1-查看设备ID号"><a href="#1-查看设备ID号" class="headerlink" title="1. 查看设备ID号"></a>1. 查看设备ID号</h1><pre><code class="bash">lsusb
-
-#例如查询到的为1a86:7523
-#第三步参考用</code></pre>
-<h1 id="2-查看USB号"><a href="#2-查看USB号" class="headerlink" title="2. 查看USB号"></a>2. 查看USB号</h1><pre><code class="bash"># 在插入USB设备前后运行以下命令，查看变化的ttyUSB序号，即为新插入的USB号
-ls /dev/ttyUSB*
-
-#例为ttyUSB1</code></pre>
-<h1 id="3-编写rules文件"><a href="#3-编写rules文件" class="headerlink" title="3. 编写rules文件"></a>3. 编写rules文件</h1><pre><code class="bash">sudo vim /etc/udev/rules.d
-
-#在文件中写入
-KERNEL=="ttyUSB1", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", MODE:="0666", SYMLINK+="arduino"</code></pre>
+<h1 id="1-查看设备ID号"><a href="#1-查看设备ID号" class="headerlink" title="1. 查看设备ID号"></a>1. 查看设备ID号</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">lsusb<br><br><span class="hljs-comment">#例如查询到的为1a86:7523</span><br><span class="hljs-comment">#第三步参考用</span><br></code></pre></td></tr></tbody></table></figure>
+<h1 id="2-查看USB号"><a href="#2-查看USB号" class="headerlink" title="2. 查看USB号"></a>2. 查看USB号</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 在插入USB设备前后运行以下命令，查看变化的ttyUSB序号，即为新插入的USB号</span><br>ls /dev/ttyUSB*<br><br><span class="hljs-comment">#例为ttyUSB1</span><br></code></pre></td></tr></tbody></table></figure>
+<h1 id="3-编写rules文件"><a href="#3-编写rules文件" class="headerlink" title="3. 编写rules文件"></a>3. 编写rules文件</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim /etc/udev/rules.d<br><br><span class="hljs-comment">#在文件中写入</span><br>KERNEL==<span class="hljs-string">"ttyUSB1"</span>, ATTRS{idVendor}==<span class="hljs-string">"1a86"</span>, ATTRS{idProduct}==<span class="hljs-string">"7523"</span>, MODE:=<span class="hljs-string">"0666"</span>, SYMLINK+=<span class="hljs-string">"arduino"</span><br></code></pre></td></tr></tbody></table></figure>
 <h1 id="4-激活"><a href="#4-激活" class="headerlink" title="4. 激活"></a>4. 激活</h1><p>保存以上文件后，需运行以下命令使命令生效。<br><strong>注：在JetsonTX2中遇到过绑定串口失效的情况，在rules文件不变的前提下，运行一遍以下命令即可</strong></p>
-<pre><code>sudo udevadm trigger</code></pre>
- 
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">sudo udevadm trigger<br></code></pre></td></tr></tbody></table></figure> 
       <!-- reward -->
       
     </div>

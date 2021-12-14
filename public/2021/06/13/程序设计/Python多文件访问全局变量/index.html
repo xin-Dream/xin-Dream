@@ -107,38 +107,15 @@
 <ol>
 <li>单独建立一个变量管理的文件–variable_manage.py</li>
 </ol>
-<pre><code class="Python">#这里不能创建对象，创建对象的话还是做不到数据的共享，每个文件还要单独创建各自的对象
-def init():
-    global time1
-
-    time1 = 20
-
-# 创建time1变量的get方法和set方法
-def time1_getter():
-    global time2
-    return time2
-
-def time1_setter(num):
-    global time2
-    time2 = num
-    return 1
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment">#这里不能创建对象，创建对象的话还是做不到数据的共享，每个文件还要单独创建各自的对象</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init</span>():</span><br>    <span class="hljs-keyword">global</span> time1<br><br>    time1 = <span class="hljs-number">20</span><br><br><span class="hljs-comment"># 创建time1变量的get方法和set方法</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">time1_getter</span>():</span><br>    <span class="hljs-keyword">global</span> time2<br>    <span class="hljs-keyword">return</span> time2<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">time1_setter</span>(<span class="hljs-params">num</span>):</span><br>    <span class="hljs-keyword">global</span> time2<br>    time2 = num<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span><br> <br></code></pre></td></tr></tbody></table></figure>
 <ol start="2">
 <li>在程序开始时初始化变量</li>
 </ol>
-<pre><code class="Python">import variable_manage as val
-
-val.init()
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">import</span> variable_manage <span class="hljs-keyword">as</span> val<br><br>val.init()<br><br></code></pre></td></tr></tbody></table></figure>
 <ol start="3">
 <li>在其他文件中使用方法</li>
 </ol>
-<pre><code class="python">import variable_manage as val
-
-time1_getter()
-
-time1_setter(30)</code></pre>
- 
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> variable_manage <span class="hljs-keyword">as</span> val<br><br>time1_getter()<br><br>time1_setter(<span class="hljs-number">30</span>)<br></code></pre></td></tr></tbody></table></figure> 
       <!-- reward -->
       
     </div>

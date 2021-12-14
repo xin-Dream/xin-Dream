@@ -112,91 +112,20 @@
 <li>然后重复这个过程直到这个数变为 1，也可能是 无限循环 但始终变不到 1。</li>
 <li>如果 可以变为  1，那么这个数就是快乐数。<br>如果 <code>n</code> 是快乐数就返回 <code>true</code> ；不是，则返回 <code>false</code> 。</li>
 </ul>
-<h2 id="示例1："><a href="#示例1：" class="headerlink" title="示例1："></a>示例1：</h2><pre><code class="C">输入：19
-输出：true
-解释：
-12 + 92 = 82
-82 + 22 = 68
-62 + 82 = 100
-12 + 02 + 02 = 1</code></pre>
-<h2 id="示例2："><a href="#示例2：" class="headerlink" title="示例2："></a>示例2：</h2><pre><code class="C">输入：n = 2
-输出：false</code></pre>
+<h2 id="示例1："><a href="#示例1：" class="headerlink" title="示例1："></a>示例1：</h2><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs C">输入：<span class="hljs-number">19</span><br>输出：<span class="hljs-literal">true</span><br>解释：<br><span class="hljs-number">12</span> + <span class="hljs-number">92</span> = <span class="hljs-number">82</span><br><span class="hljs-number">82</span> + <span class="hljs-number">22</span> = <span class="hljs-number">68</span><br><span class="hljs-number">62</span> + <span class="hljs-number">82</span> = <span class="hljs-number">100</span><br><span class="hljs-number">12</span> + <span class="hljs-number">02</span> + <span class="hljs-number">02</span> = <span class="hljs-number">1</span><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="示例2："><a href="#示例2：" class="headerlink" title="示例2："></a>示例2：</h2><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs C">输入：n = <span class="hljs-number">2</span><br>输出：<span class="hljs-literal">false</span><br></code></pre></td></tr></tbody></table></figure>
 <h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><h2 id="C语言"><a href="#C语言" class="headerlink" title="C语言"></a>C语言</h2><h3 id="第一种思路"><a href="#第一种思路" class="headerlink" title="第一种思路"></a>第一种思路</h3><p>累计相除后取余，得出每一位数</p>
-<pre><code class="C">
-//第一种实现方式
-bool isHappy(int n){
-    int sum = 0;
-    int m = 1;
-    for (int k = 1; k &lt;= 10; k++) {
-        int d = n / m % 10;
-
-        printf("%d\n", d);
-        sum += d * d;
-
-        if (k &lt; 10) {
-            m *= 10;
-        }
-    }
-
-    printf("sum=%d\n", sum);
-
-    return false;
-}
-
-//第二种实现
-bool isHappy(int n){
-    int sum = 0;
-    for (int m = 1000000000; m &gt;= 1; m /= 10) {
-        int d = n / m % 10;
-
-        printf("%d\n", d);
-        sum += d * d;
-    }
-}
-</code></pre>
-<h3 id="第二种思路"><a href="#第二种思路" class="headerlink" title="第二种思路"></a>第二种思路</h3><pre><code class="C">//    s=12345
-//    d = s % 10;   d:5
-//    s / 10;       s:1234
-
-//    d = s % 10;   d:4
-//    s / 10;       s:123
-//    以下内容写入函数
-
-bool isHappy(int n){ 
-    while (n != 0) {
-        int d = n % 10;
-        n /= 10;
-        sum += d * d;
-    }
-
-    int history[1000];
-    int size = 0;
-    while (!contains(history, size, n)) {
-        history[size] = n;
-        size++;
-
-        n = next_n(n);
-    }
-    return n == 1;
-}</code></pre>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs C"><br><span class="hljs-comment">//第一种实现方式</span><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isHappy</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>{<br>    <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> m = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = <span class="hljs-number">1</span>; k &lt;= <span class="hljs-number">10</span>; k++) {<br>        <span class="hljs-keyword">int</span> d = n / m % <span class="hljs-number">10</span>;<br><br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, d);<br>        sum += d * d;<br><br>        <span class="hljs-keyword">if</span> (k &lt; <span class="hljs-number">10</span>) {<br>            m *= <span class="hljs-number">10</span>;<br>        }<br>    }<br><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"sum=%d\n"</span>, sum);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>}<br><br><span class="hljs-comment">//第二种实现</span><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isHappy</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>{<br>    <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> m = <span class="hljs-number">1000000000</span>; m &gt;= <span class="hljs-number">1</span>; m /= <span class="hljs-number">10</span>) {<br>        <span class="hljs-keyword">int</span> d = n / m % <span class="hljs-number">10</span>;<br><br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, d);<br>        sum += d * d;<br>    }<br>}<br><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="第二种思路"><a href="#第二种思路" class="headerlink" title="第二种思路"></a>第二种思路</h3><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">//    s=12345</span><br><span class="hljs-comment">//    d = s % 10;   d:5</span><br><span class="hljs-comment">//    s / 10;       s:1234</span><br><br><span class="hljs-comment">//    d = s % 10;   d:4</span><br><span class="hljs-comment">//    s / 10;       s:123</span><br><span class="hljs-comment">//    以下内容写入函数</span><br><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isHappy</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>{ <br>    <span class="hljs-keyword">while</span> (n != <span class="hljs-number">0</span>) {<br>        <span class="hljs-keyword">int</span> d = n % <span class="hljs-number">10</span>;<br>        n /= <span class="hljs-number">10</span>;<br>        sum += d * d;<br>    }<br><br>    <span class="hljs-keyword">int</span> history[<span class="hljs-number">1000</span>];<br>    <span class="hljs-keyword">int</span> size = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span> (!contains(history, size, n)) {<br>        history[size] = n;<br>        size++;<br><br>        n = next_n(n);<br>    }<br>    <span class="hljs-keyword">return</span> n == <span class="hljs-number">1</span>;<br>}<br></code></pre></td></tr></tbody></table></figure>
 <h3 id="第三种思路"><a href="#第三种思路" class="headerlink" title="第三种思路"></a>第三种思路</h3><p>这种思路基于<strong>弗洛伊德的乌龟-兔子循环寻找</strong>。可以在环形链表中找到环形的入口节点。<br>如下图，一快一慢的龟兔会相继进入一个圈内，当两个点相遇的时候，设置一个从相遇点出发，另一个从起点出发，再次相遇，即为环形入口。</p>
 <p>至于更深层次的解释，还没想好怎么表述。</p>
 <p>下图的算法图解在<a target="_blank" rel="noopener" href="https://visualgo.net/en">https://visualgo.net/en</a></p>
 <p><img src="/images/LeetCode-202-happy-number/01.png" alt="01"><br><br><br><br></p>
-<pre><code class="C">
-bool isHappy(int n){
-    //  龟兔赛跑循环
-    int slow = n;
-    int fast = n;
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs C"><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isHappy</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>{<br>    <span class="hljs-comment">//  龟兔赛跑循环</span><br>    <span class="hljs-keyword">int</span> slow = n;<br>    <span class="hljs-keyword">int</span> fast = n;<br><br>    <span class="hljs-keyword">do</span> {<br>        slow = next_n(slow);<br>        fast = next_n(next_n(fast));<br>        <span class="hljs-comment">//fast = next_n(fast);</span><br>    } <span class="hljs-keyword">while</span> (slow != fast);<br><br>    <span class="hljs-keyword">return</span> fast == <span class="hljs-number">1</span>;<br>}<br></code></pre></td></tr></tbody></table></figure>
 
-    do {
-        slow = next_n(slow);
-        fast = next_n(next_n(fast));
-        //fast = next_n(fast);
-    } while (slow != fast);
 
-    return fast == 1;
-}</code></pre>
+
+
  
       <!-- reward -->
       
