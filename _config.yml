@@ -147,3 +147,11 @@ githubEmojis:
     display: inline
     vertical-align: middle # Freemind适用
   localEmojis:
+
+  
+# hexo-admin authentification
+admin:
+  deployCommand: './admin_script.sh'
+
+metadata:
+  top: 0 

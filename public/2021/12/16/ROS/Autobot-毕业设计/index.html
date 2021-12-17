@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+       
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Autobot--设计说明书 |  Dream</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/badminton.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="draft-ROS/Autobot-毕业设计"
+  class="article article-type-draft"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Autobot--设计说明书
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/12/16/ROS/Autobot-%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" class="article-date">
+  <time datetime="2021-12-16T12:30:00.000Z" itemprop="datePublished">2021-12-16</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a>
+  </div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote class="pullquote mindmap mindmap-lg"><ul>
+<li>Autobot机器人<ul>
+<li>基础部分<ul>
+<li><a href="#2">结构设计</a><ul>
+<li><a href="#2.1">底盘结构</a></li>
+</ul>
+</li>
+<li><a href="#3">硬件设计</a><ul>
+<li><a href="#3.1">主控选型</a><ul>
+<li><a href="#3.1.1">上位机主控选型</a></li>
+<li><a href="#3.1.2">下位机主控选型</a></li>
+</ul>
+</li>
+<li><a href="#3.2">电机驱动</a></li>
+<li><a href="#3.3">传感器选型</a><ul>
+<li><a href="#3.3.1">IMU</a></li>
+<li><a href="#3.3.2">激光雷达</a></li>
+<li><a href="#3.3.3">深度相机</a></li>
+<li><a href="#3.3.4">雷达与测距模块</a></li>
+</ul>
+</li>
+<li><a href="#3.4">电源电路设计</a></li>
+</ul>
+</li>
+<li><a href="#4">软件设计</a> <ul>
+<li><a href="#4.1">下位机软件设计</a><ul>
+<li><a href="#4.1.1">基于FreeRTOS操作系统的程序框架设计</a></li>
+<li><a href="#4.1.2">电机控制程序设计</a></li>
+<li><a href="#4.1.3">基于DMA的ADC数据读取程序设计</a></li>
+<li><a href="#4.1.4">基于VCP的模拟串口通讯设计</a></li>
+<li><a href="#4.1.5">基于rosserial的下位机ROS通讯设计</a></li>
+</ul>
+</li>
+<li><a href="#4.2">上位机软件设计</a><ul>
+<li><a href="#4.2.1">基于rosserial的上位机ROS通讯设计</a></li>
+<li><a href="#4.2.2">机器人实体模型的TF分析</a></li>
+<li><a href="#4.2.3">基于RIVZ的机器人传感器数据显示</a></li>
+<li><a href="#4.2.4">基于话题通讯的机器控制程序设计</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>[高级部分]<ul>
+<li><a href="#5">人机交互系统设计</a><ul>
+<li><a href="#5.1">基于PyQt5的控制APP设计</a><ul>
+<li><a href="#5.1.1">控制界面功能总览</a></li>
+<li><a href="#5.1.2">基于matplotlib的传感器数据图形化显示设计</a></li>
+</ul>
+</li>
+<li><a href="#5.2">基于stm32的网络遥控设计</a><ul>
+<li><a href="#5.2.1">遥控设计概述</a></li>
+<li><a href="#5.2.2">OLED的GUI界面设计</a></li>
+<li><a href="#5.2.3">局域网内stm32与ROS系统的通信系统设计</a></li>
+</ul>
+</li>
+<li><a href="#5.3">基于Web的网页控制界面设计</a></li>
+</ul>
+</li>
+<li><a href="#6">SLAM算法分析与实践</a><ul>
+<li><a href="#6.1">SLAM概述</a></li>
+<li><a href="#6.2">Gmapping算法实现</a></li>
+<li><a href="#6.3">Cartographer算法实现</a></li>
+</ul>
+</li>
+<li><a href="#7">人体姿态估计</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+
+<h1 id="1-绪论"><a href="#1-绪论" class="headerlink" title="1 绪论"></a><span id="1">1 绪论</span></h1><h1 id="2-Autobot机器人的结构设计"><a href="#2-Autobot机器人的结构设计" class="headerlink" title="2 Autobot机器人的结构设计"></a><span id="2">2 Autobot机器人的结构设计</span></h1><h2 id="2-1-机器人底盘设计"><a href="#2-1-机器人底盘设计" class="headerlink" title="2.1 机器人底盘设计"></a><span id="2.1">2.1 机器人底盘设计</span></h2><h1 id="3-Autobot机器人的硬件设计"><a href="#3-Autobot机器人的硬件设计" class="headerlink" title="3 Autobot机器人的硬件设计"></a><span id="3">3 Autobot机器人的硬件设计</span></h1><h2 id="3-1-主要控制系统选型"><a href="#3-1-主要控制系统选型" class="headerlink" title="3.1 主要控制系统选型"></a><span id="3.1">3.1 主要控制系统选型</span></h2><h3 id="3-1-1-上位机主控选型"><a href="#3-1-1-上位机主控选型" class="headerlink" title="3.1.1 上位机主控选型"></a><span id="3.1.1">3.1.1 上位机主控选型</span></h3><p>上位机作为机器人的大脑，承担机器人最复杂的计算任务，如建图、导航、人体姿态估计等。所以对上位机型号的选择尤为重要，它决定能否自如的完成机器人的计算任务。另外，在机器人设计时不仅要考虑当前功能的需要，还要留有一定计算冗余，便于后期增强神经网络算法深度，用于实现更复杂的功能。常用上位机主控有树莓派、JetsonNano、JetsonTX2、miniPC等，下表选择了其中具有代表性的几款产品进行对比：</p>
+<table>
+<thead>
+<tr>
+<th align="center">型号名称</th>
+<th align="center"><a target="_blank" rel="noopener" href="https://www.waveshare.net/shop/Raspberry-Pi-4-Model-B-4GB-RAM.htm">Raspberry Pi 4B</a></th>
+<th align="center"><a target="_blank" rel="noopener" href="https://www.leadtek.com.cn/chs/products/ai_hpc(37)/nvidia_jetson_tx2(10782)/detail">Jetson TX2</a></th>
+<th align="center">Jetson Nano</th>
+<th align="center"><a target="_blank" rel="noopener" href="https://ark.intel.com/content/www/cn/zh/ark/products/88959/intel-core-i56300hq-processor-6m-cache-up-to-3-20-ghz.html">Intel-i5-6300HQ miniPC</a></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">CPU</td>
+<td align="center">1.5GHz 四核 64 位 ARM Cortex-A72 CPU</td>
+<td align="center">HMP Dual Denver 2/2 MB L2 +<br>Quad ARM® A57/2 MB L2</td>
+<td align="center">四核 ARM Cortex A57</td>
+<td align="center">2.3GHz 四核Intel-i5 CPU<br>最大睿频频率：3.2GHz<br>缓存：6MB Intel Smart Cache<br>散热设计功耗（TDP）：45W</td>
+</tr>
+<tr>
+<td align="center">GPU</td>
+<td align="center">Broadcom VideoCore IV@500MHz</td>
+<td align="center">NVIDIA Pascal™，256 CUDA 核心</td>
+<td align="center">128 Maxwell cores</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.nvidia.cn/geforce/gaming-laptops/geforce-gtx-960m/specifications/">‎NvidiaN16P-GX(GTX960M), VRAM 4G GDDR5</a></td>
+</tr>
+<tr>
+<td align="center">内存</td>
+<td align="center">2GB/4GB/8GB 可选</td>
+<td align="center">8GB 128bit LPDDR4</td>
+<td align="center">4GB 64bit LPDDR4</td>
+<td align="center">8GB DDR4-2133</td>
+</tr>
+<tr>
+<td align="center">USB</td>
+<td align="center">2 x USB2.0 + 2 x USB3.0</td>
+<td align="center">1 x USB2.0 + 1 x USB3.0</td>
+<td align="center">1 x USB2.0 + 4 x USB3.0</td>
+<td align="center">2 x USB2.0 + 2 x USB3.0</td>
+</tr>
+<tr>
+<td align="center">WiFi</td>
+<td align="center">802.11 b/g/n/ac 2.4GHz/5GHz双频</td>
+<td align="center">802.11 2x2 ac/BT Ready</td>
+<td align="center">M.2 Key E扩展WiFi</td>
+<td align="center">802.11bgn</td>
+</tr>
+<tr>
+<td align="center">功耗</td>
+<td align="center">15W</td>
+<td align="center">≤7.5W</td>
+<td align="center">5-10W</td>
+<td align="center">65W(UMA model) 120W (Nvidia GPU model)</td>
+</tr>
+<tr>
+<td align="center">备注</td>
+<td align="center"></td>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.leiphone.com/category/ai/TEpCLJfL6ni05AJZ.html">https://www.leiphone.com/category/ai/TEpCLJfL6ni05AJZ.html</a><br><a target="_blank" rel="noopener" href="https://www.jetsonhacks.com/2017/03/14/nvidia-jetson-tx2-development-kit/">https://www.jetsonhacks.com/2017/03/14/nvidia-jetson-tx2-development-kit/</a></td>
+<td align="center"><a target="_blank" rel="noopener" href="https://developer.nvidia.cn/zh-cn/cuda-gpus#compute">https://developer.nvidia.cn/zh-cn/cuda-gpus#compute</a></td>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.amazon.co.jp/Support-Windows-Computer-I5-Partaker/dp/B075CXB129">https://www.amazon.co.jp/Support-Windows-Computer-I5-Partaker/dp/B075CXB129</a></td>
+</tr>
+</tbody></table>
+<p>如上表所述，树莓派虽功耗较低，但其整体性能有限，对于同时部署SLAM算法与人体姿态估计的神经网络算法来说，略显不足。Jetson系列是NVIDIA公司推出的嵌入式人工智能超级计算平台，在思科的电视电话会议系统、法拉赫的工厂自动化等都采用了Jetson系列计算平台。JetsonNano的四核A57CPU性能较为一般，与JetsonTX2的Denver核心要差不少。JetsonTX2的CPU相较于Intel Core系列的I5-3XXXU计算性能大致相当，所以相较于i5-6300HQ的miniPC还要差一些。</p>
+<p>本人在使用JetsonTX2时，ARM架构下的部分功能包与工具稍有不足。在计算平台使用神经网络进行实验时，会用到较多不同深度学习框架，如Tensorflow、Pytorch等，其对系统环境的依赖有严格的要求，所以我们在实验时会使用Anaconda创建多个不同虚拟环境，用于支撑不同算法的运行。但Anaconda并不支持ARM架构，有着类似功能的miniconda、Archiconda等对程序功能包的支持却不如Anaconda。所以在实际使用中，Intel i5的miniPC更为便利。</p>
+<p>所以考虑主控性能与实际使用，miniPC应为首选。但其额外突出的功耗却是十分值得考虑的问题。对于普通的实验平台，整体框架较小，驱动能力与承载能力有限，所以更加青睐高性能低功耗的计算平台。但本机器人的设计为实用平台，而非实验平台，其驱动能力与承载能力足以支撑miniPC的功耗。</p>
+<p>综上所述，本机器人的主控型号选择，确定为搭载GTX960M的Intel-i5-6300HQ miniPC。</p>
+<h3 id="3-1-2-下位机主控选型"><a href="#3-1-2-下位机主控选型" class="headerlink" title="3.1.2 下位机主控选型"></a><span id="3.1.2">3.1.2 下位机主控选型</span></h3><p>下位机主要用于控制电机、读取传感器数据、与上位机通讯等功能。由于SLAM算法中的导航算法大多基于概率模型，加上计算速率与传输速率的影响，仅仅依靠上位机很难实现实时性特别高的功能。尽管机器人设计的目标为低速移动机器人，出于安全考虑，机器人也要有多重安全防护措施。所以上位机SLAM算法的避障处理作为第一重防护，下位机直接读取的测距模块或雷达的距离信息作为第二重防护，为避免电信号受磁场、短路、断路等影响，在机器人机身布置防撞条作为机器人的第三重防护。所以下位机要尽量准确、快速的读取传感器信息，灵活、精准的实现通讯功能。</p>
+<p>较为常用的下位机主控有STC51、MSP430、Arduino、STM32、飞思卡尔等。MSP430系列资料较少、飞思卡尔价格较高、STC51与Arduino的性能较STM32相差较多，ST公司推出的STM32CubeMX、CubeMonitor、X-CUBE-AI等为STM32的开发提供了极大便利。所以下位机主控确定在STM32单片机系列。</p>
+<p><img src="../../images/2021/12/16/Autobot-%E6%AF%95%E4%B8%9A%E8%AE%BE/MCU%E9%80%89%E5%9E%8B.png" alt="MCU选型.png-ZGX"></p>
+<p>综合考虑前文说明的下位机主控要求，将主控型号的锁定在主流MCU和高性能MCU之间。下面选择两类中具有代表性的两款同配置单片机进行对比。</p>
+<table>
+<thead>
+<tr>
+<th align="center">单片机型号</th>
+<th align="center">STM32F103VGT6</th>
+<th align="center">STM32F407VGT6</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Frequency(MHz)</td>
+<td align="center">72</td>
+<td align="center">168</td>
+</tr>
+<tr>
+<td align="center">Core</td>
+<td align="center">Cortex-M3</td>
+<td align="center">Cortex-M4</td>
+</tr>
+<tr>
+<td align="center">I2C</td>
+<td align="center">2</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">CAN</td>
+<td align="center">1</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">USB OTG_HS/USB OTG_FS</td>
+<td align="center">0</td>
+<td align="center">1/1</td>
+</tr>
+<tr>
+<td align="center">Ethernet</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">U(S)ART</td>
+<td align="center">3+2</td>
+<td align="center">4+2</td>
+</tr>
+</tbody></table>
+<p>如上表所述，STM32F4系列主控频率更高，处理性能更强。我们常用的OLED、IMU等大多要用到I2C或USART通信，所以从通信接口看，STM32F4系列更胜一筹。STM32与ROS间使用串口通信时，需要借用USB-TTL电路实现，本人在魔方机器人的设计中使用USB-TTL模块通信时，常遇到信号不稳定与信号乱码情况，所以在本机器人的设计中使用VCP虚拟串口实现，这依赖于单片机的USB OTG_HS/USB OTG_FS。为使机器人配置更加灵活，机器人上位机与下位机还可使用Ethernet通信，所以选定STM32F4系列单片机。</p>
+<p>在下位机的程序设计中，传感器数据读取、OLED显示、通讯、APP等互有交流，但运行互不影响，所以使用嵌入式操作系统将这几个功能分别置于不同线程运行，能更大效率利用单片机性能。使用实时操作系统依赖于较大FLASH。</p>
+<p>综上，考虑运行性能、FLASH大小、读取传感器占用引脚等因素，选定LQFP100封装的STM32F407VGT6作为下位机主控。</p>
+<h2 id="3-2-电机驱动电路设计"><a href="#3-2-电机驱动电路设计" class="headerlink" title="3.2 电机驱动电路设计"></a><span id="3.2">3.2 电机驱动电路设计</span></h2><h2 id="3-3-传感器选型"><a href="#3-3-传感器选型" class="headerlink" title="3.3 传感器选型"></a><span id="3.3">3.3 传感器选型</span></h2><h3 id="3-3-1-IMU"><a href="#3-3-1-IMU" class="headerlink" title="3.3.1 IMU"></a><span id="3.3.1">3.3.1 IMU</span></h3><h3 id="3-3-2-激光雷达"><a href="#3-3-2-激光雷达" class="headerlink" title="3.3.2 激光雷达"></a><span id="3.3.2">3.3.2 激光雷达</span></h3><h3 id="3-3-3-深度相机"><a href="#3-3-3-深度相机" class="headerlink" title="3.3.3 深度相机"></a><span id="3.3.3">3.3.3 深度相机</span></h3><h3 id="3-3-4-雷达与测距模块"><a href="#3-3-4-雷达与测距模块" class="headerlink" title="3.3.4 雷达与测距模块"></a><span id="3.3.4">3.3.4 雷达与测距模块</span></h3><h2 id="3-4-电源电路设计"><a href="#3-4-电源电路设计" class="headerlink" title="3.4 电源电路设计"></a><span id="3.4">3.4 电源电路设计</span></h2><h2 id="3-5-本章小结"><a href="#3-5-本章小结" class="headerlink" title="3.5 本章小结"></a>3.5 本章小结</h2><h1 id="4-Autobot机器人的软件设计"><a href="#4-Autobot机器人的软件设计" class="headerlink" title="4 Autobot机器人的软件设计"></a><span id="4">4 Autobot机器人的软件设计</span></h1><h2 id="4-1-机器人下位机软件设计"><a href="#4-1-机器人下位机软件设计" class="headerlink" title=" 4.1 机器人下位机软件设计"></a><span id="4.1"> 4.1 机器人下位机软件设计</span></h2><h3 id="4-1-1-基于FreeRTOS操作系统的程序框架设计"><a href="#4-1-1-基于FreeRTOS操作系统的程序框架设计" class="headerlink" title="4.1.1 基于FreeRTOS操作系统的程序框架设计"></a><span id="4.1.1">4.1.1 基于FreeRTOS操作系统的程序框架设计</span></h3><h3 id="4-1-2-电机控制程序设计"><a href="#4-1-2-电机控制程序设计" class="headerlink" title="4.1.2 电机控制程序设计"></a><span id="4.1.2">4.1.2 电机控制程序设计</span></h3><h3 id="4-1-3-基于DMA的ADC数据读取程序设计"><a href="#4-1-3-基于DMA的ADC数据读取程序设计" class="headerlink" title="4.1.3 基于DMA的ADC数据读取程序设计"></a><span id="4.1.3">4.1.3 基于DMA的ADC数据读取程序设计</span></h3><h3 id="4-1-4-基于VCP的模拟串口通讯设计"><a href="#4-1-4-基于VCP的模拟串口通讯设计" class="headerlink" title="4.1.4 基于VCP的模拟串口通讯设计"></a><span id="4.1.4">4.1.4 基于VCP的模拟串口通讯设计</span></h3><h3 id="4-1-5-基于rosserial的下位机ROS通讯设计"><a href="#4-1-5-基于rosserial的下位机ROS通讯设计" class="headerlink" title="4.1.5 基于rosserial的下位机ROS通讯设计"></a><span id="4.1.5">4.1.5 基于rosserial的下位机ROS通讯设计</span></h3><h2 id="4-2-机器人上位机软件设计"><a href="#4-2-机器人上位机软件设计" class="headerlink" title="4.2 机器人上位机软件设计"></a><span id="4.2">4.2 机器人上位机软件设计</span></h2><h3 id="4-2-1-基于rosserial的上位机ROS通讯设计"><a href="#4-2-1-基于rosserial的上位机ROS通讯设计" class="headerlink" title="4.2.1 基于rosserial的上位机ROS通讯设计"></a><span id="4.2.1">4.2.1 基于rosserial的上位机ROS通讯设计</span></h3><h3 id="4-2-2-基于机器人实体模型的TF分析"><a href="#4-2-2-基于机器人实体模型的TF分析" class="headerlink" title="4.2.2 基于机器人实体模型的TF分析"></a><span id="4.2.2">4.2.2 基于机器人实体模型的TF分析</span></h3><h3 id="4-2-3-基于RIVZ的机器人传感器数据显示"><a href="#4-2-3-基于RIVZ的机器人传感器数据显示" class="headerlink" title="4.2.3 基于RIVZ的机器人传感器数据显示"></a><span id="4.2.3">4.2.3 基于RIVZ的机器人传感器数据显示</span></h3><h3 id="4-2-4-基于话题通讯的机器控制程序设计"><a href="#4-2-4-基于话题通讯的机器控制程序设计" class="headerlink" title="4.2.4 基于话题通讯的机器控制程序设计"></a><span id="4.2.4">4.2.4 基于话题通讯的机器控制程序设计</span></h3><h2 id="4-3-本章小结"><a href="#4-3-本章小结" class="headerlink" title="4.3 本章小结"></a>4.3 本章小结</h2><h1 id="5-人机交互系统设计"><a href="#5-人机交互系统设计" class="headerlink" title="5 人机交互系统设计"></a><span id="5">5 人机交互系统设计</span></h1><h2 id="5-1-基于PyQt5的控制APP设计"><a href="#5-1-基于PyQt5的控制APP设计" class="headerlink" title="5.1 基于PyQt5的控制APP设计"></a><span id="5.1">5.1 基于PyQt5的控制APP设计</span></h2><h3 id="5-1-1-控制界面功能总览"><a href="#5-1-1-控制界面功能总览" class="headerlink" title="5.1.1 控制界面功能总览"></a><span id="5.1.1">5.1.1 控制界面功能总览</span></h3><h3 id="5-1-2-基于matplotlib的传感器数据图形化显示设计"><a href="#5-1-2-基于matplotlib的传感器数据图形化显示设计" class="headerlink" title="5.1.2 基于matplotlib的传感器数据图形化显示设计"></a><span id="5.1.2">5.1.2 基于matplotlib的传感器数据图形化显示设计</span></h3><h2 id="5-2-基于stm32的网络遥控设计"><a href="#5-2-基于stm32的网络遥控设计" class="headerlink" title="5.2 基于stm32的网络遥控设计"></a><span id="5.2">5.2 基于stm32的网络遥控设计</span></h2><h3 id="5-2-1-遥控设计概述"><a href="#5-2-1-遥控设计概述" class="headerlink" title="5.2.1 遥控设计概述"></a><span id="5.2.1">5.2.1 遥控设计概述</span></h3><h3 id="5-2-2-OLED的GUI界面设计"><a href="#5-2-2-OLED的GUI界面设计" class="headerlink" title="5.2.2 OLED的GUI界面设计"></a><span id="5.2.2">5.2.2 OLED的GUI界面设计</span></h3><h3 id="5-2-3-局域网内stm32与ROS系统的通信系统设计"><a href="#5-2-3-局域网内stm32与ROS系统的通信系统设计" class="headerlink" title="5.2.3 局域网内stm32与ROS系统的通信系统设计"></a><span id="5.2.3">5.2.3 局域网内stm32与ROS系统的通信系统设计</span></h3><h2 id="5-3-基于Web的网页控制界面设计"><a href="#5-3-基于Web的网页控制界面设计" class="headerlink" title="5.3 基于Web的网页控制界面设计"></a><span id="5.3">5.3 基于Web的网页控制界面设计</span></h2><h2 id="5-4-本章小结"><a href="#5-4-本章小结" class="headerlink" title="5.4 本章小结"></a>5.4 本章小结</h2><h1 id="6-SLAM算法分析与实践"><a href="#6-SLAM算法分析与实践" class="headerlink" title="6 SLAM算法分析与实践"></a><span id="6">6 SLAM算法分析与实践</span></h1><h2 id="6-1-SLAM概述"><a href="#6-1-SLAM概述" class="headerlink" title="6.1 SLAM概述"></a><span id="6.1">6.1 SLAM概述</span></h2><h2 id="6-2-Gmapping算法实现"><a href="#6-2-Gmapping算法实现" class="headerlink" title="6.2 Gmapping算法实现"></a><span id="6.2">6.2 Gmapping算法实现</span></h2><h2 id="6-3-Cartographer算法实现"><a href="#6-3-Cartographer算法实现" class="headerlink" title="6.3 Cartographer算法实现"></a><span id="6.3">6.3 Cartographer算法实现</span></h2><h1 id="7-人体姿态估计系统设计"><a href="#7-人体姿态估计系统设计" class="headerlink" title="7 人体姿态估计系统设计"></a><span id="7">7 人体姿态估计系统设计</span></h1><h2 id="7-1-人体姿态估计概述"><a href="#7-1-人体姿态估计概述" class="headerlink" title="7.1 人体姿态估计概述"></a><span id="7.1">7.1 人体姿态估计概述</span></h2><h2 id="7-2-自适应多视图融合人体姿态估计算法实现"><a href="#7-2-自适应多视图融合人体姿态估计算法实现" class="headerlink" title="7.2 自适应多视图融合人体姿态估计算法实现"></a><span id="7.2">7.2 自适应多视图融合人体姿态估计算法实现</span></h2><h2 id="7-3-本章小结"><a href="#7-3-本章小结" class="headerlink" title="7.3 本章小结"></a>7.3 本章小结</h2><h1 id="8-总结与展望"><a href="#8-总结与展望" class="headerlink" title="8 总结与展望"></a>8 总结与展望</h1><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><h1 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h1><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zhangguixin.com/2021/12/16/ROS/Autobot-%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ROS/" rel="tag">ROS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2021/12/14/hexo/hexo%E7%9A%84%E7%BD%91%E9%A1%B5%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">hexo的网页管理界面</div>
+      </a>
+    
+  </nav>
+
+  
+   
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css">
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '90f8027c09cddcac20ef',
+    clientSecret: 'eeb93148bba6bd7e7c3d6774b9ad26c3fb8da534',
+    repo: 'Blog_comments',
+    owner: 'xin-Dream',
+    admin: ['xin-Dream'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021
+        <i class="ri-heart-fill heart_icon"></i> ZGX
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/badminton.svg" alt="Dream"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories/Linux/ROS">ROS</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories/AI">AI</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories/hexo">hexo</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/Aboutme">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/AliPay.png">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.png">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+ 
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
