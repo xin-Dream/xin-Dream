@@ -124,49 +124,18 @@
 </li>
 </ol>
 <h1 id="三、程序中测试"><a href="#三、程序中测试" class="headerlink" title="三、程序中测试"></a>三、程序中测试</h1><p>回到Clion中修改程序，注意自己添加的内容要放在每个BEGIN和END中，这样在CubeMX中再次生成代码后自己修改的内容不会被覆盖掉。</p>
-<pre><code class="C">// 在main.c中修改修改代码
-
-// 在以下标志中间添加头文件
-/* USER CODE BEGIN Includes */
-
-//测试用的CDC函数在下列函数中有定义
-#include "usbd_cdc_if.h"
-
-/* USER CODE END Includes */
-
-
-// 在main函数中添加以下程序测试
-unsigned char buff[4] = {"hello"};
-
-while (1)
-{
-/* USER CODE END WHILE */    
-
-HAL_Delay(1000);
-CDC_Transmit_FS(buff,4);
-
-/* USER CODE BEGIN 3 */
-}
-</code></pre>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">// 在main.c中修改修改代码</span><br><br><span class="hljs-comment">// 在以下标志中间添加头文件</span><br><span class="hljs-comment">/* USER CODE BEGIN Includes */</span><br><br><span class="hljs-comment">//测试用的CDC函数在下列函数中有定义</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"usbd_cdc_if.h"</span></span><br><br><span class="hljs-comment">/* USER CODE END Includes */</span><br><br><br><span class="hljs-comment">// 在main函数中添加以下程序测试</span><br><span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> buff[<span class="hljs-number">4</span>] = {<span class="hljs-string">"hello"</span>};<br><br><span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>)<br>{<br><span class="hljs-comment">/* USER CODE END WHILE */</span>    <br><br>HAL_Delay(<span class="hljs-number">1000</span>);<br>CDC_Transmit_FS(buff,<span class="hljs-number">4</span>);<br><br><span class="hljs-comment">/* USER CODE BEGIN 3 */</span><br>}<br><br></code></pre></td></tr></tbody></table></figure>
 <p>在前面生成代码后会生成一个USB_DEVICE文件夹，在usbd_cdc_id.c中定义的是CDC信息处理的函数，CDC_Receive_FS、CDC_Transmit_FS、CDC_TransmitCplt_FS等，这都是可自定义的函数代码，需要时可以自己修改。</p>
 <h1 id="四、在Ubuntu-windows中使用串口测试"><a href="#四、在Ubuntu-windows中使用串口测试" class="headerlink" title="四、在Ubuntu/windows中使用串口测试"></a>四、在Ubuntu/windows中使用串口测试</h1><ol>
 <li>Ubuntu</li>
 </ol>
-<pre><code class="bash"># 使用USB线连接stm32与Ubuntu后在终端输入命令
-lsusb
-# 若连接成功，会显示USB的ID号和名称。这里的名称是我们在CubeMX中可以设置的
-# 这些信息我们在以后串口绑定时会用到
-
-# 一个不错的有界面的串口调试工具
-sudo apt install cutecom
-
-# 在cutecom中可以方便的操作，类似于windows中的XCOM，正常情况下可以显示程序中输出的字符串 </code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 使用USB线连接stm32与Ubuntu后在终端输入命令</span><br>lsusb<br><span class="hljs-comment"># 若连接成功，会显示USB的ID号和名称。这里的名称是我们在CubeMX中可以设置的</span><br><span class="hljs-comment"># 这些信息我们在以后串口绑定时会用到</span><br><br><span class="hljs-comment"># 一个不错的有界面的串口调试工具</span><br>sudo apt install cutecom<br><br><span class="hljs-comment"># 在cutecom中可以方便的操作，类似于windows中的XCOM，正常情况下可以显示程序中输出的字符串 </span><br></code></pre></td></tr></tbody></table></figure>
 <ol start="2">
 <li><p>Windows</p>
 <p> 使用XCOM查看</p>
 </li>
 </ol>
- 
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

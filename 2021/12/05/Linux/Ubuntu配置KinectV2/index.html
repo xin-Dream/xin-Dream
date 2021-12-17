@@ -106,35 +106,14 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><a target="_blank" rel="noopener" href="https://github.com/OpenKinect/libfreenect2/blob/master/README.md#linux">libfreenect2</a></p>
-<h1 id="1-下载libfreenect2资源"><a href="#1-下载libfreenect2资源" class="headerlink" title="1 下载libfreenect2资源"></a>1 下载libfreenect2资源</h1><pre><code class="bash">git clone https://github.com/OpenKinect/libfreenect2.git</code></pre>
+<h1 id="1-下载libfreenect2资源"><a href="#1-下载libfreenect2资源" class="headerlink" title="1 下载libfreenect2资源"></a>1 下载libfreenect2资源</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/OpenKinect/libfreenect2.git<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="2-安装opencv"><a href="#2-安装opencv" class="headerlink" title="2 安装opencv"></a>2 安装opencv</h1><a href="/2021/12/05/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/Ubuntu20-04%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85opencv/" title="Ubuntu20-04编译安装opencv">Ubuntu20-04编译安装opencv</a>
 
-<h1 id="3-安装Kinect依赖"><a href="#3-安装Kinect依赖" class="headerlink" title="3 安装Kinect依赖"></a>3 安装Kinect依赖</h1><pre><code class="bash">sudo apt-get install build-essential cmake pkg-config libturbojpeg libjpeg-turbo8-dev mesa-common-de libxrandr-dev libxi-dev 
-sudo apt-get install libglfw3-dev
+<h1 id="3-安装Kinect依赖"><a href="#3-安装Kinect依赖" class="headerlink" title="3 安装Kinect依赖"></a>3 安装Kinect依赖</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install build-essential cmake pkg-config libturbojpeg libjpeg-turbo8-dev mesa-common-de libxrandr-dev libxi-dev <br>sudo apt-get install libglfw3-dev<br><br><span class="hljs-comment"># lisbusb</span><br>sudo apt-get install libusb-1.0-0-dev<br><br><span class="hljs-comment"># TurboJPEG</span><br>sudo apt-get install libturbojpeg0-dev<br><br><span class="hljs-comment"># OpenGL</span><br>sudo apt-get install libgl1-mesa-dev<br>sudo apt-get install libglu1-mesa-dev<br>sudo apt-get install freeglut3-dev<br>sudo apt-get install libglew1.8 libglew-dev<br>sudo apt-get install libgl1-mesa-glx<br>sudo apt-get install libxmu-dev<br><br><span class="hljs-comment"># OpenCl</span><br>sudo apt-get install opencl-headers<br></code></pre></td></tr></tbody></table></figure>
 
-# lisbusb
-sudo apt-get install libusb-1.0-0-dev
+<h1 id="4-编译安装"><a href="#4-编译安装" class="headerlink" title="4 编译安装"></a>4 编译安装</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> libfreenect2<br>mkdir build<br><span class="hljs-built_in">cd</span> build<br>cmake .. -DCMAKE_INSTALL_PREFIX=<span class="hljs-variable">$HOME</span>/freenect2<br>make<br>sudo make install<br></code></pre></td></tr></tbody></table></figure>
 
-# TurboJPEG
-sudo apt-get install libturbojpeg0-dev
-
-# OpenGL
-sudo apt-get install libgl1-mesa-dev
-sudo apt-get install libglu1-mesa-dev
-sudo apt-get install freeglut3-dev
-sudo apt-get install libglew1.8 libglew-dev
-sudo apt-get install libgl1-mesa-glx
-sudo apt-get install libxmu-dev
-
-# OpenCl
-sudo apt-get install opencl-headers</code></pre>
-<h1 id="4-编译安装"><a href="#4-编译安装" class="headerlink" title="4 编译安装"></a>4 编译安装</h1><pre><code class="bash">cd libfreenect2
-mkdir build
-cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/freenect2
-make
-sudo make install</code></pre>
-<h1 id="5-添加USB文件"><a href="#5-添加USB文件" class="headerlink" title="5 添加USB文件"></a>5 添加USB文件</h1><pre><code class="bash">sudo cp libfreenect2/platform/linux/udev/90-kinect2.rules /etc/udev/rules.d/</code></pre>
+<h1 id="5-添加USB文件"><a href="#5-添加USB文件" class="headerlink" title="5 添加USB文件"></a>5 添加USB文件</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo cp libfreenect2/platform/linux/udev/90-kinect2.rules /etc/udev/rules.d/<br></code></pre></td></tr></tbody></table></figure>
 <p>这个文件里表示的是kinect的串口号</p>
 <h1 id="6-安装OpenNI2"><a href="#6-安装OpenNI2" class="headerlink" title="6 安装OpenNI2"></a>6 安装OpenNI2</h1><ol>
 <li><p>下载</p>
@@ -143,36 +122,22 @@ sudo make install</code></pre>
 <li><p>添加变量</p>
 <ol>
 <li><p>在解压目录下执行install.sh</p>
-<pre><code class="bash">sudo ./install.sh</code></pre>
-</li>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ./install.sh<br></code></pre></td></tr></tbody></table></figure></li>
 <li><p>将OpenNIDevEnvironment添加到终端</p>
-<pre><code class="bash">cat OpenNIDevEnvironment &gt;&gt; ~/.zshrc</code></pre>
-</li>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cat OpenNIDevEnvironment &gt;&gt; ~/.zshrc<br></code></pre></td></tr></tbody></table></figure></li>
 </ol>
 </li>
 <li><p>安装</p>
-<pre><code class="bash">cd /OpenNI-Linux-x64-2.2.0.33/OpenNI-Linux-x64-2.2
-sudo cp -r ./Include /usr/include/openni2
-cd Redist/
-sudo cp libOpenNI2.jni.so /usr/lib/
-sudo cp libOpenNI2.so /usr/lib/</code></pre>
-</li>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /OpenNI-Linux-x64-2.2.0.33/OpenNI-Linux-x64-2.2<br>sudo cp -r ./Include /usr/include/openni2<br><span class="hljs-built_in">cd</span> Redist/<br>sudo cp libOpenNI2.jni.so /usr/lib/<br>sudo cp libOpenNI2.so /usr/lib/<br></code></pre></td></tr></tbody></table></figure></li>
 <li><p>检测</p>
-<pre><code class="bash">pkg-config --modversion libopenni2</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pkg-config --modversion libopenni2<br></code></pre></td></tr></tbody></table></figure>
+
+
 </li>
 </ol>
 <h1 id="7-运行"><a href="#7-运行" class="headerlink" title="7 运行"></a>7 运行</h1><p>进入下载的libfreenect2里的build文件夹内，分别运行下述命令，可以分别测试各项能否运行。</p>
-<pre><code># openGL
-./bin/Protonect pl
-
-# OpenCL
-./bin/Protonect cl
-
-# CPU
-./bin/Protonect cpu
-
-./bin/Protonect</code></pre>
- 
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs plain"># openGL<br>./bin/Protonect pl<br><br># OpenCL<br>./bin/Protonect cl<br><br># CPU<br>./bin/Protonect cpu<br><br>./bin/Protonect<br></code></pre></td></tr></tbody></table></figure>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

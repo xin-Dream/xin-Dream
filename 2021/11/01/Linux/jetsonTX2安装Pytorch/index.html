@@ -116,56 +116,17 @@
 </ul>
 </li>
 <li><p>安装依赖</p>
-<pre><code class="bash">sudo apt-get install python3-pip libopenblas-base libopenmpi-dev
-pip3 install Cython</code></pre>
-</li>
+ <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install python3-pip libopenblas-base libopenmpi-dev<br>pip3 install Cython<br></code></pre></td></tr></tbody></table></figure></li>
 <li><p>安装torch</p>
-<pre><code class="bash">pip3 install numpy torch-1.10.0-cp36-cp36m-linux_aarch64.whl</code></pre>
-</li>
-</ol>
-<h1 id="安装torchvision"><a href="#安装torchvision" class="headerlink" title="安装torchvision"></a>安装torchvision</h1><ol>
+ <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip3 install numpy torch-1.10.0-cp36-cp36m-linux_aarch64.whl<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="安装torchvision"><a href="#安装torchvision" class="headerlink" title="安装torchvision"></a>安装torchvision</h1></li>
 <li><p>安装依赖</p>
-<pre><code class="bash">sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev libavcodec-dev libavformat-dev libswscale-dev
-git clone --branch v0.11.1 https://github.com/pytorch/vision torchvision 
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev libavcodec-dev libavformat-dev libswscale-dev<br>git <span class="hljs-built_in">clone</span> --branch v0.11.1 https://github.com/pytorch/vision torchvision <br><br><span class="hljs-comment"># 注意这里的v0.11.1是和tourch有对应关系的</span><br><br> <span class="hljs-comment"># PyTorch v1.0 - torchvision v0.2.2</span><br> <span class="hljs-comment"># PyTorch v1.1 - torchvision v0.3.0</span><br> <span class="hljs-comment"># PyTorch v1.2 - torchvision v0.4.0</span><br> <span class="hljs-comment"># PyTorch v1.3 - torchvision v0.4.2</span><br> <span class="hljs-comment"># PyTorch v1.4 - torchvision v0.5.0</span><br> <span class="hljs-comment"># PyTorch v1.5 - torchvision v0.6.0</span><br> <span class="hljs-comment"># PyTorch v1.6 - torchvision v0.7.0</span><br> <span class="hljs-comment"># PyTorch v1.7 - torchvision v0.8.1</span><br> <span class="hljs-comment"># PyTorch v1.8 - torchvision v0.9.0</span><br> <span class="hljs-comment"># PyTorch v1.9 - torchvision v0.10.0</span><br> <span class="hljs-comment"># PyTorch v1.10 - torchvision v0.11.1</span><br><br> <span class="hljs-built_in">cd</span> torchvision<br> <span class="hljs-built_in">export</span> BUILD_VERSION=0.11.1<br> <span class="hljs-comment"># 这里的版本与上面对应</span><br><br> python3 setup.py install --user<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><br><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torchvision<br><br>print(torch.__version__)<br>print(<span class="hljs-string">'CUDA available: '</span> + <span class="hljs-built_in">str</span>(torch.cuda.is_available()))<br>print(<span class="hljs-string">'cuDNN version: '</span> + <span class="hljs-built_in">str</span>(torch.backends.cudnn.version()))<br>a = torch.cuda.FloatTensor(<span class="hljs-number">2</span>).zero_()<br>print(<span class="hljs-string">'Tensor a = '</span> + <span class="hljs-built_in">str</span>(a))<br>b = torch.randn(<span class="hljs-number">2</span>).cuda()<br>print(<span class="hljs-string">'Tensor b = '</span> + <span class="hljs-built_in">str</span>(b))<br>c = a + b<br>print(<span class="hljs-string">'Tensor c = '</span> + <span class="hljs-built_in">str</span>(c))<br><br>print(torchvision.__version__)<br><br></code></pre></td></tr></tbody></table></figure>
 
-# 注意这里的v0.11.1是和tourch有对应关系的
-
- # PyTorch v1.0 - torchvision v0.2.2
- # PyTorch v1.1 - torchvision v0.3.0
- # PyTorch v1.2 - torchvision v0.4.0
- # PyTorch v1.3 - torchvision v0.4.2
- # PyTorch v1.4 - torchvision v0.5.0
- # PyTorch v1.5 - torchvision v0.6.0
- # PyTorch v1.6 - torchvision v0.7.0
- # PyTorch v1.7 - torchvision v0.8.1
- # PyTorch v1.8 - torchvision v0.9.0
- # PyTorch v1.9 - torchvision v0.10.0
- # PyTorch v1.10 - torchvision v0.11.1
-
- cd torchvision
- export BUILD_VERSION=0.11.1
- # 这里的版本与上面对应
-
- python3 setup.py install --user</code></pre>
 </li>
 </ol>
-<h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><pre><code class="python">
-import torch
-import torchvision
-
-print(torch.__version__)
-print('CUDA available: ' + str(torch.cuda.is_available()))
-print('cuDNN version: ' + str(torch.backends.cudnn.version()))
-a = torch.cuda.FloatTensor(2).zero_()
-print('Tensor a = ' + str(a))
-b = torch.randn(2).cuda()
-print('Tensor b = ' + str(b))
-c = a + b
-print('Tensor c = ' + str(c))
-
-print(torchvision.__version__)
-</code></pre>
- 
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

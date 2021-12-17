@@ -107,10 +107,9 @@
        
   <h1 id="一、-环境简介"><a href="#一、-环境简介" class="headerlink" title="一、 环境简介"></a>一、 环境简介</h1><p>ubuntu18.04LTS 、ROS Melodic Morenia<br>参考：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1zt411G7Vn/?p=5">古月居ROS入门21讲</a><br>    <a target="_blank" rel="noopener" href="http://wiki.ros.org/melodic/Installation/Ubuntu">官方安装教程</a></p>
 <h1 id="二、-安装"><a href="#二、-安装" class="headerlink" title="二、 安装"></a>二、 安装</h1><p>在安装之前，一定保证可从互联网下载中选中以下四个选项。因为后面要添加ros的源<br><img src="https://img-blog.csdnimg.cn/20200601191100505.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="1-添加ros软件源"><a href="#1-添加ros软件源" class="headerlink" title="1. 添加ros软件源"></a>1. 添加ros软件源</h2><pre><code class="bash">sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main " &gt; /etc/apt/sources.list.d/ros-latest.list'</code></pre>
-<h2 id="2-添加秘钥"><a href="#2-添加秘钥" class="headerlink" title="2. 添加秘钥"></a>2. 添加秘钥</h2><pre><code class="bash">sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654</code></pre>
-<h2 id="3-安装ROS"><a href="#3-安装ROS" class="headerlink" title="3. 安装ROS"></a>3. 安装ROS</h2><pre><code class="bash">sudo apt update
-sudo apt install ros-melodic-desktop-full</code></pre>
+<h2 id="1-添加ros软件源"><a href="#1-添加ros软件源" class="headerlink" title="1. 添加ros软件源"></a>1. 添加ros软件源</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo sh -c <span class="hljs-string">'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main " &gt; /etc/apt/sources.list.d/ros-latest.list'</span><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="2-添加秘钥"><a href="#2-添加秘钥" class="headerlink" title="2. 添加秘钥"></a>2. 添加秘钥</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-key adv --keyserver <span class="hljs-string">'hkp://keyserver.ubuntu.com:80'</span> --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="3-安装ROS"><a href="#3-安装ROS" class="headerlink" title="3. 安装ROS"></a>3. 安装ROS</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt update<br>sudo apt install ros-melodic-desktop-full<br></code></pre></td></tr></tbody></table></figure>
 <p>这里第二步可能会出现错误，再更新一次执行就好了</p>
 <h3 id="【2020-12-03】"><a href="#【2020-12-03】" class="headerlink" title="【2020-12-03】"></a>【2020-12-03】</h3><p>第二步安装时可能会有缺少依赖<br>使用<code>sudo aptitude install ros-melodic-desktop-full </code><br>可能第一个方案并不好用，可以换个方案</p>
 <h2 id="4-初始化rosdep"><a href="#4-初始化rosdep" class="headerlink" title="4. 初始化rosdep"></a>4. 初始化rosdep</h2><h3 id="【2021-07-28】最实用方法-离线update"><a href="#【2021-07-28】最实用方法-离线update" class="headerlink" title="【2021-07-28】最实用方法 离线update"></a>【2021-07-28】最实用方法 离线update</h3><ol>
@@ -119,66 +118,29 @@ sudo apt install ros-melodic-desktop-full</code></pre>
 <li><p>修改文件<br><code>sudo vim ~/Downloads/rosdistro/rosdep/sources.list.d/20-default.list</code></p>
 </li>
 </ol>
-<pre><code class="BASH">
-# 将文中内容修改为一下内容，注意路径
-
-# os-specific listings first
-yaml file:///home/dream/Downloads/rosdistro/rosdep/osx-homebrew.yaml osx
-
-# generic
-yaml file:///home/dream/Downloads/rosdistro/rosdep/base.yaml
-yaml file:///home/dream/Downloads/rosdistro/rosdep/python.yaml
-yaml file:///home/dream/Downloads/rosdistro/rosdep/ruby.yaml
-gbpdistro file:///home/dream/Downloads/rosdistro/releases/fuerte.yaml fuerte
-
-# newer distributions (Groovy, Hydro, ...) must not be listed anymore, they are being fetched from the rosdistro index.yaml instead
-</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs BASH"><br><span class="hljs-comment"># 将文中内容修改为一下内容，注意路径</span><br><br><span class="hljs-comment"># os-specific listings first</span><br>yaml file:///home/dream/Downloads/rosdistro/rosdep/osx-homebrew.yaml osx<br><br><span class="hljs-comment"># generic</span><br>yaml file:///home/dream/Downloads/rosdistro/rosdep/base.yaml<br>yaml file:///home/dream/Downloads/rosdistro/rosdep/python.yaml<br>yaml file:///home/dream/Downloads/rosdistro/rosdep/ruby.yaml<br>gbpdistro file:///home/dream/Downloads/rosdistro/releases/fuerte.yaml fuerte<br><br><span class="hljs-comment"># newer distributions (Groovy, Hydro, ...) must not be listed anymore, they are being fetched from the rosdistro index.yaml instead</span><br><br></code></pre></td></tr></tbody></table></figure>
 <ol start="3">
 <li>修改默认url地址</li>
 </ol>
 <p><code>sudo vim /usr/lib/python2.7/dist-packages/rosdep2/sources_list.py</code></p>
 <p>将第72行左右的内容修改为以下内容</p>
-<pre><code class="BASH">
-# default file to download with 'init' command in order to bootstrap
-# rosdep
-DEFAULT_SOURCES_LIST_URL = 'file:///home/dream/Downloads/rosdistro/rosdep/sources.list.d/20-default.list'
-# DEFAULT_SOURCES_LIST_URL = 'https://ghproxy.com/https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/sources.list.d/20-default.list'
-
-# seconds to wait before aborting download of rosdep data
-DOWNLOAD_TIMEOUT = 15.0
-</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs BASH"><br><span class="hljs-comment"># default file to download with 'init' command in order to bootstrap</span><br><span class="hljs-comment"># rosdep</span><br>DEFAULT_SOURCES_LIST_URL = <span class="hljs-string">'file:///home/dream/Downloads/rosdistro/rosdep/sources.list.d/20-default.list'</span><br><span class="hljs-comment"># DEFAULT_SOURCES_LIST_URL = 'https://ghproxy.com/https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/sources.list.d/20-default.list'</span><br><br><span class="hljs-comment"># seconds to wait before aborting download of rosdep data</span><br>DOWNLOAD_TIMEOUT = 15.0<br><br></code></pre></td></tr></tbody></table></figure>
 <ol start="4">
 <li>修改代码</li>
 </ol>
-<pre><code class="BASH">sudo vim /usr/lib/python2.7/dist-packages/rosdep2/rep3.py
-
-# 第39行  注意按自己的路径
-REP3_TARGETS_URL = 'file:///home/dream/Downloads/rosdistro/releases/targets.yaml'
-
---------------------------------------------------------------------------------
-sudo vim /usr/lib/python2.7/dist-packages/rosdistro/__init__.py
-
-# 第68行 注意路径
-DEFAULT_INDEX_URL = 'file:///home/dream/Downloads/rosdistro/index-v4.yaml'
-</code></pre>
-<pre><code class="bash">sudo apt-get install python-rosdep</code></pre>
-<pre><code class="BASH">sudo rosdep init 
-
-rosdep update</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs BASH">sudo vim /usr/lib/python2.7/dist-packages/rosdep2/rep3.py<br><br><span class="hljs-comment"># 第39行  注意按自己的路径</span><br>REP3_TARGETS_URL = <span class="hljs-string">'file:///home/dream/Downloads/rosdistro/releases/targets.yaml'</span><br><br>--------------------------------------------------------------------------------<br>sudo vim /usr/lib/python2.7/dist-packages/rosdistro/__init__.py<br><br><span class="hljs-comment"># 第68行 注意路径</span><br>DEFAULT_INDEX_URL = <span class="hljs-string">'file:///home/dream/Downloads/rosdistro/index-v4.yaml'</span><br><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install python-rosdep<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs BASH">sudo rosdep init <br><br>rosdep update<br></code></pre></td></tr></tbody></table></figure>
 <p>如果需要更新，只需更新下载的文件即可</p>
 <details>
     <summary>内容为以前步骤，除2021-05-30更新方法，均不够稳定，可以不用参考。</summary>
         <li>
-            ```bash
-            sudo rosdep init
-            ```
+            <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo rosdep init<br></code></pre></td></tr></tbody></table></figure>
             这里出了问题
 
 <pre><code>        一开始有找不到rosdep的错误
 
-        ```bash
-        sudo apt-get install python-rosdep
-        ```
+        <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install python-rosdep<br></code></pre></td></tr></tbody></table></figure>
 
         安装完成后，又出现了新错误，如下
         ### ERROR: cannot download default sources list from:
@@ -188,112 +150,48 @@ rosdep update</code></pre>
         解决这个问题，找了一些办法
 
 
-        ```bash
-        sudo apt-get install python-wstool ros-melodic-ros 
-        ```
+        <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install python-wstool ros-melodic-ros <br></code></pre></td></tr></tbody></table></figure>
         并不成功
 
-        ```bash
-        sudo -E rosdep init
-        ```
+        <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo -E rosdep init<br></code></pre></td></tr></tbody></table></figure>
         还是不成功
 
-        ```bash
-        #打开host文件
-        sudo gedit /etc/hosts
-        #在文件末尾添加
-        151.101.84.133 raw.githubusercontent.com
-        ```
+        <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#打开host文件</span><br>sudo gedit /etc/hosts<br><span class="hljs-comment">#在文件末尾添加</span><br>151.101.84.133 raw.githubusercontent.com<br></code></pre></td></tr></tbody></table></figure>
         终于成功了,参考连接[解决办法](https://community.bwbot.org/topic/811/rosdep-init-%E6%88%96%E8%80%85rosdep-update-%E8%BF%9E%E6%8E%A5%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95)
         ### 可用ip发生变化2020-12-03
 
-        ```bash
-        #当前可用ip 2020-06-05
-        151.101.76.133  raw.githubusercontent.com
-        140.82.113.4        github.com
-        185.199.111.153     assets-cdn.github.com
-        199.232.69.194      github.global.ssl.fastly.net
-        #可以先ping一下地址测试
-        ```
-
+        <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#当前可用ip 2020-06-05</span><br>151.101.76.133  raw.githubusercontent.com<br>140.82.113.4        github.com<br>185.199.111.153     assets-cdn.github.com<br>199.232.69.194      github.global.ssl.fastly.net<br><span class="hljs-comment">#可以先ping一下地址测试</span><br></code></pre></td></tr></tbody></table></figure>
         ### 解决init失败方法（2021.05.30）
 
-        ```bash
-        sudo vim /etc/ros/rosdep/sources.list.d/20-default.list
-
-        #复制以下内容，以下内容来自
-        https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/sources.list.d/20-default.list
-
-        # os-specific listings first
-        yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/osx-homebrew.yaml osx
-
-        # generic
-        yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/base.yaml
-        yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/python.yaml
-        yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/ruby.yaml
-        gbpdistro https://raw.githubusercontent.com/ros/rosdistro/master/releases/fuerte.yaml fuerte
-
-        # newer distributions (Groovy, Hydro, ...) must not be listed anymore, they are being fetched from the rosdistro index.yaml instead
-        ```
-
+        <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim /etc/ros/rosdep/sources.list.d/20-default.list<br><br><span class="hljs-comment">#复制以下内容，以下内容来自</span><br>https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/sources.list.d/20-default.list<br><br><span class="hljs-comment"># os-specific listings first</span><br>yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/osx-homebrew.yaml osx<br><br><span class="hljs-comment"># generic</span><br>yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/base.yaml<br>yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/python.yaml<br>yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/ruby.yaml<br>gbpdistro https://raw.githubusercontent.com/ros/rosdistro/master/releases/fuerte.yaml fuerte<br><br><span class="hljs-comment"># newer distributions (Groovy, Hydro, ...) must not be listed anymore, they are being fetched from the rosdistro index.yaml instead</span><br></code></pre></td></tr></tbody></table></figure>
 
         接下来继续安装过程
 
-        ```bash
-        rosdep update
-        ```
+        <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">rosdep update<br></code></pre></td></tr></tbody></table></figure>
         ### 【2020-12-03】
         这里如果出错可能是网络问题，可以试一下手机热点
 
         ### 【2021-05-30】
         可以先测试一下网络延迟，然后将等待时间更改到对应延时，即可解决time out 问题
 
-        ```bash
-        ping raw.githubusercontent.com
-
-        cd /usr/lib/python2.7/dist-packages/rosdep2
-        sudo vim source_list.py
-        sudo vim gbpdistro_support.py
-        sudo vim rep3.py
-
-        #将文件中的DOWNLOAD_TIMEOUT改为相应值超出一部分
-
-        ```
-
+        <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">ping raw.githubusercontent.com<br><br><span class="hljs-built_in">cd</span> /usr/lib/python2.7/dist-packages/rosdep2<br>sudo vim source_list.py<br>sudo vim gbpdistro_support.py<br>sudo vim rep3.py<br><br><span class="hljs-comment">#将文件中的DOWNLOAD_TIMEOUT改为相应值超出一部分</span><br><br></code></pre></td></tr></tbody></table></figure>
         ### 【2021-05-30】
         上一方法主要针对网络较好时，这个是使用https://ghproxy.com的代理加速，目前来看这个方法是最高效的
 
-        ```bash
-        cd /usr/lib/python2.7/dist-packages/
-
-        sudo vim rosdep2/source_list.py
-        #在download_rosdep_data方法中添加  310行
-        url="https://ghproxy.com/"+url
-
-        #在以下文件中的网址前添加“https://ghproxy.com/”
-        /usr/lib/python2.7/dist-packages/rosdep2/gbpdistro_support.py 36行
-        /usr/lib/python2.7/dist-packages/rosdep2/sources_list.py 72行
-        /usr/lib/python2.7/dist-packages/rosdep2/rep3.py    39行
-        /usr/lib/python2.7/dist-packages/rosdistro/__init__.py  68行
-        /usr/lib/python2.7/dist-packages/rosdistro/manifest_provider/github.py 68行 119行
-        ```
-
+        <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /usr/lib/python2.7/dist-packages/<br><br>sudo vim rosdep2/source_list.py<br><span class="hljs-comment">#在download_rosdep_data方法中添加  310行</span><br>url=<span class="hljs-string">"https://ghproxy.com/"</span>+url<br><br><span class="hljs-comment">#在以下文件中的网址前添加“https://ghproxy.com/”</span><br>/usr/lib/python2.7/dist-packages/rosdep2/gbpdistro_support.py 36行<br>/usr/lib/python2.7/dist-packages/rosdep2/sources_list.py 72行<br>/usr/lib/python2.7/dist-packages/rosdep2/rep3.py	39行<br>/usr/lib/python2.7/dist-packages/rosdistro/__init__.py  68行<br>/usr/lib/python2.7/dist-packages/rosdistro/manifest_provider/github.py 68行 119行<br></code></pre></td></tr></tbody></table></figure>
 
     &lt;/li&gt;   </code></pre>
   <!-- <pre><code>title，value，callBack可以缺省</code></pre> -->
 </li></details>
 
 <hr>
-<h2 id="5-设置环境变量"><a href="#5-设置环境变量" class="headerlink" title="5. 设置环境变量"></a>5. 设置环境变量</h2><pre><code class="bash">echo "source /opt/ros/melodic/setup.bash" &gt;&gt; ~/.bashrc
-source ~/.bashrc</code></pre>
+<h2 id="5-设置环境变量"><a href="#5-设置环境变量" class="headerlink" title="5. 设置环境变量"></a>5. 设置环境变量</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">"source /opt/ros/melodic/setup.bash"</span> &gt;&gt; ~/.bashrc<br><span class="hljs-built_in">source</span> ~/.bashrc<br></code></pre></td></tr></tbody></table></figure>
 <p>可以输入ros，按tab键检查是否成功<br><img src="https://img-blog.csdnimg.cn/20200601193246731.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="6-安装rosinstall"><a href="#6-安装rosinstall" class="headerlink" title="6. 安装rosinstall"></a>6. 安装rosinstall</h2><pre><code class="bash">sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential</code></pre>
+<h2 id="6-安装rosinstall"><a href="#6-安装rosinstall" class="headerlink" title="6. 安装rosinstall"></a>6. 安装rosinstall</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="三、-测试"><a href="#三、-测试" class="headerlink" title="三、 测试"></a>三、 测试</h1><p>接下来我们就跑一下小乌龟试试<br>以下三个命令要在三个终端中执行</p>
-<pre><code class="bash">roscore
-rosrun turtlesim turtlesim_node
-rosrun turtlesim turtle_teleop_key</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">roscore<br>rosrun turtlesim turtlesim_node<br>rosrun turtlesim turtle_teleop_key<br></code></pre></td></tr></tbody></table></figure>
 <p>可以看到小乌龟已经跑起来了，安装结束<br><img src="https://img-blog.csdnimg.cn/20200601193831268.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
- 
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

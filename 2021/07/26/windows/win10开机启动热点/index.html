@@ -105,35 +105,11 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="1-在任意位置新建文本文档，复制以下内容，保存后重命名为AutoHostpot-ps1"><a href="#1-在任意位置新建文本文档，复制以下内容，保存后重命名为AutoHostpot-ps1" class="headerlink" title="1. 在任意位置新建文本文档，复制以下内容，保存后重命名为AutoHostpot.ps1"></a>1. 在任意位置新建文本文档，复制以下内容，保存后重命名为AutoHostpot.ps1</h1><pre><code class="BASH">Add-Type -AssemblyName System.Runtime.WindowsRuntime
-$asTaskGeneric = ([System.WindowsRuntimeSystemExtensions].GetMethods() | ? { $_.Name -eq 'AsTask' -and $_.GetParameters().Count -eq 1 -and $_.GetParameters()[0].ParameterType.Name -eq 'IAsyncOperation`1' })[0]
-Function Await($WinRtTask, $ResultType) {
-    $asTask = $asTaskGeneric.MakeGenericMethod($ResultType)
-    $netTask = $asTask.Invoke($null, @($WinRtTask))
-    $netTask.Wait(-1) | Out-Null
-    $netTask.Result
-}
-Function AwaitAction($WinRtAction) {
-    $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | ? { $_.Name -eq 'AsTask' -and $_.GetParameters().Count -eq 1 -and !$_.IsGenericMethod })[0]
-    $netTask = $asTask.Invoke($null, @($WinRtAction))
-    $netTask.Wait(-1) | Out-Null
-}
-
-$connectionProfile = [Windows.Networking.Connectivity.NetworkInformation,Windows.Networking.Connectivity,ContentType=WindowsRuntime]::GetInternetConnectionProfile()
-$tetheringManager = [Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager,Windows.Networking.NetworkOperators,ContentType=WindowsRuntime]::CreateFromConnectionProfile($connectionProfile)
-if ($tetheringManager.TetheringOperationalState -eq 1) 
-{
-    "Hotspot is already On!"
-}
-else{
-    "Hotspot is off! Turning it on"
-    Await ($tetheringManager.StartTetheringAsync()) ([Windows.Networking.NetworkOperators.NetworkOperatorTetheringOperationResult])
-}
-</code></pre>
+  <h1 id="1-在任意位置新建文本文档，复制以下内容，保存后重命名为AutoHostpot-ps1"><a href="#1-在任意位置新建文本文档，复制以下内容，保存后重命名为AutoHostpot-ps1" class="headerlink" title="1. 在任意位置新建文本文档，复制以下内容，保存后重命名为AutoHostpot.ps1"></a>1. 在任意位置新建文本文档，复制以下内容，保存后重命名为AutoHostpot.ps1</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs BASH">Add-Type -AssemblyName System.Runtime.WindowsRuntime<br><span class="hljs-variable">$asTaskGeneric</span> = ([System.WindowsRuntimeSystemExtensions].GetMethods() | ? { <span class="hljs-variable">$_</span>.Name -eq <span class="hljs-string">'AsTask'</span> -and <span class="hljs-variable">$_</span>.GetParameters().Count -eq 1 -and <span class="hljs-variable">$_</span>.GetParameters()[0].ParameterType.Name -eq <span class="hljs-string">'IAsyncOperation`1'</span> })[0]<br>Function Await(<span class="hljs-variable">$WinRtTask</span>, <span class="hljs-variable">$ResultType</span>) {<br>    <span class="hljs-variable">$asTask</span> = <span class="hljs-variable">$asTaskGeneric</span>.MakeGenericMethod(<span class="hljs-variable">$ResultType</span>)<br>    <span class="hljs-variable">$netTask</span> = <span class="hljs-variable">$asTask</span>.Invoke(<span class="hljs-variable">$null</span>, @(<span class="hljs-variable">$WinRtTask</span>))<br>    <span class="hljs-variable">$netTask</span>.Wait(-1) | Out-Null<br>    <span class="hljs-variable">$netTask</span>.Result<br>}<br>Function AwaitAction(<span class="hljs-variable">$WinRtAction</span>) {<br>    <span class="hljs-variable">$asTask</span> = ([System.WindowsRuntimeSystemExtensions].GetMethods() | ? { <span class="hljs-variable">$_</span>.Name -eq <span class="hljs-string">'AsTask'</span> -and <span class="hljs-variable">$_</span>.GetParameters().Count -eq 1 -and !<span class="hljs-variable">$_</span>.IsGenericMethod })[0]<br>    <span class="hljs-variable">$netTask</span> = <span class="hljs-variable">$asTask</span>.Invoke(<span class="hljs-variable">$null</span>, @(<span class="hljs-variable">$WinRtAction</span>))<br>    <span class="hljs-variable">$netTask</span>.Wait(-1) | Out-Null<br>}<br><br><span class="hljs-variable">$connectionProfile</span> = [Windows.Networking.Connectivity.NetworkInformation,Windows.Networking.Connectivity,ContentType=WindowsRuntime]::GetInternetConnectionProfile()<br><span class="hljs-variable">$tetheringManager</span> = [Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager,Windows.Networking.NetworkOperators,ContentType=WindowsRuntime]::CreateFromConnectionProfile(<span class="hljs-variable">$connectionProfile</span>)<br><span class="hljs-keyword">if</span> (<span class="hljs-variable">$tetheringManager</span>.TetheringOperationalState -eq 1) <br>{<br>    <span class="hljs-string">"Hotspot is already On!"</span><br>}<br><span class="hljs-keyword">else</span>{<br>    <span class="hljs-string">"Hotspot is off! Turning it on"</span><br>    Await (<span class="hljs-variable">$tetheringManager</span>.StartTetheringAsync()) ([Windows.Networking.NetworkOperators.NetworkOperatorTetheringOperationResult])<br>}<br><br></code></pre></td></tr></tbody></table></figure>
 <p>要测试代码是否有效，可修改文件名后执行测试一下</p>
-<h1 id="2-使用powershell-管理员-，执行以下内容，在弹出选项中输入a"><a href="#2-使用powershell-管理员-，执行以下内容，在弹出选项中输入a" class="headerlink" title="2. 使用powershell(管理员)，执行以下内容，在弹出选项中输入a"></a>2. 使用powershell(管理员)，执行以下内容，在弹出选项中输入a</h1><pre><code class="BASH">set-executionpolicy remotesigned</code></pre>
+<h1 id="2-使用powershell-管理员-，执行以下内容，在弹出选项中输入a"><a href="#2-使用powershell-管理员-，执行以下内容，在弹出选项中输入a" class="headerlink" title="2. 使用powershell(管理员)，执行以下内容，在弹出选项中输入a"></a>2. 使用powershell(管理员)，执行以下内容，在弹出选项中输入a</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs BASH">set-executionpolicy remotesigned<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="3-使用win-R，输入shell-startup，打开启动文件夹"><a href="#3-使用win-R，输入shell-startup，打开启动文件夹" class="headerlink" title="3. 使用win+R，输入shell:startup，打开启动文件夹"></a>3. 使用win+R，输入shell:startup，打开启动文件夹</h1><p>新建快捷方式，选中第一步新建的AutoHostpot.ps1文件</p>
- 
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

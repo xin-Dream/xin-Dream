@@ -113,8 +113,8 @@
 </ul>
 </li>
 <li>验证<ul>
-<li>在命令行窗口依次输入以下命令<pre><code class="bash">node -v
-npm -v</code></pre>
+<li>在命令行窗口依次输入以下命令<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">node -v<br>npm -v<br></code></pre></td></tr></tbody></table></figure>
+
 </li>
 </ul>
 </li>
@@ -127,78 +127,44 @@ npm -v</code></pre>
 <blockquote>
 <h2 id="新建Repository"><a href="#新建Repository" class="headerlink" title="新建Repository"></a>新建Repository</h2></blockquote>
 <ol>
-<li>注意Repository的名字需要与github名称一致<pre><code class="bash">用户名.github.io</code></pre>
-</li>
+<li>注意Repository的名字需要与github名称一致<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">用户名.github.io<br></code></pre></td></tr></tbody></table></figure></li>
 <li>创建完成后，就可以在https://用户名.github.io访问到你的repository</li>
 </ol>
 <blockquote>
 <h2 id="本地安装hexo"><a href="#本地安装hexo" class="headerlink" title="本地安装hexo"></a>本地安装hexo</h2></blockquote>
 <ol>
-<li><p>在资料盘的位置新建一个hexo文件夹，使用Git bash或cmd打开该文件夹</p>
-</li>
-<li><p>执行以下命令</p>
-<pre><code class="bash">npm install -g hexo-cli</code></pre>
+<li>在资料盘的位置新建一个hexo文件夹，使用Git bash或cmd打开该文件夹</li>
+<li>执行以下命令 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install -g hexo-cli<br></code></pre></td></tr></tbody></table></figure>
 <ul>
 <li>有可能速度会很慢</li>
-<li>可以先执行以下命令<pre><code class="bash"># 使用国内镜像
-npm install -gd express --registry=http://registry.npm.taobao.org
-# 永久设置镜像地址
-npm config set registry http://registry.npm.taobao.org</code></pre>
-</li>
+<li>可以先执行以下命令<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 使用国内镜像</span><br>npm install -gd express --registry=http://registry.npm.taobao.org<br><span class="hljs-comment"># 永久设置镜像地址</span><br>npm config <span class="hljs-built_in">set</span> registry http://registry.npm.taobao.org<br></code></pre></td></tr></tbody></table></figure></li>
 </ul>
 </li>
-<li><p>hexo初始化及静态页面显示</p>
-<pre><code class="bash">#先执行以下命令
-hexo init    # 初始化
-npm install  # 安装组件
-</code></pre>
+<li>hexo初始化及静态页面显示<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#先执行以下命令</span><br>hexo init    <span class="hljs-comment"># 初始化</span><br>npm install  <span class="hljs-comment"># 安装组件</span><br><br>hexo g <span class="hljs-comment"># 生成静态页面</span><br>hexo s <span class="hljs-comment"># 开启本地服务器</span><br><span class="hljs-comment"># 开启服务器后，在浏览器输入localhost:4000</span><br><span class="hljs-comment"># 即可访问hexo默认页面</span><br><span class="hljs-comment"># ctrl+C 停止服务器</span><br></code></pre></td></tr></tbody></table></figure>
+
 </li>
 </ol>
-<p>hexo g # 生成静态页面<br>hexo s # 开启本地服务器</p>
-<h1 id="开启服务器后，在浏览器输入localhost-4000"><a href="#开启服务器后，在浏览器输入localhost-4000" class="headerlink" title="开启服务器后，在浏览器输入localhost:4000"></a>开启服务器后，在浏览器输入localhost:4000</h1><h1 id="即可访问hexo默认页面"><a href="#即可访问hexo默认页面" class="headerlink" title="即可访问hexo默认页面"></a>即可访问hexo默认页面</h1><h1 id="ctrl-C-停止服务器"><a href="#ctrl-C-停止服务器" class="headerlink" title="ctrl+C 停止服务器"></a>ctrl+C 停止服务器</h1><pre><code>
-
-&gt; ## 生成第一篇博客并部署到github  
-
-1. 修改配置  
-```bash
-#在blog文件夹内打开_config.yml，在文件末尾添加如下内容
-
-deploy:
-  type: 'git'
-  repo: 
-    github: git@github.com:用户名/用户名.git # 这里的地址是github里新建的repository的ssh链接
-  branch: master
+<blockquote>
+<h2 id="生成第一篇博客并部署到github"><a href="#生成第一篇博客并部署到github" class="headerlink" title="生成第一篇博客并部署到github"></a>生成第一篇博客并部署到github</h2></blockquote>
+<ol>
+<li>修改配置  <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#在blog文件夹内打开_config.yml，在文件末尾添加如下内容</span><br><br>deploy:<br>  <span class="hljs-built_in">type</span>: <span class="hljs-string">'git'</span><br>  repo: <br>    github: git@github.com:用户名/用户名.git <span class="hljs-comment"># 这里的地址是github里新建的repository的ssh链接</span><br>  branch: master<br><br><br>  <span class="hljs-comment">#请区分好_config.yml文件，这里是整个博客的配置文件，后续的主题设置中还有一个主题的_config.yml文件</span><br></code></pre></td></tr></tbody></table></figure>
 
 
-  #请区分好_config.yml文件，这里是整个博客的配置文件，后续的主题设置中还有一个主题的_config.yml文件</code></pre>
+</li>
+</ol>
 <ol start="2">
-<li>安装Git部署插件<pre><code class="bash">npm install hexo-deployer-git --save</code></pre>
-</li>
-<li>在cmd或Git bash中打开上一步生成的blog文件夹，创建第一篇博客<pre><code class="bash">hexo new "第一篇博客"
-# 可以看到/blog/source/_posts中生成了“第一篇博客.md”
-# 在该文件中编辑内容，然后执行以下命令
-</code></pre>
+<li>安装Git部署插件<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-deployer-git --save<br></code></pre></td></tr></tbody></table></figure></li>
+<li>在cmd或Git bash中打开上一步生成的blog文件夹，创建第一篇博客<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new <span class="hljs-string">"第一篇博客"</span><br><span class="hljs-comment"># 可以看到/blog/source/_posts中生成了“第一篇博客.md”</span><br><span class="hljs-comment"># 在该文件中编辑内容，然后执行以下命令</span><br><br>hexo clean <span class="hljs-comment"># 清楚缓存以及生成的静态页面，建议每次部署前执行一次</span><br>hexo g     <span class="hljs-comment"># 生成静态页面</span><br>hexo d     <span class="hljs-comment"># 部署至github</span><br><span class="hljs-comment"># 执行完这一步后，等几分钟在进入“用户名.github.io”，就可以看到部署的博客了</span><br><br><span class="hljs-comment"># 为了编辑博客的内容和排版，我们在部署前可以先在本地预览</span><br>hexo s    <span class="hljs-comment"># 开启本地服务器</span><br><span class="hljs-comment"># 在浏览器中输入"localhost:4000"</span><br><span class="hljs-comment">#每次编辑完.md文件，刷新一下本机页面即可看到编辑的内容</span><br></code></pre></td></tr></tbody></table></figure>
+
 </li>
 </ol>
-<p>hexo clean # 清楚缓存以及生成的静态页面，建议每次部署前执行一次<br>hexo g     # 生成静态页面<br>hexo d     # 部署至github</p>
-<h1 id="执行完这一步后，等几分钟在进入“用户名-github-io”，就可以看到部署的博客了"><a href="#执行完这一步后，等几分钟在进入“用户名-github-io”，就可以看到部署的博客了" class="headerlink" title="执行完这一步后，等几分钟在进入“用户名.github.io”，就可以看到部署的博客了"></a>执行完这一步后，等几分钟在进入“用户名.github.io”，就可以看到部署的博客了</h1><h1 id="为了编辑博客的内容和排版，我们在部署前可以先在本地预览"><a href="#为了编辑博客的内容和排版，我们在部署前可以先在本地预览" class="headerlink" title="为了编辑博客的内容和排版，我们在部署前可以先在本地预览"></a>为了编辑博客的内容和排版，我们在部署前可以先在本地预览</h1><p>hexo s    # 开启本地服务器</p>
-<h1 id="在浏览器中输入”localhost-4000”"><a href="#在浏览器中输入”localhost-4000”" class="headerlink" title="在浏览器中输入”localhost:4000”"></a>在浏览器中输入”localhost:4000”</h1><p>#每次编辑完.md文件，刷新一下本机页面即可看到编辑的内容</p>
-<pre><code>
-
-&gt; ## hexo文件夹目录结构
-```bash
-|--blog
-    |--source        #存放用户资源
-        |--_posts    #存放新建博客的文章内容
-        |--***       #后续新建页面时，会生成单独的文件夹
-    |--public        #网站文件
-    |--themes        #主题文件
-    |--scaffolds     #模板文件夹
-    |--package.json  #应用程序信息</code></pre>
+<blockquote>
+<h2 id="hexo文件夹目录结构"><a href="#hexo文件夹目录结构" class="headerlink" title="hexo文件夹目录结构"></a>hexo文件夹目录结构</h2></blockquote>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">|--blog<br>    |--<span class="hljs-built_in">source</span>        <span class="hljs-comment">#存放用户资源</span><br>        |--_posts    <span class="hljs-comment">#存放新建博客的文章内容</span><br>        |--***       <span class="hljs-comment">#后续新建页面时，会生成单独的文件夹</span><br>    |--public        <span class="hljs-comment">#网站文件</span><br>    |--themes        <span class="hljs-comment">#主题文件</span><br>    |--scaffolds     <span class="hljs-comment">#模板文件夹</span><br>    |--package.json  <span class="hljs-comment">#应用程序信息</span><br></code></pre></td></tr></tbody></table></figure>
 <blockquote>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>本篇博客记录hexo的初次安装过程，后续将继续更新修改主题、博客编辑等文章。如有误差请与我联系。</p>
 </blockquote>
- 
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

@@ -6,7 +6,7 @@
   <link href="http://zhangguixin.com/atom.xml" rel="self"/>
   
   <link href="http://zhangguixin.com/"/>
-  <updated>2021-12-13T12:21:18.357Z</updated>
+  <updated>2021-12-17T13:59:09.460Z</updated>
   <id>http://zhangguixin.com/</id>
   
   <author>
@@ -17,11 +17,93 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Autobot--设计说明书</title>
+    <link href="http://zhangguixin.com/2021/12/16/ROS/Autobot-%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    <id>http://zhangguixin.com/2021/12/16/ROS/Autobot-%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/</id>
+    <published>2021-12-16T12:30:00.000Z</published>
+    <updated>2021-12-17T13:59:09.460Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote class=&quot;pullquote mindmap mindmap-lg&quot;&gt;&lt;ul&gt;
+&lt;li&gt;Autobot机器人&lt;ul&gt;
+&lt;li&gt;基础部分&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#2&quot;&gt;结构设计&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="杂项" scheme="http://zhangguixin.com/categories/%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="ROS" scheme="http://zhangguixin.com/tags/ROS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo的网页管理界面</title>
+    <link href="http://zhangguixin.com/2021/12/14/hexo/hexo%E7%9A%84%E7%BD%91%E9%A1%B5%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2/"/>
+    <id>http://zhangguixin.com/2021/12/14/hexo/hexo%E7%9A%84%E7%BD%91%E9%A1%B5%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2/</id>
+    <published>2021-12-14T15:12:00.000Z</published>
+    <updated>2021-12-17T14:00:28.573Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0-参考&quot;&gt;&lt;a href=&quot;#0-参考&quot; class=&quot;headerlink&quot; title=&quot;0. 参考&quot;&gt;&lt;/a&gt;0. 参考&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="hexo" scheme="http://zhangguixin.com/categories/hexo/"/>
+    
+    
+    <category term="hexo" scheme="http://zhangguixin.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git中子模块的使用</title>
+    <link href="http://zhangguixin.com/2021/12/14/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Git%E4%B8%AD%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://zhangguixin.com/2021/12/14/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Git%E4%B8%AD%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
+    <published>2021-12-14T13:24:00.000Z</published>
+    <updated>2021-12-17T14:00:55.041Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="程序设计" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="git" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git/"/>
+    
+    
+    <category term="Git" scheme="http://zhangguixin.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>cartographer安装与使用</title>
     <link href="http://zhangguixin.com/2021/12/12/ROS/cartographer%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
     <id>http://zhangguixin.com/2021/12/12/ROS/cartographer%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</id>
     <published>2021-12-12T13:47:24.000Z</published>
-    <updated>2021-12-13T12:21:18.357Z</updated>
+    <updated>2021-12-17T12:44:13.843Z</updated>
     
     
       
@@ -40,11 +122,11 @@
   </entry>
   
   <entry>
-    <title>人体姿态识别算法特点概括</title>
+    <title>人体姿态估计论文概括</title>
     <link href="http://zhangguixin.com/2021/12/11/AI/%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E8%AF%86%E5%88%AB%E7%AE%97%E6%B3%95%E7%89%B9%E7%82%B9%E6%A6%82%E6%8B%AC/"/>
     <id>http://zhangguixin.com/2021/12/11/AI/%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E8%AF%86%E5%88%AB%E7%AE%97%E6%B3%95%E7%89%B9%E7%82%B9%E6%A6%82%E6%8B%AC/</id>
     <published>2021-12-11T02:49:16.000Z</published>
-    <updated>2021-12-13T12:51:53.315Z</updated>
+    <updated>2021-12-14T08:22:10.349Z</updated>
     
     
       
@@ -104,7 +186,8 @@
       
         
         
-    <summary type="html">&lt;p&gt;&lt;a</summary>
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.guyuehome.com/35918&quot;&gt;https://www.guyuehome.com/35918&lt;/a&gt;&lt;/p&gt;
+&lt;script type=&quot;text&amp;#x2F;javascript&quot;</summary>
         
       
     
@@ -320,21 +403,6 @@
   </entry>
   
   <entry>
-    <title>桌面工作台计划</title>
-    <link href="http://zhangguixin.com/2021/11/07/%E6%9D%82%E9%A1%B9/%E6%A1%8C%E9%9D%A2%E5%B7%A5%E4%BD%9C%E5%8F%B0%E8%AE%A1%E5%88%92/"/>
-    <id>http://zhangguixin.com/2021/11/07/%E6%9D%82%E9%A1%B9/%E6%A1%8C%E9%9D%A2%E5%B7%A5%E4%BD%9C%E5%8F%B0%E8%AE%A1%E5%88%92/</id>
-    <published>2021-11-07T06:57:16.000Z</published>
-    <updated>2021-11-19T09:09:25.547Z</updated>
-    
-    
-    
-    
-    <category term="杂项" scheme="http://zhangguixin.com/categories/%E6%9D%82%E9%A1%B9/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>hexo博客使用emoji表情</title>
     <link href="http://zhangguixin.com/2021/11/06/hexo/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8emoji%E8%A1%A8%E6%83%85/"/>
     <id>http://zhangguixin.com/2021/11/06/hexo/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8emoji%E8%A1%A8%E6%83%85/</id>
@@ -346,7 +414,7 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;安装插件&quot;&gt;&lt;a href=&quot;#安装插件&quot; class=&quot;headerlink&quot; title=&quot;安装插件&quot;&gt;&lt;/a&gt;安装插件&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;npm install hexo-filter-github-emojis</summary>
+    <summary type="html">&lt;h1 id=&quot;安装插件&quot;&gt;&lt;a href=&quot;#安装插件&quot; class=&quot;headerlink&quot; title=&quot;安装插件&quot;&gt;&lt;/a&gt;安装插件&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
         
       
     
@@ -464,27 +532,6 @@
   </entry>
   
   <entry>
-    <title>毕业设计</title>
-    <link href="http://zhangguixin.com/2021/11/01/%E6%9D%82%E9%A1%B9/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
-    <id>http://zhangguixin.com/2021/11/01/%E6%9D%82%E9%A1%B9/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/</id>
-    <published>2021-11-01T14:37:12.000Z</published>
-    <updated>2021-11-22T09:47:47.389Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>jetsonTX2开启风扇</title>
     <link href="http://zhangguixin.com/2021/11/01/Linux/jetsonTX2%E5%BC%80%E5%90%AF%E9%A3%8E%E6%89%87/"/>
     <id>http://zhangguixin.com/2021/11/01/Linux/jetsonTX2%E5%BC%80%E5%90%AF%E9%A3%8E%E6%89%87/</id>
@@ -496,8 +543,7 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;开启风扇模式&quot;&gt;&lt;a href=&quot;#开启风扇模式&quot; class=&quot;headerlink&quot; title=&quot;开启风扇模式&quot;&gt;&lt;/a&gt;开启风扇模式&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;sudo /usr/bin/jetson_clocks&lt;/code&gt;&lt;/pre&gt;
-&lt;h1</summary>
+    <summary type="html">&lt;h1 id=&quot;开启风扇模式&quot;&gt;&lt;a href=&quot;#开启风扇模式&quot; class=&quot;headerlink&quot; title=&quot;开启风扇模式&quot;&gt;&lt;/a&gt;开启风扇模式&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
         
       
     
@@ -511,35 +557,6 @@
     <category term="ubuntu" scheme="http://zhangguixin.com/tags/ubuntu/"/>
     
     <category term="JetsonTX2" scheme="http://zhangguixin.com/tags/JetsonTX2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jetsonTX2安装Pytorch</title>
-    <link href="http://zhangguixin.com/2021/11/01/Linux/jetsonTX2%E5%AE%89%E8%A3%85Pytorch/"/>
-    <id>http://zhangguixin.com/2021/11/01/Linux/jetsonTX2%E5%AE%89%E8%A3%85Pytorch/</id>
-    <published>2021-11-01T14:36:17.000Z</published>
-    <updated>2021-11-01T15:01:45.934Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Linux" scheme="http://zhangguixin.com/categories/Linux/"/>
-    
-    <category term="ubuntu" scheme="http://zhangguixin.com/categories/Linux/ubuntu/"/>
-    
-    
-    <category term="JetsonTX2" scheme="http://zhangguixin.com/tags/JetsonTX2/"/>
-    
-    <category term="pytorch" scheme="http://zhangguixin.com/tags/pytorch/"/>
     
   </entry>
   

@@ -105,42 +105,15 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="1-安装编译工具"><a href="#1-安装编译工具" class="headerlink" title="1. 安装编译工具"></a>1. 安装编译工具</h1><pre><code class="bash">
-sudo apt-get update
-sudo apt-get install -y python-wstool python-rosdep ninja-build</code></pre>
-<h1 id="2-初始化工作空间"><a href="#2-初始化工作空间" class="headerlink" title="2. 初始化工作空间"></a>2. 初始化工作空间</h1><pre><code class="bash">mkdir cartographer_ws
-cd cartographer_ws
-wstool init src</code></pre>
-<pre><code class="bash">wstool merge -t src https://raw.githubusercontent.com/googlecartographer/cartographer_ros/master/cartographer_ros.rosinstall
-
-#注：需修改
-
-sudo vim cartographer_ws/src/.rosinstall
-
-# 修改为以下内容
-
--git: {local-name: cartographer, uri: 'https://github.com/cartographer-project/cartographer.git', version: 'master'}
-- git: {local-name: cartographer_ros, uri: 'https://github.com/cartographer-project/cartographer_ros.git', version: 'master'}
-- git: {local-name: ceres-solver, uri: 'https://github.com/ceres-solver/ceres-solver.git', version: '1.13.0'}
-</code></pre>
-<pre><code class="bash">wstool update -t src</code></pre>
-<h1 id="3-安装依赖项"><a href="#3-安装依赖项" class="headerlink" title="3. 安装依赖项"></a>3. 安装依赖项</h1><pre><code class="bash">cd cartographer_ws/src/cartographer/scripts/install_proto3.sh
-sudo rosdep init
-rosdep update
-
-rosdep install --from-paths src --ignore-src --rosdistro=${ROS_DISTRO} -y</code></pre>
-<h1 id="4-编译"><a href="#4-编译" class="headerlink" title="4. 编译"></a>4. 编译</h1><pre><code class="bash"># 注：以后文件有改动，都应执行编译
-
-catkin_make_isolated --install --use-ninja</code></pre>
+  <h1 id="1-安装编译工具"><a href="#1-安装编译工具" class="headerlink" title="1. 安装编译工具"></a>1. 安装编译工具</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br>sudo apt-get update<br>sudo apt-get install -y python-wstool python-rosdep ninja-build<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="2-初始化工作空间"><a href="#2-初始化工作空间" class="headerlink" title="2. 初始化工作空间"></a>2. 初始化工作空间</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkdir cartographer_ws<br><span class="hljs-built_in">cd</span> cartographer_ws<br>wstool init src<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">wstool merge -t src https://raw.githubusercontent.com/googlecartographer/cartographer_ros/master/cartographer_ros.rosinstall<br><br><span class="hljs-comment">#注：需修改</span><br><br>sudo vim cartographer_ws/src/.rosinstall<br><br><span class="hljs-comment"># 修改为以下内容</span><br><br>-git: {local-name: cartographer, uri: <span class="hljs-string">'https://github.com/cartographer-project/cartographer.git'</span>, version: <span class="hljs-string">'master'</span>}<br>- git: {local-name: cartographer_ros, uri: <span class="hljs-string">'https://github.com/cartographer-project/cartographer_ros.git'</span>, version: <span class="hljs-string">'master'</span>}<br>- git: {local-name: ceres-solver, uri: <span class="hljs-string">'https://github.com/ceres-solver/ceres-solver.git'</span>, version: <span class="hljs-string">'1.13.0'</span>}<br><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wstool update -t src<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="3-安装依赖项"><a href="#3-安装依赖项" class="headerlink" title="3. 安装依赖项"></a>3. 安装依赖项</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> cartographer_ws/src/cartographer/scripts/install_proto3.sh<br>sudo rosdep init<br>rosdep update<br><br>rosdep install --from-paths src --ignore-src --rosdistro=<span class="hljs-variable">${ROS_DISTRO}</span> -y<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="4-编译"><a href="#4-编译" class="headerlink" title="4. 编译"></a>4. 编译</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 注：以后文件有改动，都应执行编译</span><br><br>catkin_make_isolated --install --use-ninja<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="5-错误修正"><a href="#5-错误修正" class="headerlink" title="5. 错误修正"></a>5. 错误修正</h1><p>编译过程中可能会遇到以下错误</p>
-<pre><code class="bash">Could not find a package configuration file provided by "absl" with any of
-  the following names:
-    abslConfig.cmake
-    absl-config.cmake</code></pre>
-<pre><code class="bash">sudo apt-get install stow
-
-cd cartographer/scripts/install.abseil.sh</code></pre>
- 
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">Could not find a package configuration file provided by <span class="hljs-string">"absl"</span> with any of<br>  the following names:<br>    abslConfig.cmake<br>    absl-config.cmake<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install stow<br><br><span class="hljs-built_in">cd</span> cartographer/scripts/install.abseil.sh<br></code></pre></td></tr></tbody></table></figure><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

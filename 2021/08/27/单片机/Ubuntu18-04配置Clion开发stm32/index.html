@@ -113,15 +113,13 @@
 <li>gcc-arm-none-eabi</li>
 </ol>
 <p><a target="_blank" rel="noopener" href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads">下载地址</a><br>下载后解压到合适位置，并再etc/profile中添加path</p>
-<pre><code class="bash">sudo vim /etc/profile
-
-export PATH=$PATH:/home/dream/gcc-arm-none-eabi-10.3-2021.07/bin</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim /etc/profile<br><br><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/home/dream/gcc-arm-none-eabi-10.3-2021.07/bin<br></code></pre></td></tr></tbody></table></figure>
 <p>注意安装完成后要source一下</p>
 <p>使用<code>sudo apt install gcc-arm-none-eabi</code>也可以，但是后面需要设置他的路径，这个路径不好找。</p>
 <ol start="2">
 <li>openocd</li>
 </ol>
-<pre><code class="bash">sudo apt install openocd</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install openocd<br></code></pre></td></tr></tbody></table></figure>
 <ol start="3">
 <li>Clion</li>
 <li>STM32CubeMX</li>
@@ -138,25 +136,15 @@ export PATH=$PATH:/home/dream/gcc-arm-none-eabi-10.3-2021.07/bin</code></pre>
 <ol start="3">
 <li><p>下载器</p>
 <ul>
-<li><p>自己找个位置新建config文件夹，用于存放不同下载器得cfg文件，新建一个daplink.cfg（这里我用cmsis_dap调试器）</p>
-</li>
-<li><p>在daplink.cfg文件中添加内容</p>
-<pre><code class="bash">source [find interface/cmsis-dap.cfg]
-transport select swd
-
-# 0x10000 = 64K Flash Size
-set FLASH_SIZE=0x160000
-
-source [find target/stm32f4x.cfg]</code></pre>
-</li>
-<li><p>在下载选项中选择Edit configuration,参考下图设置<img src="/images/Ubuntu18-04%E9%85%8D%E7%BD%AEClion%E5%BC%80%E5%8F%91stm32/03.png" alt="03"></p>
-</li>
+<li>自己找个位置新建config文件夹，用于存放不同下载器得cfg文件，新建一个daplink.cfg（这里我用cmsis_dap调试器）</li>
+<li>在daplink.cfg文件中添加内容<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">source</span> [find interface/cmsis-dap.cfg]<br>transport select swd<br>   <br><span class="hljs-comment"># 0x10000 = 64K Flash Size</span><br><span class="hljs-built_in">set</span> FLASH_SIZE=0x160000<br>   <br><span class="hljs-built_in">source</span> [find target/stm32f4x.cfg]<br></code></pre></td></tr></tbody></table></figure></li>
+<li>在下载选项中选择Edit configuration,参考下图设置<img src="/images/Ubuntu18-04%E9%85%8D%E7%BD%AEClion%E5%BC%80%E5%8F%91stm32/03.png" alt="03"></li>
 </ul>
 </li>
 <li><p>编译、下载测试</p>
 </li>
 </ol>
- 
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

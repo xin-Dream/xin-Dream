@@ -115,11 +115,7 @@
 <ol start="2">
 <li>在子系统中添加代理</li>
 </ol>
-<pre><code class="bash">sudo vim ~/.bashrc
-
-export http_proxy=127.0.0.1:7890
-export https_proxy=127.0.0.1:7890
-#此处7890对应上面端口号</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim ~/.bashrc<br><br><span class="hljs-built_in">export</span> http_proxy=127.0.0.1:7890<br><span class="hljs-built_in">export</span> https_proxy=127.0.0.1:7890<br><span class="hljs-comment">#此处7890对应上面端口号</span><br></code></pre></td></tr></tbody></table></figure>
 <p>添加代理后rosdep update 一次通过<br><img src="/images/WSL%E5%AE%89%E8%A3%85ROS-melodic/02.png" alt="02"></p>
 <h1 id="设置可用窗口"><a href="#设置可用窗口" class="headerlink" title="设置可用窗口"></a>设置可用窗口</h1><p>安装完ROS后，使用小海龟测试时在打开窗口时会有错误。请按以下步骤安装Xlaunch，以下步骤可以打开rviz，否则还要改很多。<br><del>目前还没设置好gazebo，后续会设置好会更新。</del><br>内容已修改，gazebo可正常启动</p>
 <ol>
@@ -128,18 +124,7 @@ export https_proxy=127.0.0.1:7890
 <li><p>在wsl中修改配置，修改后务必重启终端</p>
 </li>
 </ol>
-<pre><code class="bash">sudo vim ~/.bashrc
-
-#在末尾添加以下内容
-# export DISPLAY=:0.0
-# export LIBGL_ALWAYS_INDIRECT=
-# export LIBGL_ALWASY_SOFTWARE=1
-
-#修改为以下内容，rviz与gazebo都能正常显示
-export DISPLAY=localhost:0
-
-#wq保存退出后
-source ~/.bashrc</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim ~/.bashrc<br><br><span class="hljs-comment">#在末尾添加以下内容</span><br><span class="hljs-comment"># export DISPLAY=:0.0</span><br><span class="hljs-comment"># export LIBGL_ALWAYS_INDIRECT=</span><br><span class="hljs-comment"># export LIBGL_ALWASY_SOFTWARE=1</span><br><br><span class="hljs-comment">#修改为以下内容，rviz与gazebo都能正常显示</span><br><span class="hljs-built_in">export</span> DISPLAY=localhost:0<br><br><span class="hljs-comment">#wq保存退出后</span><br><span class="hljs-built_in">source</span> ~/.bashrc<br></code></pre></td></tr></tbody></table></figure>
 <ol start="3">
 <li><p>打开XLaunch<br> <img src="/images/WSL%E5%AE%89%E8%A3%85ROS-melodic/03.png" alt="03"></p>
 <p><img src="/images/WSL%E5%AE%89%E8%A3%85ROS-melodic/04.png" alt="04"></p>
@@ -149,7 +134,7 @@ source ~/.bashrc</code></pre>
 </li>
 </ol>
 <p>注. 如果之前安装过Xming，可能会有冲突，卸载掉其中一个就好了</p>
- 
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

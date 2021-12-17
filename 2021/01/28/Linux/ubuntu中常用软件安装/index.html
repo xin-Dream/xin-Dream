@@ -106,85 +106,49 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/bornfree5511/article/details/106470875">ubuntu新系统一次性配置</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/5eb3a1556fb9a0434b73545c#heading-31">写给工程师的ubuntu20.04最佳配置指南</a></p>
-<h1 id="1-分屏终端"><a href="#1-分屏终端" class="headerlink" title="1. 分屏终端"></a>1. 分屏终端</h1><pre><code class="bash">sudo apt-get install terminator</code></pre>
+<h1 id="1-分屏终端"><a href="#1-分屏终端" class="headerlink" title="1. 分屏终端"></a>1. 分屏终端</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install terminator<br></code></pre></td></tr></tbody></table></figure>
 <p>安装完成后要运行一下才能用</p>
-<pre><code class="bash">terminator</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">terminator<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="软件配置"><a href="#软件配置" class="headerlink" title="软件配置"></a>软件配置</h2><p>配置文件已上传至github，按以下步骤下载并替换即可<br><a target="_blank" rel="noopener" href="https://github.com/xin-Dream/ubuntu_files">配置文件下载</a></p>
 <h1 id="2-网易云音乐"><a href="#2-网易云音乐" class="headerlink" title="2. 网易云音乐"></a>2. 网易云音乐</h1><p>首先下载网易云音乐安装包</p>
-<pre><code class="bash">wget http://d1.music.126.net/dmusic/netease-cloud-music_1.1.0_amd64_ubuntu.deb</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget http://d1.music.126.net/dmusic/netease-cloud-music_1.1.0_amd64_ubuntu.deb<br></code></pre></td></tr></tbody></table></figure>
 <p>开始安装</p>
-<pre><code class="bash">sudo dpkg -i netease-cloud-music_1.1.0_amd64_ubuntu.deb
-#如果有错误
-sudo apt-get -f install</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo dpkg -i netease-cloud-music_1.1.0_amd64_ubuntu.deb<br><span class="hljs-comment">#如果有错误</span><br>sudo apt-get -f install<br></code></pre></td></tr></tbody></table></figure>
 <p>新版软件一切正常<br><del>安装完成后启动时发现打不开</del><br>终端输入</p>
-<pre><code class="bash">netease-cloud-music</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">netease-cloud-music<br></code></pre></td></tr></tbody></table></figure>
 <p>如果是出现</p>
-<pre><code class="bash">Failed to load module "canberra-gtk-module"
-
-#解决
-sudo apt-get install libcanberra-gtk</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">Failed to load module <span class="hljs-string">"canberra-gtk-module"</span><br><br><span class="hljs-comment">#解决</span><br>sudo apt-get install libcanberra-gtk<br></code></pre></td></tr></tbody></table></figure>
 <p><del>再次打开，可能还不行，只能后台打开，我也不知道为什么</del></p>
-<pre><code class="bash">sudo netease-cloud-music </code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo netease-cloud-music <br></code></pre></td></tr></tbody></table></figure>
 <h1 id="3-vscode"><a href="#3-vscode" class="headerlink" title="3. vscode"></a>3. vscode</h1><p>官网下载deb包</p>
-<pre><code class="bash">https://code.visualstudio.com/docs/?dv=linux64_deb
-
-sudo dpkg -i code_1.45.1-1589445302_amd64.deb</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">https://code.visualstudio.com/docs/?dv=linux64_deb<br><br>sudo dpkg -i code_1.45.1-1589445302_amd64.deb<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="4-QQ-微信-TIM"><a href="#4-QQ-微信-TIM" class="headerlink" title="4. QQ/微信/TIM"></a>4. QQ/微信/TIM</h1><p><del><a target="_blank" rel="noopener" href="https://im.qq.com/linuxqq/download.html">Linux版QQ下载地址</a><br>下载完成后</del> </p>
-<pre><code class="bash">#sudo dpkg -i linuxqq_1.0.1-b1-100_armhf.deb</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#sudo dpkg -i linuxqq_1.0.1-b1-100_armhf.deb</span><br></code></pre></td></tr></tbody></table></figure>
 <p>以上方式安装的qq太老了，最后决定先安装wine，在安装qq</p>
 <p>安装deepin-wine-for-ubuntu</p>
-<pre><code class="bash">git clone https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git
-cd deepin-wine-for-ubuntu
-sudo ./install.sh</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git<br><span class="hljs-built_in">cd</span> deepin-wine-for-ubuntu<br>sudo ./install.sh<br></code></pre></td></tr></tbody></table></figure>
 <p>下载地址：<br><a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.wechat/">微信</a><br><a target="_blank" rel="noopener" href="https://packages.deepin.com/deepin/pool/non-free/d/deepin.com.qq.office/">TIM</a></p>
 <h3 id="微信安装完成的问题"><a href="#微信安装完成的问题" class="headerlink" title="微信安装完成的问题"></a>微信安装完成的问题</h3><p>微信成功登录以后，中间会有一个小黑方块，据说是由于表情包弹窗引起的，没找到永久消除的办法<br>在任意一个聊天框输入一个表情，就可以消除黑方块</p>
 <h1 id="5-安装Microsoft-Edge浏览器"><a href="#5-安装Microsoft-Edge浏览器" class="headerlink" title="5. 安装Microsoft Edge浏览器"></a>5. 安装Microsoft Edge浏览器</h1><p><a target="_blank" rel="noopener" href="https://www.microsoftedgeinsider.com/zh-cn/download/?platform=linux">官方链接</a></p>
-<pre><code class="bash">## Setup
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor &gt; microsoft.gpg
-sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" &gt; /etc/apt/sources.list.d/microsoft-edge-dev.list'
-sudo rm microsoft.gpg
-## Install
-sudo apt update
-sudo apt install microsoft-edge-dev</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">## Setup</span><br>curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor &gt; microsoft.gpg<br>sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/<br>sudo sh -c <span class="hljs-string">'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" &gt; /etc/apt/sources.list.d/microsoft-edge-dev.list'</span><br>sudo rm microsoft.gpg<br><span class="hljs-comment">## Install</span><br>sudo apt update<br>sudo apt install microsoft-edge-dev<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="6-Barrier"><a href="#6-Barrier" class="headerlink" title="6. Barrier"></a>6. Barrier</h1><a href="#">Post not found: windows/多机共享键鼠软件Barrier.md</a>
 
 <h1 id="7-zsh-amp-Oh-my-zsh"><a href="#7-zsh-amp-Oh-my-zsh" class="headerlink" title="7. zsh &amp; Oh my zsh"></a>7. zsh &amp; Oh my zsh</h1><a href="#">Post not found: Linux/ubuntu安装zsh.md</a>
 
-<h1 id="8-clash"><a href="#8-clash" class="headerlink" title="8. clash"></a>8. clash</h1><pre><code class="bash"> cd Downloads
- mkdir clash
- cd clash
+<h1 id="8-clash"><a href="#8-clash" class="headerlink" title="8. clash"></a>8. clash</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> Downloads<br>mkdir clash<br><span class="hljs-built_in">cd</span> clash<br><br><span class="hljs-comment">#下载并解压linux-amd64</span><br>https://github.com/Dreamacro/clash/releases<br><br><span class="hljs-comment">#重命名为clash</span><br>chmod +x clash<br><br><span class="hljs-comment"># 先执行一次</span><br>./clash -d .<br><span class="hljs-comment"># 注意这里一定执行-d ，否则不能成功，权限不够加sudo</span><br><br><span class="hljs-comment"># 在官网获取配置文件config.yml</span><br><br>cp ~/Downloads/clash/config.yml ~/.config/clash<br><span class="hljs-built_in">cd</span> ~/.config/clash<br>mv config.yml config.yaml<br><br><span class="hljs-comment"># 重新运行 ./clash -d . 即可</span><br></code></pre></td></tr></tbody></table></figure>
+<h1 id="9-输入法安装"><a href="#9-输入法安装" class="headerlink" title="9. 输入法安装"></a>9. 输入法安装</h1><h2 id="1-谷歌拼音"><a href="#1-谷歌拼音" class="headerlink" title="1. 谷歌拼音"></a>1. 谷歌拼音</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install fcitx-googlepinyin<br><br><span class="hljs-comment">#安装完成后，在区域与语言中添加googlepinyin即可</span><br></code></pre></td></tr></tbody></table></figure>
 
- #下载并解压linux-amd64
- https://github.com/Dreamacro/clash/releases
 
- #重命名为clash
- chmod +x clash
-
- # 先执行一次
- ./clash -d .
- # 注意这里一定执行-d ，否则不能成功，权限不够加sudo
-
- # 在官网获取配置文件config.yml
-
- cp ~/Downloads/clash/config.yml ~/.config/clash
- cd ~/.config/clash
- mv config.yml config.yaml
-
- # 重新运行 ./clash -d . 即可</code></pre>
-<h1 id="9-输入法安装"><a href="#9-输入法安装" class="headerlink" title="9. 输入法安装"></a>9. 输入法安装</h1><h2 id="1-谷歌拼音"><a href="#1-谷歌拼音" class="headerlink" title="1. 谷歌拼音"></a>1. 谷歌拼音</h2><pre><code class="bash">sudo apt-get install fcitx-googlepinyin
-
-#安装完成后，在区域与语言中添加googlepinyin即可</code></pre>
 <hr>
 <p>安装WiFi还是需要百度的，所以先安装搜狗输入法<br>首先安装Fcitx输入框架</p>
-<pre><code class="bash">sudo apt install fcitx</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install fcitx<br></code></pre></td></tr></tbody></table></figure>
 <p><a target="_blank" rel="noopener" href="https://pinyin.sogou.com/linux/?r=pinyin">搜狗输入法Linux</a></p>
 <p>安装完成后就是对输入法的设置</p>
 <p> 设置–&gt;区域和语言–&gt;管理已安装的语言–&gt;键盘输入法系统<br> 选择刚才安装的Fcitx框架–&gt;应用到整个系统</p>
 <p> 然后要重启一下<br>再打开右上角有个小键盘，里面有配置当前输入法，<del>将搜狗输入法上移到第一位，就可以了</del> </p>
 <p>这里有点问题，如果搜狗输入法在第一位，中英文切换的时候，输入法里会有一些乱码。所以这里将键盘-汉语移到最上面，如图<br><img src="https://img-blog.csdnimg.cn/20200602130238639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h1 id="10-Jetbrains系列"><a href="#10-Jetbrains系列" class="headerlink" title="10.Jetbrains系列"></a><a target="_blank" rel="noopener" href="https://www.jetbrains.com/products/#type=ide">10.Jetbrains系列</a></h1><h1 id="11-百度网盘"><a href="#11-百度网盘" class="headerlink" title="11. 百度网盘"></a><a target="_blank" rel="noopener" href="https://pan.baidu.com/download">11. 百度网盘</a></h1><h1 id="12-全球学术快报"><a href="#12-全球学术快报" class="headerlink" title="12. 全球学术快报"></a><a target="_blank" rel="noopener" href="http://cajviewer.cnki.net/download.html">12. 全球学术快报</a></h1><h1 id="13-串口调试软件"><a href="#13-串口调试软件" class="headerlink" title="13. 串口调试软件"></a>13. 串口调试软件</h1><p>cutecom：<code>sudo apt-get install cutecom</code></p>
-<h1 id="14-STM32CubeMX"><a href="#14-STM32CubeMX" class="headerlink" title="14. STM32CubeMX"></a><a target="_blank" rel="noopener" href="https://www.st.com/en/development-tools/stm32cubemx.html">14. STM32CubeMX</a></h1> 
+<h1 id="14-STM32CubeMX"><a href="#14-STM32CubeMX" class="headerlink" title="14. STM32CubeMX"></a><a target="_blank" rel="noopener" href="https://www.st.com/en/development-tools/stm32cubemx.html">14. STM32CubeMX</a></h1><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

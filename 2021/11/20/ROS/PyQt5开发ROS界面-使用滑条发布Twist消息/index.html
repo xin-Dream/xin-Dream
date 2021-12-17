@@ -106,20 +106,10 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1 id="1-UI界面设计"><a href="#1-UI界面设计" class="headerlink" title="1 UI界面设计"></a>1 UI界面设计</h1><p>与上文一致，使用QtDesigner配置界面</p>
-<h1 id="2-程序实现"><a href="#2-程序实现" class="headerlink" title="2 程序实现"></a>2 程序实现</h1><pre><code class="python">def __init__(self, parent=None):
-    self.Linear_Slider.valueChanged.connect(lambda : self.SliderPub())
-    self.Angula_Slider.valueChanged.connect(lambda : self.SliderPub())
+<h1 id="2-程序实现"><a href="#2-程序实现" class="headerlink" title="2 程序实现"></a>2 程序实现</h1><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self, parent=<span class="hljs-literal">None</span></span>):</span><br>	self.Linear_Slider.valueChanged.connect(<span class="hljs-keyword">lambda</span> : self.SliderPub())<br>	self.Angula_Slider.valueChanged.connect(<span class="hljs-keyword">lambda</span> : self.SliderPub())<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">SliderPub</span>(<span class="hljs-params">self</span>):</span><br>        linear = self.Linear_Slider.value()<br>        angular = self.Angula_Slider.value()<br><br>        twist = Twist()<br>        twist.linear.x = <span class="hljs-built_in">float</span>(linear)<br>        twist.angular.z = <span class="hljs-built_in">float</span>(angular)<br>        self.publisher.publish(twist)<br></code></pre></td></tr></tbody></table></figure>
 
-def SliderPub(self):
-        linear = self.Linear_Slider.value()
-        angular = self.Angula_Slider.value()
-
-        twist = Twist()
-        twist.linear.x = float(linear)
-        twist.angular.z = float(angular)
-        self.publisher.publish(twist)</code></pre>
 <p><img src="/images/PyQt5%E5%BC%80%E5%8F%91ROS%E7%95%8C%E9%9D%A2-%E4%BD%BF%E7%94%A8%E6%BB%91%E6%9D%A1%E5%8F%91%E5%B8%83Twist%E6%B6%88%E6%81%AF/Untitled-16386757581782.png" alt="Untitled"></p>
- 
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

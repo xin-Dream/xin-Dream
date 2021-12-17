@@ -107,46 +107,15 @@
        
   <h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/52005221">设置主从网络和远程开发环境</a></p>
 <h1 id="一、VNC远程连接"><a href="#一、VNC远程连接" class="headerlink" title="一、VNC远程连接"></a>一、VNC远程连接</h1><p>在JetsonTX2刷机后，系统中有README-vnc.txt文件，有详细的说明，本文在此总结</p>
-<h2 id="1-安装VNC-Server"><a href="#1-安装VNC-Server" class="headerlink" title="1.安装VNC Server"></a>1.安装VNC Server</h2><pre><code class="bash">sudo apt update
-sudo apt install vino</code></pre>
-<h2 id="2-配置VNC-Server"><a href="#2-配置VNC-Server" class="headerlink" title="2.配置VNC Server"></a>2.配置VNC Server</h2><pre><code class="bash">#设置自启动
-mkdir -p ~/.config/autostart
-cp /usr/share/applications/vino-server.desktop ~/.config/autostart
-
-#配置VNC Server
-gsettings set org.gnome.Vino prompt-enabled false
-gsettings set org.gnome.Vino require-encryption false
-
-#设置VNC密码 thepassword即为密码
-gsettings set org.gnome.Vino authentication-methods "['vnc']"
-gsettings set org.gnome.Vino vnc-password $(echo -n 'thepassword'|base64)
-
-#重启
-sudo reboot
-
-#重启后即可在Windows中用vnc viewer连接</code></pre>
+<h2 id="1-安装VNC-Server"><a href="#1-安装VNC-Server" class="headerlink" title="1.安装VNC Server"></a>1.安装VNC Server</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt update<br>sudo apt install vino<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="2-配置VNC-Server"><a href="#2-配置VNC-Server" class="headerlink" title="2.配置VNC Server"></a>2.配置VNC Server</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#设置自启动</span><br>mkdir -p ~/.config/autostart<br>cp /usr/share/applications/vino-server.desktop ~/.config/autostart<br><br><span class="hljs-comment">#配置VNC Server</span><br>gsettings <span class="hljs-built_in">set</span> org.gnome.Vino prompt-enabled <span class="hljs-literal">false</span><br>gsettings <span class="hljs-built_in">set</span> org.gnome.Vino require-encryption <span class="hljs-literal">false</span><br><br><span class="hljs-comment">#设置VNC密码 thepassword即为密码</span><br>gsettings <span class="hljs-built_in">set</span> org.gnome.Vino authentication-methods <span class="hljs-string">"['vnc']"</span><br>gsettings <span class="hljs-built_in">set</span> org.gnome.Vino vnc-password $(<span class="hljs-built_in">echo</span> -n <span class="hljs-string">'thepassword'</span>|base64)<br><br><span class="hljs-comment">#重启</span><br>sudo reboot<br><br><span class="hljs-comment">#重启后即可在Windows中用vnc viewer连接</span><br></code></pre></td></tr></tbody></table></figure>
 <h1 id="二、ssh连接"><a href="#二、ssh连接" class="headerlink" title="二、ssh连接"></a>二、ssh连接</h1><p>ssh连接本来计划是在Windows中通过xshell实现，但是最近看到一篇文章，发现可以在两个ubuntu系统中通过ROS组网实现互相布置工作空间（大概了解，后续将继续学习）。所以计划使用虚拟机中的ubuntu实现ssh连接。<br>在ubuntu中可以直接在终端执行，而不必找类似Xshell的工具。<br>我还比较好奇Windows中的WSL能否实现ROS组网，后续将继续学习。</p>
 <p>言归正传。</p>
 <h2 id="1-连接同一局域网"><a href="#1-连接同一局域网" class="headerlink" title="1.连接同一局域网"></a>1.连接同一局域网</h2><p>使用ssh连接时，需保证两机器在同一局域网中，所以应先保证虚拟机连接到外部局域网。在本文中写这个过程难免有些冗杂，如果是使用Linux主机或双系统的根本用不到。<br>虚拟机连接局域网可看这篇文章</p>
 <h2 id="2-配置SSH公钥"><a href="#2-配置SSH公钥" class="headerlink" title="2.配置SSH公钥"></a>2.配置SSH公钥</h2><p>在连入同一局域网后，我们可以先用密码测试一下</p>
-<pre><code class="bash">#在虚拟机或PC的ubuntu中执行
-ssh 主机名@主机地址
-#后面会输入密码，若成功则表示不缺少组件，否则请根据提示安装相关组件
-#一般缺少openssh-server
-sudo apt install openssh-server</code></pre>
-<pre><code class="bash">#在虚拟机或PC的ubuntu中执行
-ssh-keygen
-#一路回车，结束后会在~/.ssh目录中生成id_rsa.pub文件
-#通过局域网将密钥分发到JetsonTX2中
-scp ~/.ssh/id_rsa.pub dream@192.168.43.143:/home/dream
-#文中dream为JetsonTX2的主机名，查看主机名可直接在命令行输入hostname</code></pre>
-<pre><code class="bash">#在JetsonTX2中运行，此时可以在虚拟机终端通过ssh连接TX2即可
-ssh dream@192.168.43.143
-cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
-chmod 600 ~/.ssh/authorized_keys
-
-#配置完成后即可实现ssh免密码登陆TX2</code></pre>
- 
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#在虚拟机或PC的ubuntu中执行</span><br>ssh 主机名@主机地址<br><span class="hljs-comment">#后面会输入密码，若成功则表示不缺少组件，否则请根据提示安装相关组件</span><br><span class="hljs-comment">#一般缺少openssh-server</span><br>sudo apt install openssh-server<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#在虚拟机或PC的ubuntu中执行</span><br>ssh-keygen<br><span class="hljs-comment">#一路回车，结束后会在~/.ssh目录中生成id_rsa.pub文件</span><br><span class="hljs-comment">#通过局域网将密钥分发到JetsonTX2中</span><br>scp ~/.ssh/id_rsa.pub dream@192.168.43.143:/home/dream<br><span class="hljs-comment">#文中dream为JetsonTX2的主机名，查看主机名可直接在命令行输入hostname</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#在JetsonTX2中运行，此时可以在虚拟机终端通过ssh连接TX2即可</span><br>ssh dream@192.168.43.143<br>cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys<br>chmod 600 ~/.ssh/authorized_keys<br><br><span class="hljs-comment">#配置完成后即可实现ssh免密码登陆TX2</span><br></code></pre></td></tr></tbody></table></figure><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

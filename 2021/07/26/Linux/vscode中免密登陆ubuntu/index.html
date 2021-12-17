@@ -109,23 +109,17 @@
 <p>对ssh 的公钥私钥怎么使用建议弄清楚，不一定要在windows中生成。</p>
 </blockquote>
 <h1 id="1-在windows中生成ssh秘钥"><a href="#1-在windows中生成ssh秘钥" class="headerlink" title="1. 在windows中生成ssh秘钥"></a>1. 在windows中生成ssh秘钥</h1><p>在cmd中运行以下代码</p>
-<pre><code class="BASH">ssh-keygen -t rsa
-
-# 注意在回车后第一步要确定生成位置和名称，如果ssh秘钥过多的话最好是自己定义清楚名称
-# 记住选择的生成路径，后面要用，一般默认路径，修改名称就可以
-# 比如我设置为id_rsa_windows</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs BASH">ssh-keygen -t rsa<br><br><span class="hljs-comment"># 注意在回车后第一步要确定生成位置和名称，如果ssh秘钥过多的话最好是自己定义清楚名称</span><br><span class="hljs-comment"># 记住选择的生成路径，后面要用，一般默认路径，修改名称就可以</span><br><span class="hljs-comment"># 比如我设置为id_rsa_windows</span><br></code></pre></td></tr></tbody></table></figure>
 <h1 id="2-在ubuntu中添加公钥"><a href="#2-在ubuntu中添加公钥" class="headerlink" title="2. 在ubuntu中添加公钥"></a>2. 在ubuntu中添加公钥</h1><p>在ubuntu中<code>~/.ssh</code>下添加文件id_rsa_windows.pub，将windows中同名文件内容复制进去<br>然后将pub文件内容写入authorized_keys<br><code>cat ~/.ssh/id_rsa_windows.pub &gt;&gt; ~/.ssh/authorized_keys</code></p>
 <p>也可以直接将内容复制到authorized_keys中，但是不建议这样做，当对多台服务器使用时，可能会很混乱</p>
 <h1 id="3-为公钥添加权限"><a href="#3-为公钥添加权限" class="headerlink" title="3. 为公钥添加权限"></a>3. 为公钥添加权限</h1><p>有关权限的解释可以看这篇文章<a href="/2021/07/26/Linux/ubuntu%E4%B8%AD%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%B4%E6%98%8E/" title="ubuntu中权限的说明">ubuntu中权限的说明</a></p>
-<pre><code class="BASH">chmod 600 ~/.ssh/authorized_key</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs BASH">chmod 600 ~/.ssh/authorized_key<br></code></pre></td></tr></tbody></table></figure>
+
 <h1 id="4-在vscode中设置"><a href="#4-在vscode中设置" class="headerlink" title="4. 在vscode中设置"></a>4. 在vscode中设置</h1><p>在vscode中的远程config文件中，按下列格式添加远程服务器</p>
-<pre><code class="BASH">
-Host ASUS
-  HostName 192.168.137.211
-  User dream
-  IdentityFile C:\Users\dream\.ssh\id_rsa_ASUS  # 注意这里的id_rsa_ASUS为私钥
-</code></pre>
- 
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs BASH"><br>Host ASUS<br>  HostName 192.168.137.211<br>  User dream<br>  IdentityFile C:\Users\dream\.ssh\id_rsa_ASUS  <span class="hljs-comment"># 注意这里的id_rsa_ASUS为私钥</span><br><br></code></pre></td></tr></tbody></table></figure>
+
+
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

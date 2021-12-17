@@ -112,12 +112,12 @@
 <h1 id="查看当前网络信道"><a href="#查看当前网络信道" class="headerlink" title="查看当前网络信道"></a>查看当前网络信道</h1><p>可以看到，在5.8GHz下有windows热点的信号，正好与JetsonTX2的可用信道避开。<br>也就是说，如果在JetsonTX2上设置可以连接149信道，就能使用windows的热点了。</p>
 <p><img src="/images/JetsonTX2%E8%BF%9E%E6%8E%A55GWIFI/02.jpg" alt="02"></p>
 <h1 id="修改JetsonTX2的信道"><a href="#修改JetsonTX2的信道" class="headerlink" title="修改JetsonTX2的信道"></a>修改JetsonTX2的信道</h1><p>修改WIFI国家码为支持149以上信道的国家<br><img src="/images/JetsonTX2%E8%BF%9E%E6%8E%A55GWIFI/03.png" alt="03"></p>
-<pre><code class="bash">sudo iw reg set CN</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo iw reg <span class="hljs-built_in">set</span> CN<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="经过以上修改，理论上应该出现149及以上信道，但JetsonTX2中并未出现"><a href="#经过以上修改，理论上应该出现149及以上信道，但JetsonTX2中并未出现" class="headerlink" title="经过以上修改，理论上应该出现149及以上信道，但JetsonTX2中并未出现"></a>经过以上修改，理论上应该出现149及以上信道，但JetsonTX2中并未出现</h1><h1 id="设置windows热点频段"><a href="#设置windows热点频段" class="headerlink" title="设置windows热点频段"></a>设置windows热点频段</h1><p>原来AX200的网卡可设置双频带，这种模式下可以选择热点的频段。<br>在设备管理器中选中网卡属性，设置无线模式为双频带</p>
 <p><img src="/images/JetsonTX2%E8%BF%9E%E6%8E%A55GWIFI/04.png" alt="04"></p>
 <p><img src="/images/JetsonTX2%E8%BF%9E%E6%8E%A55GWIFI/05.png" alt="05"></p>
 <p><img src="/images/JetsonTX2%E8%BF%9E%E6%8E%A55GWIFI/06.png" alt="06"></p>
- 
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

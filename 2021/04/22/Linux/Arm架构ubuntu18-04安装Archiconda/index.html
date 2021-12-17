@@ -108,44 +108,27 @@
   <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在ubuntu中的学习过程，希望有一些单独的隔离环境使用Python，避免互相产生干扰。<br>由于JetsonTX2属于ARM架构，所以不能使用Anaconda。<br><strong>Archiconda</strong>是将conda移植到aarch64平台中的工具，操作和Anaconda类似。</p>
 <h1 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h1><h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1. 下载"></a>1. 下载</h2><p>选择适当的版本下载 <a target="_blank" rel="noopener" href="https://github.com/Archiconda/build-tools/releases">Archiconda下载地址</a></p>
 <h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h2><p>在终端中输入</p>
-<pre><code class="bash">bash ~/Downloads/Archiconda3-0.2.3-Linux-aarch64.sh</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bash ~/Downloads/Archiconda3-0.2.3-Linux-aarch64.sh<br></code></pre></td></tr></tbody></table></figure>
 <p>过程中按问题选择即可，以下为安装成功截图</p>
 <p><img src="/images/Arm%E6%9E%B6%E6%9E%84ubuntu18-04%E5%AE%89%E8%A3%85Archiconda/01.jpg" alt="01"></p>
-<h2 id="3-测试"><a href="#3-测试" class="headerlink" title="3. 测试"></a>3. 测试</h2><pre><code class="bash">conda --version</code></pre>
+<h2 id="3-测试"><a href="#3-测试" class="headerlink" title="3. 测试"></a>3. 测试</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">conda --version<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h1><ol>
 <li>环境操作</li>
 </ol>
-<pre><code class="bash">#创建环境
-conda create --name env_name python=2.7
-conda create --name env_name python=3
-conda create --name env_name python=3.5
-
-conda create --name your_env_name python=3.5 numpy scipy
-
-#列举环境
-conda env list
-
-#进入环境
-activate your_env_name
-
-#退出环境
-deactivate
-
-#删除环境
-conda remove --name your_env_name --all
-
-#复制环境
-conda create --name new_env_name --clone old_env_name </code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#创建环境</span><br>conda create --name env_name python=2.7<br>conda create --name env_name python=3<br>conda create --name env_name python=3.5<br><br>conda create --name your_env_name python=3.5 numpy scipy<br><br><span class="hljs-comment">#列举环境</span><br>conda env list<br><br><span class="hljs-comment">#进入环境</span><br>activate your_env_name<br><br><span class="hljs-comment">#退出环境</span><br>deactivate<br><br><span class="hljs-comment">#删除环境</span><br>conda remove --name your_env_name --all<br><br><span class="hljs-comment">#复制环境</span><br>conda create --name new_env_name --<span class="hljs-built_in">clone</span> old_env_name <br></code></pre></td></tr></tbody></table></figure>
 <ol start="2">
 <li>环境中的包</li>
 </ol>
-<pre><code class="bash">conda list
-#列举某一个环境中的包
-conda list -n your_env_name
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">conda list<br><span class="hljs-comment">#列举某一个环境中的包</span><br>conda list -n your_env_name<br><br><span class="hljs-comment">#为某一个环境安装包</span><br>conda install -n env_name package_name<br></code></pre></td></tr></tbody></table></figure>
 
-#为某一个环境安装包
-conda install -n env_name package_name</code></pre>
- 
+
+
+
+
+
+
+
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

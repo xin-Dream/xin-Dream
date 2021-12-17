@@ -113,8 +113,7 @@
 <li>按照一定的频率循环发布消息</li>
 </ol>
 <p><strong>设置编译规则</strong><br>在CMakeLists.txt中添加</p>
-<pre><code class="bash">add_executable(velocity_publisher src/velocity_publisher.cpp)
-target_link_libraries(velocity_publisher ${catkin_LIBRARIES})</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">add_executable(velocity_publisher src/velocity_publisher.cpp)<br>target_link_libraries(velocity_publisher <span class="hljs-variable">${catkin_LIBRARIES}</span>)<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="subscriber"><a href="#subscriber" class="headerlink" title="subscriber"></a>subscriber</h1><p>代码结构</p>
 <ol>
 <li>初始化ROS节点</li>
@@ -123,40 +122,19 @@ target_link_libraries(velocity_publisher ${catkin_LIBRARIES})</code></pre>
 <li>在回调函数中完成消息处理</li>
 </ol>
 <p> <strong>设置编译规则</strong><br>在CMakeLists.txt中添加</p>
-<pre><code class="bash">add_executable(pose_subscriber src/pose_subscriber.cpp)
-target_link_libraries(pose_subscriber ${catkin_LIBRARIES})</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">add_executable(pose_subscriber src/pose_subscriber.cpp)<br>target_link_libraries(pose_subscriber <span class="hljs-variable">${catkin_LIBRARIES}</span>)<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="话题消息"><a href="#话题消息" class="headerlink" title="话题消息"></a>话题消息</h1><ol>
 <li>定义.msg文件，一些宏定义</li>
 </ol>
-<pre><code class="cpp">string name
-uint8 sex
-uint8 age
-uint8 unknown=0
-uint8 male=1
-uint8 female=2</code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">string</span> name<br>uint8 sex<br>uint8 age<br>uint8 unknown=<span class="hljs-number">0</span><br>uint8 male=<span class="hljs-number">1</span><br>uint8 female=<span class="hljs-number">2</span><br></code></pre></td></tr></tbody></table></figure>
 <ol start="2">
 <li>在package.xml中添加功能包依赖</li>
 </ol>
-<pre><code class="bash">#添加在相应build和exec后面
-&lt;build_depend&gt;message_generation&lt;/build_depend&gt;
-&lt;exec_depend&gt;messade_runtime&lt;/exec_depend&gt;</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#添加在相应build和exec后面</span><br>&lt;build_depend&gt;message_generation&lt;/build_depend&gt;<br>&lt;exec_depend&gt;messade_runtime&lt;/exec_depend&gt;<br></code></pre></td></tr></tbody></table></figure>
 <ol start="3">
 <li>在CMakeLists.txt中添加编译选项</li>
 </ol>
-<pre><code class="bash">find_package{
-    ...
-    message_generation
-}
-
-#添加在Declare ROS messages，services or actions中
-add_message_files(FILES Person.msg)
-generate_messages(DEPENDENCIES std_msgs)
-
-#使能对应依赖
-catkin_package{
-    ...
-    message_runtime
-}</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash">find_package{<br>	...<br>	message_generation<br>}<br><br><span class="hljs-comment">#添加在Declare ROS messages，services or actions中</span><br>add_message_files(FILES Person.msg)<br>generate_messages(DEPENDENCIES std_msgs)<br><br><span class="hljs-comment">#使能对应依赖</span><br>catkin_package{<br>	...<br>	message_runtime<br>}<br></code></pre></td></tr></tbody></table></figure>
 <ol start="4">
 <li><p>代码结构</p>
 <pre><code> 发布者与订阅者的代码与以上两个类似</code></pre>
@@ -164,17 +142,9 @@ catkin_package{
 <li><p>配置CMakeLists.txt中的编译规则</p>
 </li>
 </ol>
-<pre><code class="bash">#发布者
-add_executable(person_publisher src/person_publisher.cpp)
-target_link_libraries(person_publisher ${catkin_LIBRARIES})
-add_dependencies(person_publisher ${PROJECT_NAME}_generate_messages_cpp)
-
-add_executable(person_subscriber src/person_subscriber.cpp)
-target_link_libraries(person_subscriber ${catkin_LIBRARIES})
-add_dependencies(person_subscriber ${PROJECT_NAME}_generate_messages_cpp)
-</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#发布者</span><br>add_executable(person_publisher src/person_publisher.cpp)<br>target_link_libraries(person_publisher <span class="hljs-variable">${catkin_LIBRARIES}</span>)<br>add_dependencies(person_publisher <span class="hljs-variable">${PROJECT_NAME}</span>_generate_messages_cpp)<br><br>add_executable(person_subscriber src/person_subscriber.cpp)<br>target_link_libraries(person_subscriber <span class="hljs-variable">${catkin_LIBRARIES}</span>)<br>add_dependencies(person_subscriber <span class="hljs-variable">${PROJECT_NAME}</span>_generate_messages_cpp)<br><br></code></pre></td></tr></tbody></table></figure>
 <h1 id="client"><a href="#client" class="headerlink" title="client"></a>client</h1><h1 id="server"><a href="#server" class="headerlink" title="server"></a>server</h1><h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://github.com/guyuehome/ros_21_tutorials">古月 ROS21讲</a></p>
- 
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

@@ -109,36 +109,19 @@
 <p>环境简介：<br>现有两个Github账号，比如分别为xinDream、robotcenter<br>在.ssh文件夹下有两份密钥文件，如：id_xindream_rsa、id_robotcenter_rsa</p>
 </blockquote>
 <h1 id="1-修改config文件"><a href="#1-修改config文件" class="headerlink" title="1. 修改config文件"></a>1. 修改config文件</h1><p>在.ssh文件夹内的config文件内添加如下内容：</p>
-<pre><code class="bash">Host github.com
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/id_xindream_rsa
-
-Host robotcenter.github.com
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/id_robotcenter_rsa</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">Host github.com<br>	HostName github.com<br>	User git<br>	IdentityFile ~/.ssh/id_xindream_rsa<br>	<br>Host robotcenter.github.com<br>	HostName github.com<br>	User git<br>	IdentityFile ~/.ssh/id_robotcenter_rsa<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="2-密钥添加ssh-agent"><a href="#2-密钥添加ssh-agent" class="headerlink" title="2. 密钥添加ssh agent"></a>2. 密钥添加ssh agent</h1><p>使用git bash在.ssh文件夹打开后，执行以下命令</p>
-<pre><code class="bash">ssh-agent bash
-ssh-add -D
-ssh-add id_xindream_rsa
-ssh-add id_robotcenter_rsa</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-agent bash<br>ssh-add -D<br>ssh-add id_xindream_rsa<br>ssh-add id_robotcenter_rsa<br></code></pre></td></tr></tbody></table></figure>
 <p>验证配置：</p>
-<pre><code class="bash">ssh -T git@robotcenter.github.com
-ssh -T git@github.com</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -T git@robotcenter.github.com<br>ssh -T git@github.com<br></code></pre></td></tr></tbody></table></figure>
 <p>若出现以下内容，则表示配置正常</p>
-<pre><code>Hi xin-Dream! You've successfully authenticated, but GitHub does not provide shell access.</code></pre>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">Hi xin-Dream! You've successfully authenticated, but GitHub does not provide shell access.<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="3-设置git的局部设置"><a href="#3-设置git的局部设置" class="headerlink" title="3. 设置git的局部设置"></a>3. 设置git的局部设置</h1><p>首先取消git的全局设置</p>
-<pre><code class="bash">git config --global --unset user.name
-git config --global --unset user.email</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global --<span class="hljs-built_in">unset</span> user.name<br>git config --global --<span class="hljs-built_in">unset</span> user.email<br></code></pre></td></tr></tbody></table></figure>
 <p>然后在每个项目文件夹中进行局部设置(有.git文件夹中)</p>
-<pre><code class="bash">git config user.name ""
-git config user.email ""</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config user.name <span class="hljs-string">""</span><br>git config user.email <span class="hljs-string">""</span><br></code></pre></td></tr></tbody></table></figure>
 <h1 id="4-在hexo博客的config文件中设置"><a href="#4-在hexo博客的config文件中设置" class="headerlink" title="4. 在hexo博客的config文件中设置"></a>4. 在hexo博客的config文件中设置</h1><p>在hexo博客中的_config.yml里的最后设置deploy路径，注意，这不是主题中的config文件</p>
-<pre><code class="bash">deploy:
-  type: git
-  repository: git@robotcenter.github.com:robotcenter.github.io.git
-  branch: master</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">deploy:<br>  <span class="hljs-built_in">type</span>: git<br>  repository: git@robotcenter.github.com:robotcenter.github.io.git<br>  branch: master<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>为了方便hexo博客的设备移植，我将hexo博客整体上传到了github的repository。这里需要注意.git的设置。主要有以下两点：</p>
 <h3 id="1-删除主题中的-git或其他相关文件"><a href="#1-删除主题中的-git或其他相关文件" class="headerlink" title="1. 删除主题中的.git或其他相关文件"></a>1. 删除主题中的.git或其他相关文件</h3><p>这是因为下载的主题本就是个repository，重复嵌套上传到Github后可能会出问题，当然上传为链接文件也没啥问题，主要是我不想移植后再去改动。</p>
 <h3 id="2-若将整体上传到respository，需要进行两次局部设置"><a href="#2-若将整体上传到respository，需要进行两次局部设置" class="headerlink" title="2. 若将整体上传到respository，需要进行两次局部设置"></a>2. 若将整体上传到respository，需要进行两次局部设置</h3><ol>
@@ -147,7 +130,7 @@ git config user.email ""</code></pre>
 <li><p>上传整体后，在hexo文件夹内有一个上传源文件的.git文件夹，要对这个进行一次局部设置。</p>
 </li>
 </ol>
- 
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

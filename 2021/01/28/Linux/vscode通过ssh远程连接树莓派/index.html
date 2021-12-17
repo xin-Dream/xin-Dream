@@ -108,18 +108,12 @@
   <h1 id="windows设置"><a href="#windows设置" class="headerlink" title="windows设置"></a>windows设置</h1><p>所有设置–应用–可选功能–安装OpenSSH服务器和OpenSSH客户端<br><img src="https://img-blog.csdnimg.cn/20200513000425414.png" alt="在这里插入图片描述"></p>
 <h1 id="vscode安装插件"><a href="#vscode安装插件" class="headerlink" title="vscode安装插件"></a>vscode安装插件</h1><h2 id="Remote-SSH"><a href="#Remote-SSH" class="headerlink" title="Remote-SSH"></a>Remote-SSH</h2><p>vscode中安装Remote-SSH就会附带安装其他插件<br><img src="https://img-blog.csdnimg.cn/20200513000237919.png" alt="在这里插入图片描述"></p>
 <h1 id="问题解决–过程试图写入的管道不存在"><a href="#问题解决–过程试图写入的管道不存在" class="headerlink" title="问题解决–过程试图写入的管道不存在"></a>问题解决–过程试图写入的管道不存在</h1><h2 id="ssh冲突"><a href="#ssh冲突" class="headerlink" title="ssh冲突"></a>ssh冲突</h2><h3 id="修改环境变量"><a href="#修改环境变量" class="headerlink" title="修改环境变量"></a>修改环境变量</h3><p>如果电脑安装了Git，那么Git的ssh可能会和vscode中的ssh通道冲突。可以在环境变量中删除</p>
-<pre><code class="bash">#原变量
-%SYSTEMROOT%\System32\OpenSSH
-
-#替换成电脑安装git的目录
-D:\Git\usr\bin</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#原变量</span><br>%SYSTEMROOT%\System32\OpenSSH<br><br><span class="hljs-comment">#替换成电脑安装git的目录</span><br>D:\Git\usr\bin<br></code></pre></td></tr></tbody></table></figure>
 <h3 id="修改vscode设置"><a href="#修改vscode设置" class="headerlink" title="修改vscode设置"></a>修改vscode设置</h3><p>或者可以在vscode中修改ssh的路径<br><img src="https://img-blog.csdnimg.cn/20200513000939286.png" alt="在这里插入图片描述"></p>
 <h2 id="修改known-hosts文件"><a href="#修改known-hosts文件" class="headerlink" title="修改known_hosts文件"></a>修改known_hosts文件</h2><p>如果以上步骤后仍然出现 “ 过程试图写入管道不存在 ”，可能是由于Linux主机发生了变化，这时可以在konwn_hosts中删除关于Linux主机的记录内容</p>
-<pre><code class="bash">#文件路径
-C:\User\"用户名"\.ssh
-</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#文件路径</span><br>C:\User\"用户名<span class="hljs-string">"\.ssh</span><br><span class="hljs-string"></span><br></code></pre></td></tr></tbody></table></figure>
 <p>在known_hosts文件中，如果是记事本打开的话，每一行代表一个主机的连接信息，只需要删掉出问题的主机内容，然后在vscode中重新ssh连接就可以了</p>
- 
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

@@ -12,7 +12,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>毕业设计 |  Dream</title>
+      <title>Git中子模块的使用 |  Dream</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/badminton.ico" />
@@ -69,8 +69,8 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-杂项/毕业设计"
-  class="article article-type-post"
+  id="draft-程序设计/Git中子模块的使用"
+  class="article article-type-draft"
   itemscope
   itemprop="blogPost"
   data-scroll-reveal
@@ -80,7 +80,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  毕业设计
+  Git中子模块的使用
 </h1>
  
 
@@ -88,9 +88,13 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2021/11/01/%E6%9D%82%E9%A1%B9/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" class="article-date">
-  <time datetime="2021-11-01T14:37:12.000Z" itemprop="datePublished">2021-11-01</time>
-</a>  
+      <a href="/2021/12/14/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Git%E4%B8%AD%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2021-12-14T13:24:00.000Z" itemprop="datePublished">2021-12-14</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">程序设计</a> / <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git/">git</a>
+  </div>
+ 
     </div>
       
     <div class="tocbot"></div>
@@ -101,198 +105,12 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>毕业设计首先要继续完成对SLAM的实践部分，所以机器人的主要功能要在ROS平台中完成建图与导航的基本功能。开始接触人体行为检测。人体行为检测主要是在深度学习基础上完成对人体骨骼关键节点的检测，判断人的动作与行为。<br>本文会当作毕业设计的草稿。</p>
-</blockquote>
-<h1 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h1><p>机器人操作系统（ROS）、同步定位与地图构建（SLAM）、人体行为检测、深度学习、stm32</p>
-<h1 id="1-结构设计"><a href="#1-结构设计" class="headerlink" title="1 结构设计"></a>1 结构设计</h1><h2 id="1-1-机器人底盘"><a href="#1-1-机器人底盘" class="headerlink" title="1.1 机器人底盘"></a>1.1 机器人底盘</h2><h3 id="1-1-1-论文中的底盘布置方案"><a href="#1-1-1-论文中的底盘布置方案" class="headerlink" title="1.1.1 论文中的底盘布置方案"></a>1.1.1 论文中的底盘布置方案</h3><ol>
-<li><p><a href="zotero://select/library/items/HJD9ZGWW">江, 《巡检机器人底盘结构设计及其振动特性研究》.    </a></p>
-<ol>
-<li><p>履带形式：战车型、普通型、联合型、三角型</p>
-<p><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211111192429984.png" alt="image-20211111192429984"></p>
-</li>
-<li><p>机器人底盘振动对测量影响实验</p>
-<ul>
-<li>巡检机器人底盘振动对激光雷达测距的影响</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p><a href="zotero://select/library/items/HU8FUZKT">高等, 《一种新型零转径轮式机器人底盘设计与仿真》.</a></p>
-<ol>
-<li>摘要中有多种底盘形式介绍</li>
-<li>两套电机系统和轮系差速器实现零半径转型和无侧滑行驶</li>
-<li>人员密集、空间狭小</li>
-</ol>
-<p><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211111195958223.png" alt="image-20211111195958223"></p>
-</li>
-<li><p><a href="zotero://select/library/items/UQNWIBLD">付和胡, 《轮式机器人底盘结构设计与计算》.</a></p>
-<ol>
-<li>类似AGV形式，中间驱动轮，前后从动轮</li>
-<li>有底盘承重扭矩计算</li>
-</ol>
-</li>
-<li><p><a href="zotero://select/library/items/VCCBBN59">高, 《面向巡检应用的全向轮式机器人的运动控制系统设计与实现》.</a></p>
-<ol>
-<li>变电站内巡检</li>
-<li>两轮差速、四轮固定式差速、麦克纳姆轮各自优缺点</li>
-<li>四轴联动控制和防失步控制方式实现以普通轮为架构的全驱全向运动</li>
-<li>山东鲁能、新松、浙江国自三类巡检机器人</li>
-<li><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211111203005319.png" alt="image-20211111203005319"></li>
-<li>四层电路板：信号层+VCC+GND+信号层</li>
-<li>底盘矢量分解</li>
-<li>防失步控制算法：分别以前轮为基准，调整后轮PWM（擂台机器人中若使用四驱可以考虑添加）</li>
-<li>充电方式</li>
-</ol>
-</li>
-<li><p><a href="zotero://select/library/items/4W7US7FC">曾, 《全方位移动机器人底盘设计与运动控制实现》.</a></p>
-<ol>
-<li><p>三个全向轮</p>
-</li>
-<li><p>运动性能分析</p>
-</li>
-<li><p>运动控制</p>
-</li>
-</ol>
-</li>
-<li><p><a href="zotero://select/library/items/K76IVQVY">周, 《基于Mecanum轮的全方位移动机器人研究》.</a></p>
-</li>
-<li><p><a href="zotero://select/library/items/VTQGEAVY">胡, 《四轮独立驱动和转向移动机器人的设计与控制》.</a></p>
-<p><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211113215815642.png" alt="image-20211113215815642"></p>
-</li>
-<li><p><a href="zotero://select/library/items/PMLN5JUK">苏等, 《轮足式机器人机构设计及越障性能分析》.</a></p>
-<ol>
-<li>多轮式轮足</li>
-</ol>
-</li>
-<li><p><a href="zotero://select/library/items/3RGD3WKE">赵, 曹和鞠, 《小型四轮移动机器人驱动电机选型设计计算》.</a></p>
-<ol>
-<li>五寸轮毂电机+直流伺服摆臂电机</li>
-<li>主要是摆臂电机的计算</li>
-</ol>
-</li>
-<li><p><a href="zotero://select/library/items/WN5S6XP8">周等, 《轮足式仿人机器人行走机构设计与仿真分析》.</a></p>
-<ol>
-<li><p>双腿轮足式</p>
-</li>
-<li><iframe src="//player.bilibili.com/player.html?aid=497852089&amp;bvid=BV1fK411V7yZ&amp;cid=181392909&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height="400"> </iframe>
-
-</li>
-</ol>
-<p><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211113215257440.png" alt="image-20211113215257440"></p>
-</li>
-<li><p><a href="zotero://select/library/items/HP8N7QV9">Gonzalez等, 《Dynamics and Aerial Attitude Control for Rapid Emergency Deployment of the Agile Ground Robot AGRO》.</a></p>
-<ol>
-<li><p>四轮全向，与第四篇论文类似</p>
-</li>
-<li><p>四轮在空中当作动量轮</p>
-</li>
-<li><p>四个无刷电机和四个舵机</p>
-</li>
-<li><iframe src="//player.bilibili.com/player.html?aid=287290586&amp;bvid=BV1Vf4y1Q7Wo&amp;cid=240154987&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height="400"> </iframe>
-
-</li>
-</ol>
-<p><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211113142314349.png" alt="image-20211113142314349"></p>
-</li>
-<li><p><a href="zotero://select/library/items/9EBT5P49">宋, 《四轮转向车辆操纵稳定性仿真分析》.</a></p>
-<ol>
-<li>四轮转向特点</li>
-<li>横摆率反馈</li>
-<li>忽略汽车侧倾与俯仰时的四轮转向动力学模型</li>
-<li>Matlab分析结论：保持车辆对操纵反应的灵敏、一致又不过度，在降低驾驶员操纵难度的情况下，改善了车辆在高速时的瞬态操纵稳定性</li>
-<li>可用于写摘要或底盘设计时的引言</li>
-</ol>
-</li>
-<li><p><a href="zotero://select/library/items/XTKJ27I9">屈等, 《基于模糊算法的四轮线控转向汽车操稳性研究》.</a></p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/381150351">线控转向</a></li>
-<li>模糊转向补偿控制器，在提高快速性的同时能显著降低横摆角速度的超调量，有较强的稳定性</li>
-</ol>
-</li>
-<li><p><a href="zotero://select/library/items/XPNHVB5T">李等, 《基于阿克曼理论的四轮转向汽车转向梯形优化设计》.</a></p>
-<ol>
-<li><p>倒梯形布置时，转向梯形更容易满足传动角关系，误差更小</p>
-<p><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211116200740082.png" alt="image-20211116200740082"></p>
-</li>
-<li><p>正梯形极有可能出现四点，即横拉杆与转向节臂夹角为180°时不能继续转动</p>
-</li>
-</ol>
-</li>
-<li><p><a href="zotero://select/library/items/R4KXVXEH">李, 《轮轂电机驱动电动汽车的四轮转向操纵稳定性分析》.</a></p>
-<ol>
-<li><p>模糊控制策略建立</p>
-</li>
-<li><p>操纵稳定性：前轮转向&lt;四轮转向&lt;<strong>带有模糊控制的四轮转向</strong></p>
-<p><img src="/images/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/image-20211116201326972.png" alt="image-20211116201326972"></p>
-</li>
-</ol>
-</li>
-<li><p><a href="zotero://select/library/items/GB4KK2A4">郑, 《某轿车主动后轮转向系统转向电机控制研究》.</a></p>
-<ol>
-<li>硕士论文<strong>待精读</strong></li>
-<li>发展现状对4WS介绍很全面</li>
-</ol>
-</li>
-<li><p><a href="zotero://select/library/items/J23KV6JQ">陈, 《轮毂电机驱动的四轮转向样车试验及仿真研究》.</a></p>
-<ol>
-<li>轮毂电机技术发展现状（至2020年5月30日）</li>
-<li>Carsim</li>
-</ol>
-</li>
-<li><p><a href="zotero://select/library/items/4PXG4P5P">朱, 《基于多Agent框架的4WID电动汽车四轮主动转向控制及路径跟踪研究》.</a></p>
-</li>
-</ol>
-<ol start="19">
-<li><p><a href="zotero://select/library/items/73J4EB83">张, 《四轮转向车辆建模与转向稳定性研究》.</a></p>
-</li>
-<li><p><a href="zotero://select/library/items/NV4DUZQN">胡, 《四轮独立驱动电动车差速转向性能研究》.</a></p>
-</li>
-<li><p><a href="zotero://select/library/items/TW3BM9A9">陈, 《后轮随动转向车辆的半主动控制及智能随动转向系统研究》.</a></p>
-</li>
-<li><p><a href="zotero://select/library/items/KTLNQ5M5">韩, 《烟田作业车四轮转向系统的机构设计及转向控制》.</a></p>
-</li>
-<li><p><a href="zotero://select/library/items/RVIBRIGM">周, 《四轮转向系统控制策略对比研究》.</a></p>
-</li>
-<li><p><a href="zotero://select/library/items/ZQHJ9HA2">刘, 《四轮转向汽车侧向动力学最优控制和内外环联合控制研究》.</a></p>
-</li>
-</ol>
-<h1 id="2-硬件"><a href="#2-硬件" class="headerlink" title="2 硬件"></a>2 硬件</h1><h2 id="2-1-硬件平台选型"><a href="#2-1-硬件平台选型" class="headerlink" title="2.1 硬件平台选型"></a>2.1 硬件平台选型</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.nvidia.cn/autonomous-machines/embedded-systems/jetson-tx2/">JetsonTX2</a></li>
-<li><a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?spm=a1z09.2.0.0.6c4d2e8dDQN5Gf&amp;id=582677940441&amp;_u=22ph6ufjad4a">STM32F407VET6</a></li>
-<li><a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?spm=a230r.1.14.18.557c3f68qS9ACg&amp;id=630983815382&amp;ns=1&amp;abbucket=15#detail">杉川雷达</a></li>
-<li>电源</li>
-<li>雷达</li>
-</ul>
-<h1 id="3-软件"><a href="#3-软件" class="headerlink" title="3 软件"></a>3 软件</h1><h2 id="3-1-上位机"><a href="#3-1-上位机" class="headerlink" title="3.1 上位机"></a>3.1 上位机</h2><h3 id="3-1-1-环境配置"><a href="#3-1-1-环境配置" class="headerlink" title="3.1.1 环境配置"></a>3.1.1 环境配置</h3><ol>
-<li>JetsonTX2系统：<a href="/2021/02/08/Linux/JetsonTX2%E5%88%B7%E6%9C%BA%E8%AE%B0%E5%BD%95%EF%BC%88JetPack4-5%EF%BC%89/" title="JetsonTX2刷机记录">JetsonTX2刷机记录</a></li>
-<li>ROS环境安装：<a href="/2021/01/28/ROS/ubuntu18-04LTS%E5%AE%89%E8%A3%85ROS/" title="ubuntu18.04LTS安装ROS">ubuntu18.04LTS安装ROS</a></li>
-<li>jetsonTX2中安装Pytorch环境：<a href="/2021/11/01/Linux/jetsonTX2%E5%AE%89%E8%A3%85Pytorch/" title="jetsonTX2安装Pytorch">jetsonTX2安装Pytorch</a></li>
-<li>Ubuntu18.04中安装Pytorch环境：<a href="/2021/11/02/Linux/ubuntu18-04%E5%AE%89%E8%A3%85pytorch/" title="ubuntu18-04安装pytorch">ubuntu18-04安装pytorch</a><ul>
-<li>这是在我笔记本中配置Pytorch环境，由于使用jetpack4.5刷机后CUDA版本为10.2，不支持torch1.1，而人体识别检测的AlphaPose要求torch==1.1。TX2中的问题暂时还没解决，所以AlphaPose暂时放到笔记本上测试。</li>
-</ul>
-</li>
-<li>安装AlphaPose：<a href="/2021/11/03/Linux/Ubuntu18-04%E5%AE%89%E8%A3%85AlphaPose/" title="Ubuntu18-04安装AlphaPose">Ubuntu18-04安装AlphaPose</a></li>
-</ol>
-<h3 id="3-1-2-仿真模型"><a href="#3-1-2-仿真模型" class="headerlink" title="3.1.2 仿真模型"></a>3.1.2 仿真模型</h3><ol>
-<li><a href="/2021/08/14/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/" title="Solidworks模型导出urdf">Solidworks模型导出urdf</a></li>
-<li><a href="/2021/11/20/ROS/%E6%8E%A7%E5%88%B6sw2urdf%E5%AF%BC%E5%87%BA%E6%A8%A1%E5%9E%8B%E5%9C%A8Rviz%E5%92%8CGazebo%E4%B8%AD%E8%BF%90%E5%8A%A8/" title="控制sw2urdf导出模型在Rviz和Gazebo中运动">控制sw2urdf导出模型在Rviz和Gazebo中运动</a>
-
-
-</li>
-</ol>
-<h2 id="3-2-下位机"><a href="#3-2-下位机" class="headerlink" title="3.2 下位机"></a>3.2 下位机</h2><ol>
-<li>stm32中运行ROS节点：<a href="/2021/08/18/ROS/%E5%9C%A8stm32%E4%B8%AD%E8%BF%90%E8%A1%8CROS%E8%8A%82%E7%82%B9-rosserial-stm32/" title="在STM32F407中运行ROS节点">在STM32F407中运行ROS节点</a></li>
-<li>使用自定义消息实现ROS与stm32通讯：<a href="/2021/11/16/ROS/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/" title="使用自定义消息实现ROS与stm32通讯">使用自定义消息实现ROS与stm32通讯</a></li>
-</ol>
-<h2 id="3-3-终端"><a href="#3-3-终端" class="headerlink" title="3.3 终端"></a>3.3 终端</h2><h3 id="3-3-1-基于PyQt5的GUI设计"><a href="#3-3-1-基于PyQt5的GUI设计" class="headerlink" title="3.3.1 基于PyQt5的GUI设计"></a>3.3.1 基于PyQt5的GUI设计</h3><ol>
-<li><a href="#">Post not found: ROS/PyQt5开发ROS界面--Button实现Publish PyQt5开发ROS界面1--Button实现Publish</a></li>
-<li><a href="/2021/11/20/ROS/PyQt5%E5%BC%80%E5%8F%91ROS%E7%95%8C%E9%9D%A2-%E4%BD%BF%E7%94%A8%E6%BB%91%E6%9D%A1%E5%8F%91%E5%B8%83Twist%E6%B6%88%E6%81%AF/" title="PyQt5开发ROS界面2-使用滑条发布Twist消息">PyQt5开发ROS界面2-使用滑条发布Twist消息</a>
-
-
-</li>
-</ol>
-<h3 id="3-3-2-APP"><a href="#3-3-2-APP" class="headerlink" title="3.3.2 APP"></a>3.3.2 APP</h3><h3 id="3-3-3-网页"><a href="#3-3-3-网页" class="headerlink" title="3.3.3 网页"></a>3.3.3 网页</h3> 
+  <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/87053283">Git中submodule的使用</a></p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>上面的文章讲原理讲的很清楚了，后面只写一下使用的流程。</p>
+<h2 id="1-添加"><a href="#1-添加" class="headerlink" title="1. 添加"></a>1. 添加</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">我的GitHub中有一个项目：Autobot<br>Arena的GitHub地址为：https://github.com/xin-dream/Arena.git<br><br>我在Autobot中可能会<span class="hljs-built_in">clone</span>一个Arena<br>Autobot<br>	|<br>   |-Arena<br>   <br>git submodule add https://github.com/xin-dream/Arena.git ./Autobot/Arena<br></code></pre></td></tr></tbody></table></figure>
+<p>然后可以在根目录生成的 .gitmodules文件内查看子模块的关系</p>
+<h2 id="2-clone"><a href="#2-clone" class="headerlink" title="2. clone"></a>2. clone</h2><p>当我在另一台电脑clone时，会发现Autobot的Arena文件夹内并没有内容。以下命令即可下载子模块内容。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git submodule init<br>git submodule update<br></code></pre></td></tr></tbody></table></figure><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>
@@ -356,30 +174,32 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zhangguixin.com/2021/11/01/%E6%9D%82%E9%A1%B9/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zhangguixin.com/2021/12/14/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Git%E4%B8%AD%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
+
     </footer>
   </div>
 
    
   <nav class="article-nav">
     
-      <a href="/2021/11/02/Linux/ubuntu18-04%E5%AE%89%E8%A3%85pytorch/" class="article-nav-link">
+      <a href="/2021/12/14/hexo/hexo%E7%9A%84%E7%BD%91%E9%A1%B5%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            ubuntu18.04安装CUDA-pytorch
+            hexo的网页管理界面
           
         </div>
       </a>
     
     
-      <a href="/2021/11/01/Linux/jetsonTX2%E5%BC%80%E5%90%AF%E9%A3%8E%E6%89%87/" class="article-nav-link">
+      <a href="/2021/12/12/ROS/cartographer%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">jetsonTX2开启风扇</div>
+        <div class="article-nav-title">cartographer安装与使用</div>
       </a>
     
   </nav>

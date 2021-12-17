@@ -119,46 +119,33 @@
 <li></li>
 </ul>
 <p>​    </p>
-<h1 id="1-下载并编译IAI-Kinect2"><a href="#1-下载并编译IAI-Kinect2" class="headerlink" title="1 下载并编译IAI Kinect2"></a>1 下载并编译IAI Kinect2</h1><pre><code class="bash">cd ~/catkin_ws/src/
-git clone https://github.com/code-iai/iai_kinect2.git
-cd iai_kinect2 
-rosdep install -r --from-paths . --ignore-src -r
+<h1 id="1-下载并编译IAI-Kinect2"><a href="#1-下载并编译IAI-Kinect2" class="headerlink" title="1 下载并编译IAI Kinect2"></a>1 下载并编译IAI Kinect2</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ~/catkin_ws/src/<br>git <span class="hljs-built_in">clone</span> https://github.com/code-iai/iai_kinect2.git<br><span class="hljs-built_in">cd</span> iai_kinect2 <br>rosdep install -r --from-paths . --ignore-src -r<br><br><span class="hljs-built_in">cd</span> ~/catkin_ws<br>catkin_make -DCMAKE_BUILD_TYPE=<span class="hljs-string">"Release"</span><br></code></pre></td></tr></tbody></table></figure>
 
-cd ~/catkin_ws
-catkin_make -DCMAKE_BUILD_TYPE="Release"</code></pre>
 <h1 id="2-编译时遇到的问题"><a href="#2-编译时遇到的问题" class="headerlink" title="2 编译时遇到的问题"></a>2 编译时遇到的问题</h1><ol>
 <li><p>在上一篇文章<a href="/2021/12/05/Linux/Ubuntu%E9%85%8D%E7%BD%AEKinectV2/" title="Ubuntu配置KinectV2">Ubuntu配置KinectV2</a>的第四步中，有一个指定的路径<code>cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/freenect2</code>。如果这个freenect2不是在HOME下，需要使用以下命令编译。DIR后是上篇文章中freenect2的位置</p>
-<pre><code class="bash">catkin_make -Dfreenect2_DIR=/home/dream/02-software/007-libfreenect2/lib/cmake/freenect2 -DCMAKE_BUILD_TYPE="Release"</code></pre>
-</li>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">catkin_make -Dfreenect2_DIR=/home/dream/02-software/007-libfreenect2/lib/cmake/freenect2 -DCMAKE_BUILD_TYPE=<span class="hljs-string">"Release"</span><br></code></pre></td></tr></tbody></table></figure></li>
 <li><p><code>error: #error PCL requires C++14 or above</code></p>
 <p>仔细看以下这个错误对应的哪一个功能包，在对应的功能包的CMakeLists.txt中加入</p>
-<pre><code class="bash">  ADD_COMPILE_OPTIONS(-std=c++11 )
-  ADD_COMPILE_OPTIONS(-std=c++14 )
-  set( CMAKE_CXX_FLAGS "-std=c++11 -O3" )</code></pre>
-</li>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">ADD_COMPILE_OPTIONS(-std=c++11 )<br>ADD_COMPILE_OPTIONS(-std=c++14 )<br><span class="hljs-built_in">set</span>( CMAKE_CXX_FLAGS <span class="hljs-string">"-std=c++11 -O3"</span> )<br></code></pre></td></tr></tbody></table></figure></li>
 <li><p><code>error: CV_IMWRITE_JPEG_QUALITY was not declared in this scope</code></p>
 <p>在对应文件内，找到报错的那一行代码，进行如下规则的替换。注意没报错的不要改，报错的先看下是不是下面的两条，不是的话再修改</p>
-<pre><code class="C++">CV_IMWRITE_JPEG_QUALITY
-// 更改为
-cv::IMWRITE_JPEG_QUALITY</code></pre>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs C++">CV_IMWRITE_JPEG_QUALITY<br><span class="hljs-comment">// 更改为</span><br>cv::IMWRITE_JPEG_QUALITY<br></code></pre></td></tr></tbody></table></figure>
+
+
 </li>
 </ol>
 <ol start="4">
 <li><p><code>error: CV_BGR2GRAY was not declared in this scope</code></p>
 <p>在对应文件内添加头文件。这个应该是在kinect2_bridge/src/kinect2_bridge.cpp。</p>
-<pre><code class="C++">#include &lt;opencv2/imgproc/types_c.h&gt; </code></pre>
-</li>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;opencv2/imgproc/types_c.h&gt; </span></span><br></code></pre></td></tr></tbody></table></figure></li>
 <li><p><code>error: CV_AA was not declared in this scope</code></p>
 <p>在对应的文件内添加头文件。这个应该是在kinect2_viewer/src/viewer.cpp。</p>
-<pre><code class="C++">#include&lt;opencv2/imgproc/imgproc_c.h&gt;</code></pre>
-</li>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;opencv2/imgproc/imgproc_c.h&gt;</span></span><br></code></pre></td></tr></tbody></table></figure></li>
 <li><p>编译到100%后还会有两个错误，目前还没解决，但对后面使用不影响，只是kinect2_viewer不能使用</p>
 </li>
 </ol>
-<h1 id="3-运行程序验证"><a href="#3-运行程序验证" class="headerlink" title="3 运行程序验证"></a>3 运行程序验证</h1><pre><code class="bash">roslaunch kinect2_bridge kinect2_bridge.launch
-
-rosrun image_view image_view image:=/kinect2/qhd/image_color</code></pre>
- 
+<h1 id="3-运行程序验证"><a href="#3-运行程序验证" class="headerlink" title="3 运行程序验证"></a>3 运行程序验证</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">roslaunch kinect2_bridge kinect2_bridge.launch<br><br>rosrun image_view image_view image:=/kinect2/qhd/image_color<br></code></pre></td></tr></tbody></table></figure>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>
@@ -239,7 +226,7 @@ rosrun image_view image_view image:=/kinect2/qhd/image_color</code></pre>
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            人体姿态识别算法特点概括
+            人体姿态估计论文概括
           
         </div>
       </a>

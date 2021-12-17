@@ -105,43 +105,7 @@
        
   <p><a target="_blank" rel="noopener" href="https://gsy00517.github.io/hexo20200207151318/">hexo笔记：文章排序</a></p>
 <p>还是要多看源码</p>
-<pre><code class="JavaScript">
-node_modules\hexo-generator-index-pin-top\lib\generator.js
-
-'use strict';
-    var pagination = require('hexo-pagination');
-    module.exports = function(locals){
-    var config = this.config;
-    var posts = locals.posts;
-        posts.data = posts.data.sort(function(a, b) {
-            if(a.top &amp;&amp; b.top) { // 两篇文章top都有定义
-                // if(a.top == b.top) return b.date - a.date; // 若top值一样则按照文章日期降序排
-                if(a.top == b.top) return b.updated - a.updated; // 若top值一样则按照文章更新时间降序排
-
-                //设置的置顶内容
-                else return b.top - a.top; // 否则按照top值降序排
-            }
-            else if(a.top &amp;&amp; !b.top) { // 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）
-                return -1;
-            }
-            else if(!a.top &amp;&amp; b.top) {
-                return 1;
-            }
-            // else return b.date - a.date; // 都没定义按照文章日期降序排
-            else return b.updated - a.updated; // 都没定义按照文章更新时间降序排
-        });
-    var paginationDir = config.pagination_dir || 'page';
-    return pagination('', posts, {
-        perPage: config.index_generator.per_page,
-        layout: ['index', 'archive'],
-        format: paginationDir + '/%d/',
-        data: {
-        __index: true
-        }
-    });
-    };
-</code></pre>
- 
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><br>node_modules\hexo-generator-index-pin-top\lib\generator.js<br><br><span class="hljs-meta">'use strict'</span>;<br>    <span class="hljs-keyword">var</span> pagination = <span class="hljs-built_in">require</span>(<span class="hljs-string">'hexo-pagination'</span>);<br>    <span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">locals</span>)</span>{<br>    <span class="hljs-keyword">var</span> config = <span class="hljs-built_in">this</span>.config;<br>    <span class="hljs-keyword">var</span> posts = locals.posts;<br>        posts.data = posts.data.sort(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{<br>            <span class="hljs-keyword">if</span>(a.top &amp;&amp; b.top) { <span class="hljs-comment">// 两篇文章top都有定义</span><br>                <span class="hljs-comment">// if(a.top == b.top) return b.date - a.date; // 若top值一样则按照文章日期降序排</span><br>                <span class="hljs-keyword">if</span>(a.top == b.top) <span class="hljs-keyword">return</span> b.updated - a.updated; <span class="hljs-comment">// 若top值一样则按照文章更新时间降序排</span><br><br>                <span class="hljs-comment">//设置的置顶内容</span><br>                <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> b.top - a.top; <span class="hljs-comment">// 否则按照top值降序排</span><br>            }<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(a.top &amp;&amp; !b.top) { <span class="hljs-comment">// 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）</span><br>                <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>            }<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(!a.top &amp;&amp; b.top) {<br>                <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>            }<br>            <span class="hljs-comment">// else return b.date - a.date; // 都没定义按照文章日期降序排</span><br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> b.updated - a.updated; <span class="hljs-comment">// 都没定义按照文章更新时间降序排</span><br>        });<br>    <span class="hljs-keyword">var</span> paginationDir = config.pagination_dir || <span class="hljs-string">'page'</span>;<br>    <span class="hljs-keyword">return</span> pagination(<span class="hljs-string">''</span>, posts, {<br>        perPage: config.index_generator.per_page,<br>        layout: [<span class="hljs-string">'index'</span>, <span class="hljs-string">'archive'</span>],<br>        format: paginationDir + <span class="hljs-string">'/%d/'</span>,<br>        data: {<br>        __index: <span class="hljs-literal">true</span><br>        }<br>    });<br>    };<br><br></code></pre></td></tr></tbody></table></figure><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

@@ -150,65 +150,18 @@
 </ul>
 </li>
 </ol>
-<pre><code class="bash">#启动小海龟，需在三个终端运行
-roscore                                #启动ROS Master
-rosrun turtlesim turtlesim_node        #启动小海龟仿真器
-rosrun turtlesim turtle_teleop_key    #启动控制节点
-
-#查看话题列表
-rosnode list
-
-#发布话题消息,注意使用tab提示
-rostopic pub -r 10 /turtle1/cmd_vel geometry_msgs/Twist "linear:
-x:0.0
-y:0.0
-z:0.0
-angular:
-x:0.0
-y:0.0
-z:0.0"
-
-
-#发布服务请求，再生成一个小海龟
-rosservice call/spawn "x:0.0
-y:0.0
-theta:0.0
-name:'turtle2'"
-
-#话题记录
-rosbag record -a -O cmd_record
-#话题复现
-rosbag play cmd_record.bag</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#启动小海龟，需在三个终端运行</span><br>roscore								<span class="hljs-comment">#启动ROS Master</span><br>rosrun turtlesim turtlesim_node		<span class="hljs-comment">#启动小海龟仿真器</span><br>rosrun turtlesim turtle_teleop_key	<span class="hljs-comment">#启动控制节点</span><br><br><span class="hljs-comment">#查看话题列表</span><br>rosnode list<br><br><span class="hljs-comment">#发布话题消息,注意使用tab提示</span><br>rostopic pub -r 10 /turtle1/cmd_vel geometry_msgs/Twist <span class="hljs-string">"linear:</span><br><span class="hljs-string">x:0.0</span><br><span class="hljs-string">y:0.0</span><br><span class="hljs-string">z:0.0</span><br><span class="hljs-string">angular:</span><br><span class="hljs-string">x:0.0</span><br><span class="hljs-string">y:0.0</span><br><span class="hljs-string">z:0.0"</span><br><br><br><span class="hljs-comment">#发布服务请求，再生成一个小海龟</span><br>rosservice call/spawn <span class="hljs-string">"x:0.0</span><br><span class="hljs-string">y:0.0</span><br><span class="hljs-string">theta:0.0</span><br><span class="hljs-string">name:'turtle2'"</span><br><br><span class="hljs-comment">#话题记录</span><br>rosbag record -a -O cmd_record<br><span class="hljs-comment">#话题复现</span><br>rosbag play cmd_record.bag<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="创建工作空间与功能包"><a href="#创建工作空间与功能包" class="headerlink" title="创建工作空间与功能包"></a>创建工作空间与功能包</h1><ol>
 <li>工作空间<img src="https://img-blog.csdnimg.cn/20200604220211187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
 <li>创建工作空间</li>
 </ol>
-<pre><code class="bash">#创建工作空间
-mkdir -p ~/workspace/src
-cd ~/workspace/src
-catkin_init_workspace
-
-#编译工作空间
-cd ~/workspace/
-catkin_make
-
-#设置环境变量
-source devel/setup.bash
-#检查环境变量
-echo $ROS_PACKAGE_PATH</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#创建工作空间</span><br>mkdir -p ~/workspace/src<br><span class="hljs-built_in">cd</span> ~/workspace/src<br>catkin_init_workspace<br><br><span class="hljs-comment">#编译工作空间</span><br><span class="hljs-built_in">cd</span> ~/workspace/<br>catkin_make<br><br><span class="hljs-comment">#设置环境变量</span><br><span class="hljs-built_in">source</span> devel/setup.bash<br><span class="hljs-comment">#检查环境变量</span><br><span class="hljs-built_in">echo</span> <span class="hljs-variable">$ROS_PACKAGE_PATH</span><br></code></pre></td></tr></tbody></table></figure>
 <ol start="3">
 <li>功能包<br>同一个工作空间，不能有同名功能包</li>
 </ol>
-<pre><code class="bash">#创建
-cd ~/workspace/src
-catkin_create_pkg test_pkg std_msgs rospy roscpp
-
-#编译
-cd ~/workspace
-catkin_make
-source ~/workspace/devel/setup.bash</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#创建</span><br><span class="hljs-built_in">cd</span> ~/workspace/src<br>catkin_create_pkg test_pkg std_msgs rospy roscpp<br><br><span class="hljs-comment">#编译</span><br><span class="hljs-built_in">cd</span> ~/workspace<br>catkin_make<br><span class="hljs-built_in">source</span> ~/workspace/devel/setup.bash<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://github.com/guyuehome/ros_21_tutorials">古月·ROS入门21讲</a></p>
- 
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>

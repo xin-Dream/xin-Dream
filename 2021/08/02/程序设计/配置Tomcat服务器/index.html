@@ -115,20 +115,11 @@
 <ol start="2">
 <li>配置Tomcat环境</li>
 </ol>
-<pre><code class="BASH"># 在环境变量中新建系统变量
-CATALINA_HOME  D:\078-Tomcat\apache-tomcat-8.5.69
-
-# 在Path中新建
-%CATALINA_HOME%\lib
-%CATALINA_HOME%\bin
-</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs BASH"><span class="hljs-comment"># 在环境变量中新建系统变量</span><br>CATALINA_HOME  D:\078-Tomcat\apache-tomcat-8.5.69<br><br><span class="hljs-comment"># 在Path中新建</span><br>%CATALINA_HOME%\lib<br>%CATALINA_HOME%\bin<br><br></code></pre></td></tr></tbody></table></figure>
 <h2 id="安装、启动与停止"><a href="#安装、启动与停止" class="headerlink" title="安装、启动与停止"></a>安装、启动与停止</h2><p>以管理员模式打开命令行，进入Tomcat文件夹中的bin目录</p>
-<pre><code class="BASH">service.bat install
-
-net start Tomcat8
-net stop Tomcat8</code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs BASH">service.bat install<br><br>net start Tomcat8<br>net stop Tomcat8<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>在浏览器地址栏输入<code>localhost:8080</code></p>
- 
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>
