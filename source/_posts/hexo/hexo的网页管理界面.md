@@ -7,6 +7,7 @@ tags:
 categories:
   - hexo
 date: 2021-12-14 23:12:00
+typora-root-url: ..\..
 ---
 # 0. 参考
 + [hexo博客使用hexo-admin插件管理文章](https://blog.csdn.net/nineya_com/article/details/103380243?spm=1001.2101.3001.6650.6&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-6.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-6.nonecase)
@@ -62,9 +63,9 @@ hexo s
 
 1. admin页面中设置用户名与密码
 	
-	![设置密码.png-ZGX](../../images/2021/12/14/hexo的网页管理界/设置密码.png)
+	![设置密码.png-ZGX](/images/2021/12/14/hexo的网页管理界/设置密码.png)
 
-	![生成配置代码.png-ZGX](../../images/2021/12/14/hexo的网页管理界/生成配置代码.png)
+	![生成配置代码.png-ZGX](/images/2021/12/14/hexo的网页管理界/生成配置代码.png)
 
 2. 在config页面添加内容
 	
@@ -75,7 +76,7 @@ hexo s
 在文章目录下，新建文章后，文章会处于草稿状态，标题也是灰色，这是在本地文章会保存在"/source/_drafts/_.."内，在文章编辑页面的右上角会有发布按钮，点击发布后，文章会自动转移到"/source/_posts/_.."内，文章的layout也会自动修改过来，管理页面内标题也变为黑色。
 
 
-![新建文章界面.png-ZGX](../../images/2021/12/14/hexo的网页管理界/新建文章界面.png)
+![新建文章界面.png-ZGX](/images/2021/12/14/hexo的网页管理界/新建文章界面.png)
 
 
 下面的界面表示front-matter的设置，所谓的front-matter是我们在本地使用编辑器编辑时，文章最上面的标题、日期等内容。我们可以自定义这里面要添加的内容，然后每次在管理界面快捷添加tags等，可以为其设置默认值，比如下面的top，表示文章置顶，或者文章加密等等。
@@ -103,7 +104,7 @@ metadata:
   
 ```
 
-![front-matter.png-ZGX](../../images/2021/12/14/hexo的网页管理界/front-matter.png)
+![front-matter.png-ZGX](/images/2021/12/14/hexo的网页管理界/front-matter.png)
 
 
 ## 3. 粘贴图片
@@ -174,18 +175,18 @@ metadata:
      ```
    3. 设置图片存储方式
    	
-		![图片存储设置.png-ZGX](../../images/2021/12/14/hexo的网页管理界/图片存储设置.png)
+		![图片存储设置.png-ZGX](/images/2021/12/14/hexo的网页管理界/图片存储设置.png)
    
 ### 2. 粘贴图片的使用流程
 	
    1. 截图后，在博客管理地址中的编辑界面粘贴；
    2. 在弹出的提示框内输入图片名称，如下图。这里我是在服务器开启的hexo服务，所以会提示IP地址，在第5点详细说明。
-		![图片名称.png-ZGX](../../images/2021/12/14/hexo的网页管理界/图片名称.png)
+		![图片名称.png-ZGX](/images/2021/12/14/hexo的网页管理界/图片名称.png)
 
 ## 4. 部署执行脚本
 
 部署界面如下图，要使用这个，还要自己指定一个脚本执行
-![部署界面.png-ZGX](../../images/2021/12/14/hexo的网页管理界/部署界面.png)
+![部署界面.png-ZGX](/images/2021/12/14/hexo的网页管理界/部署界面.png)
 在博客根目录（博客内指定目录就可以，不一定是根目录），新建文件“admin_script.sh”，内容如下
 ```bash
 #!/bin/sh

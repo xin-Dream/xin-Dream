@@ -8,6 +8,7 @@ categories:
   - 杂项
 top: '1'
 date: 2021-12-16 20:30:00
+typora-root-url: ../..
 ---
 {% pullquote mindmap mindmap-lg %}
 
@@ -94,7 +95,7 @@ date: 2021-12-16 20:30:00
 
 较为常用的下位机主控有STC51、MSP430、Arduino、STM32、飞思卡尔等。MSP430系列资料较少、飞思卡尔价格较高、STC51与Arduino的性能较STM32相差较多，ST公司推出的STM32CubeMX、CubeMonitor、X-CUBE-AI等为STM32的开发提供了极大便利。所以下位机主控确定在STM32单片机系列。
 
-![MCU选型.png-ZGX](../../images/2021/12/16/Autobot-毕业设/MCU选型.png)
+![MCU选型.png-ZGX](/images/2021/12/16/Autobot-毕业设/MCU选型.png)
 
 综合考虑前文说明的下位机主控要求，将主控型号的锁定在主流MCU和高性能MCU之间。下面选择两类中具有代表性的两款同配置单片机进行对比。
 
