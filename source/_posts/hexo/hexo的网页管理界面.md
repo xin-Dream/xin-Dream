@@ -7,7 +7,7 @@ tags:
 categories:
   - hexo
 date: 2021-12-14 23:12:00
-typora-root-url: ..\..
+typora-root-url: ../..
 ---
 # 0. 参考
 + [hexo博客使用hexo-admin插件管理文章](https://blog.csdn.net/nineya_com/article/details/103380243?spm=1001.2101.3001.6650.6&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-6.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-6.nonecase)

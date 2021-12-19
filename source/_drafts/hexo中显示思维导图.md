@@ -1,3 +1,4 @@
+---
 layout: draft
 title: hexo中显示思维导图
 author: ZGX

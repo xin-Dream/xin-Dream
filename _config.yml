@@ -47,7 +47,7 @@ post_asset_folder: false
 relative_link: false
 future: true
 
-# 代码高亮，与主题冲突
+
 highlight:
   enable: true
   line_number: true
