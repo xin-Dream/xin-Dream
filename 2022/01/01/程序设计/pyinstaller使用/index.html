@@ -92,13 +92,17 @@
     <div class="article-meta">
       <a href="/2022/01/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/pyinstaller%E4%BD%BF%E7%94%A8/" class="article-date">
   <time datetime="2022-01-01T08:28:59.000Z" itemprop="datePublished">2022-01-01</time>
-</a>   
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-python/">程序设计 - python</a>
+  </div>
+  
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">155</span>
         </span>
     </span>
 
@@ -114,13 +118,22 @@
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
+  <h1 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install pyinstaller<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h1><p>以文件main.py为例</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">pyinstaller main.py<br><br>pyinstaller -F main.py<br><span class="hljs-comment"># 产生单个可执行文件</span><br><br>pyinstaller -F -w main.py<br><span class="hljs-comment"># 产生单个可执行文件，并且没有控制台窗口</span><br><span class="hljs-comment"># 如果是想打包成windows中的软件需要用-w</span><br><br>pyinstaller -D main.py<br><span class="hljs-comment"># 产生一个目录作为可执行程序</span><br><br>pyinstaller -i ./logo.ico main.py<br><span class="hljs-comment"># 指定图标</span><br><br></code></pre></td></tr></tbody></table></figure>
+<h1 id="3-注意"><a href="#3-注意" class="headerlink" title="3. 注意"></a>3. 注意</h1><ol>
+<li>在Ubuntu系统中生成的是可执行文件，windows中生成的是.exe文件</li>
+<li>打包时尽量减轻环境，否则打包文件很大，可以使用虚拟环境或conda新建一个环境</li>
+</ol>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>
@@ -189,11 +202,22 @@
 </div>
 
 <div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
     </footer>
   </div>
 
    
   <nav class="article-nav">
+    
+      <a href="/2022/01/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git%E4%B8%8A%E4%BC%A0%E5%A4%A7%E6%96%87%E4%BB%B6/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            git上传大文件
+          
+        </div>
+      </a>
     
     
       <a href="/2021/12/30/%E6%9D%82%E9%A1%B9/K3%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7%E6%9C%BA/" class="article-nav-link">

@@ -265,7 +265,37 @@
   <entry>
     <title>pyinstaller使用</title>
     <url>/2022/01/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/pyinstaller%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+    <content><![CDATA[<h1 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">pip install pyinstaller<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h1><p>以文件main.py为例</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">pyinstaller main.py<br><br>pyinstaller -F main.py<br><span class="hljs-comment"># 产生单个可执行文件</span><br><br>pyinstaller -F -w main.py<br><span class="hljs-comment"># 产生单个可执行文件，并且没有控制台窗口</span><br><span class="hljs-comment"># 如果是想打包成windows中的软件需要用-w</span><br><br>pyinstaller -D main.py<br><span class="hljs-comment"># 产生一个目录作为可执行程序</span><br><br>pyinstaller -i ./logo.ico main.py<br><span class="hljs-comment"># 指定图标</span><br><br></code></pre></td></tr></tbody></table></figure>
+<h1 id="3-注意"><a href="#3-注意" class="headerlink" title="3. 注意"></a>3. 注意</h1><ol>
+<li>在Ubuntu系统中生成的是可执行文件，windows中生成的是.exe文件</li>
+<li>打包时尽量减轻环境，否则打包文件很大，可以使用虚拟环境或conda新建一个环境</li>
+</ol>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>程序设计 - python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git上传大文件</title>
+    <url>/2022/01/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git%E4%B8%8A%E4%BC%A0%E5%A4%A7%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="1-下载并安装git-lfs"><a href="#1-下载并安装git-lfs" class="headerlink" title="1. 下载并安装git-lfs"></a>1. 下载并安装git-lfs</h1><p><a href="https://git-lfs.github.com/">下载地址</a></p>
+<h1 id="2-添加管理文件"><a href="#2-添加管理文件" class="headerlink" title="2. 添加管理文件"></a>2. 添加管理文件</h1><p>首先要完成这一步才能add 大文件</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">git lfs track <span class="hljs-string">"01-program/main"</span><br><span class="hljs-comment"># 01-program/main 表示相对于根目录，大文件的地址，main表示大文件</span><br><br>git add .gitattributes<br>git commit -m <span class="hljs-string">"add huge doc"</span><br>git push<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="3-上传大文件"><a href="#3-上传大文件" class="headerlink" title="3. 上传大文件"></a>3. 上传大文件</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">git add 01-program/main<br>git commit -m <span class="hljs-string">"push"</span><br>git push<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="4-查看可用容量"><a href="#4-查看可用容量" class="headerlink" title="4. 查看可用容量"></a>4. 查看可用容量</h1><p>git-lfs限制应该是1G，注意查看空间大小。</p>
+<p>Settings -&gt; Billing&amp;plans -&gt; Git LFS Data</p>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>程序设计 - git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
   </entry>
   <entry>
     <title>K3路由器刷机</title>
@@ -390,12 +420,12 @@
 <li><p>进入后就是和普通路由器一样的设置，至此梅林固件刷机完成，但A2版本还有些残留问题，后面慢慢解决。</p>
 </li>
 </ol>
-<h3 id="4-2-安装软件中心"><a href="#4-2-安装软件中心" class="headerlink" title="4.2 安装软件中心"></a>4.2 安装软件中心</h3><h3 id="4-3-梅林固件使用说明"><a href="#4-3-梅林固件使用说明" class="headerlink" title="4.3 梅林固件使用说明"></a>4.3 梅林固件使用说明</h3><h4 id="4-3-1-局域网共享移动硬盘"><a href="#4-3-1-局域网共享移动硬盘" class="headerlink" title="4.3.1 局域网共享移动硬盘"></a>4.3.1 局域网共享移动硬盘</h4><h4 id="4-3-2-SSR"><a href="#4-3-2-SSR" class="headerlink" title="4.3.2 SSR"></a>4.3.2 SSR</h4><h4 id="4-3-3"><a href="#4-3-3" class="headerlink" title="4.3.3"></a>4.3.3</h4><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+<h3 id="4-2-安装软件中心"><a href="#4-2-安装软件中心" class="headerlink" title="4.2 安装软件中心"></a>4.2 安装软件中心</h3><h3 id="4-3-梅林固件使用说明"><a href="#4-3-梅林固件使用说明" class="headerlink" title="4.3 梅林固件使用说明"></a>4.3 梅林固件使用说明</h3><h4 id="4-3-1-局域网共享移动硬盘"><a href="#4-3-1-局域网共享移动硬盘" class="headerlink" title="4.3.1 局域网共享移动硬盘"></a>4.3.1 局域网共享移动硬盘</h4><h4 id="4-3-2-SSR"><a href="#4-3-2-SSR" class="headerlink" title="4.3.2 SSR"></a>4.3.2 SSR</h4><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>hexo</category>
+        <category>杂项</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>路由器</tag>
       </tags>
   </entry>
   <entry>
