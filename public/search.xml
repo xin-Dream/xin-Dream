@@ -263,6 +263,172 @@
     <content><![CDATA[<h1 id="点击跳转码云网址"><a href="#点击跳转码云网址" class="headerlink" title="点击跳转码云网址"></a><a href="https://xin-dream.gitee.io/">点击跳转码云网址</a></h1><h1 id="网址为：zhangguixin-top-xin-dream-github-io-时访问部署在Github中的网页"><a href="#网址为：zhangguixin-top-xin-dream-github-io-时访问部署在Github中的网页" class="headerlink" title="网址为：zhangguixin.top/xin-dream.github.io 时访问部署在Github中的网页"></a>网址为：zhangguixin.top/xin-dream.github.io 时访问部署在Github中的网页</h1><h1 id="网址为：xin-dream-gitee-io-时访问部署在Gitee中的网页，这个速度较快"><a href="#网址为：xin-dream-gitee-io-时访问部署在Gitee中的网页，这个速度较快" class="headerlink" title="网址为：xin-dream.gitee.io 时访问部署在Gitee中的网页，这个速度较快"></a>网址为：xin-dream.gitee.io 时访问部署在Gitee中的网页，这个速度较快</h1><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
   </entry>
   <entry>
+    <title>pyinstaller使用</title>
+    <url>/2022/01/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/pyinstaller%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">pip install pyinstaller<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h1><p>以文件main.py为例</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">pyinstaller main.py<br><br>pyinstaller -F main.py<br><span class="hljs-comment"># 产生单个可执行文件</span><br><br>pyinstaller -F -w main.py<br><span class="hljs-comment"># 产生单个可执行文件，并且没有控制台窗口</span><br><span class="hljs-comment"># 如果是想打包成windows中的软件需要用-w</span><br><br>pyinstaller -D main.py<br><span class="hljs-comment"># 产生一个目录作为可执行程序</span><br><br>pyinstaller -i ./logo.ico main.py<br><span class="hljs-comment"># 指定图标</span><br><br></code></pre></td></tr></tbody></table></figure>
+<h1 id="3-注意"><a href="#3-注意" class="headerlink" title="3. 注意"></a>3. 注意</h1><ol>
+<li>在Ubuntu系统中生成的是可执行文件，windows中生成的是.exe文件</li>
+<li>打包时尽量减轻环境，否则打包文件很大，可以使用虚拟环境或conda新建一个环境</li>
+</ol>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>程序设计 - python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git上传大文件</title>
+    <url>/2022/01/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git%E4%B8%8A%E4%BC%A0%E5%A4%A7%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="1-下载并安装git-lfs"><a href="#1-下载并安装git-lfs" class="headerlink" title="1. 下载并安装git-lfs"></a>1. 下载并安装git-lfs</h1><p><a href="https://git-lfs.github.com/">下载地址</a></p>
+<h1 id="2-添加管理文件"><a href="#2-添加管理文件" class="headerlink" title="2. 添加管理文件"></a>2. 添加管理文件</h1><p>首先要完成这一步才能add 大文件</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">git lfs track <span class="hljs-string">"01-program/main"</span><br><span class="hljs-comment"># 01-program/main 表示相对于根目录，大文件的地址，main表示大文件</span><br><br>git add .gitattributes<br>git commit -m <span class="hljs-string">"add huge doc"</span><br>git push<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="3-上传大文件"><a href="#3-上传大文件" class="headerlink" title="3. 上传大文件"></a>3. 上传大文件</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">git add 01-program/main<br>git commit -m <span class="hljs-string">"push"</span><br>git push<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="4-查看可用容量"><a href="#4-查看可用容量" class="headerlink" title="4. 查看可用容量"></a>4. 查看可用容量</h1><p>git-lfs限制应该是1G，注意查看空间大小。</p>
+<p>Settings -&gt; Billing&amp;plans -&gt; Git LFS Data</p>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>程序设计 - git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>K3路由器刷机</title>
+    <url>/2021/12/30/%E6%9D%82%E9%A1%B9/K3%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7%E6%9C%BA/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>本文用的设备是K3 A2，所以刷机流程也都是针对K3 A2的；</p>
+<p>主要内容也是针对梅林固件，原厂固件版本是V21.6.12.66，其他只是参考。</p>
+<p>K3各个版本的教程请参考：<a href="https://www.bilibili.com/video/BV15J411C7CF?p=2">斐讯刷机教程</a></p>
+</blockquote>
+<h1 id="1-斐讯路由器K3"><a href="#1-斐讯路由器K3" class="headerlink" title="1 斐讯路由器K3"></a>1 斐讯路由器K3</h1><h2 id="1-1-参数对比"><a href="#1-1-参数对比" class="headerlink" title="1.1 参数对比"></a>1.1 参数对比</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>K3</th>
+<th>K3C</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>处理器</td>
+<td>BCM4709 Cortex A9 双核处理器</td>
+<td>Intel</td>
+</tr>
+<tr>
+<td>DRAM内存与闪存</td>
+<td>512M+128M</td>
+<td>256M+128M</td>
+</tr>
+<tr>
+<td>无线速率</td>
+<td>3167Mbps</td>
+<td>1900Mbps(2.4GHz:600Mbps,5GHz:1300Mbps)</td>
+</tr>
+<tr>
+<td>天线数量</td>
+<td>8根</td>
+<td>6,全向PCB阵列天线</td>
+</tr>
+<tr>
+<td>其他性能</td>
+<td>3.5英寸TFT LCD屏<br>PA+LNA模组</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="1-2-K3A1、A2、D1区别"><a href="#1-2-K3A1、A2、D1区别" class="headerlink" title="1.2 K3A1、A2、D1区别"></a>1.2 K3A1、A2、D1区别</h1><ol>
+<li>A1为mxic闪存，可以自由刷机，但A2和D1都是三星闪存，<strong>使用梅林固件时需要搭配U盘才能使用软件中心</strong>，所以A2意义不大，反而麻烦</li>
+<li>D1比A1、A2性能高，功耗大</li>
+<li>D1可以挖矿</li>
+</ol>
+<h1 id="2-固件简介"><a href="#2-固件简介" class="headerlink" title="2 固件简介"></a>2 固件简介</h1><ol>
+<li>官改是指再原厂系统中有些改动的固件，这个一般比较简单，但是A2的操作不一样</li>
+<li>梅林固件，是使用华硕官方的闭源驱动，相比于普通的路由器能通过安装软件实现一些特殊功能</li>
+</ol>
+<h1 id="3-原厂刷官改"><a href="#3-原厂刷官改" class="headerlink" title="3 原厂刷官改"></a>3 原厂刷官改</h1><h3 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a><a href="https://www.bilibili.com/video/BV15J411C7CF?p=2">参考教程</a></h3><h3 id="方式一：指定固件"><a href="#方式一：指定固件" class="headerlink" title="方式一：指定固件"></a>方式一：指定固件</h3><ol>
+<li><p>查看固件版本</p>
+<p><img src="/images/K3%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7%E6%9C%BA/image-20211230195625527.png" alt="image-20211230195625527"></p>
+<p>前一列的固件版本和后一列所使用的方式不一样，我的属于旧版固件</p>
+</li>
+<li><p>备份</p>
+<ol>
+<li><p>文件下载</p>
+<p>将以下内容下载并保存至同一文件夹。</p>
+<p>cn.dat、待刷固件、tftpd、putty（也可以是其他软件，有ssh和Telnet功能即可）</p>
+</li>
+<li><p>进入管理页面（192.168.2.1）</p>
+</li>
+<li><p>功能设置-&gt;恢复文件（浏览）-&gt;选择cn.dat-&gt;恢复备份</p>
+</li>
+<li><p>等待重启后进入管理页面，登陆密码为tbvv.net</p>
+</li>
+<li><p>功能设置-&gt;存储管理-&gt; 修改用户名为admin并保存</p>
+</li>
+<li><p>上传与刷入固件</p>
+<ol>
+<li><p>设置计算机固定IP，在控制面板-&gt;网络管理-&gt;更改适配器选项-&gt;以太网 （右键选择属性）-&gt; IPV4（选择属性）-&gt; 设置一个固定的IP地址，如192.168.2.116</p>
+</li>
+<li><p>打开tftp软件，在server interfaces的下拉菜单选择上一步设置的固定IP地址</p>
+</li>
+<li><p>打开putty，主机名称设置192.168.2.1，选择Telnet选项后打开</p>
+</li>
+<li><p>执行命令</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /tmp; tftp -g -r k3_v21d.bin 192.168.2.116<br><br><span class="hljs-comment"># k3_v21d.bin是待刷固件,若要刷固件不同需要更改为固件名称</span><br><span class="hljs-comment"># 192.168.2.116为设置过的固定IP</span><br></code></pre></td></tr></tbody></table></figure>
+<p>执行后可以看到tftp已经在上传固件了，等上传完成后再开始下一步</p>
+</li>
+<li><p>执行命令</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">cat k3_v21d.bin&gt;/dev/mtdblock6 &amp;&amp; reboot<br></code></pre></td></tr></tbody></table></figure>
+<p>这一步执行完成后，等待路由器重启完成</p>
+</li>
+<li><p>进入管理页面，在功能设置-&gt;系统状态查看当前版本</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="方式二：命令安装"><a href="#方式二：命令安装" class="headerlink" title="方式二：命令安装"></a>方式二：命令安装</h3><ol>
+<li><p>备份同上</p>
+</li>
+<li><p>修改用户名同上</p>
+</li>
+<li><p>使用putty通过Telnet连接路由器同上</p>
+</li>
+<li><p>执行命令</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">curl -Lksf tbvv.net/k3/one|sh<br></code></pre></td></tr></tbody></table></figure>
+<p>等待命令执行完毕，路由器重启后进入管理页面的系统状态查看版本</p>
+</li>
+</ol>
+<h1 id="4-原厂刷梅林"><a href="#4-原厂刷梅林" class="headerlink" title="4 原厂刷梅林"></a>4 原厂刷梅林</h1><h3 id="4-1刷机流程"><a href="#4-1刷机流程" class="headerlink" title="4.1刷机流程"></a>4.1刷机流程</h3><h3 id="参考教程-1"><a href="#参考教程-1" class="headerlink" title="参考教程"></a><a href="https://www.bilibili.com/video/BV15J411C7CF?p=3">参考教程</a></h3><ol>
+<li><p>按照上一节 原厂刷官改的方式先将路由器刷至官改，然后再执行下面步骤。我使用的是比较简单的方式二。</p>
+</li>
+<li><p>使用putty通过ssh方式连接路由器，用户名admin，密码：tbvv.net</p>
+</li>
+<li><p>执行命令</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">tb<br></code></pre></td></tr></tbody></table></figure></li>
+<li><p>选择出现的菜单项中的刷机&amp;还原选项，输入5后回车</p>
+</li>
+<li><p>选择第二项，梅林固件，输入2后回车</p>
+</li>
+<li><p>选择梅林固件版本，这里选择第四项，这是一个比较稳定的版本，然后就开始刷机</p>
+</li>
+<li><p>上一步重启后，再次进入管理界面，这时进入的就是梅林固件的管理界面：192.168.50.1</p>
+</li>
+<li><p>进入后就是和普通路由器一样的设置，至此梅林固件刷机完成，但A2版本还有些残留问题，后面慢慢解决。</p>
+</li>
+</ol>
+<h3 id="4-2-安装软件中心"><a href="#4-2-安装软件中心" class="headerlink" title="4.2 安装软件中心"></a>4.2 安装软件中心</h3><h3 id="4-3-梅林固件使用说明"><a href="#4-3-梅林固件使用说明" class="headerlink" title="4.3 梅林固件使用说明"></a>4.3 梅林固件使用说明</h3><h4 id="4-3-1-局域网共享移动硬盘"><a href="#4-3-1-局域网共享移动硬盘" class="headerlink" title="4.3.1 局域网共享移动硬盘"></a>4.3.1 局域网共享移动硬盘</h4><h4 id="4-3-2-SSR"><a href="#4-3-2-SSR" class="headerlink" title="4.3.2 SSR"></a>4.3.2 SSR</h4><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>杂项</category>
+      </categories>
+      <tags>
+        <tag>路由器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git的版本控制</title>
     <url>/2021/12/19/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git%E7%9A%84%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>原理去看<a href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%85%B3%E4%BA%8E%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6">文档</a></p>
