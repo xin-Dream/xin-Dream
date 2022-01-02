@@ -263,6 +263,179 @@
     <content><![CDATA[<h1 id="点击跳转码云网址"><a href="#点击跳转码云网址" class="headerlink" title="点击跳转码云网址"></a><a href="https://xin-dream.gitee.io/">点击跳转码云网址</a></h1><h1 id="网址为：zhangguixin-top-xin-dream-github-io-时访问部署在Github中的网页"><a href="#网址为：zhangguixin-top-xin-dream-github-io-时访问部署在Github中的网页" class="headerlink" title="网址为：zhangguixin.top/xin-dream.github.io 时访问部署在Github中的网页"></a>网址为：zhangguixin.top/xin-dream.github.io 时访问部署在Github中的网页</h1><h1 id="网址为：xin-dream-gitee-io-时访问部署在Gitee中的网页，这个速度较快"><a href="#网址为：xin-dream-gitee-io-时访问部署在Gitee中的网页，这个速度较快" class="headerlink" title="网址为：xin-dream.gitee.io 时访问部署在Gitee中的网页，这个速度较快"></a>网址为：xin-dream.gitee.io 时访问部署在Gitee中的网页，这个速度较快</h1><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
   </entry>
   <entry>
+    <title>粒子云工具使用</title>
+    <url>/2022/01/02/%E6%9D%82%E9%A1%B9/%E7%B2%92%E5%AD%90%E4%BA%91%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>参考教程：<a href="https://www.bilibili.com/video/BV1ve411s7kz?p=1">全面应用进阶教程</a><br>将视频内容整理，便于使用时查看。</p>
+</blockquote>
+<h1 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1 初始化"></a>1 初始化</h1><p>我买的是刷过机的我家云，如果是原版，刷机教程可以参考：<a href="https://post.smzdm.com/p/az50epz5/">我家云保姆级教程</a></p>
+<p>在拿到刷过机的我家云/粒子云，直接输入IP是无法访问的，需要先初始化，过程如下。</p>
+<p>在路由器上查看到云主机IP后，使用SSH工具连接，登陆时用户密码如下，进去后会自动完成初始化。在安装导航页是选择是，最后有一个删除导航页，避免下次进入导航页。</p>
+<blockquote>
+<p>用户：root<br>密码：1234</p>
+</blockquote>
+<p>完成初始化后，浏览器输入云的IP即可进入管理界面。进入后最后先按如下流程配置一遍所有工具。</p>
+<h1 id="2-控制台"><a href="#2-控制台" class="headerlink" title="2 控制台"></a>2 控制台</h1><p>首先进入控制台，在这里面需要进行共享文件夹、用户创建、磁盘管理等。</p>
+<blockquote>
+<p>登录控制台<br>用户名：admin<br>密码：openmediavault</p>
+</blockquote>
+<h2 id="2-1-磁盘挂载"><a href="#2-1-磁盘挂载" class="headerlink" title="2.1 磁盘挂载"></a>2.1 磁盘挂载</h2><ol>
+<li><p>查看磁盘</p>
+<blockquote>
+<p>存储器 -&gt; 磁盘<br>设备中的/dev/sda即为接入的磁盘，上方的擦除可以对其进行格式化</p>
+</blockquote>
+</li>
+<li><p>挂载磁盘</p>
+<blockquote>
+<p>存储器 -&gt; 文件系统<br>如果是新擦除的磁盘，要在文件系统中创建磁盘，这里最好选择EXT4版本的文件格式，对于Linux比较友好，标签就是这个磁盘的名字，在共享文件夹时会用到。<br>创建完成后即可挂载，就能看到磁盘用量</p>
+</blockquote>
+</li>
+<li><p>新建用户</p>
+<blockquote>
+<p>访问权限管理 -&gt; 用户 -&gt; 添加<br>设置完用户名和密码后，可以在用户组中设置用户权限。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="2-2-创建共享文件夹"><a href="#2-2-创建共享文件夹" class="headerlink" title="2.2 创建共享文件夹"></a>2.2 创建共享文件夹</h2><ol>
+<li><p>创建共享</p>
+<blockquote>
+<p>访问权限管理 -&gt; 添加<br>这里可以说明一下后面会用到哪些，一次添加完成。因为在共享的根目录文件夹内无法创建内容，在download等内可以自定义创建。</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><code class="hljs plain">-- /          # 根目录<br>|- /download      # 下载工具下载的文件夹<br>|- /share        # 共享工具用的文件夹<br>|- /photo        # 照片<br>|- /video        # 视频<br>|- /data        # 其余文件<br></code></pre></td></tr></tbody></table></figure></li>
+<li><p>启动共享</p>
+<blockquote>
+<p>服务 -&gt; SMB/CIFS -&gt; 共享<br>这里选择添加，添加上一步创建的文件夹，注意在公开一栏选择允许访客。</p>
+</blockquote>
+<p>返回到设置 -&gt; 常规设置 -&gt; 启用</p>
+</li>
+<li><p>windows中添加网络位置<br>在文件资源管理器中右键 -&gt; 添加一个网络位置</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><code class="hljs plain">\\192.168.2.102\test<br><br># IP为云服务器IP，test为2.1节中磁盘的标签<br></code></pre></td></tr></tbody></table></figure>
+
+</li>
+</ol>
+<h2 id="2-3-移动wwwroot文件夹到挂载的硬盘"><a href="#2-3-移动wwwroot文件夹到挂载的硬盘" class="headerlink" title="2.3 移动wwwroot文件夹到挂载的硬盘"></a>2.3 移动wwwroot文件夹到挂载的硬盘</h2><p>原本的盘比较小，粒子云中后面下载或其他内容都存在wwwroot目录下，所以这一步将其转移到上一步挂载的硬盘。<br>这里可以先看第5.5节 探针的使用，先查看一下本地硬盘使用情况，然后开始转移wwwroot目录。</p>
+<ol>
+<li><p>挂载文件<br>使用SSH进入云服务器</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><code class="hljs plain">onmp stop<br>mkdir /opt/media<br>mount /dev/sda1 /opt/media<br><br>cp -ar /opt/wwwroot /opt/media<br>rm -rf /opt/wwwroot/*<br>mount --bind /opt/media/wwwroot /opt/wwwroot<br><br>onmp start<br></code></pre></td></tr></tbody></table></figure></li>
+<li><p>修改配置文件<br>在SSH中修改/opt/entware_init.sh内容</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><code class="hljs plain"># 在onmp start下添加如下内容<br><br>sleep15<br>mount /dev/sda1 /opt/media<br>mount --bind /opt/media/wwwroot /opt/wwwroot<br></code></pre></td></tr></tbody></table></figure>
+<p>等待重启后，进入管理页面，使用探针查看一下硬盘大小</p>
+</li>
+</ol>
+<h2 id="2-4-更换硬盘"><a href="#2-4-更换硬盘" class="headerlink" title="2.4 更换硬盘"></a>2.4 更换硬盘</h2><p>因为已经将wwwroot移动到了硬盘，所以一旦更换硬盘，容易丢失内容，所以更换前先将wwwroot中的内容备份一下。这里的备份最好是在云服务器备份，一个是因为在换盘前进行一下映射的还原，另一个因为SSH连接时使用root，权限最高，可以随意复制。</p>
+<ol>
+<li>备份<br> 如果是按上述步骤转移的wwwroot的话，可以按如下步骤备份 <figure class="highlight plain"><table><tbody><tr><td class="code"><pre><code class="hljs plain">mkdir /home/dream<br>cp -r /opt/media/wwwroot/ /home/dream/wwwroot_backup<br></code></pre></td></tr></tbody></table></figure></li>
+<li>还原wwwroot</li>
+<li>换盘并重映射</li>
+</ol>
+<h1 id="3-文件管理"><a href="#3-文件管理" class="headerlink" title="3 文件管理"></a>3 文件管理</h1><h2 id="3-1-可道云"><a href="#3-1-可道云" class="headerlink" title="3.1 可道云"></a>3.1 可道云</h2><h2 id="3-2-NextCloud"><a href="#3-2-NextCloud" class="headerlink" title="3.2 NextCloud"></a>3.2 NextCloud</h2><p>进入软件后要先进行初始化设置</p>
+<blockquote>
+<p>数据库用户：root<br>数据库密码：123456<br>数据库名：Localhost<br>数据目录不用修改，因为已经把wwwroot改到硬盘了</p>
+</blockquote>
+<h2 id="3-3-H5ai"><a href="#3-3-H5ai" class="headerlink" title="3.3 H5ai"></a>3.3 H5ai</h2><h1 id="4-下载工具"><a href="#4-下载工具" class="headerlink" title="4 下载工具"></a>4 下载工具</h1><p>在第2.2节中设置的download目录就是用于本节中设置下载目录的，为不同的软件工具在download中创建不同文件夹。</p>
+<p>文中查找文件目录可以利用可道云，找到文件夹后复制路径在其余页面修改即可。</p>
+<h2 id="4-1-AriaNg"><a href="#4-1-AriaNg" class="headerlink" title="4.1 AriaNg"></a>4.1 AriaNg</h2><p>这里面的AriaNg设置和Aria2设置是对于两个软件的设置。</p>
+<ol>
+<li><p>Aria2</p>
+<blockquote>
+<p>Aria2设置 -&gt; 基本设置</p>
+</blockquote>
+<p>同样在download中新建AiraNg，在AiraNg中新建log文件夹<br>分别对应下载路径和日志文件</p>
+</li>
+<li><p>AriaNg</p>
+</li>
+</ol>
+<h2 id="4-2-Transmission"><a href="#4-2-Transmission" class="headerlink" title="4.2 Transmission"></a>4.2 Transmission</h2><p>在菜单栏的齿轮按钮中进入设置，修改默认保存目录，勾选临时目录并设置。</p>
+<p>download-&gt;Transmission-&gt;temp</p>
+<h2 id="4-3-qBittorrent"><a href="#4-3-qBittorrent" class="headerlink" title="4.3 qBittorrent"></a>4.3 qBittorrent</h2><ol>
+<li><p>修改密码<br>默认用户名：admin<br>默认密码：adminadmin</p>
+<p>修改密码：</p>
+<blockquote>
+<p>工具 -&gt; 选项 -&gt; Web用户页面<br>修改完密码后在最下面保存，文件-&gt;注销，注销后再重新登录</p>
+</blockquote>
+</li>
+<li><p>修改下载路径</p>
+<blockquote>
+<p>工具 -&gt; 选项 -&gt; 下载</p>
+</blockquote>
+<p>这里需要设置两个目录，在第2.2节中的download目录下新建文件夹qBittorrent，在qBittorrent中新建watch文件夹。</p>
+<p>将qBittorrent设置为默认保存路径，watch设置为下面的监控文件夹。</p>
+<p>修改完记得最下面的保存，然后重新检查一遍配置。   </p>
+</li>
+</ol>
+<h1 id="5-其他工具"><a href="#5-其他工具" class="headerlink" title="5 其他工具"></a>5 其他工具</h1><h2 id="5-1-OFFICE"><a href="#5-1-OFFICE" class="headerlink" title="5.1 OFFICE"></a>5.1 OFFICE</h2><ol>
+<li>初始化<br>按界面引导设置即可，注意数据库密码为：123456</li>
+</ol>
+<h2 id="5-2-phpMyAdmin"><a href="#5-2-phpMyAdmin" class="headerlink" title="5.2 phpMyAdmin"></a>5.2 phpMyAdmin</h2><ol>
+<li><p>初始化<br>数据库软件</p>
+<p>进入后默认密码为：123456</p>
+<p>这个数据库会在其他软件中用到。</p>
+</li>
+<li><p>新建数据库<br>左侧新建，只修改数据库名即可，可能会在wordpress中用到。</p>
+<h2 id="5-3-相册"><a href="#5-3-相册" class="headerlink" title="5.3 相册"></a>5.3 相册</h2></li>
+<li><p>初始化使用</p>
+<p>进入软件后要先进行初始化设置</p>
+<blockquote>
+<p>Databa Host：Localhost<br>Databa Username：root<br>Databa Password：123456<br>下面使用默认即可</p>
+</blockquote>
+<p>后面创建的用户名密码是用于相册软件的</p>
+</li>
+</ol>
+<h2 id="5-4-视频"><a href="#5-4-视频" class="headerlink" title="5.4 视频"></a>5.4 视频</h2><h2 id="5-5-探针"><a href="#5-5-探针" class="headerlink" title="5.5 探针"></a>5.5 探针</h2><p>可以查看云服务器各种数据，内存、硬盘等使用情况，但这里的物理内存并不代表真是内存，应该是下面的真实内存。</p>
+<p><img src="/images/%E7%B2%92%E5%AD%90%E4%BA%91%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/image-20220102163303405.png" alt="image-20220102163303405"></p>
+<h2 id="5-6-wordpress"><a href="#5-6-wordpress" class="headerlink" title="5.6 wordpress"></a>5.6 wordpress</h2><p>转至详细教程</p>
+<a href="/2022/01/02/wordpress/%E7%B2%92%E5%AD%90%E4%BA%91%E4%BD%BF%E7%94%A8wordpress%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="粒子云使用wordpress搭建博客">粒子云使用wordpress搭建博客</a><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>杂项</category>
+      </categories>
+      <tags>
+        <tag>NAS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>粒子云使用wordpress搭建博客</title>
+    <url>/2022/01/02/wordpress/%E7%B2%92%E5%AD%90%E4%BA%91%E4%BD%BF%E7%94%A8wordpress%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="1-粒子云中wordpress的设置"><a href="#1-粒子云中wordpress的设置" class="headerlink" title="1. 粒子云中wordpress的设置"></a>1. 粒子云中wordpress的设置</h1><p>一开始进去后要进行初始化设置</p>
+<blockquote>
+<p>数据库名可以使用默认，他会默认在数据库创建wordpress数据库<br>用户名：root<br>密码：123456<br>其余默认</p>
+</blockquote>
+<p>这里如果创建失败，可以进入数据库自己创建wordpress。</p>
+<p>后面的设置就没什么要注意的了。</p>
+<h1 id="2-取消设置wordpress更新时的ftp"><a href="#2-取消设置wordpress更新时的ftp" class="headerlink" title="2. 取消设置wordpress更新时的ftp"></a>2. 取消设置wordpress更新时的ftp</h1><p>在wordpress根目录中修改如下文件：wp-config.php</p>
+<p>wordpress的根目录已经移动到了硬盘的wwwroot中。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><code class="hljs plain"># 在文件最后添加<br><br>define("FS_METHOD","direct");<br><br>define("FS_CHMOD_DIR", 0777);<br><br>define("FS_CHMOD_FILE", 0777);<br></code></pre></td></tr></tbody></table></figure><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>wordpress</category>
+      </categories>
+      <tags>
+        <tag>wordpress</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>solidworks装配体中修改文件名</title>
+    <url>/2022/01/02/%E6%9C%BA%E6%A2%B0%E7%B1%BB/solidworks%E8%A3%85%E9%85%8D%E4%BD%93%E4%B8%AD%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D/</url>
+    <content><![CDATA[<p><img src="/images/solidworks%E8%A3%85%E9%85%8D%E4%BD%93%E4%B8%AD%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D/QQ%E6%88%AA%E5%9B%BE20220101224346.png" alt="QQ截图20220101224346"></p>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>机械 - Solidworks</category>
+      </categories>
+      <tags>
+        <tag>Solidworks</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>gitignore使用</title>
+    <url>/2022/01/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/gitignore%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>根目录下的.gitignore用于管理不上传git的文件<br><br><br><br></p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><code class="hljs plain"># 这是注释内容<br><br># 所有jpg格式文件<br>*.jpg<br><br># 不忽略a.jpg<br>!main.jpg<br><br># 忽略所有build目录下内容<br>build/<br><br># 忽略根目录下的main.jpg<br>/main.jpg<br><br># 忽略images/main.jpg<br>images/main.jpg<br><br></code></pre></td></tr></tbody></table></figure><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>程序设计 - git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>pyinstaller使用</title>
     <url>/2022/01/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/pyinstaller%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">pip install pyinstaller<br></code></pre></td></tr></tbody></table></figure>
