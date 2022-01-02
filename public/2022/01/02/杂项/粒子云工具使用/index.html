@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+       
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>粒子云工具使用 |  Dream</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/badminton.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-杂项/粒子云工具使用"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  粒子云工具使用
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/01/02/%E6%9D%82%E9%A1%B9/%E7%B2%92%E5%AD%90%E4%BA%91%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2022-01-02T07:25:35.000Z" itemprop="datePublished">2022-01-02</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.6k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">5 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>参考教程：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ve411s7kz?p=1">全面应用进阶教程</a><br>将视频内容整理，便于使用时查看。</p>
+</blockquote>
+<h1 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1 初始化"></a>1 初始化</h1><p>我买的是刷过机的我家云，如果是原版，刷机教程可以参考：<a target="_blank" rel="noopener" href="https://post.smzdm.com/p/az50epz5/">我家云保姆级教程</a></p>
+<p>在拿到刷过机的我家云/粒子云，直接输入IP是无法访问的，需要先初始化，过程如下。</p>
+<p>在路由器上查看到云主机IP后，使用SSH工具连接，登陆时用户密码如下，进去后会自动完成初始化。在安装导航页是选择是，最后有一个删除导航页，避免下次进入导航页。</p>
+<blockquote>
+<p>用户：root<br>密码：1234</p>
+</blockquote>
+<p>完成初始化后，浏览器输入云的IP即可进入管理界面。进入后最后先按如下流程配置一遍所有工具。</p>
+<h1 id="2-控制台"><a href="#2-控制台" class="headerlink" title="2 控制台"></a>2 控制台</h1><p>首先进入控制台，在这里面需要进行共享文件夹、用户创建、磁盘管理等。</p>
+<blockquote>
+<p>登录控制台<br>用户名：admin<br>密码：openmediavault</p>
+</blockquote>
+<h2 id="2-1-磁盘挂载"><a href="#2-1-磁盘挂载" class="headerlink" title="2.1 磁盘挂载"></a>2.1 磁盘挂载</h2><ol>
+<li><p>查看磁盘</p>
+<blockquote>
+<p>存储器 -&gt; 磁盘<br>设备中的/dev/sda即为接入的磁盘，上方的擦除可以对其进行格式化</p>
+</blockquote>
+</li>
+<li><p>挂载磁盘</p>
+<blockquote>
+<p>存储器 -&gt; 文件系统<br>如果是新擦除的磁盘，要在文件系统中创建磁盘，这里最好选择EXT4版本的文件格式，对于Linux比较友好，标签就是这个磁盘的名字，在共享文件夹时会用到。<br>创建完成后即可挂载，就能看到磁盘用量</p>
+</blockquote>
+</li>
+<li><p>新建用户</p>
+<blockquote>
+<p>访问权限管理 -&gt; 用户 -&gt; 添加<br>设置完用户名和密码后，可以在用户组中设置用户权限。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="2-2-创建共享文件夹"><a href="#2-2-创建共享文件夹" class="headerlink" title="2.2 创建共享文件夹"></a>2.2 创建共享文件夹</h2><ol>
+<li><p>创建共享</p>
+<blockquote>
+<p>访问权限管理 -&gt; 添加<br>这里可以说明一下后面会用到哪些，一次添加完成。因为在共享的根目录文件夹内无法创建内容，在download等内可以自定义创建。</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs plain">-- /          # 根目录<br>|- /download      # 下载工具下载的文件夹<br>|- /share        # 共享工具用的文件夹<br>|- /photo        # 照片<br>|- /video        # 视频<br>|- /data        # 其余文件<br></code></pre></td></tr></tbody></table></figure></li>
+<li><p>启动共享</p>
+<blockquote>
+<p>服务 -&gt; SMB/CIFS -&gt; 共享<br>这里选择添加，添加上一步创建的文件夹，注意在公开一栏选择允许访客。</p>
+</blockquote>
+<p>返回到设置 -&gt; 常规设置 -&gt; 启用</p>
+</li>
+<li><p>windows中添加网络位置<br>在文件资源管理器中右键 -&gt; 添加一个网络位置</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">\\192.168.2.102\test<br><br># IP为云服务器IP，test为2.1节中磁盘的标签<br></code></pre></td></tr></tbody></table></figure>
+
+</li>
+</ol>
+<h2 id="2-3-移动wwwroot文件夹到挂载的硬盘"><a href="#2-3-移动wwwroot文件夹到挂载的硬盘" class="headerlink" title="2.3 移动wwwroot文件夹到挂载的硬盘"></a>2.3 移动wwwroot文件夹到挂载的硬盘</h2><p>原本的盘比较小，粒子云中后面下载或其他内容都存在wwwroot目录下，所以这一步将其转移到上一步挂载的硬盘。<br>这里可以先看第5.5节 探针的使用，先查看一下本地硬盘使用情况，然后开始转移wwwroot目录。</p>
+<ol>
+<li><p>挂载文件<br>使用SSH进入云服务器</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs plain">onmp stop<br>mkdir /opt/media<br>mount /dev/sda1 /opt/media<br><br>cp -ar /opt/wwwroot /opt/media<br>rm -rf /opt/wwwroot/*<br>mount --bind /opt/media/wwwroot /opt/wwwroot<br><br>onmp start<br></code></pre></td></tr></tbody></table></figure></li>
+<li><p>修改配置文件<br>在SSH中修改/opt/entware_init.sh内容</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain"># 在onmp start下添加如下内容<br><br>sleep15<br>mount /dev/sda1 /opt/media<br>mount --bind /opt/media/wwwroot /opt/wwwroot<br></code></pre></td></tr></tbody></table></figure>
+<p>等待重启后，进入管理页面，使用探针查看一下硬盘大小</p>
+</li>
+</ol>
+<h2 id="2-4-更换硬盘"><a href="#2-4-更换硬盘" class="headerlink" title="2.4 更换硬盘"></a>2.4 更换硬盘</h2><p>因为已经将wwwroot移动到了硬盘，所以一旦更换硬盘，容易丢失内容，所以更换前先将wwwroot中的内容备份一下。这里的备份最好是在云服务器备份，一个是因为在换盘前进行一下映射的还原，另一个因为SSH连接时使用root，权限最高，可以随意复制。</p>
+<ol>
+<li>备份<br> 如果是按上述步骤转移的wwwroot的话，可以按如下步骤备份 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">mkdir /home/dream<br>cp -r /opt/media/wwwroot/ /home/dream/wwwroot_backup<br></code></pre></td></tr></tbody></table></figure></li>
+<li>还原wwwroot</li>
+<li>换盘并重映射</li>
+</ol>
+<h1 id="3-文件管理"><a href="#3-文件管理" class="headerlink" title="3 文件管理"></a>3 文件管理</h1><h2 id="3-1-可道云"><a href="#3-1-可道云" class="headerlink" title="3.1 可道云"></a>3.1 可道云</h2><h2 id="3-2-NextCloud"><a href="#3-2-NextCloud" class="headerlink" title="3.2 NextCloud"></a>3.2 NextCloud</h2><p>进入软件后要先进行初始化设置</p>
+<blockquote>
+<p>数据库用户：root<br>数据库密码：123456<br>数据库名：Localhost<br>数据目录不用修改，因为已经把wwwroot改到硬盘了</p>
+</blockquote>
+<h2 id="3-3-H5ai"><a href="#3-3-H5ai" class="headerlink" title="3.3 H5ai"></a>3.3 H5ai</h2><h1 id="4-下载工具"><a href="#4-下载工具" class="headerlink" title="4 下载工具"></a>4 下载工具</h1><p>在第2.2节中设置的download目录就是用于本节中设置下载目录的，为不同的软件工具在download中创建不同文件夹。</p>
+<p>文中查找文件目录可以利用可道云，找到文件夹后复制路径在其余页面修改即可。</p>
+<h2 id="4-1-AriaNg"><a href="#4-1-AriaNg" class="headerlink" title="4.1 AriaNg"></a>4.1 AriaNg</h2><p>这里面的AriaNg设置和Aria2设置是对于两个软件的设置。</p>
+<ol>
+<li><p>Aria2</p>
+<blockquote>
+<p>Aria2设置 -&gt; 基本设置</p>
+</blockquote>
+<p>同样在download中新建AiraNg，在AiraNg中新建log文件夹<br>分别对应下载路径和日志文件</p>
+</li>
+<li><p>AriaNg</p>
+</li>
+</ol>
+<h2 id="4-2-Transmission"><a href="#4-2-Transmission" class="headerlink" title="4.2 Transmission"></a>4.2 Transmission</h2><p>在菜单栏的齿轮按钮中进入设置，修改默认保存目录，勾选临时目录并设置。</p>
+<p>download-&gt;Transmission-&gt;temp</p>
+<h2 id="4-3-qBittorrent"><a href="#4-3-qBittorrent" class="headerlink" title="4.3 qBittorrent"></a>4.3 qBittorrent</h2><ol>
+<li><p>修改密码<br>默认用户名：admin<br>默认密码：adminadmin</p>
+<p>修改密码：</p>
+<blockquote>
+<p>工具 -&gt; 选项 -&gt; Web用户页面<br>修改完密码后在最下面保存，文件-&gt;注销，注销后再重新登录</p>
+</blockquote>
+</li>
+<li><p>修改下载路径</p>
+<blockquote>
+<p>工具 -&gt; 选项 -&gt; 下载</p>
+</blockquote>
+<p>这里需要设置两个目录，在第2.2节中的download目录下新建文件夹qBittorrent，在qBittorrent中新建watch文件夹。</p>
+<p>将qBittorrent设置为默认保存路径，watch设置为下面的监控文件夹。</p>
+<p>修改完记得最下面的保存，然后重新检查一遍配置。   </p>
+</li>
+</ol>
+<h1 id="5-其他工具"><a href="#5-其他工具" class="headerlink" title="5 其他工具"></a>5 其他工具</h1><h2 id="5-1-OFFICE"><a href="#5-1-OFFICE" class="headerlink" title="5.1 OFFICE"></a>5.1 OFFICE</h2><ol>
+<li>初始化<br>按界面引导设置即可，注意数据库密码为：123456</li>
+</ol>
+<h2 id="5-2-phpMyAdmin"><a href="#5-2-phpMyAdmin" class="headerlink" title="5.2 phpMyAdmin"></a>5.2 phpMyAdmin</h2><ol>
+<li><p>初始化<br>数据库软件</p>
+<p>进入后默认密码为：123456</p>
+<p>这个数据库会在其他软件中用到。</p>
+</li>
+<li><p>新建数据库<br>左侧新建，只修改数据库名即可，可能会在wordpress中用到。</p>
+<h2 id="5-3-相册"><a href="#5-3-相册" class="headerlink" title="5.3 相册"></a>5.3 相册</h2></li>
+<li><p>初始化使用</p>
+<p>进入软件后要先进行初始化设置</p>
+<blockquote>
+<p>Databa Host：Localhost<br>Databa Username：root<br>Databa Password：123456<br>下面使用默认即可</p>
+</blockquote>
+<p>后面创建的用户名密码是用于相册软件的</p>
+</li>
+</ol>
+<h2 id="5-4-视频"><a href="#5-4-视频" class="headerlink" title="5.4 视频"></a>5.4 视频</h2><h2 id="5-5-探针"><a href="#5-5-探针" class="headerlink" title="5.5 探针"></a>5.5 探针</h2><p>可以查看云服务器各种数据，内存、硬盘等使用情况，但这里的物理内存并不代表真是内存，应该是下面的真实内存。</p>
+<p><img src="/images/%E7%B2%92%E5%AD%90%E4%BA%91%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/image-20220102163303405.png" alt="image-20220102163303405"></p>
+<h2 id="5-6-wordpress"><a href="#5-6-wordpress" class="headerlink" title="5.6 wordpress"></a>5.6 wordpress</h2><p>转至详细教程</p>
+<a href="/2022/01/02/wordpress/%E7%B2%92%E5%AD%90%E4%BA%91%E4%BD%BF%E7%94%A8wordpress%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="粒子云使用wordpress搭建博客">粒子云使用wordpress搭建博客</a><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zhangguixin.com/2022/01/02/%E6%9D%82%E9%A1%B9/%E7%B2%92%E5%AD%90%E4%BA%91%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NAS/" rel="tag">NAS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/01/02/%E6%9C%BA%E6%A2%B0%E7%B1%BB/solidworks%E8%A3%85%E9%85%8D%E4%BD%93%E4%B8%AD%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            solidworks装配体中修改文件名
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/01/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/gitignore%E4%BD%BF%E7%94%A8/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">gitignore使用</div>
+      </a>
+    
+  </nav>
+
+  
+   
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css">
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '90f8027c09cddcac20ef',
+    clientSecret: 'eeb93148bba6bd7e7c3d6774b9ad26c3fb8da534',
+    repo: 'Blog_comments',
+    owner: 'xin-Dream',
+    admin: ['xin-Dream'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021-2022
+        <i class="ri-heart-fill heart_icon"></i> ZGX
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/badminton.svg" alt="Dream"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories/Linux/ROS">ROS</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories/AI">AI</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories/hexo">hexo</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/Aboutme">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/AliPay.png">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.png">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+ 
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
