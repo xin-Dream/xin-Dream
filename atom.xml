@@ -6,7 +6,7 @@
   <link href="http://zhangguixin.com/atom.xml" rel="self"/>
   
   <link href="http://zhangguixin.com/"/>
-  <updated>2022-01-02T12:59:00.539Z</updated>
+  <updated>2022-03-11T07:16:42.319Z</updated>
   <id>http://zhangguixin.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ROS学习目录</title>
+    <link href="http://zhangguixin.com/2022/01/21/ROS/ROS%E5%AD%A6%E4%B9%A0%E7%9B%AE%E5%BD%95/"/>
+    <id>http://zhangguixin.com/2022/01/21/ROS/ROS%E5%AD%A6%E4%B9%A0%E7%9B%AE%E5%BD%95/</id>
+    <published>2022-01-21T13:32:30.000Z</published>
+    <updated>2022-03-11T07:16:42.319Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="ROS" scheme="http://zhangguixin.com/categories/ROS/"/>
+    
+    
+    <category term="ROS" scheme="http://zhangguixin.com/tags/ROS/"/>
+    
+  </entry>
   
   <entry>
     <title>粒子云使用wordpress搭建博客</title>
@@ -295,18 +320,14 @@
     <link href="http://zhangguixin.com/2021/12/16/ROS/Autobot-%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
     <id>http://zhangguixin.com/2021/12/16/ROS/Autobot-%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/</id>
     <published>2021-12-16T12:30:00.000Z</published>
-    <updated>2021-12-20T14:05:43.432Z</updated>
+    <updated>2022-01-21T13:30:51.482Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;blockquote class=&quot;pullquote mindmap mindmap-lg&quot;&gt;&lt;ul&gt;
-&lt;li&gt;Autobot机器人&lt;ul&gt;
-&lt;li&gt;基础部分&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#2&quot;&gt;结构设计&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a</summary>
+    <summary type="html">&lt;blockquote class=&quot;pullquote mindmap</summary>
         
       
     
@@ -377,7 +398,7 @@
     <link href="http://zhangguixin.com/2021/12/12/ROS/cartographer%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
     <id>http://zhangguixin.com/2021/12/12/ROS/cartographer%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</id>
     <published>2021-12-12T13:47:24.000Z</published>
-    <updated>2021-12-17T12:44:13.843Z</updated>
+    <updated>2022-01-21T13:03:00.369Z</updated>
     
     
       
@@ -453,15 +474,15 @@
     <link href="http://zhangguixin.com/2021/12/05/ROS/ROS%E4%B8%8EAnaconda%E5%85%B1%E5%AD%98/"/>
     <id>http://zhangguixin.com/2021/12/05/ROS/ROS%E4%B8%8EAnaconda%E5%85%B1%E5%AD%98/</id>
     <published>2021-12-05T03:43:41.000Z</published>
-    <updated>2021-12-05T03:44:24.661Z</updated>
+    <updated>2022-03-13T11:13:05.022Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.guyuehome.com/35918&quot;&gt;https://www.guyuehome.com/35918&lt;/a&gt;&lt;/p&gt;
-&lt;script type=&quot;text&amp;#x2F;javascript&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;参考教程&quot;&gt;&lt;a href=&quot;#参考教程&quot; class=&quot;headerlink&quot; title=&quot;参考教程&quot;&gt;&lt;/a&gt;参考教程&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.guyuehome.com/35918&quot;&gt;详细教程&lt;/a&gt;&lt;/p&gt;
+&lt;h1</summary>
         
       
     
@@ -502,35 +523,6 @@
     
     
     <category term="opencv" scheme="http://zhangguixin.com/tags/opencv/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu配置KinectV2</title>
-    <link href="http://zhangguixin.com/2021/12/05/Linux/Ubuntu%E9%85%8D%E7%BD%AEKinectV2/"/>
-    <id>http://zhangguixin.com/2021/12/05/Linux/Ubuntu%E9%85%8D%E7%BD%AEKinectV2/</id>
-    <published>2021-12-05T03:00:39.000Z</published>
-    <updated>2021-12-05T08:53:16.798Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Linux" scheme="http://zhangguixin.com/categories/Linux/"/>
-    
-    <category term="ubuntu" scheme="http://zhangguixin.com/categories/Linux/ubuntu/"/>
-    
-    
-    <category term="ubuntu" scheme="http://zhangguixin.com/tags/ubuntu/"/>
-    
-    <category term="KinectV2" scheme="http://zhangguixin.com/tags/KinectV2/"/>
     
   </entry>
   

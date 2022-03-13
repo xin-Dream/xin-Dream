@@ -102,7 +102,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">381</span>
+            <span class="post-count">379</span>
         </span>
     </span>
 
@@ -129,26 +129,26 @@
   <blockquote>
 <p><a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh">参考</a></p>
 </blockquote>
-<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install zsh<br><br><span class="hljs-comment"># 安装Oh my zsh，以下为三种方式</span><br>sh -c <span class="hljs-string">"<span class="hljs-subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>"</span><br><br>sh -c <span class="hljs-string">"<span class="hljs-subst">$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>"</span><br><br>sh -c <span class="hljs-string">"<span class="hljs-subst">$(fetch -o - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>"</span><br><br><span class="hljs-comment"># 若以上方式都不好用，可以在网页打开网址,新建一个install.sh，将网页内容复制进去，然后执行</span><br><br><span class="hljs-comment">#或者可以在我GitHub上找到Ubuntu_files的zsh里有配置文件</span><br><br>sh install.sh<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install zsh<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="安装Oh-my-zsh，以下为三种方式"><a href="#安装Oh-my-zsh，以下为三种方式" class="headerlink" title="安装Oh my zsh，以下为三种方式"></a>安装Oh my zsh，以下为三种方式</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sh -c <span class="hljs-string">"<span class="hljs-subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>"</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sh -c <span class="hljs-string">"<span class="hljs-subst">$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>"</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sh -c <span class="hljs-string">"<span class="hljs-subst">$(fetch -o - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>"</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain"># 若以上方式都不好用，可以在网页打开网址,新建一个install.sh，将网页内容复制进去，然后执行<br><br>#或者可以在我GitHub上找到Ubuntu_files的zsh里有配置文件<br><br>sh install.sh<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="2-配置与插件安装"><a href="#2-配置与插件安装" class="headerlink" title="2. 配置与插件安装"></a>2. 配置与插件安装</h2><ol>
 <li>命令行提示</li>
 </ol>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># git clone加速技巧，将github.com改为github.com.cnpmjs.org</span><br><br>git <span class="hljs-built_in">clone</span> https://github.com.cnpmjs.org/zsh-users/zsh-autosuggestions <span class="hljs-variable">${ZSH_CUSTOM:-~/.oh-my-zsh/custom}</span>/plugins/zsh-autosuggestions<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># git clone加速技巧，将github.com改为github.com.cnpmjs.org</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="hljs-variable">${ZSH_CUSTOM:-~/.oh-my-zsh/custom}</span>/plugins/zsh-autosuggestions<br></code></pre></td></tr></tbody></table></figure>
 <ol start="2">
 <li>语法高亮</li>
 </ol>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com.cnpmjs.org/zsh-users/zsh-syntax-highlighting.git <span class="hljs-variable">${ZSH_CUSTOM:-~/.oh-my-zsh/custom}</span>/plugins/zsh-syntax-highlighting<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.comg/zsh-users/zsh-syntax-highlighting.git <span class="hljs-variable">${ZSH_CUSTOM:-~/.oh-my-zsh/custom}</span>/plugins/zsh-syntax-highlighting<br></code></pre></td></tr></tbody></table></figure>
 <ol start="3">
 <li>跳转目录</li>
 </ol>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install autojump<br></code></pre></td></tr></tbody></table></figure>
 <ol start="4">
-<li>下载主题<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs BASH">git <span class="hljs-built_in">clone</span> https://github.com.cnpmjs.org/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k<br></code></pre></td></tr></tbody></table></figure>
-
-
-</li>
-</ol>
-<ol start="5">
+<li>下载主题<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs BASH">git <span class="hljs-built_in">clone</span> https://github.com.cnpmjs.org/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k<br></code></pre></td></tr></tbody></table></figure></li>
 <li>修改配置文件</li>
 </ol>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 设置字体模式以及配置命令行的主题，语句顺序不能颠倒</span><br><span class="hljs-comment"># POWERLEVEL9K_MODE='nerdfont-complete'</span><br><span class="hljs-comment"># ZSH_THEME="powerlevel9k/powerlevel9k"</span><br><br><span class="hljs-comment"># 以下内容去掉注释即可生效：</span><br><span class="hljs-comment"># 启动错误命令自动更正</span><br>ENABLE_CORRECTION=<span class="hljs-string">"true"</span><br><br><span class="hljs-comment"># 在命令执行的过程中，使用小红点进行提示</span><br>COMPLETION_WAITING_DOTS=<span class="hljs-string">"true"</span><br><br><span class="hljs-comment"># 启用已安装的插件</span><br>plugins=(<br>  git extract zsh-autosuggestions zsh-syntax-highlighting autojump<br>)<br></code></pre></td></tr></tbody></table></figure>
