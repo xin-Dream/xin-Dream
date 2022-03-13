@@ -6,7 +6,7 @@
   <link href="http://zhangguixin.com/atom.xml" rel="self"/>
   
   <link href="http://zhangguixin.com/"/>
-  <updated>2022-03-11T07:16:42.319Z</updated>
+  <updated>2022-03-13T12:03:00.553Z</updated>
   <id>http://zhangguixin.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WSL使用测试</title>
+    <link href="http://zhangguixin.com/2022/03/13/Linux/WSL%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95/"/>
+    <id>http://zhangguixin.com/2022/03/13/Linux/WSL%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95/</id>
+    <published>2022-03-13T11:34:43.000Z</published>
+    <updated>2022-03-13T12:03:00.553Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-升级到WSL2&quot;&gt;&lt;a href=&quot;#1-升级到WSL2&quot; class=&quot;headerlink&quot; title=&quot;1. 升级到WSL2&quot;&gt;&lt;/a&gt;1. 升级到WSL2&lt;/h1&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="http://zhangguixin.com/categories/Linux/"/>
+    
+    <category term="ubuntu" scheme="http://zhangguixin.com/categories/Linux/ubuntu/"/>
+    
+    
+    <category term="WSL" scheme="http://zhangguixin.com/tags/WSL/"/>
+    
+  </entry>
   
   <entry>
     <title>ROS学习目录</title>
@@ -496,33 +523,6 @@
     <category term="ROS" scheme="http://zhangguixin.com/tags/ROS/"/>
     
     <category term="Anaconda" scheme="http://zhangguixin.com/tags/Anaconda/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu20.04编译安装opencv</title>
-    <link href="http://zhangguixin.com/2021/12/05/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/Ubuntu20-04%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85opencv/"/>
-    <id>http://zhangguixin.com/2021/12/05/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/Ubuntu20-04%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85opencv/</id>
-    <published>2021-12-05T03:10:43.000Z</published>
-    <updated>2021-12-05T03:39:31.233Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;1-下载OpenCV&quot;&gt;&lt;a href=&quot;#1-下载OpenCV&quot; class=&quot;headerlink&quot; title=&quot;1 下载OpenCV&quot;&gt;&lt;/a&gt;1 下载OpenCV&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="机器视觉" scheme="http://zhangguixin.com/categories/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/"/>
-    
-    <category term="opencv" scheme="http://zhangguixin.com/categories/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/opencv/"/>
-    
-    
-    <category term="opencv" scheme="http://zhangguixin.com/tags/opencv/"/>
     
   </entry>
   
