@@ -434,6 +434,38 @@
       </tags>
   </entry>
   <entry>
+    <title>电脑开机进入GnuGrub</title>
+    <url>/2022/03/14/windows/%E7%94%B5%E8%84%91%E5%BC%80%E6%9C%BA%E8%BF%9B%E5%85%A5GnuGrub/</url>
+    <content><![CDATA[<h1 id="1-治标"><a href="#1-治标" class="headerlink" title="1. 治标"></a>1. 治标</h1><p>输入exit即可进入系统选择界面</p>
+<h1 id="2-治本"><a href="#2-治本" class="headerlink" title="2. 治本"></a>2. 治本</h1><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>windows</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ubuntu:perform_mok_management</title>
+    <url>/2022/03/14/Linux/ubuntu-perform-mok-management/</url>
+    <content><![CDATA[<p>ubuntu20.04在安装了显卡之后，会出现设置密码用于secure boot，在重启时会出现perform MOK management，这是用于重新加载驱动。</p>
+<ol>
+<li>当进入蓝色背景的界面perform mok management 后，选择 enroll mok</li>
+<li>进入enroll mok 界面，选择 continue</li>
+<li>进入enroll the key 界面，选择 yes</li>
+<li>接下来输入你在安装驱动时输入的密码</li>
+<li>之后会跳到蓝色背景的界面perform mok management 选择第一个 reboot</li>
+</ol>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>在STM32F407中运行ROS节点-rosserial_stm32</title>
     <url>/2021/08/18/ROS/%E5%9C%A8stm32%E4%B8%AD%E8%BF%90%E8%A1%8CROS%E8%8A%82%E7%82%B9-rosserial-stm32/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>环境说明：<br>Ubuntu18.04、ROS-melodic、STM32F407VGT6<br>Clion、Stm32CubeMX</p>

@@ -6,7 +6,7 @@
   <link href="http://zhangguixin.com/atom.xml" rel="self"/>
   
   <link href="http://zhangguixin.com/"/>
-  <updated>2022-03-13T12:03:00.553Z</updated>
+  <updated>2022-03-14T12:16:34.153Z</updated>
   <id>http://zhangguixin.com/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ubuntu:perform_mok_management</title>
+    <link href="http://zhangguixin.com/2022/03/14/Linux/ubuntu-perform-mok-management/"/>
+    <id>http://zhangguixin.com/2022/03/14/Linux/ubuntu-perform-mok-management/</id>
+    <published>2022-03-14T07:59:54.000Z</published>
+    <updated>2022-03-14T12:16:34.153Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;ubuntu20.04在安装了显卡之后，会出现设置密码用于secure boot，在重启时会出现perform MOK management，这是用于重新加载驱动。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;当进入蓝色背景的界面perform mok management 后，选择</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="http://zhangguixin.com/categories/Linux/"/>
+    
+    <category term="ubuntu" scheme="http://zhangguixin.com/categories/Linux/ubuntu/"/>
+    
+    
+    <category term="ubuntu" scheme="http://zhangguixin.com/tags/ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>电脑开机进入GnuGrub</title>
+    <link href="http://zhangguixin.com/2022/03/14/windows/%E7%94%B5%E8%84%91%E5%BC%80%E6%9C%BA%E8%BF%9B%E5%85%A5GnuGrub/"/>
+    <id>http://zhangguixin.com/2022/03/14/windows/%E7%94%B5%E8%84%91%E5%BC%80%E6%9C%BA%E8%BF%9B%E5%85%A5GnuGrub/</id>
+    <published>2022-03-14T06:16:15.000Z</published>
+    <updated>2022-03-14T12:18:23.585Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-治标&quot;&gt;&lt;a href=&quot;#1-治标&quot; class=&quot;headerlink&quot; title=&quot;1. 治标&quot;&gt;&lt;/a&gt;1. 治标&lt;/h1&gt;&lt;p&gt;输入exit即可进入系统选择界面&lt;/p&gt;
+&lt;h1 id=&quot;2-治本&quot;&gt;&lt;a href=&quot;#2-治本&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="windows" scheme="http://zhangguixin.com/categories/windows/"/>
+    
+    
+    <category term="windows" scheme="http://zhangguixin.com/tags/windows/"/>
+    
+  </entry>
   
   <entry>
     <title>WSL使用测试</title>
@@ -463,66 +518,6 @@
     
     <category term="AI" scheme="http://zhangguixin.com/categories/AI/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>ROS-noetic中使用KinecV2</title>
-    <link href="http://zhangguixin.com/2021/12/05/ROS/ROS%E4%B8%AD%E4%BD%BF%E7%94%A8KinecV2/"/>
-    <id>http://zhangguixin.com/2021/12/05/ROS/ROS%E4%B8%AD%E4%BD%BF%E7%94%A8KinecV2/</id>
-    <published>2021-12-05T08:28:06.000Z</published>
-    <updated>2021-12-05T08:56:37.371Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在前面的文章中实现了Ubuntu中安装了KinectV2的驱动，要在ROS中使用还需要借助iai_kinect2&lt;/p&gt;
-&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Linux" scheme="http://zhangguixin.com/categories/Linux/"/>
-    
-    <category term="ROS" scheme="http://zhangguixin.com/categories/Linux/ROS/"/>
-    
-    
-    <category term="KinectV2" scheme="http://zhangguixin.com/tags/KinectV2/"/>
-    
-    <category term="ROS" scheme="http://zhangguixin.com/tags/ROS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ROS与Anaconda共存</title>
-    <link href="http://zhangguixin.com/2021/12/05/ROS/ROS%E4%B8%8EAnaconda%E5%85%B1%E5%AD%98/"/>
-    <id>http://zhangguixin.com/2021/12/05/ROS/ROS%E4%B8%8EAnaconda%E5%85%B1%E5%AD%98/</id>
-    <published>2021-12-05T03:43:41.000Z</published>
-    <updated>2022-03-13T11:13:05.022Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;参考教程&quot;&gt;&lt;a href=&quot;#参考教程&quot; class=&quot;headerlink&quot; title=&quot;参考教程&quot;&gt;&lt;/a&gt;参考教程&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.guyuehome.com/35918&quot;&gt;详细教程&lt;/a&gt;&lt;/p&gt;
-&lt;h1</summary>
-        
-      
-    
-    
-    
-    <category term="Linux" scheme="http://zhangguixin.com/categories/Linux/"/>
-    
-    <category term="ROS" scheme="http://zhangguixin.com/categories/Linux/ROS/"/>
-    
-    
-    <category term="ROS" scheme="http://zhangguixin.com/tags/ROS/"/>
-    
-    <category term="Anaconda" scheme="http://zhangguixin.com/tags/Anaconda/"/>
     
   </entry>
   
