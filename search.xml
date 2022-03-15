@@ -434,6 +434,131 @@
       </tags>
   </entry>
   <entry>
+    <title>配置CLion开发stm32</title>
+    <url>/2021/06/14/%E5%8D%95%E7%89%87%E6%9C%BA/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/</url>
+    <content><![CDATA[<p>参考链接：<a href="https://zhuanlan.zhihu.com/p/145801160">配置CLion用于STM32开发【优雅の嵌入式开发】</a></p>
+<h1 id="1-相关工具下载"><a href="#1-相关工具下载" class="headerlink" title="1. 相关工具下载"></a>1. 相关工具下载</h1><ol>
+<li><a href="https://www.st.com/zh/development-tools/stm32-software-development-tools.html">STM32CubeMX</a></li>
+<li><a href="https://gnutoolchains.com/arm-eabi/openocd/">OpenOCD</a>（下载好后解压到指定目录后不要动了）</li>
+<li><a href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/sjlj/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0.7z/download?use_mirror=udomain">MinGW-w64</a>（下载好后解压到指定目录后不要动了）</li>
+<li><a href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads">gcc-arm-none-eabi</a>（下载好后解压到指定目录后不要动了）</li>
+<li><a href="https://www.jetbrains.com/clion/">Clion</a>（这个可以到Jetbrain申请教育账号，就可以使用专业版了，应该需要一年验证一次）</li>
+</ol>
+<h1 id="2-添加环境变量"><a href="#2-添加环境变量" class="headerlink" title="2. 添加环境变量"></a>2. 添加环境变量</h1><ul>
+<li>将上一步下载的MinGW-w64、gcc-arm-none-eabi、OpenOCD的bin目录添加到环境变量</li>
+<li><strong>D:\052-MinGW\bin</strong>、<strong>D:\053-gcc-arm-none-eabi\bin</strong>、<strong>D:\053-gcc-arm-none-eabi\bin</strong></li>
+<li>添加过以上环境变量后重启电脑即可生效</li>
+<li>可在命令行使用”gcc -v”、”arm-none-eabi-gcc -v”、”openocd -v”验证</li>
+</ul>
+<h1 id="3-Clion配置"><a href="#3-Clion配置" class="headerlink" title="3. Clion配置"></a>3. Clion配置</h1><ul>
+<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/01.png" alt="01"></li>
+<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/02.png" alt="02"></li>
+<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/03.png" alt="03"></li>
+</ul>
+<h1 id="4-新建stm32项目"><a href="#4-新建stm32项目" class="headerlink" title="4. 新建stm32项目"></a>4. 新建stm32项目</h1><ul>
+<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/04.png" alt="04"></li>
+<li>新建项目后，编辑区会出现Open with STM32CubeMX，即可使用CubeMX配置程序</li>
+<li>配置完成后注意CubeMX中路径要与刚才路径一致</li>
+<li>后期若移动位置，需在新位置打开CubeMX的ioc文档并修改</li>
+<li><strong>在CubeMX中代码的IDE要选择SW4STM32</strong></li>
+</ul>
+<h1 id="5-编译工程"><a href="#5-编译工程" class="headerlink" title="5. 编译工程"></a>5. 编译工程</h1><ul>
+<li>回到Clion可以看到代码已经更新，在Clion中编译测试</li>
+</ul>
+<h1 id="6-下载工程"><a href="#6-下载工程" class="headerlink" title="6. 下载工程"></a>6. 下载工程</h1><ul>
+<li>首先编写下载的cfg文件，这个我习惯在工作区建一个文件夹config，然后新建F4-stlink.cfg文件</li>
+<li>以下代码为F407使用stlink下载器的设置，粘贴到新建的文件夹即可</li>
+<li>然后在Clion的下载选项中选择这个文件，如下图</li>
+<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/05.png" alt="05"></li>
+<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/06.png" alt="06"></li>
+<li>配置完成后使用运行按钮即可下载<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># This is for using the onboard STLINK/V2</span><br><br><span class="hljs-built_in">source</span> [find interface/stlink.cfg]<br><br>transport select hla_swd<br><br><span class="hljs-comment"># 0x10000 = 64K Flash Size</span><br><span class="hljs-built_in">set</span> WORKAREASIZE 0x20000<br><br><span class="hljs-built_in">source</span> [find target/stm32f4x.cfg] <br></code></pre></td></tr></tbody></table></figure>
+<h1 id="7-无线下载器"><a href="#7-无线下载器" class="headerlink" title="7. 无线下载器"></a>7. 无线下载器</h1></li>
+</ul>
+<p><a href="https://detail.tmall.com/item.htm?id=623728332784&amp;spm=a1z09.2.0.0.46df2e8ddFg2g1&amp;_u=o2ph6ufjfa55">STM32仿真器无线下载AMR单片机远程调试烧录编程STLINK DAPLINK</a></p>
+<p>按上一步添加cfg文件</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># This is for using the onboard STLINK/V2</span><br>adapter driver cmsis-dap<br><br>transport select swd<br><br><span class="hljs-comment"># 0x10000 = 64K Flash Size</span><br><span class="hljs-built_in">set</span> FLASH_SIZE 0x160000<br><br><span class="hljs-built_in">source</span> [find target/stm32f4x.cfg]<br><br>adapter speed 2000<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="8-注意事项"><a href="#8-注意事项" class="headerlink" title="8. 注意事项"></a>8. 注意事项</h1><ul>
+<li><p>在Clion中选择文件时按下图配置，这样在CMakeLists中会是单独一行，如果删除文件后还有残留可以自己查到删除<img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/07.png" alt="07"><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/08.png" alt="08"></p>
+ <br> </li>
+<li><p>在使用FreeRTOS时，编译会报错。默认情况下，硬件浮点运算是关闭的，<del>需要在CMakeLists里设置一下</del>需要在CMakeLists_template.txt和CMakeLists.txt中修改，否则重新生成stm32程序时CMakeLists.txt会再次取消浮点运算<img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/09.png" alt="09"><br><br>  <strong>取消框选内容的注释就好了。</strong> <br><br></p>
+<p><br><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/10.png" alt="10"> </p>
+<br></li>
+<li><p>CubeMX不生成CMakeList</p>
+<ul>
+<li>CMakeList不是CubeMX生成的，是CLion生成的 </li>
+<li>当项目名中含“.”时，不生成CMakeList</li>
+</ul>
+</li>
+<li><p><strong>待更新+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</strong></p>
+</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>单片机</category>
+        <category>STM32</category>
+      </categories>
+      <tags>
+        <tag>stm32</tag>
+        <tag>Clion</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ubuntu中常用软件安装</title>
+    <url>/2021/01/28/Linux/ubuntu%E4%B8%AD%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/bornfree5511/article/details/106470875">ubuntu新系统一次性配置</a><br><a href="https://juejin.im/post/5eb3a1556fb9a0434b73545c#heading-31">写给工程师的ubuntu20.04最佳配置指南</a></p>
+<h1 id="1-分屏终端"><a href="#1-分屏终端" class="headerlink" title="1. 分屏终端"></a>1. 分屏终端</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">sudo apt-get install terminator<br></code></pre></td></tr></tbody></table></figure>
+<p>安装完成后要运行一下才能用</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">terminator<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="软件配置"><a href="#软件配置" class="headerlink" title="软件配置"></a>软件配置</h2><p>配置文件已上传至github，按以下步骤下载并替换即可<br><a href="https://github.com/xin-Dream/ubuntu_files">配置文件下载</a></p>
+<h1 id="2-网易云音乐"><a href="#2-网易云音乐" class="headerlink" title="2. 网易云音乐"></a>2. 网易云音乐</h1><p>首先下载网易云音乐安装包</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">wget http://d1.music.126.net/dmusic/netease-cloud-music_1.1.0_amd64_ubuntu.deb<br></code></pre></td></tr></tbody></table></figure>
+<p>开始安装</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">sudo dpkg -i netease-cloud-music_1.1.0_amd64_ubuntu.deb<br><span class="hljs-comment">#如果有错误</span><br>sudo apt-get -f install<br></code></pre></td></tr></tbody></table></figure>
+<p>新版软件一切正常<br><del>安装完成后启动时发现打不开</del><br>终端输入</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">netease-cloud-music<br></code></pre></td></tr></tbody></table></figure>
+<p>如果是出现</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">Failed to load module <span class="hljs-string">"canberra-gtk-module"</span><br><br><span class="hljs-comment">#解决</span><br>sudo apt-get install libcanberra-gtk<br></code></pre></td></tr></tbody></table></figure>
+<p><del>再次打开，可能还不行，只能后台打开，我也不知道为什么</del></p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">sudo netease-cloud-music <br></code></pre></td></tr></tbody></table></figure>
+<h1 id="3-vscode"><a href="#3-vscode" class="headerlink" title="3. vscode"></a>3. vscode</h1><p>官网下载deb包</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">https://code.visualstudio.com/docs/?dv=linux64_deb<br><br>sudo dpkg -i code_1.45.1-1589445302_amd64.deb<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="4-QQ-微信-TIM"><a href="#4-QQ-微信-TIM" class="headerlink" title="4. QQ/微信/TIM"></a>4. QQ/微信/TIM</h1><p><del><a href="https://im.qq.com/linuxqq/download.html">Linux版QQ下载地址</a><br>下载完成后</del> </p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#sudo dpkg -i linuxqq_1.0.1-b1-100_armhf.deb</span><br></code></pre></td></tr></tbody></table></figure>
+<p>以上方式安装的qq太老了，最后决定先安装wine，在安装qq</p>
+<p>安装deepin-wine-for-ubuntu</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git<br><span class="hljs-built_in">cd</span> deepin-wine-for-ubuntu<br>sudo ./install.sh<br></code></pre></td></tr></tbody></table></figure>
+<p>下载地址：<br><a href="https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.wechat/">微信</a><br><a href="https://packages.deepin.com/deepin/pool/non-free/d/deepin.com.qq.office/">TIM</a></p>
+<h3 id="微信安装完成的问题"><a href="#微信安装完成的问题" class="headerlink" title="微信安装完成的问题"></a>微信安装完成的问题</h3><p>微信成功登录以后，中间会有一个小黑方块，据说是由于表情包弹窗引起的，没找到永久消除的办法<br>在任意一个聊天框输入一个表情，就可以消除黑方块</p>
+<h1 id="5-安装Microsoft-Edge浏览器"><a href="#5-安装Microsoft-Edge浏览器" class="headerlink" title="5. 安装Microsoft Edge浏览器"></a>5. 安装Microsoft Edge浏览器</h1><p><a href="https://www.microsoftedgeinsider.com/zh-cn/download/?platform=linux">官方链接</a></p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">## Setup</span><br>curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor &gt; microsoft.gpg<br>sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/<br>sudo sh -c <span class="hljs-string">'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" &gt; /etc/apt/sources.list.d/microsoft-edge-dev.list'</span><br>sudo rm microsoft.gpg<br><span class="hljs-comment">## Install</span><br>sudo apt update<br>sudo apt install microsoft-edge-dev<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="6-Barrier"><a href="#6-Barrier" class="headerlink" title="6. Barrier"></a>6. Barrier</h1><a href="/2021/05/03/windows/%E5%A4%9A%E6%9C%BA%E5%85%B1%E4%BA%AB%E9%94%AE%E9%BC%A0%E8%BD%AF%E4%BB%B6Barrier/" title="多机共享键鼠软件Barrier">多机共享键鼠软件Barrier</a>
+
+<h1 id="7-zsh-amp-Oh-my-zsh"><a href="#7-zsh-amp-Oh-my-zsh" class="headerlink" title="7. zsh &amp; Oh my zsh"></a>7. zsh &amp; Oh my zsh</h1><a href="/2021/05/03/Linux/ubuntu%E5%AE%89%E8%A3%85zsh/" title="ubuntu安装zsh">ubuntu安装zsh</a>
+
+
+<h1 id="8-clash"><a href="#8-clash" class="headerlink" title="8. clash"></a>8. clash</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> Downloads<br>mkdir clash<br><span class="hljs-built_in">cd</span> clash<br><br><span class="hljs-comment">#下载并解压linux-amd64</span><br>https://github.com/Dreamacro/clash/releases<br><br><span class="hljs-comment">#重命名为clash</span><br>chmod +x clash<br><br><span class="hljs-comment"># 先执行一次</span><br>./clash -d .<br><span class="hljs-comment"># 注意这里一定执行-d ，否则不能成功，权限不够加sudo</span><br><br><span class="hljs-comment"># 在官网获取配置文件config.yml</span><br><br>cp ~/Downloads/clash/config.yml ~/.config/clash<br><span class="hljs-built_in">cd</span> ~/.config/clash<br>mv config.yml config.yaml<br><br><span class="hljs-comment"># 重新运行 ./clash -d . 即可</span><br></code></pre></td></tr></tbody></table></figure>
+<h1 id="9-输入法安装"><a href="#9-输入法安装" class="headerlink" title="9. 输入法安装"></a>9. 输入法安装</h1><h2 id="1-谷歌拼音"><a href="#1-谷歌拼音" class="headerlink" title="1. 谷歌拼音"></a>1. 谷歌拼音</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">sudo apt-get install fcitx-googlepinyin<br><br><span class="hljs-comment">#安装完成后，在区域与语言中添加googlepinyin即可</span><br></code></pre></td></tr></tbody></table></figure>
+
+
+<hr>
+<p>安装WiFi还是需要百度的，所以先安装搜狗输入法<br>首先安装Fcitx输入框架</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">sudo apt install fcitx<br></code></pre></td></tr></tbody></table></figure>
+<p><a href="https://pinyin.sogou.com/linux/?r=pinyin">搜狗输入法Linux</a></p>
+<p>安装完成后就是对输入法的设置</p>
+<p> 设置–&gt;区域和语言–&gt;管理已安装的语言–&gt;键盘输入法系统<br> 选择刚才安装的Fcitx框架–&gt;应用到整个系统</p>
+<p> 然后要重启一下<br>再打开右上角有个小键盘，里面有配置当前输入法，<del>将搜狗输入法上移到第一位，就可以了</del> </p>
+<p>这里有点问题，如果搜狗输入法在第一位，中英文切换的时候，输入法里会有一些乱码。所以这里将键盘-汉语移到最上面，如图<br><img src="https://img-blog.csdnimg.cn/20200602130238639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="10-Jetbrains系列"><a href="#10-Jetbrains系列" class="headerlink" title="10.Jetbrains系列"></a><a href="https://www.jetbrains.com/products/#type=ide">10.Jetbrains系列</a></h1><h1 id="11-百度网盘"><a href="#11-百度网盘" class="headerlink" title="11. 百度网盘"></a><a href="https://pan.baidu.com/download">11. 百度网盘</a></h1><h1 id="12-全球学术快报"><a href="#12-全球学术快报" class="headerlink" title="12. 全球学术快报"></a><a href="http://cajviewer.cnki.net/download.html">12. 全球学术快报</a></h1><h1 id="13-串口调试软件"><a href="#13-串口调试软件" class="headerlink" title="13. 串口调试软件"></a>13. 串口调试软件</h1><p>cutecom：<code>sudo apt-get install cutecom</code></p>
+<h1 id="14-STM32CubeMX"><a href="#14-STM32CubeMX" class="headerlink" title="14. STM32CubeMX"></a><a href="https://www.st.com/en/development-tools/stm32cubemx.html">14. STM32CubeMX</a></h1><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>电脑开机进入GnuGrub</title>
     <url>/2022/03/14/windows/%E7%94%B5%E8%84%91%E5%BC%80%E6%9C%BA%E8%BF%9B%E5%85%A5GnuGrub/</url>
     <content><![CDATA[<h1 id="1-治标"><a href="#1-治标" class="headerlink" title="1. 治标"></a>1. 治标</h1><p>输入exit即可进入系统选择界面</p>
@@ -1500,73 +1625,6 @@
       </categories>
       <tags>
         <tag>CubeMX</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>配置CLion开发stm32</title>
-    <url>/2021/06/14/%E5%8D%95%E7%89%87%E6%9C%BA/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/</url>
-    <content><![CDATA[<p>参考链接：<a href="https://zhuanlan.zhihu.com/p/145801160">配置CLion用于STM32开发【优雅の嵌入式开发】</a></p>
-<h1 id="1-相关工具下载"><a href="#1-相关工具下载" class="headerlink" title="1. 相关工具下载"></a>1. 相关工具下载</h1><pre><code>  1. [STM32CubeMX](https://www.st.com/zh/development-tools/stm32-software-development-tools.html)
-  2. [OpenOCD](https://gnutoolchains.com/arm-eabi/openocd/)（下载好后解压到指定目录后不要动了）
-  3. [MinGW-w64](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/sjlj/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0.7z/download?use_mirror=udomain)（下载好后解压到指定目录后不要动了）
-  4. [gcc-arm-none-eabi](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)（下载好后解压到指定目录后不要动了）
-  5. [Clion](https://www.jetbrains.com/clion/)（这个可以到Jetbrain申请教育账号，就可以使用专业版了，应该需要一年验证一次）</code></pre>
-<h1 id="2-添加环境变量"><a href="#2-添加环境变量" class="headerlink" title="2. 添加环境变量"></a>2. 添加环境变量</h1><ul>
-<li>将上一步下载的MinGW-w64、gcc-arm-none-eabi、OpenOCD的bin目录添加到环境变量</li>
-<li><strong>D:\052-MinGW\bin</strong>、<strong>D:\053-gcc-arm-none-eabi\bin</strong>、<strong>D:\053-gcc-arm-none-eabi\bin</strong></li>
-<li>添加过以上环境变量后重启电脑即可生效</li>
-<li>可在命令行使用”gcc -v”、”arm-none-eabi-gcc -v”、”openocd -v”验证</li>
-</ul>
-<h1 id="3-Clion配置"><a href="#3-Clion配置" class="headerlink" title="3. Clion配置"></a>3. Clion配置</h1><ul>
-<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/01.png" alt="01"></li>
-<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/02.png" alt="02"></li>
-<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/03.png" alt="03"></li>
-</ul>
-<h1 id="4-新建stm32项目"><a href="#4-新建stm32项目" class="headerlink" title="4. 新建stm32项目"></a>4. 新建stm32项目</h1><ul>
-<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/04.png" alt="04"></li>
-<li>新建项目后，编辑区会出现Open with STM32CubeMX，即可使用CubeMX配置程序</li>
-<li>配置完成后注意CubeMX中路径要与刚才路径一致</li>
-<li>后期若移动位置，需在新位置打开CubeMX的ioc文档并修改</li>
-<li><strong>在CubeMX中代码的IDE要选择SW4STM32</strong></li>
-</ul>
-<h1 id="5-编译工程"><a href="#5-编译工程" class="headerlink" title="5. 编译工程"></a>5. 编译工程</h1><ul>
-<li>回到Clion可以看到代码已经更新，在Clion中编译测试</li>
-</ul>
-<h1 id="6-下载工程"><a href="#6-下载工程" class="headerlink" title="6. 下载工程"></a>6. 下载工程</h1><ul>
-<li>首先编写下载的cfg文件，这个我习惯在工作区建一个文件夹config，然后新建F4-stlink.cfg文件</li>
-<li>以下代码为F407使用stlink下载器的设置，粘贴到新建的文件夹即可</li>
-<li>然后在Clion的下载选项中选择这个文件，如下图</li>
-<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/05.png" alt="05"></li>
-<li><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/06.png" alt="06"></li>
-<li>配置完成后使用运行按钮即可下载<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># This is for using the onboard STLINK/V2</span><br><br><span class="hljs-built_in">source</span> [find interface/stlink.cfg]<br><br>transport select hla_swd<br><br><span class="hljs-comment"># 0x10000 = 64K Flash Size</span><br><span class="hljs-built_in">set</span> WORKAREASIZE 0x20000<br><br><span class="hljs-built_in">source</span> [find target/stm32f4x.cfg] <br></code></pre></td></tr></tbody></table></figure>
-<h1 id="7-无线下载器"><a href="#7-无线下载器" class="headerlink" title="7. 无线下载器"></a>7. 无线下载器</h1></li>
-</ul>
-<p><a href="https://detail.tmall.com/item.htm?id=623728332784&amp;spm=a1z09.2.0.0.46df2e8ddFg2g1&amp;_u=o2ph6ufjfa55">STM32仿真器无线下载AMR单片机远程调试烧录编程STLINK DAPLINK</a></p>
-<p>按上一步添加cfg文件</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># This is for using the onboard STLINK/V2</span><br>adapter driver cmsis-dap<br><br>transport select swd<br><br><span class="hljs-comment"># 0x10000 = 64K Flash Size</span><br><span class="hljs-built_in">set</span> FLASH_SIZE 0x160000<br><br><span class="hljs-built_in">source</span> [find target/stm32f4x.cfg]<br><br>adapter speed 2000<br></code></pre></td></tr></tbody></table></figure>
-<h1 id="8-注意事项"><a href="#8-注意事项" class="headerlink" title="8. 注意事项"></a>8. 注意事项</h1><ul>
-<li><p>在Clion中选择文件时按下图配置，这样在CMakeLists中会是单独一行，如果删除文件后还有残留可以自己查到删除<img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/07.png" alt="07"><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/08.png" alt="08"></p>
- <br> </li>
-<li><p>在使用FreeRTOS时，编译会报错。默认情况下，硬件浮点运算是关闭的，<del>需要在CMakeLists里设置一下</del>需要在CMakeLists_template.txt和CMakeLists.txt中修改，否则重新生成stm32程序时CMakeLists.txt会再次取消浮点运算<img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/09.png" alt="09"><br><br>  <strong>取消框选内容的注释就好了。</strong> <br><br></p>
-<p><br><img src="/images/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/10.png" alt="10"> </p>
-<br></li>
-<li><p>CubeMX不生成CMakeList</p>
-<ul>
-<li>CMakeList不是CubeMX生成的，是CLion生成的 </li>
-<li>当项目名中含“.”时，不生成CMakeList</li>
-</ul>
-</li>
-<li><p><strong>待更新+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</strong></p>
-</li>
-</ul>
-<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>单片机</category>
-        <category>STM32</category>
-      </categories>
-      <tags>
-        <tag>stm32</tag>
-        <tag>Clion</tag>
       </tags>
   </entry>
   <entry>
@@ -3133,61 +3191,6 @@ EFI系统分区：
     <url>/2021/07/27/Linux/ubuntu%E4%B8%AD%E6%B7%BB%E5%8A%A0Jetbrains%E7%B3%BB%E5%88%97%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/</url>
     <content><![CDATA[<p>安装完成后，在菜单栏有<strong>Tools–&gt;Create Desktop Entry</strong></p>
 <script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>ubuntu</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ubuntu中常用软件安装</title>
-    <url>/2021/01/28/Linux/ubuntu%E4%B8%AD%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/bornfree5511/article/details/106470875">ubuntu新系统一次性配置</a><br><a href="https://juejin.im/post/5eb3a1556fb9a0434b73545c#heading-31">写给工程师的ubuntu20.04最佳配置指南</a></p>
-<h1 id="1-分屏终端"><a href="#1-分屏终端" class="headerlink" title="1. 分屏终端"></a>1. 分屏终端</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">sudo apt-get install terminator<br></code></pre></td></tr></tbody></table></figure>
-<p>安装完成后要运行一下才能用</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">terminator<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="软件配置"><a href="#软件配置" class="headerlink" title="软件配置"></a>软件配置</h2><p>配置文件已上传至github，按以下步骤下载并替换即可<br><a href="https://github.com/xin-Dream/ubuntu_files">配置文件下载</a></p>
-<h1 id="2-网易云音乐"><a href="#2-网易云音乐" class="headerlink" title="2. 网易云音乐"></a>2. 网易云音乐</h1><p>首先下载网易云音乐安装包</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">wget http://d1.music.126.net/dmusic/netease-cloud-music_1.1.0_amd64_ubuntu.deb<br></code></pre></td></tr></tbody></table></figure>
-<p>开始安装</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">sudo dpkg -i netease-cloud-music_1.1.0_amd64_ubuntu.deb<br><span class="hljs-comment">#如果有错误</span><br>sudo apt-get -f install<br></code></pre></td></tr></tbody></table></figure>
-<p>新版软件一切正常<br><del>安装完成后启动时发现打不开</del><br>终端输入</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">netease-cloud-music<br></code></pre></td></tr></tbody></table></figure>
-<p>如果是出现</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">Failed to load module <span class="hljs-string">"canberra-gtk-module"</span><br><br><span class="hljs-comment">#解决</span><br>sudo apt-get install libcanberra-gtk<br></code></pre></td></tr></tbody></table></figure>
-<p><del>再次打开，可能还不行，只能后台打开，我也不知道为什么</del></p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">sudo netease-cloud-music <br></code></pre></td></tr></tbody></table></figure>
-<h1 id="3-vscode"><a href="#3-vscode" class="headerlink" title="3. vscode"></a>3. vscode</h1><p>官网下载deb包</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">https://code.visualstudio.com/docs/?dv=linux64_deb<br><br>sudo dpkg -i code_1.45.1-1589445302_amd64.deb<br></code></pre></td></tr></tbody></table></figure>
-<h1 id="4-QQ-微信-TIM"><a href="#4-QQ-微信-TIM" class="headerlink" title="4. QQ/微信/TIM"></a>4. QQ/微信/TIM</h1><p><del><a href="https://im.qq.com/linuxqq/download.html">Linux版QQ下载地址</a><br>下载完成后</del> </p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#sudo dpkg -i linuxqq_1.0.1-b1-100_armhf.deb</span><br></code></pre></td></tr></tbody></table></figure>
-<p>以上方式安装的qq太老了，最后决定先安装wine，在安装qq</p>
-<p>安装deepin-wine-for-ubuntu</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git<br><span class="hljs-built_in">cd</span> deepin-wine-for-ubuntu<br>sudo ./install.sh<br></code></pre></td></tr></tbody></table></figure>
-<p>下载地址：<br><a href="https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.wechat/">微信</a><br><a href="https://packages.deepin.com/deepin/pool/non-free/d/deepin.com.qq.office/">TIM</a></p>
-<h3 id="微信安装完成的问题"><a href="#微信安装完成的问题" class="headerlink" title="微信安装完成的问题"></a>微信安装完成的问题</h3><p>微信成功登录以后，中间会有一个小黑方块，据说是由于表情包弹窗引起的，没找到永久消除的办法<br>在任意一个聊天框输入一个表情，就可以消除黑方块</p>
-<h1 id="5-安装Microsoft-Edge浏览器"><a href="#5-安装Microsoft-Edge浏览器" class="headerlink" title="5. 安装Microsoft Edge浏览器"></a>5. 安装Microsoft Edge浏览器</h1><p><a href="https://www.microsoftedgeinsider.com/zh-cn/download/?platform=linux">官方链接</a></p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">## Setup</span><br>curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor &gt; microsoft.gpg<br>sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/<br>sudo sh -c <span class="hljs-string">'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" &gt; /etc/apt/sources.list.d/microsoft-edge-dev.list'</span><br>sudo rm microsoft.gpg<br><span class="hljs-comment">## Install</span><br>sudo apt update<br>sudo apt install microsoft-edge-dev<br></code></pre></td></tr></tbody></table></figure>
-<h1 id="6-Barrier"><a href="#6-Barrier" class="headerlink" title="6. Barrier"></a>6. Barrier</h1><a href="#">Post not found: windows/多机共享键鼠软件Barrier.md</a>
-
-<h1 id="7-zsh-amp-Oh-my-zsh"><a href="#7-zsh-amp-Oh-my-zsh" class="headerlink" title="7. zsh &amp; Oh my zsh"></a>7. zsh &amp; Oh my zsh</h1><a href="#">Post not found: Linux/ubuntu安装zsh.md</a>
-
-<h1 id="8-clash"><a href="#8-clash" class="headerlink" title="8. clash"></a>8. clash</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> Downloads<br>mkdir clash<br><span class="hljs-built_in">cd</span> clash<br><br><span class="hljs-comment">#下载并解压linux-amd64</span><br>https://github.com/Dreamacro/clash/releases<br><br><span class="hljs-comment">#重命名为clash</span><br>chmod +x clash<br><br><span class="hljs-comment"># 先执行一次</span><br>./clash -d .<br><span class="hljs-comment"># 注意这里一定执行-d ，否则不能成功，权限不够加sudo</span><br><br><span class="hljs-comment"># 在官网获取配置文件config.yml</span><br><br>cp ~/Downloads/clash/config.yml ~/.config/clash<br><span class="hljs-built_in">cd</span> ~/.config/clash<br>mv config.yml config.yaml<br><br><span class="hljs-comment"># 重新运行 ./clash -d . 即可</span><br></code></pre></td></tr></tbody></table></figure>
-<h1 id="9-输入法安装"><a href="#9-输入法安装" class="headerlink" title="9. 输入法安装"></a>9. 输入法安装</h1><h2 id="1-谷歌拼音"><a href="#1-谷歌拼音" class="headerlink" title="1. 谷歌拼音"></a>1. 谷歌拼音</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">sudo apt-get install fcitx-googlepinyin<br><br><span class="hljs-comment">#安装完成后，在区域与语言中添加googlepinyin即可</span><br></code></pre></td></tr></tbody></table></figure>
-
-
-<hr>
-<p>安装WiFi还是需要百度的，所以先安装搜狗输入法<br>首先安装Fcitx输入框架</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">sudo apt install fcitx<br></code></pre></td></tr></tbody></table></figure>
-<p><a href="https://pinyin.sogou.com/linux/?r=pinyin">搜狗输入法Linux</a></p>
-<p>安装完成后就是对输入法的设置</p>
-<p> 设置–&gt;区域和语言–&gt;管理已安装的语言–&gt;键盘输入法系统<br> 选择刚才安装的Fcitx框架–&gt;应用到整个系统</p>
-<p> 然后要重启一下<br>再打开右上角有个小键盘，里面有配置当前输入法，<del>将搜狗输入法上移到第一位，就可以了</del> </p>
-<p>这里有点问题，如果搜狗输入法在第一位，中英文切换的时候，输入法里会有一些乱码。所以这里将键盘-汉语移到最上面，如图<br><img src="https://img-blog.csdnimg.cn/20200602130238639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MTcyMTU2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h1 id="10-Jetbrains系列"><a href="#10-Jetbrains系列" class="headerlink" title="10.Jetbrains系列"></a><a href="https://www.jetbrains.com/products/#type=ide">10.Jetbrains系列</a></h1><h1 id="11-百度网盘"><a href="#11-百度网盘" class="headerlink" title="11. 百度网盘"></a><a href="https://pan.baidu.com/download">11. 百度网盘</a></h1><h1 id="12-全球学术快报"><a href="#12-全球学术快报" class="headerlink" title="12. 全球学术快报"></a><a href="http://cajviewer.cnki.net/download.html">12. 全球学术快报</a></h1><h1 id="13-串口调试软件"><a href="#13-串口调试软件" class="headerlink" title="13. 串口调试软件"></a>13. 串口调试软件</h1><p>cutecom：<code>sudo apt-get install cutecom</code></p>
-<h1 id="14-STM32CubeMX"><a href="#14-STM32CubeMX" class="headerlink" title="14. STM32CubeMX"></a><a href="https://www.st.com/en/development-tools/stm32cubemx.html">14. STM32CubeMX</a></h1><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>Linux</category>
         <category>ubuntu</category>
