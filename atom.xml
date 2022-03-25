@@ -6,7 +6,7 @@
   <link href="http://zhangguixin.com/atom.xml" rel="self"/>
   
   <link href="http://zhangguixin.com/"/>
-  <updated>2022-03-16T13:19:00.341Z</updated>
+  <updated>2022-03-24T07:16:13.758Z</updated>
   <id>http://zhangguixin.com/</id>
   
   <author>
@@ -17,11 +17,91 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>元器件-BAT54C</title>
+    <link href="http://zhangguixin.com/2022/03/24/%E7%94%B5%E8%B7%AF/%E5%85%83%E5%99%A8%E4%BB%B6-BAT54C/"/>
+    <id>http://zhangguixin.com/2022/03/24/%E7%94%B5%E8%B7%AF/%E5%85%83%E5%99%A8%E4%BB%B6-BAT54C/</id>
+    <published>2022-03-24T07:15:52.000Z</published>
+    <updated>2022-03-24T07:16:13.758Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;script type=&quot;text&amp;#x2F;javascript&quot; src=&quot;https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js&quot;&gt;&lt;/script&gt;&lt;script</summary>
+        
+      
+    
+    
+    
+    <category term="电路" scheme="http://zhangguixin.com/categories/%E7%94%B5%E8%B7%AF/"/>
+    
+    
+    <category term="元器件" scheme="http://zhangguixin.com/tags/%E5%85%83%E5%99%A8%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AltiumDesigner使用问题</title>
+    <link href="http://zhangguixin.com/2022/03/24/%E7%94%B5%E8%B7%AF/AltiumDesigner%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/"/>
+    <id>http://zhangguixin.com/2022/03/24/%E7%94%B5%E8%B7%AF/AltiumDesigner%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</id>
+    <published>2022-03-24T02:33:42.000Z</published>
+    <updated>2022-03-24T07:10:46.663Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-铺铜变绿&quot;&gt;&lt;a href=&quot;#1-铺铜变绿&quot; class=&quot;headerlink&quot; title=&quot;1. 铺铜变绿&quot;&gt;&lt;/a&gt;1. 铺铜变绿&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;注意铺铜时选择GND网络&lt;br&gt;右键 -&amp;gt; 铺铜操作 -&amp;gt; 重铺</summary>
+        
+      
+    
+    
+    
+    <category term="电路" scheme="http://zhangguixin.com/categories/%E7%94%B5%E8%B7%AF/"/>
+    
+    
+    <category term="AltiumDesigner18" scheme="http://zhangguixin.com/tags/AltiumDesigner18/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>stm32中的C/C++混合编译</title>
+    <link href="http://zhangguixin.com/2022/03/16/%E5%8D%95%E7%89%87%E6%9C%BA/stm32%E4%B8%AD%E7%9A%84C-C-%E6%B7%B7%E5%90%88%E7%BC%96%E8%AF%91/"/>
+    <id>http://zhangguixin.com/2022/03/16/%E5%8D%95%E7%89%87%E6%9C%BA/stm32%E4%B8%AD%E7%9A%84C-C-%E6%B7%B7%E5%90%88%E7%BC%96%E8%AF%91/</id>
+    <published>2022-03-16T13:23:40.000Z</published>
+    <updated>2022-03-16T13:27:15.763Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;script type=&quot;text&amp;#x2F;javascript&quot; src=&quot;https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js&quot;&gt;&lt;/script&gt;&lt;script</summary>
+        
+      
+    
+    
+    
+    <category term="单片机" scheme="http://zhangguixin.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+    <category term="STM32" scheme="http://zhangguixin.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA/STM32/"/>
+    
+    
+    <category term="stm32" scheme="http://zhangguixin.com/tags/stm32/"/>
+    
+    <category term="Clion" scheme="http://zhangguixin.com/tags/Clion/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ROSGUI-配置QT开发环境</title>
     <link href="http://zhangguixin.com/2022/03/16/ROS/ROSGUI-%E9%85%8D%E7%BD%AEQT%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
     <id>http://zhangguixin.com/2022/03/16/ROS/ROSGUI-%E9%85%8D%E7%BD%AEQT%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</id>
     <published>2022-03-16T12:05:41.000Z</published>
-    <updated>2022-03-16T13:19:00.341Z</updated>
+    <updated>2022-03-18T07:25:08.029Z</updated>
     
     
       
@@ -182,7 +262,7 @@
     <link href="http://zhangguixin.com/2022/01/02/%E6%9C%BA%E6%A2%B0%E7%B1%BB/solidworks%E8%A3%85%E9%85%8D%E4%BD%93%E4%B8%AD%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D/"/>
     <id>http://zhangguixin.com/2022/01/02/%E6%9C%BA%E6%A2%B0%E7%B1%BB/solidworks%E8%A3%85%E9%85%8D%E4%BD%93%E4%B8%AD%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D/</id>
     <published>2022-01-02T07:26:01.000Z</published>
-    <updated>2022-01-02T07:28:49.578Z</updated>
+    <updated>2022-03-24T07:17:04.503Z</updated>
     
     
       
@@ -195,7 +275,9 @@
     
     
     
-    <category term="机械 - Solidworks" scheme="http://zhangguixin.com/categories/%E6%9C%BA%E6%A2%B0-Solidworks/"/>
+    <category term="机械" scheme="http://zhangguixin.com/categories/%E6%9C%BA%E6%A2%B0/"/>
+    
+    <category term="Solidworks" scheme="http://zhangguixin.com/categories/%E6%9C%BA%E6%A2%B0/Solidworks/"/>
     
     
     <category term="Solidworks" scheme="http://zhangguixin.com/tags/Solidworks/"/>
@@ -233,7 +315,7 @@
     <link href="http://zhangguixin.com/2022/01/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/gitignore%E4%BD%BF%E7%94%A8/"/>
     <id>http://zhangguixin.com/2022/01/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/gitignore%E4%BD%BF%E7%94%A8/</id>
     <published>2022-01-01T11:39:57.000Z</published>
-    <updated>2022-01-01T11:52:49.083Z</updated>
+    <updated>2022-03-24T07:17:38.008Z</updated>
     
     
       
@@ -247,7 +329,9 @@
     
     
     
-    <category term="程序设计 - git" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-git/"/>
+    <category term="程序设计" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="git" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git/"/>
     
     
     <category term="Git" scheme="http://zhangguixin.com/tags/Git/"/>
@@ -259,7 +343,7 @@
     <link href="http://zhangguixin.com/2022/01/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git%E4%B8%8A%E4%BC%A0%E5%A4%A7%E6%96%87%E4%BB%B6/"/>
     <id>http://zhangguixin.com/2022/01/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git%E4%B8%8A%E4%BC%A0%E5%A4%A7%E6%96%87%E4%BB%B6/</id>
     <published>2022-01-01T09:04:20.000Z</published>
-    <updated>2022-01-01T09:17:03.564Z</updated>
+    <updated>2022-03-24T07:17:35.434Z</updated>
     
     
       
@@ -272,7 +356,9 @@
     
     
     
-    <category term="程序设计 - git" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-git/"/>
+    <category term="程序设计" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="git" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git/"/>
     
     
     <category term="Git" scheme="http://zhangguixin.com/tags/Git/"/>
@@ -284,7 +370,7 @@
     <link href="http://zhangguixin.com/2022/01/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/pyinstaller%E4%BD%BF%E7%94%A8/"/>
     <id>http://zhangguixin.com/2022/01/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/pyinstaller%E4%BD%BF%E7%94%A8/</id>
     <published>2022-01-01T08:28:59.000Z</published>
-    <updated>2022-01-01T09:54:45.561Z</updated>
+    <updated>2022-03-24T07:18:16.025Z</updated>
     
     
       
@@ -297,7 +383,9 @@
     
     
     
-    <category term="程序设计 - python" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-python/"/>
+    <category term="程序设计" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="python" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/python/"/>
     
     
     <category term="python" scheme="http://zhangguixin.com/tags/python/"/>
@@ -360,7 +448,7 @@
     <link href="http://zhangguixin.com/2021/12/19/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git%E7%9A%84%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/"/>
     <id>http://zhangguixin.com/2021/12/19/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git%E7%9A%84%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/</id>
     <published>2021-12-19T02:36:11.000Z</published>
-    <updated>2021-12-19T08:33:57.037Z</updated>
+    <updated>2022-03-24T07:17:33.213Z</updated>
     
     
       
@@ -373,7 +461,9 @@
     
     
     
-    <category term="程序设计 - git" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-git/"/>
+    <category term="程序设计" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="git" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git/"/>
     
     
     <category term="Git" scheme="http://zhangguixin.com/tags/Git/"/>
@@ -448,82 +538,6 @@
     
     
     <category term="ROS" scheme="http://zhangguixin.com/tags/ROS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo的网页管理界面</title>
-    <link href="http://zhangguixin.com/2021/12/14/hexo/hexo%E7%9A%84%E7%BD%91%E9%A1%B5%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2/"/>
-    <id>http://zhangguixin.com/2021/12/14/hexo/hexo%E7%9A%84%E7%BD%91%E9%A1%B5%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2/</id>
-    <published>2021-12-14T15:12:00.000Z</published>
-    <updated>2021-12-17T14:14:53.459Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;0-参考&quot;&gt;&lt;a href=&quot;#0-参考&quot; class=&quot;headerlink&quot; title=&quot;0. 参考&quot;&gt;&lt;/a&gt;0. 参考&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="hexo" scheme="http://zhangguixin.com/categories/hexo/"/>
-    
-    
-    <category term="hexo" scheme="http://zhangguixin.com/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git中子模块的使用</title>
-    <link href="http://zhangguixin.com/2021/12/14/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Git%E4%B8%AD%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://zhangguixin.com/2021/12/14/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Git%E4%B8%AD%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
-    <published>2021-12-14T13:24:00.000Z</published>
-    <updated>2021-12-17T14:00:55.041Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    <category term="git" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git/"/>
-    
-    
-    <category term="Git" scheme="http://zhangguixin.com/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>cartographer安装与使用</title>
-    <link href="http://zhangguixin.com/2021/12/12/ROS/cartographer%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
-    <id>http://zhangguixin.com/2021/12/12/ROS/cartographer%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</id>
-    <published>2021-12-12T13:47:24.000Z</published>
-    <updated>2022-01-21T13:03:00.369Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="cartographer" scheme="http://zhangguixin.com/tags/cartographer/"/>
     
   </entry>
   
