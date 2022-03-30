@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+       
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>WSL使用测试 |  Dream</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/badminton.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Linux/WSL使用测试"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  WSL使用测试
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/03/13/Linux/WSL%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95/" class="article-date">
+  <time datetime="2022-03-13T11:34:43.000Z" itemprop="datePublished">2022-03-13</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a> / <a class="article-category-link" href="/categories/Linux/ubuntu/">ubuntu</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">4 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="1-升级到WSL2"><a href="#1-升级到WSL2" class="headerlink" title="1. 升级到WSL2"></a>1. 升级到WSL2</h1><p><img src="/images/WSL%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95/image-20220313193707500.png" alt="WSL版本"></p>
+<p>升级后使用速度是比WSL更快，但是WSL2占用Windows资源更多，主机CPU占用容易升高。</p>
+<h1 id="2-设置WSL2开机启动"><a href="#2-设置WSL2开机启动" class="headerlink" title="2. 设置WSL2开机启动"></a>2. 设置WSL2开机启动</h1><p>在Win11中使用WSL时，可以将子系统中的应用图标直接放到桌面，但windows开机后不会自动开启WSL服务，Ubuntu中的应用也不能直接打开。所以配置开机自动启动WSL中的服务。</p>
+<h2 id="2-1-设置方法"><a href="#2-1-设置方法" class="headerlink" title="2.1 设置方法"></a>2.1 设置方法</h2><ol>
+<li><p>在Linux中创建脚本</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#! /bin/sh</span><br>/etc/init.d/ssh start<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>在windows中创建脚本<br>在开机启动文件夹下新建文件：linux-start.vbs，输入以下内容。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">set</span> ws = WScript.CreateObject(<span class="hljs-string">"WScript.Shell"</span>)<br>ws.run <span class="hljs-string">"wsl -d ubuntu -u root /etc/init.wsl"</span><br></code></pre></td></tr></tbody></table></figure>
+
+</li>
+</ol>
+<h2 id="2-2-实际体验"><a href="#2-2-实际体验" class="headerlink" title="2.2 实际体验"></a>2.2 实际体验</h2><p>开机时通过脚本启动WSL中的服务，可以直接打开WSL中的应用，但WSL程序运行会导致CPU占用明显增高，详见2.6 对WSL2使用总结</p>
+<h1 id="3-WSL2调用GPU"><a href="#3-WSL2调用GPU" class="headerlink" title="3 WSL2调用GPU"></a>3 WSL2调用GPU</h1><h2 id="3-1-调用方法"><a href="#3-1-调用方法" class="headerlink" title="3.1 调用方法"></a>3.1 调用方法</h2><p>这里使用的GPU是使用虚拟GPU，对不同的GPU有不同的是用与WSL的GPU驱动程序。<a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda/wsl">CUDA on Windows Subsystem for Linux （WSL）</a></p>
+<ol>
+<li><p>使用GUI应用<br>安装了vGPU驱动程序后，可以在Windows中安装Linux的GUI程序，可以将Ubuntu中的应用程序像在windows中一样启动、切换、复制粘贴等。如图2所示，在开始菜单中显示的应用列表。如图3所示，在Windows运行的的任务管理器和在Linux中运行的terminator、文件管理器、cutecom三个应用。<br><img src="/images/WSL%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95/image-20220313194336731.png" alt="Windows开始菜单中的Linux应用"><br><img src="/images/WSL%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95/image-20220313194346532.png" alt="在windows中打开Linux GUI应用"></p>
+<p> 在启用Rviz这类GUI程序时，需要借用Xserver开启远程显示，流程如下：</p>
+<ul>
+<li>在windows中开启Xserver:可以使用单独的Xserver应用，我使用的是MobaXterm，集SSH、Sftp、Telnet等一体的应用，如图.    </li>
+</ul>
+<p>​    <img src="/images/WSL%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95/image-20220313194720102.png" alt="MobaXterm中开启X server"></p>
+<ul>
+<li><p>在Ubuntu的.bashrc中设置远程显示</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> DISPLAY=192.168.2.100:0.0<br></code></pre></td></tr></tbody></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li><p>使用vGPU加速机器学习训练<br> 在微软的WindowsAI文档中的直接机器学习（DirectML）中包括WSL中的GPU加速ML训练。在WSL中的具体使用可见：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/ai/directml/gpu-accelerated-training">GPU accelerated ML training</a>。<br> 在WSL中使用CUDA可见NVIDA的文档：<a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/wsl-user-guide/index.html#getting-started-with-cuda-on-wsl">NVIDIA GPU Accelerated Computing on WSL 2</a></p>
+<p> <img src="/images/WSL%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95/image-20220313195105827.png" alt="vGPU工作架构"></p>
+</li>
+</ol>
+<p>3.2 使用体验</p>
+<p>在使用Linux中安装的应用时的速度通过借助vGPU确实有明显提高，但使用Gazebo、Rviz时仍然大量占用CPU资源，见图6。</p>
+<p><img src="/images/WSL%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95/image-20220313195153340.png" alt="使用Gazebo时的CPU占用"></p>
+<h1 id="4-WSL2使用USB"><a href="#4-WSL2使用USB" class="headerlink" title="4. WSL2使用USB"></a>4. WSL2使用USB</h1><h2 id="4-1-使用方法"><a href="#4-1-使用方法" class="headerlink" title="4.1 使用方法"></a>4.1 使用方法</h2><p>WSL不能连接USB设备，需要借助usbipd-win项目才能连接windows主机上的USB设备。</p>
+<ol>
+<li><p>   下载并安装usbipd-win_x.msi：<a target="_blank" rel="noopener" href="https://github.com/dorssel/usbipd-win/releases">下载地址</a></p>
+</li>
+<li><p>安装用户空间工具和USB硬件标识符数据库</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install linux-tools-5.4.0-77-generic hwdata<br>sudo update-alternatives –install /usr/<span class="hljs-built_in">local</span>/bin/usbip usbip /usr/lib/linux-tools/5.4.0-77-generic/usbip 20<br></code></pre></td></tr></tbody></table></figure></li>
+<li><p>在Windows中使用管理员模式打开PowerShell，列出Windows相连的USB设备</p>
+<p><img src="/images/WSL%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95/image-20220313195435420.png" alt="Windows相连的USB设备"></p>
+</li>
+<li><p>通过以下命令选择要挂载的设备，并在Ubuntu中查看</p>
+<p><img src="/images/WSL%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95/image-20220313195511453.png" alt="挂载后分别在Windows和WSL中查看USB设备"></p>
+</li>
+<li><p>通过以下命令可以断开USB设备的连接</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">usbipd wsl detach –busid &lt;busid&gt;<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="4-2-使用体验"><a href="#4-2-使用体验" class="headerlink" title="4.2 使用体验"></a>4.2 使用体验</h2></li>
+</ol>
+<p>从官方文档和上述操作来看，WSL已经正常挂载了USB设备，但是在实际使用中还有些问题。<br>将雷达连接到Windows中时，可以看到图中在Ubuntu中已经显示成功挂载了CP210x UART Bridge设备，但是它并不能在/dev/中显示，这是因为Ubuntu中缺少CP210x驱动。<br>经过几次尝试之后发现：在WSL中无法安装CP210x驱动。<br>安装CP210x驱动需要在官网下载驱动，并通过make编译安装，但WSL中缺少对应规则，无法安装。下图为Darling文档和作者在Github对相关问题的回复。</p>
+<p><img src="/images/WSL%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95/image-20220313195738914.png" alt="Darling作者在Github对相关问题的回复"></p>
+<p><img src="/images/WSL%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95/image-20220313195842034.png" alt="Darling Docs"></p>
+<p>虽然WSL中不能安装CP210x驱动，影响了激光雷达的使用，但是并不影响stm32的使用。无法安装USB转串口驱动，stm32和Ubuntu通信时可以使用VCP虚拟串口。由图11可见，stm32连接到COM5后挂载到Ubuntu，在Ubuntu的/dev目录下可以看到ttyACM0，可以在usb设备列表中看到STMcroelectronics Virtual COM Port.</p>
+<p><img src="/images/WSL%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95/image-20220313195906088.png" alt="stm32使用VCP虚拟串口连接到WSL"></p>
+<h1 id="5-Vmmem占用"><a href="#5-Vmmem占用" class="headerlink" title="5    Vmmem占用"></a>5    Vmmem占用</h1><p>使用WSL时经常出现Vmmem占用过高，这会大量占用CPU资源，影响Windows资源管理器运行，导致windows系统卡顿，频闪。如下图所示。</p>
+<p><img src="/images/WSL%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95/image-20220313200014905.png" alt="Vmmem占用过高"></p>
+<p>这个问题查看文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/vandavidchou/article/details/117143614">vmmem 进程占用CPU资源的解决办法</a> 后有明显改善。</p>
+<h1 id="6-WSL使用总结"><a href="#6-WSL使用总结" class="headerlink" title="6 WSL使用总结"></a>6 WSL使用总结</h1><p>经过一段时间的测试，在解决了vmmem占用CPU资源过多后，WSL2在使用过程中并没有明显卡顿，windows也使用正常，但以下两个问题无法解决。</p>
+<ol>
+<li>Gazebo等无法借助GPU；</li>
+<li>无法编译安装USB转串口驱动。</li>
+</ol>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zhangguixin.com/2022/03/13/Linux/WSL%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WSL/" rel="tag">WSL</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/03/14/windows/%E7%94%B5%E8%84%91%E5%BC%80%E6%9C%BA%E8%BF%9B%E5%85%A5GnuGrub/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            电脑开机进入GnuGrub
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/01/21/ROS/ROS%E5%AD%A6%E4%B9%A0%E7%9B%AE%E5%BD%95/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">ROS学习目录</div>
+      </a>
+    
+  </nav>
+
+  
+   
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css">
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '90f8027c09cddcac20ef',
+    clientSecret: 'eeb93148bba6bd7e7c3d6774b9ad26c3fb8da534',
+    repo: 'Blog_comments',
+    owner: 'xin-Dream',
+    admin: ['xin-Dream'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021-2022
+        <i class="ri-heart-fill heart_icon"></i> ZGX
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/badminton.svg" alt="Dream"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories/Linux/ROS">ROS</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories/AI">AI</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories/hexo">hexo</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/Aboutme">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/AliPay.png">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.png">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+ 
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

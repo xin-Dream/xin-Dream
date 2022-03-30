@@ -12,13 +12,11 @@ typora-root-url: ..\..
 
 # 1. 相关工具下载
 
-
-
-      1. [STM32CubeMX](https://www.st.com/zh/development-tools/stm32-software-development-tools.html)
-      2. [OpenOCD](https://gnutoolchains.com/arm-eabi/openocd/)（下载好后解压到指定目录后不要动了）
-      3. [MinGW-w64](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/sjlj/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0.7z/download?use_mirror=udomain)（下载好后解压到指定目录后不要动了）
-      4. [gcc-arm-none-eabi](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)（下载好后解压到指定目录后不要动了）
-      5. [Clion](https://www.jetbrains.com/clion/)（这个可以到Jetbrain申请教育账号，就可以使用专业版了，应该需要一年验证一次）
+   1. [STM32CubeMX](https://www.st.com/zh/development-tools/stm32-software-development-tools.html)
+   2. [OpenOCD](https://gnutoolchains.com/arm-eabi/openocd/)（下载好后解压到指定目录后不要动了）
+   3. [MinGW-w64](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/sjlj/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0.7z/download?use_mirror=udomain)（下载好后解压到指定目录后不要动了）
+   4. [gcc-arm-none-eabi](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)（下载好后解压到指定目录后不要动了）
+   5. [Clion](https://www.jetbrains.com/clion/)（这个可以到Jetbrain申请教育账号，就可以使用专业版了，应该需要一年验证一次）
 
 # 2. 添加环境变量
 

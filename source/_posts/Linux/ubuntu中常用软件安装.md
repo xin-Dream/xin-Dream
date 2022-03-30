@@ -109,11 +109,12 @@ sudo apt install microsoft-edge-dev
 
 # 6. Barrier
 
-{% post_link windows/多机共享键鼠软件Barrier.md %}
+{% post_link windows/多机共享键鼠软件Barrier %}
 
 # 7. zsh & Oh my zsh
 
-{% post_link Linux/ubuntu安装zsh.md %}
+{% post_link Linux/ubuntu安装zsh  ubuntu安装zsh %}
+
 
 # 8. clash
 ```bash

@@ -7,7 +7,7 @@ tags:
   - python
 categories:
   - 程序设计
-    - python
+  - python
 top: 
 typora-root-url: ../..
 ---

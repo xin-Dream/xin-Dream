@@ -13,14 +13,18 @@ categories:
 
 ```bash
 sudo apt-get install zsh
-
+```
 # 安装Oh my zsh，以下为三种方式
+```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
+```
+```bash
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
+```
+```bash
 sh -c "$(fetch -o - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
+```
+```
 # 若以上方式都不好用，可以在网页打开网址,新建一个install.sh，将网页内容复制进去，然后执行
 
 #或者可以在我GitHub上找到Ubuntu_files的zsh里有配置文件
@@ -32,13 +36,14 @@ sh install.sh
 
 ```bash
 # git clone加速技巧，将github.com改为github.com.cnpmjs.org
-
-git clone https://github.com.cnpmjs.org/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 2. 语法高亮
 
 ```bash
- git clone https://github.com.cnpmjs.org/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+ git clone https://github.comg/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
 3. 跳转目录
@@ -50,8 +55,6 @@ sudo apt-get install autojump
 ```BASH
 git clone https://github.com.cnpmjs.org/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 ```
-
-
 
 5. 修改配置文件
 

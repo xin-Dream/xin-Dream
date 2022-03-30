@@ -11,10 +11,16 @@ typora-root-url: ..\..
 
 [windows下载地址](https://github.com/debauchee/barrier/releases)
 
+注意：**Windows安装时，安装路径不能含中文字符**
+
 
 Linux安装
 ```bash
+# ubuntu20.04
 sudo apt-get install barrier
+
+# ubuntu18.04
+sudo snap install barrier
 ```
 
 安装结束后，选择一台设备作为服务端，其他作为客户端即可
