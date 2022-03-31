@@ -6,7 +6,7 @@
   <link href="http://zhangguixin.com/atom.xml" rel="self"/>
   
   <link href="http://zhangguixin.com/"/>
-  <updated>2022-03-29T07:16:03.678Z</updated>
+  <updated>2022-03-30T12:36:43.412Z</updated>
   <id>http://zhangguixin.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ss</title>
+    <link href="http://zhangguixin.com/2022/03/30/%E6%9C%BA%E6%A2%B0%E7%B1%BB/ss/"/>
+    <id>http://zhangguixin.com/2022/03/30/%E6%9C%BA%E6%A2%B0%E7%B1%BB/ss/</id>
+    <published>2022-03-30T12:36:43.000Z</published>
+    <updated>2022-03-30T12:36:43.412Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;摘要：&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="机械类" scheme="http://zhangguixin.com/categories/%E6%9C%BA%E6%A2%B0%E7%B1%BB/"/>
+    
+    
+    <category term="机械类" scheme="http://zhangguixin.com/tags/%E6%9C%BA%E6%A2%B0%E7%B1%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>钣金盒</title>
@@ -513,27 +534,6 @@
     
     
     <category term="hexo" scheme="http://zhangguixin.com/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>速度慢时可使用备用网址:http://xin-dream.gitee.io</title>
-    <link href="http://zhangguixin.com/2021/12/18/%E9%80%9F%E5%BA%A6%E6%85%A2%E6%97%B6%E5%8F%AF%E4%BD%BF%E7%94%A8%E5%A4%87%E7%94%A8%E7%BD%91%E5%9D%80/"/>
-    <id>http://zhangguixin.com/2021/12/18/%E9%80%9F%E5%BA%A6%E6%85%A2%E6%97%B6%E5%8F%AF%E4%BD%BF%E7%94%A8%E5%A4%87%E7%94%A8%E7%BD%91%E5%9D%80/</id>
-    <published>2021-12-18T04:05:48.000Z</published>
-    <updated>2021-12-18T04:12:14.317Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;点击跳转码云网址&quot;&gt;&lt;a href=&quot;#点击跳转码云网址&quot; class=&quot;headerlink&quot; title=&quot;点击跳转码云网址&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://xin-dream.gitee.io/&quot;&gt;点击跳转码云网址&lt;/a&gt;&lt;/h1&gt;&lt;h1</summary>
-        
-      
-    
-    
-    
     
   </entry>
   
