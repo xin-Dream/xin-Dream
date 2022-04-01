@@ -434,21 +434,28 @@
       </tags>
   </entry>
   <entry>
-    <title>ss</title>
-    <url>/2022/03/30/%E6%9C%BA%E6%A2%B0%E7%B1%BB/ss/</url>
-    <content><![CDATA[<blockquote>
-<p>摘要：</p>
-</blockquote>
-<a id="more"></a>
-
-<blockquote>
-<h1 id="ss"><a href="#ss" class="headerlink" title="ss"></a>ss</h1></blockquote>
+    <title>NUCLEO使用</title>
+    <url>/2022/03/29/%E5%8D%95%E7%89%87%E6%9C%BA/NUCLEO%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>NUCLEO作为ST官方的开发板，它的设计和说明文档都比较仔细，本文中主要记录使用时发现的设计细节。</p>
+<p>本次使用开发板型号为：NUCLEO-F767ZI</p>
+<p><img src="/images/NUCLEO%E8%AE%BE%E8%AE%A1%E7%82%B9/image-20220329140820456.png" alt="NUCLEO-F767ZI"></p>
+<h1 id="1-文档下载"><a href="#1-文档下载" class="headerlink" title="1. 文档下载"></a>1. 文档下载</h1><p>可以在链接：<a href="https://www.st.com/zh/evaluation-tools/stm32-nucleo-boards.html">STM32 Nucleo 板</a>中找到自己使用的型号，在用户手册中可以找到板子的详细说明。在CAD资源中可以下载板子的原理图和PCB文件，可以从正规的设计样例中学习布线和原理，使用的是四层板，隐藏铺铜后是这样。可以从原理图中选择特定网络查看对应PCB。</p>
+<p><img src="/images/NUCLEO%E4%BD%BF%E7%94%A8/image-20220329162808033.png" alt="image-20220329162808033"></p>
+<h1 id="2-OpenOCD下载使用的cfg文件"><a href="#2-OpenOCD下载使用的cfg文件" class="headerlink" title="2. OpenOCD下载使用的cfg文件"></a>2. OpenOCD下载使用的cfg文件</h1><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><code class="hljs plain"># STMicroelectronics STM32F7 Nucleo development board<br># Known boards: NUCLEO-F746ZG and NUCLEO-F767ZI<br><br>source [find interface/stlink.cfg]<br><br>transport select hla_swd<br><br>source [find target/stm32f7x.cfg]<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="3-自带ST-Link下载器"><a href="#3-自带ST-Link下载器" class="headerlink" title="3. 自带ST-Link下载器"></a>3. 自带ST-Link下载器</h1><p><img src="/images/NUCLEO%E4%BD%BF%E7%94%A8/image-20220329151418610.png" alt="Top layout"></p>
+<p>可以看到上面的CN1为USB接口连接的ST-Link,CN4为ST-Link选择跳线。在嵌入式ST-Link一节中有关于CN4跳线的选择。在下表中可以看到，CN4都打开的时候，ST-Link使用的是板上编程；CN4都关闭的时候，ST-Link使能外部连接。</p>
+<p><img src="/images/NUCLEO%E4%BD%BF%E7%94%A8/image-20220329152102119.png" alt="CN4 states of the jumpers"></p>
+<p><img src="/images/NUCLEO%E4%BD%BF%E7%94%A8/image-20220329164148239.png" alt="Connecting the STM32 Nucleo-144 board to program the on-board STM32"></p>
+<p>如果使用外部下载的话，在文档的6.3.4节中也有说明：</p>
+<p><img src="/images/NUCLEO%E4%BD%BF%E7%94%A8/image-20220329164439626.png" alt="Debug connector CN6 (SWD)"></p>
 <script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>机械类</category>
+        <category>单片机</category>
+        <category>STM32</category>
       </categories>
       <tags>
-        <tag>机械类</tag>
+        <tag>stm32</tag>
+        <tag>NUCLEO</tag>
       </tags>
   </entry>
   <entry>

@@ -6,7 +6,7 @@
   <link href="http://zhangguixin.com/atom.xml" rel="self"/>
   
   <link href="http://zhangguixin.com/"/>
-  <updated>2022-03-30T12:36:43.412Z</updated>
+  <updated>2022-03-29T07:16:03.678Z</updated>
   <id>http://zhangguixin.com/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>ss</title>
-    <link href="http://zhangguixin.com/2022/03/30/%E6%9C%BA%E6%A2%B0%E7%B1%BB/ss/"/>
-    <id>http://zhangguixin.com/2022/03/30/%E6%9C%BA%E6%A2%B0%E7%B1%BB/ss/</id>
-    <published>2022-03-30T12:36:43.000Z</published>
-    <updated>2022-03-30T12:36:43.412Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;摘要：&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="机械类" scheme="http://zhangguixin.com/categories/%E6%9C%BA%E6%A2%B0%E7%B1%BB/"/>
-    
-    
-    <category term="机械类" scheme="http://zhangguixin.com/tags/%E6%9C%BA%E6%A2%B0%E7%B1%BB/"/>
-    
-  </entry>
   
   <entry>
     <title>钣金盒</title>
@@ -55,6 +34,35 @@
     
     
     
+    
+  </entry>
+  
+  <entry>
+    <title>NUCLEO使用</title>
+    <link href="http://zhangguixin.com/2022/03/29/%E5%8D%95%E7%89%87%E6%9C%BA/NUCLEO%E4%BD%BF%E7%94%A8/"/>
+    <id>http://zhangguixin.com/2022/03/29/%E5%8D%95%E7%89%87%E6%9C%BA/NUCLEO%E4%BD%BF%E7%94%A8/</id>
+    <published>2022-03-29T05:33:30.000Z</published>
+    <updated>2022-04-01T10:54:17.231Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="单片机" scheme="http://zhangguixin.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+    <category term="STM32" scheme="http://zhangguixin.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA/STM32/"/>
+    
+    
+    <category term="stm32" scheme="http://zhangguixin.com/tags/stm32/"/>
+    
+    <category term="NUCLEO" scheme="http://zhangguixin.com/tags/NUCLEO/"/>
     
   </entry>
   
