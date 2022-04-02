@@ -6,7 +6,7 @@
   <link href="http://zhangguixin.com/atom.xml" rel="self"/>
   
   <link href="http://zhangguixin.com/"/>
-  <updated>2022-03-29T07:16:03.678Z</updated>
+  <updated>2022-04-02T14:14:21.930Z</updated>
   <id>http://zhangguixin.com/</id>
   
   <author>
@@ -21,28 +21,34 @@
     <link href="http://zhangguixin.com/2022/03/29/%E6%9C%BA%E6%A2%B0%E7%B1%BB/%E9%92%A3%E9%87%91%E7%9B%92/"/>
     <id>http://zhangguixin.com/2022/03/29/%E6%9C%BA%E6%A2%B0%E7%B1%BB/%E9%92%A3%E9%87%91%E7%9B%92/</id>
     <published>2022-03-29T07:16:03.000Z</published>
-    <updated>2022-03-29T07:16:03.678Z</updated>
+    <updated>2022-04-02T14:14:21.930Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;script type=&quot;text&amp;#x2F;javascript&quot; src=&quot;https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js&quot;&gt;&lt;/script&gt;&lt;script</summary>
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/%E9%92%A3%E9%87%91%E7%9B%92/image-20220402161301556.png&quot;</summary>
         
       
     
     
     
+    <category term="机械" scheme="http://zhangguixin.com/categories/%E6%9C%BA%E6%A2%B0/"/>
+    
+    <category term="Solidworks" scheme="http://zhangguixin.com/categories/%E6%9C%BA%E6%A2%B0/Solidworks/"/>
+    
+    
+    <category term="Solidworks" scheme="http://zhangguixin.com/tags/Solidworks/"/>
     
   </entry>
   
   <entry>
     <title>NUCLEO使用</title>
-    <link href="http://zhangguixin.com/2022/03/29/%E5%8D%95%E7%89%87%E6%9C%BA/NUCLEO%E4%BD%BF%E7%94%A8/"/>
-    <id>http://zhangguixin.com/2022/03/29/%E5%8D%95%E7%89%87%E6%9C%BA/NUCLEO%E4%BD%BF%E7%94%A8/</id>
+    <link href="http://zhangguixin.com/2022/03/29/STM32/NUCLEO%E4%BD%BF%E7%94%A8/"/>
+    <id>http://zhangguixin.com/2022/03/29/STM32/NUCLEO%E4%BD%BF%E7%94%A8/</id>
     <published>2022-03-29T05:33:30.000Z</published>
-    <updated>2022-04-01T10:54:17.231Z</updated>
+    <updated>2022-04-02T14:09:18.565Z</updated>
     
     
       
@@ -55,9 +61,7 @@
     
     
     
-    <category term="单片机" scheme="http://zhangguixin.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-    <category term="STM32" scheme="http://zhangguixin.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA/STM32/"/>
+    <category term="STM32" scheme="http://zhangguixin.com/categories/STM32/"/>
     
     
     <category term="stm32" scheme="http://zhangguixin.com/tags/stm32/"/>
@@ -96,7 +100,7 @@
     <link href="http://zhangguixin.com/2022/03/24/%E7%94%B5%E8%B7%AF/AltiumDesigner%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/"/>
     <id>http://zhangguixin.com/2022/03/24/%E7%94%B5%E8%B7%AF/AltiumDesigner%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</id>
     <published>2022-03-24T02:33:42.000Z</published>
-    <updated>2022-03-29T09:04:43.204Z</updated>
+    <updated>2022-04-02T14:08:23.828Z</updated>
     
     
       
@@ -113,16 +117,16 @@
     <category term="电路" scheme="http://zhangguixin.com/categories/%E7%94%B5%E8%B7%AF/"/>
     
     
-    <category term="AltiumDesigner18" scheme="http://zhangguixin.com/tags/AltiumDesigner18/"/>
+    <category term="AltiumDesigner" scheme="http://zhangguixin.com/tags/AltiumDesigner/"/>
     
   </entry>
   
   <entry>
     <title>stm32中的C/C++混合编译</title>
-    <link href="http://zhangguixin.com/2022/03/16/%E5%8D%95%E7%89%87%E6%9C%BA/stm32%E4%B8%AD%E7%9A%84C-C-%E6%B7%B7%E5%90%88%E7%BC%96%E8%AF%91/"/>
-    <id>http://zhangguixin.com/2022/03/16/%E5%8D%95%E7%89%87%E6%9C%BA/stm32%E4%B8%AD%E7%9A%84C-C-%E6%B7%B7%E5%90%88%E7%BC%96%E8%AF%91/</id>
+    <link href="http://zhangguixin.com/2022/03/16/STM32/stm32%E4%B8%AD%E7%9A%84C-C-%E6%B7%B7%E5%90%88%E7%BC%96%E8%AF%91/"/>
+    <id>http://zhangguixin.com/2022/03/16/STM32/stm32%E4%B8%AD%E7%9A%84C-C-%E6%B7%B7%E5%90%88%E7%BC%96%E8%AF%91/</id>
     <published>2022-03-16T13:23:40.000Z</published>
-    <updated>2022-03-16T13:27:15.763Z</updated>
+    <updated>2022-04-02T14:09:30.246Z</updated>
     
     
       
@@ -135,14 +139,12 @@
     
     
     
-    <category term="单片机" scheme="http://zhangguixin.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-    <category term="STM32" scheme="http://zhangguixin.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA/STM32/"/>
+    <category term="STM32" scheme="http://zhangguixin.com/categories/STM32/"/>
     
     
     <category term="stm32" scheme="http://zhangguixin.com/tags/stm32/"/>
     
-    <category term="Clion" scheme="http://zhangguixin.com/tags/Clion/"/>
+    <category term="Jetbrains" scheme="http://zhangguixin.com/tags/Jetbrains/"/>
     
   </entry>
   
@@ -151,7 +153,7 @@
     <link href="http://zhangguixin.com/2022/03/16/ROS/ROSGUI-%E9%85%8D%E7%BD%AEQT%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
     <id>http://zhangguixin.com/2022/03/16/ROS/ROSGUI-%E9%85%8D%E7%BD%AEQT%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</id>
     <published>2022-03-16T12:05:41.000Z</published>
-    <updated>2022-03-18T07:25:08.029Z</updated>
+    <updated>2022-04-02T14:03:07.475Z</updated>
     
     
       
@@ -164,9 +166,7 @@
     
     
     
-    <category term="Linux" scheme="http://zhangguixin.com/categories/Linux/"/>
-    
-    <category term="ROS" scheme="http://zhangguixin.com/categories/Linux/ROS/"/>
+    <category term="ROS" scheme="http://zhangguixin.com/categories/ROS/"/>
     
     
     <category term="ROS" scheme="http://zhangguixin.com/tags/ROS/"/>
@@ -284,10 +284,10 @@
   
   <entry>
     <title>粒子云使用wordpress搭建博客</title>
-    <link href="http://zhangguixin.com/2022/01/02/wordpress/%E7%B2%92%E5%AD%90%E4%BA%91%E4%BD%BF%E7%94%A8wordpress%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://zhangguixin.com/2022/01/02/wordpress/%E7%B2%92%E5%AD%90%E4%BA%91%E4%BD%BF%E7%94%A8wordpress%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</id>
+    <link href="http://zhangguixin.com/2022/01/02/%E6%9D%82%E9%A1%B9/%E7%B2%92%E5%AD%90%E4%BA%91%E4%BD%BF%E7%94%A8wordpress%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://zhangguixin.com/2022/01/02/%E6%9D%82%E9%A1%B9/%E7%B2%92%E5%AD%90%E4%BA%91%E4%BD%BF%E7%94%A8wordpress%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</id>
     <published>2022-01-02T07:26:41.000Z</published>
-    <updated>2022-01-02T12:59:00.539Z</updated>
+    <updated>2022-04-02T14:16:03.875Z</updated>
     
     
       
@@ -300,10 +300,10 @@
     
     
     
-    <category term="wordpress" scheme="http://zhangguixin.com/categories/wordpress/"/>
+    <category term="杂项" scheme="http://zhangguixin.com/categories/%E6%9D%82%E9%A1%B9/"/>
     
     
-    <category term="wordpress" scheme="http://zhangguixin.com/tags/wordpress/"/>
+    <category term="NAS" scheme="http://zhangguixin.com/tags/NAS/"/>
     
   </entry>
   
@@ -339,7 +339,7 @@
     <link href="http://zhangguixin.com/2022/01/02/%E6%9D%82%E9%A1%B9/%E7%B2%92%E5%AD%90%E4%BA%91%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
     <id>http://zhangguixin.com/2022/01/02/%E6%9D%82%E9%A1%B9/%E7%B2%92%E5%AD%90%E4%BA%91%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/</id>
     <published>2022-01-02T07:25:35.000Z</published>
-    <updated>2022-01-02T13:05:08.172Z</updated>
+    <updated>2022-04-02T08:06:27.590Z</updated>
     
     
       
@@ -365,7 +365,7 @@
     <link href="http://zhangguixin.com/2022/01/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/gitignore%E4%BD%BF%E7%94%A8/"/>
     <id>http://zhangguixin.com/2022/01/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/gitignore%E4%BD%BF%E7%94%A8/</id>
     <published>2022-01-01T11:39:57.000Z</published>
-    <updated>2022-03-24T07:17:38.008Z</updated>
+    <updated>2022-04-02T14:16:46.386Z</updated>
     
     
       
@@ -381,7 +381,7 @@
     
     <category term="程序设计" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
     
-    <category term="git" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git/"/>
+    <category term="Git" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Git/"/>
     
     
     <category term="Git" scheme="http://zhangguixin.com/tags/Git/"/>
@@ -393,7 +393,7 @@
     <link href="http://zhangguixin.com/2022/01/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git%E4%B8%8A%E4%BC%A0%E5%A4%A7%E6%96%87%E4%BB%B6/"/>
     <id>http://zhangguixin.com/2022/01/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git%E4%B8%8A%E4%BC%A0%E5%A4%A7%E6%96%87%E4%BB%B6/</id>
     <published>2022-01-01T09:04:20.000Z</published>
-    <updated>2022-03-24T07:17:35.434Z</updated>
+    <updated>2022-04-02T14:16:50.908Z</updated>
     
     
       
@@ -408,7 +408,7 @@
     
     <category term="程序设计" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
     
-    <category term="git" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git/"/>
+    <category term="Git" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Git/"/>
     
     
     <category term="Git" scheme="http://zhangguixin.com/tags/Git/"/>
@@ -498,7 +498,7 @@
     <link href="http://zhangguixin.com/2021/12/19/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git%E7%9A%84%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/"/>
     <id>http://zhangguixin.com/2021/12/19/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git%E7%9A%84%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/</id>
     <published>2021-12-19T02:36:11.000Z</published>
-    <updated>2022-03-24T07:17:33.213Z</updated>
+    <updated>2022-04-02T14:16:54.788Z</updated>
     
     
       
@@ -513,7 +513,7 @@
     
     <category term="程序设计" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
     
-    <category term="git" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/git/"/>
+    <category term="Git" scheme="http://zhangguixin.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Git/"/>
     
     
     <category term="Git" scheme="http://zhangguixin.com/tags/Git/"/>

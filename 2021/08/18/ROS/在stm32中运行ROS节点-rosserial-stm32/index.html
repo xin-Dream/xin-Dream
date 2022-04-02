@@ -94,7 +94,7 @@
   <time datetime="2021-08-18T12:50:01.000Z" itemprop="datePublished">2021-08-18</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Linux/">Linux</a> / <a class="article-category-link" href="/categories/Linux/ROS/">ROS</a>
+    <a class="article-category-link" href="/categories/ROS/">ROS</a>
   </div>
   
 <div class="word_count">
@@ -102,7 +102,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">2.4k</span>
+            <span class="post-count">2.5k</span>
         </span>
     </span>
 
@@ -130,9 +130,9 @@
 <p><strong>这个方法只适用于stm32F3、F4和F7的开发板</strong></p>
 <h1 id="1-创建工作空间"><a href="#1-创建工作空间" class="headerlink" title="1 创建工作空间"></a>1 创建工作空间</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkdir -p workspace/src<br><span class="hljs-built_in">cd</span> workspace<br>catkin_make<br><br><span class="hljs-comment"># 这里的工作空间有必要说明一下，在工作空间中的src目录下不止可以放置ROS程序，还可以放置单片机的程序，只要自己管理好src中不同功能包就好</span><br><span class="hljs-comment"># 所以对一个项目来说，我们把上位机程序、ROS程序、单片机程序放入一个工作空间中</span><br><span class="hljs-comment"># 将创建的stm32项目整体放入src目录下</span><br></code></pre></td></tr></tbody></table></figure>
 <h1 id="2-创建stm32项目"><a href="#2-创建stm32项目" class="headerlink" title="2  创建stm32项目"></a>2  创建stm32项目</h1><p>在使用USB-TTL时，遇见过几次不稳定情况，另外需要再加模块，有些复杂，所以使用USB转虚拟串口(VCP)。</p>
-<p>参考另一篇文章：<a href="/2021/08/18/%E5%8D%95%E7%89%87%E6%9C%BA/stm32%E4%BD%BF%E7%94%A8USB%E8%99%9A%E6%8B%9F%E4%B8%B2%E5%8F%A3/" title="stm32使用USB虚拟串口">stm32使用USB虚拟串口</a></p>
+<p>参考另一篇文章：<a href="#">Post not found: 单片机/stm32使用USB虚拟串口 stm32使用USB虚拟串口</a></p>
 <p>上面这篇只涉及虚拟串口的配置，至于其他，如FreeRTOS的使用并不影响，看自己情况。</p>
-<p>设置时钟时要注意：<a href="/2021/08/20/%E5%8D%95%E7%89%87%E6%9C%BA/%E4%BD%BF%E7%94%A8CubeMX-CubeIDE%E9%85%8D%E7%BD%AE%E6%97%B6%E9%92%9F%E6%A0%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" title="使用CubeMX/CubeIDE配置时钟树注意事项">使用CubeMX/CubeIDE配置时钟树注意事项</a>。如果时钟频率不匹配，会出现端口无法识别。</p>
+<p>设置时钟时要注意：<a href="#">Post not found: 单片机/使用CubeMX-CubeIDE配置时钟树注意事项 使用CubeMX/CubeIDE配置时钟树注意事项</a>。如果时钟频率不匹配，会出现端口无法识别。</p>
 <h1 id="3-在github中下载rosserial-stm32"><a href="#3-在github中下载rosserial-stm32" class="headerlink" title="3 在github中下载rosserial_stm32"></a>3 在github中下载rosserial_stm32</h1><p><a target="_blank" rel="noopener" href="https://github.com/yoneken/rosserial_stm32">rosserial_stm32</a><br>不管使用git clone下载，还是使用zip下载，将其也放入workspace中的src目录下。</p>
 <p><strong>如果整个工作空间是github中的repository，在clone下rosserial_stm32后要先删除<code>.git</code>和<code>.gitignore</code>。否则将工作空间进行push的时候会将下层文件夹当作是子模块。</strong></p>
 <h1 id="4-使用rosserial-stm32编译生成头文件"><a href="#4-使用rosserial-stm32编译生成头文件" class="headerlink" title="4 使用rosserial_stm32编译生成头文件"></a>4 使用rosserial_stm32编译生成头文件</h1><p>首先回顾下前两步完成后当下工作空间的结构</p>
@@ -158,7 +158,7 @@
 <p>注意修改程序时，内容要放在HAL库注释中间。</p>
 <ol>
 <li><p>在stm32工程中新建CPP文件</p>
-<p>在Src中新建robot.cpp，在Inc中新建robot.h。新建文件的过程参考（<a href="/2021/06/14/%E5%8D%95%E7%89%87%E6%9C%BA/%E9%85%8D%E7%BD%AECLion%E5%BC%80%E5%8F%91stm32/" title="配置CLion开发stm32">配置CLion开发stm32</a>）中注意事项。</p>
+<p>在Src中新建robot.cpp，在Inc中新建robot.h。新建文件的过程参考（<a href="#">Post not found: 单片机/配置CLion开发stm32 配置CLion开发stm32</a>）中注意事项。</p>
 <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">// robot.cpp</span><br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"robot.h"</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;ros.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;std_msgs/String.h&gt;</span></span><br><br>ros::NodeHandle nh;<br>std_msgs::String str_msg;<br><span class="hljs-function">ros::Publisher <span class="hljs-title">chatter</span><span class="hljs-params">(<span class="hljs-string">"chatter"</span>, &amp;str_msg)</span></span>;<br><br><span class="hljs-keyword">char</span> hello[] = <span class="hljs-string">"Hello world!"</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{<br>    nh.initNode();<br>    nh.advertise(chatter);<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">loop</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{<br>    HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);<br><br>    str_msg.data = hello;<br>    chatter.publish(&amp;str_msg);<br>    nh.spinOnce();<br><br>    HAL_Delay(<span class="hljs-number">1000</span>);<br>}	<br></code></pre></td></tr></tbody></table></figure>
 <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//robot.h</span><br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> __cplusplus</span><br><span class="hljs-keyword">extern</span> <span class="hljs-string">"C"</span> {<br><span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">loop</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> __cplusplus</span><br>}<br><span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span><br></code></pre></td></tr></tbody></table></figure>
 
@@ -264,7 +264,7 @@
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ROS/" rel="tag">ROS</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ROS/" rel="tag">ROS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li></ul>
 
     </footer>
   </div>
@@ -272,7 +272,7 @@
    
   <nav class="article-nav">
     
-      <a href="/2021/08/20/%E5%8D%95%E7%89%87%E6%9C%BA/%E4%BD%BF%E7%94%A8CubeMX-CubeIDE%E9%85%8D%E7%BD%AE%E6%97%B6%E9%92%9F%E6%A0%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="article-nav-link">
+      <a href="/2021/08/20/STM32/%E4%BD%BF%E7%94%A8CubeMX-CubeIDE%E9%85%8D%E7%BD%AE%E6%97%B6%E9%92%9F%E6%A0%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
@@ -282,7 +282,7 @@
       </a>
     
     
-      <a href="/2021/08/18/%E5%8D%95%E7%89%87%E6%9C%BA/stm32%E4%BD%BF%E7%94%A8USB%E8%99%9A%E6%8B%9F%E4%B8%B2%E5%8F%A3/" class="article-nav-link">
+      <a href="/2021/08/18/STM32/stm32%E4%BD%BF%E7%94%A8USB%E8%99%9A%E6%8B%9F%E4%B8%B2%E5%8F%A3/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
         <div class="article-nav-title">stm32使用USB虚拟串口</div>
       </a>

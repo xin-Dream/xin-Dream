@@ -102,7 +102,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.6k</span>
+            <span class="post-count">1.7k</span>
         </span>
     </span>
 
@@ -111,7 +111,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">5 分钟</span>
+            <span class="post-count">6 分钟</span>
         </span>
     </span>
 </div>
@@ -153,7 +153,7 @@
 </li>
 <li><p>新建用户</p>
 <blockquote>
-<p>访问权限管理 -&gt; 用户 -&gt; 添加<br>设置完用户名和密码后，可以在用户组中设置用户权限。</p>
+<p>访问权限管理 -&gt; 用户 -&gt; 添加<br>设置完用户名和密码后，可以在用户组中设置用户权限，这里权限高的话会在后面共享文件夹中使用高权限。</p>
 </blockquote>
 </li>
 </ol>
@@ -165,7 +165,7 @@
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs plain">-- /          # 根目录<br>|- /download      # 下载工具下载的文件夹<br>|- /share        # 共享工具用的文件夹<br>|- /photo        # 照片<br>|- /video        # 视频<br>|- /data        # 其余文件<br></code></pre></td></tr></tbody></table></figure></li>
 <li><p>启动共享</p>
 <blockquote>
-<p>服务 -&gt; SMB/CIFS -&gt; 共享<br>这里选择添加，添加上一步创建的文件夹，注意在公开一栏选择允许访客。</p>
+<p>服务 -&gt; SMB/CIFS -&gt; 共享<br>这里选择添加，添加上一步创建的文件夹，注意在公开一栏选择否，这样在下一步添加网络位置的时候会使用账户和密码，这样权限会和上一步新建用户的权限一致。</p>
 </blockquote>
 <p>返回到设置 -&gt; 常规设置 -&gt; 启用</p>
 </li>
@@ -179,7 +179,7 @@
 <li><p>挂载文件<br>使用SSH进入云服务器</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs plain">onmp stop<br>mkdir /opt/media<br>mount /dev/sda1 /opt/media<br><br>cp -ar /opt/wwwroot /opt/media<br>rm -rf /opt/wwwroot/*<br>mount --bind /opt/media/wwwroot /opt/wwwroot<br><br>onmp start<br></code></pre></td></tr></tbody></table></figure></li>
 <li><p>修改配置文件<br>在SSH中修改/opt/entware_init.sh内容</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain"># 在onmp start下添加如下内容<br><br>sleep15<br>mount /dev/sda1 /opt/media<br>mount --bind /opt/media/wwwroot /opt/wwwroot<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain"># 在onmp start下添加如下内容<br><br>sleep 15<br>mount /dev/sda1 /opt/media<br>mount --bind /opt/media/wwwroot /opt/wwwroot<br></code></pre></td></tr></tbody></table></figure>
 <p>等待重启后，进入管理页面，使用探针查看一下硬盘大小</p>
 </li>
 </ol>
@@ -193,6 +193,7 @@
 <blockquote>
 <p>数据库用户：root<br>数据库密码：123456<br>数据库名：Localhost<br>数据目录不用修改，因为已经把wwwroot改到硬盘了</p>
 </blockquote>
+<p>这个工具可以在手机或ipad中下载一个APP，可以设置自动上传文件夹。</p>
 <h2 id="3-3-H5ai"><a href="#3-3-H5ai" class="headerlink" title="3.3 H5ai"></a>3.3 H5ai</h2><h1 id="4-下载工具"><a href="#4-下载工具" class="headerlink" title="4 下载工具"></a>4 下载工具</h1><p>在第2.2节中设置的download目录就是用于本节中设置下载目录的，为不同的软件工具在download中创建不同文件夹。</p>
 <p>文中查找文件目录可以利用可道云，找到文件夹后复制路径在其余页面修改即可。</p>
 <h2 id="4-1-AriaNg"><a href="#4-1-AriaNg" class="headerlink" title="4.1 AriaNg"></a>4.1 AriaNg</h2><p>这里面的AriaNg设置和Aria2设置是对于两个软件的设置。</p>
@@ -233,7 +234,9 @@
 <p>这个数据库会在其他软件中用到。</p>
 </li>
 <li><p>新建数据库<br>左侧新建，只修改数据库名即可，可能会在wordpress中用到。</p>
-<h2 id="5-3-相册"><a href="#5-3-相册" class="headerlink" title="5.3 相册"></a>5.3 相册</h2></li>
+</li>
+</ol>
+<h2 id="5-3-相册"><a href="#5-3-相册" class="headerlink" title="5.3 相册"></a>5.3 相册</h2><ol>
 <li><p>初始化使用</p>
 <p>进入软件后要先进行初始化设置</p>
 <blockquote>
@@ -245,7 +248,7 @@
 <h2 id="5-4-视频"><a href="#5-4-视频" class="headerlink" title="5.4 视频"></a>5.4 视频</h2><h2 id="5-5-探针"><a href="#5-5-探针" class="headerlink" title="5.5 探针"></a>5.5 探针</h2><p>可以查看云服务器各种数据，内存、硬盘等使用情况，但这里的物理内存并不代表真是内存，应该是下面的真实内存。</p>
 <p><img src="/images/%E7%B2%92%E5%AD%90%E4%BA%91%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/image-20220102163303405.png" alt="image-20220102163303405"></p>
 <h2 id="5-6-wordpress"><a href="#5-6-wordpress" class="headerlink" title="5.6 wordpress"></a>5.6 wordpress</h2><p>转至详细教程</p>
-<a href="/2022/01/02/wordpress/%E7%B2%92%E5%AD%90%E4%BA%91%E4%BD%BF%E7%94%A8wordpress%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="粒子云使用wordpress搭建博客">粒子云使用wordpress搭建博客</a><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
+<a href="#">Post not found: wordpress/粒子云使用wordpress搭建博客 粒子云使用wordpress搭建博客</a><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>
