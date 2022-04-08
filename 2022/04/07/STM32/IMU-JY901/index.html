@@ -12,7 +12,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>钣金盒 |  Dream</title>
+      <title>IMU-JY901 |  Dream</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/badminton.ico" />
@@ -71,7 +71,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-机械类/钣金盒"
+  id="post-STM32/IMU-JY901"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -82,7 +82,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  钣金盒
+  IMU-JY901
 </h1>
  
 
@@ -90,11 +90,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/03/29/%E6%9C%BA%E6%A2%B0%E7%B1%BB/%E9%92%A3%E9%87%91%E7%9B%92/" class="article-date">
-  <time datetime="2022-03-29T07:16:03.000Z" itemprop="datePublished">2022-03-29</time>
+      <a href="/2022/04/07/STM32/IMU-JY901/" class="article-date">
+  <time datetime="2022-04-07T13:16:37.000Z" itemprop="datePublished">2022-04-07</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%9C%BA%E6%A2%B0/">机械</a> / <a class="article-category-link" href="/categories/%E6%9C%BA%E6%A2%B0/Solidworks/">Solidworks</a>
+    <a class="article-category-link" href="/categories/STM32/">STM32</a>
   </div>
   
 <div class="word_count">
@@ -102,7 +102,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">99</span>
+            <span class="post-count">558</span>
         </span>
     </span>
 
@@ -111,27 +111,31 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p><img src="/images/%E9%92%A3%E9%87%91%E7%9B%92/image-20220402161301556.png" alt="钣金盒"></p>
-<p>钣金盒的设计思路是，底面与长边的两个侧面为一块板切割后折弯，短边的两个侧面板在压出百叶通风口并折弯之后焊接到底板上。钣金盒的两个展开图如图2、图3所示，焊接效果如图4所示。钣金盒的设计过程与百叶窗模型如图5所示。</p>
-<p><img src="/images/%E9%92%A3%E9%87%91%E7%9B%92/image-20220402161652934.png" alt="image-20220402161652934"></p>
-<p><img src="/images/%E9%92%A3%E9%87%91%E7%9B%92/image-20220402161658283.png" alt="image-20220402161658283"></p>
-<p><img src="/images/%E9%92%A3%E9%87%91%E7%9B%92/image-20220402161703830.png" alt="image-20220402161703830"></p>
-<p><img src="/images/%E9%92%A3%E9%87%91%E7%9B%92/image-20220402161710117.png" alt="image-20220402161710117"></p>
-<p><img src="/images/%E9%92%A3%E9%87%91%E7%9B%92/image-20220402161715922.png" alt="image-20220402161715922"></p>
-<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
+  <h1 id="STM32：串口空闲中断-DMA读取"><a href="#STM32：串口空闲中断-DMA读取" class="headerlink" title="STM32：串口空闲中断 + DMA读取"></a>STM32：串口空闲中断 + DMA读取</h1><h2 id="1-CubeMX配置"><a href="#1-CubeMX配置" class="headerlink" title="1. CubeMX配置"></a>1. CubeMX配置</h2><p>配置如下图，注意RX的DMA配置为Circular，即循环模式，这样可以保证接收到的数据不会丢失。TX可以为Normal，即非循环模式。<br><img src="../../images/IMU-JY901/image-20220408190832317.png" alt="CubeMX配置"></p>
+<h2 id="2-定义相关结构体"><a href="#2-定义相关结构体" class="headerlink" title="2. 定义相关结构体"></a>2. 定义相关结构体</h2><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> {</span><br><br>	<span class="hljs-keyword">short</span> acc[<span class="hljs-number">3</span>];<br>	<span class="hljs-keyword">short</span> gyro[<span class="hljs-number">3</span>];<br>	<span class="hljs-keyword">short</span> angle[<span class="hljs-number">3</span>];<br>	<span class="hljs-keyword">short</span> quat[<span class="hljs-number">4</span>];<br>} JY901_Data;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BUFFER_SIZE     255</span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> {</span><br>	<br>	<span class="hljs-comment">//DMA+空闲中断用参数</span><br>	<span class="hljs-keyword">uint8_t</span> receive_buff[BUFFER_SIZE];<br>	<span class="hljs-keyword">uint8_t</span> data_length;<br><br>} UARTParams_TypeDef;<br><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="2-使能空闲中断与DMA接收"><a href="#2-使能空闲中断与DMA接收" class="headerlink" title="2. 使能空闲中断与DMA接收"></a>2. 使能空闲中断与DMA接收</h2><p>这段要在main函数对串口初始化之后，wihle(1)循环之外。</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">// 使能空闲中断</span><br>USART2-&gt;CR1 |= USART_CR1_IDLEIE;<br><span class="hljs-comment">// 使能DMA接收</span><br>USART2-&gt;CR3 |= USART_CR3_DMAR;<br><br><span class="hljs-comment">// HAL库形式</span><br>__HAL_UART_ENABLE_IT(&amp;huart2, UART_IT_IDLE);<br>HAL_UART_Receive_DMA(huart, (<span class="hljs-keyword">uint8_t</span> *) UART_Params.receive_buff, BUFFER_SIZE);<br><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="3-中断函数"><a href="#3-中断函数" class="headerlink" title="3. 中断函数"></a>3. 中断函数</h2><p>在stm32f4xx_it.c文件中找到串口中断，添加自定义的DMA中断函数</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">USART2_IRQHandler</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>{<br>  <span class="hljs-comment">/* USER CODE BEGIN USART2_IRQn 0 */</span><br><br>  <span class="hljs-comment">/* USER CODE END USART2_IRQn 0 */</span><br>  HAL_UART_IRQHandler(&amp;huart2);<br>  <span class="hljs-comment">/* USER CODE BEGIN USART2_IRQn 1 */</span><br><br>	myuart_DMA(&amp;huart2);<br><br>  <span class="hljs-comment">/* USER CODE END USART2_IRQn 1 */</span><br>}<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">myuart_DMA</span><span class="hljs-params">(UART_HandleTypeDef *huart)</span> </span>{<br><br>	<span class="hljs-keyword">if</span> (huart-&gt;Instance == USART2) {<br>		<span class="hljs-keyword">if</span> (RESET != __HAL_UART_GET_FLAG(huart, UART_FLAG_IDLE))  <span class="hljs-comment">//判断是不是串口空闲中断</span><br>		{<br>			__HAL_UART_CLEAR_IDLEFLAG(huart);                      <span class="hljs-comment">//清楚串口空闲中断标志</span><br>			<br>			HAL_UART_DMAStop(huart);<br><br>			UART_Params.data_length = BUFFER_SIZE - __HAL_DMA_GET_COUNTER(huart-&gt;hdmarx);<br><br><span class="hljs-comment">//			HAL_UART_Transmit(huart, (uint8_t *) UART_Params.receive_buff, IMU_Data.data_length, 0x200);</span><br><br>			JY901_Read(UART_Params.receive_buff, IMU_Data);<br><br>			<span class="hljs-built_in">memset</span>(UART_Params.receive_buff, <span class="hljs-number">0</span>, UART_Params.data_length);<br>			UART_Params.data_length = <span class="hljs-number">0</span>;<br><br>			HAL_UART_Receive_DMA(huart, (<span class="hljs-keyword">uint8_t</span> *) UART_Params.receive_buff, BUFFER_SIZE);<br>		}<br>	}<br>}<br><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="4-IMU-JY901数据解析"><a href="#4-IMU-JY901数据解析" class="headerlink" title="4. IMU-JY901数据解析"></a>4. IMU-JY901数据解析</h2><p>注意数据的解析，每次接收到的数据包是在上位机配置的全部数据，所以要注意解析不同数据时的    顺序。</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">//	JY901数据结构</span><br><span class="hljs-comment">//       xL xH yL yH zL zH TL TH SUM</span><br><span class="hljs-comment">// 0  1  2  3  4  5  6  7  8  9  10</span><br><span class="hljs-comment">// 55 51 53 FA F0 04 C4 01 C6 07 79		加速度</span><br><span class="hljs-comment">//</span><br><span class="hljs-comment">//       xL xH yL yH zL zH TL TH SUM</span><br><span class="hljs-comment">// 11 12 13 14 15 16 17 18 19 20 21</span><br><span class="hljs-comment">// 55 52 7E E6 14 FD 28 04 C6 07 15		角速度</span><br><br><span class="hljs-comment">//       RL RH PL PH YL YH VL VH SUM</span><br><span class="hljs-comment">// 22 23 24 25 26 27 28 29 30 31 32</span><br><span class="hljs-comment">// 55 53 03 42 7E 16 9C 40 0E 29 94		角度</span><br><br><span class="hljs-comment">//       0L 0H 1L 1H 2L 2H 3L 3H SUM</span><br><span class="hljs-comment">// 33 34 35 36 37 38 39 40 41 42 43</span><br><span class="hljs-comment">// 55 59 96 4D 78 2D 6D 50 C0 2A DD		四元数</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">JY901_Read</span><span class="hljs-params">(<span class="hljs-keyword">uint8_t</span> *receive_buff, JY901_Data imu_data)</span> </span>{<br><br>	<span class="hljs-keyword">if</span> (receive_buff[<span class="hljs-number">0</span>] == <span class="hljs-number">0x55</span>) {<br>		<span class="hljs-comment">// 解析加速度</span><br>		<span class="hljs-keyword">if</span> (receive_buff[<span class="hljs-number">1</span>] == <span class="hljs-number">0x51</span>) {<br>			<span class="hljs-built_in">memcpy</span>(&amp;IMU_Data.acc, &amp;receive_buff[<span class="hljs-number">2</span>], <span class="hljs-number">8</span>);<br>		}<br>		<span class="hljs-comment">// 解析角速度</span><br>		<span class="hljs-keyword">if</span> (receive_buff[<span class="hljs-number">12</span>] == <span class="hljs-number">0x52</span>) {<br>			<span class="hljs-built_in">memcpy</span>(&amp;IMU_Data.gyro, &amp;receive_buff[<span class="hljs-number">13</span>], <span class="hljs-number">8</span>);<br>		}<br>		<span class="hljs-comment">// 解析角度</span><br>		<span class="hljs-keyword">if</span> (receive_buff[<span class="hljs-number">23</span>] == <span class="hljs-number">0x53</span>) {<br>			<span class="hljs-built_in">memcpy</span>(&amp;IMU_Data.angle, &amp;receive_buff[<span class="hljs-number">24</span>], <span class="hljs-number">8</span>);<br>		}<br>		<span class="hljs-comment">// 解析四元数</span><br>		<span class="hljs-keyword">if</span> (receive_buff[<span class="hljs-number">34</span>] == <span class="hljs-number">0x59</span>) {<br>			<span class="hljs-built_in">memcpy</span>(&amp;IMU_Data.quat, &amp;receive_buff[<span class="hljs-number">35</span>], <span class="hljs-number">8</span>);<br>		}<br>	}<br>}<br><br></code></pre></td></tr></tbody></table></figure><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
     </div>
@@ -195,12 +199,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zhangguixin.com/2022/03/29/%E6%9C%BA%E6%A2%B0%E7%B1%BB/%E9%92%A3%E9%87%91%E7%9B%92/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zhangguixin.com/2022/04/07/STM32/IMU-JY901/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Solidworks/" rel="tag">Solidworks</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ROS/" rel="tag">ROS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li></ul>
 
     </footer>
   </div>
@@ -208,19 +212,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/04/03/%E6%9D%82%E9%A1%B9/NextCloud%E4%BD%BF%E7%94%A8/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            NextCloud使用
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/03/29/STM32/NUCLEO%E4%BD%BF%E7%94%A8/" class="article-nav-link">
+      <a href="/2022/04/03/%E6%9D%82%E9%A1%B9/Quicker%E4%B8%AD%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E4%B8%8E%E4%BF%AE%E6%94%B9/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">NUCLEO使用</div>
+        <div class="article-nav-title">Quicker中插件使用与修改</div>
       </a>
     
   </nav>
