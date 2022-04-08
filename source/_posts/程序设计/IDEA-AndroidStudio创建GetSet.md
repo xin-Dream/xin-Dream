@@ -2,7 +2,7 @@
 title: IDEA/AndroidStudio创建GetSet
 date: 2021-08-02 19:01:05
 tags: 
-    [Android Studio] 
+    [Android,Jetbrains] 
 categories: 
     [程序设计,Android]
 ---

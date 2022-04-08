@@ -2,7 +2,7 @@
 title: AndroidStudio错误“Gradle sync failed”
 date: 2021-01-28 22:07:44
 tags: 
-    [Android Studio] 
+    [Android,Jetbrains] 
 categories: 
     [程序设计,Android]
 ---

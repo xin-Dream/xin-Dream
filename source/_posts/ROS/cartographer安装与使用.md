@@ -2,7 +2,7 @@
 layout: post
 title: cartographer安装与使用
 date: 2021-12-12 21:47:24
-tags: [cartographer]
+tags: [SLAM]
 typora-root-url: ..\..
 ---
 

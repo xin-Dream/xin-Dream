@@ -2,7 +2,7 @@
 title: ubuntu安装zsh
 date: 2021-05-03 16:34:21
 tags: 
-    [zsh] 
+    [软件] 
 categories: 
     [Linux,ubuntu]
 ---

@@ -3,7 +3,7 @@ layout: post
 title: AltiumDesigner使用问题
 date: 2022-03-24 10:33:42
 tags: 
-    [AltiumDesigner18] 
+    [AltiumDesigner] 
 categories: 
     [电路]
 typora-root-url: ..\..

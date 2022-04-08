@@ -2,9 +2,9 @@
 title: 解决在Pycharm中无法import安装的ROS库
 date: 2021-09-05 19:48:06
 tags: 
-    [ROS] 
+    [Jetbrains] 
 categories: 
-    [Linux,ROS]
+    [ROS]
 ---
 
 > 环境说明

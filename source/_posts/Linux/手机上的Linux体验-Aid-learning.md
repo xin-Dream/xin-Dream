@@ -2,9 +2,9 @@
 title: 手机上的Linux体验----Aid learning
 date: 2021-01-28 22:24:48
 tags: 
-    [Aid-learning,termux] 
+    [软件] 
 categories: 
-    [Linux,others]
+    [Linux]
 ---
 > # termux
 termux作为Android的高级终端模拟器可以单独使用，也可以在termux上安装其他Linux系统；安装完成后和手机系统完全不影响，出了问题完全可以直接卸载termux。

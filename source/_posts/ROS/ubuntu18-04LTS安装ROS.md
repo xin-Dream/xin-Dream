@@ -2,9 +2,9 @@
 title: ubuntu18.04LTS安装ROS
 date: 2021-01-28 22:07:44
 tags: 
-    [ROS,ubuntu18.04] 
+    [ROS,ubuntu] 
 categories: 
-    [Linux,ROS]
+    [ROS]
 ---
 # 一、 环境简介
 ubuntu18.04LTS 、ROS Melodic Morenia 

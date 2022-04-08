@@ -2,7 +2,7 @@
 title: win10重装系统配置笔记
 date: 2021-01-28 22:03:05
 tags: 
-    [Win10,操作系统] 
+    [windows] 
 categories: 
     [windows]
 ---

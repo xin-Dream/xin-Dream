@@ -2,7 +2,7 @@
 title: 在Clion上开始LeetCode
 date: 2021-06-13 22:35:31
 tags: 
-    [Clion,LeetCode] 
+    [Jetbrains,LeetCode] 
 categories: 
     [程序设计,LeetCode]
 typora-root-url: ..\..

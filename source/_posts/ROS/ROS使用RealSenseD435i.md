@@ -4,7 +4,7 @@ date: 2021-09-04 20:58:02
 tags:
     [ROS]
 categories:
-    [Linux,ROS]
+    [ROS]
 ---
 
 ```bash

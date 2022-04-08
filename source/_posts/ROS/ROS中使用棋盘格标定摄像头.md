@@ -4,7 +4,7 @@ date: 2021-09-05 17:24:09
 tags: 
     [ROS] 
 categories: 
-    [Linux,ROS]
+    [ROS]
 ---
 
 # 1. 打开摄像头

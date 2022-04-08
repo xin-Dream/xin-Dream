@@ -2,7 +2,7 @@
 title: windows配置JAVA环境
 date: 2021-04-14 17:58:57
 tags: 
-    [Win10,JAVA] 
+    [windows,软件] 
 categories: 
     [windows]
 ---

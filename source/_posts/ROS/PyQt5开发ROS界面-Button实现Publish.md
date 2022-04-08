@@ -3,9 +3,9 @@ layout: post
 title: PyQt5开发ROS界面1--Button实现Publish
 date: 2021-11-14 21:14:59
 tags: 
-    [ROS,PyQt5] 
+    [ROS,GUI] 
 categories: 
-    [Linux,ROS]
+    [ROS]
 typora-root-url: ..\..
 ---
 

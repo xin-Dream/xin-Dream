@@ -3,9 +3,9 @@ layout: post
 title: ROS-noetic中使用KinecV2
 date: 2021-12-05 16:28:06
 tags: 
-    [ROS,KinectV2] 
+    [ROS] 
 categories: 
-    [Linux,ROS]
+    [ROS]
 
 ---
 

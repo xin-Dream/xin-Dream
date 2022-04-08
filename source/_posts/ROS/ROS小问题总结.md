@@ -2,9 +2,9 @@
 title: ROS小问题总结
 date: 2021-04-30 15:08:57
 tags: 
-    [ROS,ubuntu18.04] 
+    [ROS] 
 categories: 
-    [Linux,ROS]
+    [ROS]
 ---
 
 # 1. 串口权限设置

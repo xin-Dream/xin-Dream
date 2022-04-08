@@ -3,7 +3,7 @@ layout: post
 title: Ubuntu配置KinectV2
 date: 2021-12-05 11:00:39
 tags:
-    [ubuntu,KinectV2]
+    [ubuntu]
 categories:
     [Linux,ubuntu]
 typora-root-url: ..\..

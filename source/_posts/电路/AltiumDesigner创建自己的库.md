@@ -2,7 +2,7 @@
 title: AltiumDesigner创建自己的库
 date: 2021-08-24 16:41:22
 tags: 
-    [AltiumDesigner18] 
+    [AltiumDesigner] 
 categories: 
     [电路]
 typora-root-url: ..\..

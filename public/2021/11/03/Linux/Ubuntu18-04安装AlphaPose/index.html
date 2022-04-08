@@ -45,9 +45,9 @@
           font-size: 1.6rem;
         }
       </style>
-    <link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
-
+    
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
 </head>
   </html>
 </html>
@@ -102,7 +102,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">266</span>
+            <span class="post-count">281</span>
         </span>
     </span>
 
@@ -135,9 +135,9 @@
 <li>torchvision 0.3.0+</li>
 <li>numpy</li>
 </ul>
-<h2 id="1-1-Ubuntu18-04、GTX1050"><a href="#1-1-Ubuntu18-04、GTX1050" class="headerlink" title="1.1 Ubuntu18.04、GTX1050"></a>1.1 Ubuntu18.04、GTX1050</h2><a href="/2021/11/02/Linux/ubuntu18-04%E5%AE%89%E8%A3%85pytorch/" title="ubuntu18-04安装pytorch">ubuntu18-04安装pytorch</a>
+<h2 id="1-1-Ubuntu18-04、GTX1050"><a href="#1-1-Ubuntu18-04、GTX1050" class="headerlink" title="1.1 Ubuntu18.04、GTX1050"></a>1.1 Ubuntu18.04、GTX1050</h2><a href="#">Post not found: Linux/ubuntu18-04安装pytorch ubuntu18-04安装pytorch</a>
 
-<h2 id="1-2-JetsonTX2"><a href="#1-2-JetsonTX2" class="headerlink" title="1.2 JetsonTX2"></a>1.2 JetsonTX2</h2><a href="/2021/11/01/Linux/jetsonTX2%E5%AE%89%E8%A3%85Pytorch/" title="jetsonTX2安装Pytorch">jetsonTX2安装Pytorch</a>
+<h2 id="1-2-JetsonTX2"><a href="#1-2-JetsonTX2" class="headerlink" title="1.2 JetsonTX2"></a>1.2 JetsonTX2</h2><a href="#">Post not found: Linux/jetsonTX2安装Pytorch jetsonTX2安装Pytorch</a>
 
 <h1 id="2-AlphaPose安装"><a href="#2-AlphaPose安装" class="headerlink" title="2 AlphaPose安装"></a>2 AlphaPose安装</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Get AlphaPose</span><br>git <span class="hljs-built_in">clone</span> https://github.com/MVIG-SJTU/AlphaPose.git<br><span class="hljs-comment"># git pull origin pull/592/head if you use PyTorch&gt;=1.5</span><br><span class="hljs-built_in">cd</span> AlphaPose<br><br><br><span class="hljs-comment"># install</span><br><span class="hljs-built_in">export</span> PATH=/usr/<span class="hljs-built_in">local</span>/cuda/bin/:<span class="hljs-variable">$PATH</span><br><span class="hljs-built_in">export</span> LD_LIBRARY_PATH=/usr/<span class="hljs-built_in">local</span>/cuda/lib64/:<span class="hljs-variable">$LD_LIBRARY_PATH</span><br><br>python -m pip install cython<br>sudo apt-get install libyaml-dev<br><br><span class="hljs-comment">################Only For Ubuntu 18.04#################</span><br>locale-gen C.UTF-8<br><span class="hljs-comment"># if locale-gen not found</span><br>sudo apt-get install locales<br><span class="hljs-built_in">export</span> LANG=C.UTF-8<br><br><span class="hljs-comment">######################################################</span><br>python setup.py build develop<br><br><span class="hljs-comment"># 最后一步出现的问题 #############################################################</span><br><span class="hljs-comment"># 这里有可能出现Beginning with Matplotlib 3.4, Python 3.7 or above is required.</span><br><span class="hljs-comment"># 使用升级pip的指令是无效的，可以试一下</span><br>sudo -H pip install --upgrade pip<br><br><span class="hljs-comment"># 我选择更换python版本，在安装pytorch环境的文章中说过，更换python命令如下</span><br>conda install python=3.7<br><span class="hljs-comment"># 需要注意一下更换的比较重要的包，比如pytorch、torchvision等。</span><br><br><span class="hljs-comment"># pyparsing的版本问题，这里有可能会报两个错误</span><br>error: pyparsing 3.0.4 is installed but pyparsing&lt;3,&gt;=2.0.2 is required by {<span class="hljs-string">'packaging'</span>}<br><br><span class="hljs-comment"># 解决：先卸载，换版本安装，一定先卸载</span><br><br><br></code></pre></td></tr></tbody></table></figure>
 <script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
@@ -209,7 +209,7 @@
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AlphaPose/" rel="tag">AlphaPose</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HumanPoseEstimation/" rel="tag">HumanPoseEstimation</a></li></ul>
 
     </footer>
   </div>
@@ -227,7 +227,7 @@
       </a>
     
     
-      <a href="/2021/11/02/Linux/ubuntu18-04%E5%AE%89%E8%A3%85pytorch/" class="article-nav-link">
+      <a href="/2021/11/02/AI/ubuntu18-04%E5%AE%89%E8%A3%85pytorch/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
         <div class="article-nav-title">ubuntu18.04安装CUDA-pytorch</div>
       </a>

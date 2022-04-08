@@ -2,7 +2,7 @@
 title: Cannot_resolve_method_makeText
 date: 2021-07-31 20:49:55
 tags: 
-    [Android Studio] 
+    [Android,Jetbrains] 
 categories: 
     [程序设计,Android]
 typora-root-url: ..\..

@@ -2,7 +2,7 @@
 title: PyCharm无法识别自己导入的模块
 date: 2021-05-28 22:28:41
 tags: 
-    [PyCharm] 
+    [Jetbrains] 
 categories: 
     [程序设计,Python]
 ---

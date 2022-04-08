@@ -1,7 +1,7 @@
 ---
 title: 修改vscode中文件排序顺序
 date: 2021-07-29 13:56:39
-tags: 
+tags: [hexo]
 categories: [hexo]
 ---
 

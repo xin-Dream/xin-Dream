@@ -5,7 +5,7 @@ author: ZGX
 tags:
   - ROS
 categories:
-  - 杂项
+  - ROS
 top: '1'
 date: 2021-12-16 20:30:00
 typora-root-url: ../..

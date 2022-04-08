@@ -5,7 +5,7 @@ date: 2021-11-16 12:21:41
 tags: 
     [ROS,stm32] 
 categories: 
-    [Linux,ROS]
+    [ROS]
 typora-root-url: ..\..
 ---
 

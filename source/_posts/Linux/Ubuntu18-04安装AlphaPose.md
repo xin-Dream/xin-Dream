@@ -3,7 +3,7 @@ layout: post
 title: Ubuntu18.04安装AlphaPose
 date: 2021-11-03 14:44:58
 tags: 
-    [AlphaPose] 
+    [HumanPoseEstimation] 
 categories: 
     [Linux,ubuntu]
 ---

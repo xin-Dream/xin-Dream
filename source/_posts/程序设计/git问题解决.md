@@ -4,7 +4,7 @@ date: 2021-05-29 16:24:50
 tags: 
     [Git] 
 categories: 
-    [程序设计,git]
+    [程序设计,Git]
 typora-root-url: ..\..
 ---
 

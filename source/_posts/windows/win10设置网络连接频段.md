@@ -1,7 +1,7 @@
 ---
 title: win10设置网络连接频段
 date: 2021-07-29 12:40:01
-tags:
+tags: [windows]
 categories:
         [windows]
 typora-root-url: ..\..

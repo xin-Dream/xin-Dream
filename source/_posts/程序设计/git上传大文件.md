@@ -7,7 +7,7 @@ tags:
   - Git
 categories:
   - 程序设计
-  - git
+  - Git
 top: 
 typora-root-url: ../..
 ---

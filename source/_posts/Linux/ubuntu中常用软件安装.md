@@ -2,7 +2,7 @@
 title: ubuntu中常用软件安装
 date: 2021-01-28 22:04:42
 tags: 
-    [ubuntu] 
+    [软件] 
 categories: 
     [Linux,ubuntu]
 ---

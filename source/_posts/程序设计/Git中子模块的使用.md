@@ -6,7 +6,7 @@ tags:
   - Git
 categories:
   - 程序设计
-  - git
+  - Git
 date: 2021-12-14 21:24:00
 ---
 # 参考

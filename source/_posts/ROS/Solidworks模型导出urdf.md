@@ -4,7 +4,7 @@ date: 2021-08-14 20:49:04
 tags: 
     [ROS,Solidworks] 
 categories: 
-    [Linux,ROS]
+    [ROS]
 typora-root-url: ..\..
 ---
 > 环境说明：solidworks2020、Ubuntu18.04、ROS-melodic

@@ -2,7 +2,7 @@
 title: Win10安装SQLserver2016
 date: 2021-01-28 22:00:45
 tags: 
-    [SQL Server] 
+    [软件] 
 categories: 
     [windows]
 ---

@@ -2,7 +2,7 @@
 title: Win10在非系统盘安装WSL(ubuntu18.04)
 date: 2021-04-23 20:57:06
 tags: 
-    [VMware,WSL] 
+    [WSL] 
 categories: 
     [Linux,ubuntu]
 typora-root-url: ..\..

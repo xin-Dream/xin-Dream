@@ -2,7 +2,7 @@
 title: vscode中免密登陆ubuntu
 date: 2021-07-26 10:37:57
 tags: 
-    [vscode] 
+    [ubuntu] 
 categories: 
     [Linux,ubuntu]
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: Pycharm/Clion远程开发要注意的问题
 date: 2021-11-14 21:15:30
-tags: [远程开发]
+tags: [Jetbrains]
 categories: [杂项]
 typora-root-url: ..\..
 ---

@@ -2,9 +2,9 @@
 title: Clion中添加urdf文件类型
 date: 2021-08-21 16:04:56
 tags: 
-    [ROS] 
+    [ROS,Jetbrains] 
 categories: 
-    [Linux,ROS]
+    [ROS]
 typora-root-url: ..\..
 ---
 

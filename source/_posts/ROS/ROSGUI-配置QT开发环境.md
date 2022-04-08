@@ -5,7 +5,7 @@ date: 2022-03-16 20:05:41
 tags: 
     [ROS,GUI] 
 categories: 
-    [Linux,ROS]
+    [ROS]
 typora-root-url: ..\..
 ---
 

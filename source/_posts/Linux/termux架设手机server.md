@@ -2,9 +2,9 @@
 title: termux架设手机server
 date: 2021-01-28 22:20:30
 tags: 
-    [termux] 
+    
 categories: 
-    [Linux,others]
+    [Linux]
 ---
 # 步骤
 ## termux中获取访问手机存储的权限

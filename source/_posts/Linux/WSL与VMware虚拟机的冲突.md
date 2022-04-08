@@ -2,7 +2,7 @@
 title: WSL与VMware虚拟机的冲突
 date: 2021-04-23 20:24:03
 tags: 
-    [VMware,WSL] 
+    [WSL] 
 categories: 
     [Linux]
 ---

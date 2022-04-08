@@ -2,9 +2,9 @@
 title: ROS学习笔记（一）
 date: 2021-01-28 22:09:02
 tags: 
-    [ROS,ubuntu18.04,笔记] 
+    [ROS] 
 categories: 
-    [Linux,ROS]
+    [ROS]
 ---
 # 环境说明
 系统环境：ubuntu18.04LTS

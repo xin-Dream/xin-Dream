@@ -2,9 +2,9 @@
 title: 在STM32F407中运行ROS节点-rosserial_stm32
 date: 2021-08-18 20:50:01
 tags: 
-    [ROS] 
+    [ROS,stm32] 
 categories: 
-    [Linux,ROS]
+    [ROS]
 ---
 
 # 前言

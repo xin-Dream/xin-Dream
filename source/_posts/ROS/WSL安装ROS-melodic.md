@@ -4,7 +4,7 @@ date: 2021-04-23 21:02:26
 tags: 
     [ROS,WSL] 
 categories: 
-    [Linux,ROS]
+    [ROS]
 typora-root-url: ..\..
 ---
 

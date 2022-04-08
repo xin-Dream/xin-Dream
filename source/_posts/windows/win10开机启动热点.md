@@ -2,7 +2,7 @@
 title: win10开机启动热点
 date: 2021-07-26 08:53:15
 tags: 
-
+    [windows]
     
 categories: 
 

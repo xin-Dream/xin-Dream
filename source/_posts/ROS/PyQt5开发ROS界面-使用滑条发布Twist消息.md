@@ -3,9 +3,9 @@ layout: post
 title: PyQt5开发ROS界面2-使用滑条发布Twist消息
 date: 2021-11-20 19:48:58
 tags: 
-    [ROS,PyQt5] 
+    [ROS,GUI] 
 categories: 
-    [Linux,ROS]
+    [ROS]
 typora-root-url: ..\..
 
 ---

@@ -2,7 +2,7 @@
 title: ubuntu中权限的说明
 date: 2021-07-26 10:37:06
 tags: 
-     
+    [ubuntu]
 categories: 
     [Linux,ubuntu]
 ---

@@ -4,7 +4,7 @@ date: 2021-08-06 15:59:41
 tags: 
     [ROS,raspberry] 
 categories: 
-    [Linux,ROS]
+    [ROS]
 ---
 
 # 树莓派安装ubuntu18.04server

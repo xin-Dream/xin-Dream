@@ -2,7 +2,7 @@
 title: JetsonTX2远程连接方案
 date: 2021-04-23 20:44:08
 tags: 
-    [远程连接,JetsonTX2] 
+    [JetsonTX2] 
 categories: 
     [Linux,ubuntu]
     

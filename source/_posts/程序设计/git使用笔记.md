@@ -4,7 +4,7 @@ date: 2021-01-28 22:15:31
 tags: 
     [Git] 
 categories: 
-    [程序设计,git]
+    [程序设计,Git]
 ---
 # git基本操作
 ## 下载与配置

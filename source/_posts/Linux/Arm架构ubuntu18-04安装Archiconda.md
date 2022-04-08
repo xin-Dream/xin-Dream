@@ -2,7 +2,7 @@
 title: Arm架构ubuntu18.04安装Archiconda & conda命令
 date: 2021-04-22 20:41:13
 tags: 
-    [ubuntu,JetsonTX2,Archiconda] 
+    [ubuntu,JetsonTX2] 
 categories: 
     [Linux,ubuntu]
 typora-root-url: ..\..

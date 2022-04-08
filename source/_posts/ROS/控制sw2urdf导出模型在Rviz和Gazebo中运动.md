@@ -5,7 +5,7 @@ date: 2021-11-20 19:22:24
 tags: 
     [ROS,Solidworks] 
 categories: 
-    [Linux,ROS]
+    [ROS]
 typora-root-url: ..\..
 
 ---

@@ -2,7 +2,7 @@
 title: vscode通过ssh远程连接树莓派
 date: 2021-01-28 22:21:39
 tags: 
-    [树莓派,vscode,ssh] 
+    [raspberry] 
 categories: 
     [Linux]
 ---

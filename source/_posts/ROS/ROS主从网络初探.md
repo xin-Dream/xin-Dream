@@ -2,9 +2,9 @@
 title: ROS主从网络初探
 date: 2021-04-23 20:50:32
 tags: 
-    [ROS,主从网络] 
+    [ROS] 
 categories: 
-    [Linux,ROS]
+    [ROS]
 typora-root-url: ..\..
 ---
 

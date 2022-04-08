@@ -2,9 +2,9 @@
 title: ROS-melodic安装cartographer
 date: 2021-05-08 15:09:04
 tags: 
-    [ROS,cartographer] 
+    [ROS,SLAM] 
 categories: 
-    [Linux,ROS]
+    [ROS]
 ---
 # 1. 安装编译工具
 
