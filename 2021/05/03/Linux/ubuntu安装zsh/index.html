@@ -102,7 +102,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">379</span>
+            <span class="post-count">430</span>
         </span>
     </span>
 
@@ -142,14 +142,21 @@
 <ol start="2">
 <li>语法高亮</li>
 </ol>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.comg/zsh-users/zsh-syntax-highlighting.git <span class="hljs-variable">${ZSH_CUSTOM:-~/.oh-my-zsh/custom}</span>/plugins/zsh-syntax-highlighting<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="hljs-variable">${ZSH_CUSTOM:-~/.oh-my-zsh/custom}</span>/plugins/zsh-syntax-highlighting<br></code></pre></td></tr></tbody></table></figure>
 <ol start="3">
 <li>跳转目录</li>
 </ol>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install autojump<br></code></pre></td></tr></tbody></table></figure>
 <ol start="4">
-<li>下载主题<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs BASH">git <span class="hljs-built_in">clone</span> https://github.com.cnpmjs.org/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k<br></code></pre></td></tr></tbody></table></figure></li>
-<li>修改配置文件</li>
+<li><p>下载主题</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs BASH">git <span class="hljs-built_in">clone</span> https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs BASH">git <span class="hljs-built_in">clone</span> https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k<br></code></pre></td></tr></tbody></table></figure>
+<p>配置powerlevel10k的问答模式：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 直接在命令行输入以下内容，根据提示回答问题</span><br>p10k configure<br></code></pre></td></tr></tbody></table></figure>
+<p>其他主题：<a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">oh my zsh theme</a></p>
+</li>
+<li><p>修改配置文件</p>
+</li>
 </ol>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 设置字体模式以及配置命令行的主题，语句顺序不能颠倒</span><br><span class="hljs-comment"># POWERLEVEL9K_MODE='nerdfont-complete'</span><br><span class="hljs-comment"># ZSH_THEME="powerlevel9k/powerlevel9k"</span><br><br><span class="hljs-comment"># 以下内容去掉注释即可生效：</span><br><span class="hljs-comment"># 启动错误命令自动更正</span><br>ENABLE_CORRECTION=<span class="hljs-string">"true"</span><br><br><span class="hljs-comment"># 在命令执行的过程中，使用小红点进行提示</span><br>COMPLETION_WAITING_DOTS=<span class="hljs-string">"true"</span><br><br><span class="hljs-comment"># 启用已安装的插件</span><br>plugins=(<br>  git extract zsh-autosuggestions zsh-syntax-highlighting autojump<br>)<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="3-安装zsh后ros命令失效问题"><a href="#3-安装zsh后ros命令失效问题" class="headerlink" title="3. 安装zsh后ros命令失效问题"></a>3. 安装zsh后ros命令失效问题</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim ~/.zshrc<br><span class="hljs-comment">#将source /opt/ros/noetoc/setup.zsh加入其中即可</span><br><span class="hljs-built_in">source</span> /opt/ros/noetoc/setup.zsh<br><span class="hljs-comment">#在bash中的形式是source /opt/ros/noetoc/setup.bash</span><br></code></pre></td></tr></tbody></table></figure>
@@ -359,7 +366,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/categories/Linux/ROS">ROS</a>
+      <a class="nav-item-link" href="/categories/ROS">ROS</a>
     </li>
     
     <li class="nav-item">
@@ -368,6 +375,10 @@
     
     <li class="nav-item">
       <a class="nav-item-link" href="/categories/hexo">hexo</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories/STM32">STM32</a>
     </li>
     
     <li class="nav-item">
