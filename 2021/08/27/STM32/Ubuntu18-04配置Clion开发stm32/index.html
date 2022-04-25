@@ -45,9 +45,9 @@
           font-size: 1.6rem;
         }
       </style>
-    
+    <link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
 </head>
   </html>
 </html>
@@ -158,7 +158,7 @@
 <li><p>下载器</p>
 <ul>
 <li>自己找个位置新建config文件夹，用于存放不同下载器得cfg文件，新建一个daplink.cfg（这里我用cmsis_dap调试器）</li>
-<li>在daplink.cfg文件中添加内容<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">source</span> [find interface/cmsis-dap.cfg]<br>transport select swd<br>   <br><span class="hljs-comment"># 0x10000 = 64K Flash Size</span><br><span class="hljs-built_in">set</span> FLASH_SIZE=0x160000<br>   <br><span class="hljs-built_in">source</span> [find target/stm32f4x.cfg]<br></code></pre></td></tr></tbody></table></figure></li>
+<li>在daplink.cfg文件中添加内容<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">source</span> [find interface/cmsis-dap.cfg]<br>transport select swd<br>   <br><span class="hljs-comment"># 0x10000 = 64K RAM Size</span><br><span class="hljs-built_in">set</span> WORKAREASIZE=0x20000<br>   <br><span class="hljs-built_in">source</span> [find target/stm32f4x.cfg]<br></code></pre></td></tr></tbody></table></figure></li>
 <li>在下载选项中选择Edit configuration,参考下图设置<img src="/images/Ubuntu18-04%E9%85%8D%E7%BD%AEClion%E5%BC%80%E5%8F%91stm32/03.png" alt="03"></li>
 </ul>
 </li>
