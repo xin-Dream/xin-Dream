@@ -6,7 +6,7 @@
   <link href="http://zhangguixin.com/atom.xml" rel="self"/>
   
   <link href="http://zhangguixin.com/"/>
-  <updated>2022-05-19T08:56:19.531Z</updated>
+  <updated>2022-05-19T10:25:01.014Z</updated>
   <id>http://zhangguixin.com/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在ROS1环境下安装ROS2</title>
+    <link href="http://zhangguixin.com/2022/05/19/ROS/%E5%9C%A8ROS1%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85ROS2/"/>
+    <id>http://zhangguixin.com/2022/05/19/ROS/%E5%9C%A8ROS1%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85ROS2/</id>
+    <published>2022-05-19T09:23:01.000Z</published>
+    <updated>2022-05-19T10:25:01.014Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-环境说明&quot;&gt;&lt;a href=&quot;#1-环境说明&quot; class=&quot;headerlink&quot; title=&quot;1 环境说明&quot;&gt;&lt;/a&gt;1</summary>
+        
+      
+    
+    
+    
+    <category term="ROS" scheme="http://zhangguixin.com/categories/ROS/"/>
+    
+    
+    <category term="ROS" scheme="http://zhangguixin.com/tags/ROS/"/>
+    
+    <category term="Linux" scheme="http://zhangguixin.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu20.04安装Yandex</title>
+    <link href="http://zhangguixin.com/2022/05/19/Linux/Ubuntu20.04%E5%AE%89%E8%A3%85Yandex/"/>
+    <id>http://zhangguixin.com/2022/05/19/Linux/Ubuntu20.04%E5%AE%89%E8%A3%85Yandex/</id>
+    <published>2022-05-19T09:19:55.000Z</published>
+    <updated>2022-05-19T09:21:02.255Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="http://zhangguixin.com/categories/Linux/"/>
+    
+    
+    <category term="软件" scheme="http://zhangguixin.com/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="Linux" scheme="http://zhangguixin.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>右键在局域网发送文件</title>
@@ -478,59 +532,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;1-粒子云中wordpress的设置&quot;&gt;&lt;a href=&quot;#1-粒子云中wordpress的设置&quot; class=&quot;headerlink&quot; title=&quot;1. 粒子云中wordpress的设置&quot;&gt;&lt;/a&gt;1.</summary>
-        
-      
-    
-    
-    
-    <category term="杂项" scheme="http://zhangguixin.com/categories/%E6%9D%82%E9%A1%B9/"/>
-    
-    
-    <category term="NAS" scheme="http://zhangguixin.com/tags/NAS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>solidworks装配体中修改文件名</title>
-    <link href="http://zhangguixin.com/2022/01/02/%E6%9C%BA%E6%A2%B0/solidworks%E8%A3%85%E9%85%8D%E4%BD%93%E4%B8%AD%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D/"/>
-    <id>http://zhangguixin.com/2022/01/02/%E6%9C%BA%E6%A2%B0/solidworks%E8%A3%85%E9%85%8D%E4%BD%93%E4%B8%AD%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D/</id>
-    <published>2022-01-02T07:26:01.000Z</published>
-    <updated>2022-03-24T07:17:04.503Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="机械" scheme="http://zhangguixin.com/categories/%E6%9C%BA%E6%A2%B0/"/>
-    
-    <category term="Solidworks" scheme="http://zhangguixin.com/categories/%E6%9C%BA%E6%A2%B0/Solidworks/"/>
-    
-    
-    <category term="Solidworks" scheme="http://zhangguixin.com/tags/Solidworks/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>粒子云工具使用</title>
-    <link href="http://zhangguixin.com/2022/01/02/%E6%9D%82%E9%A1%B9/%E7%B2%92%E5%AD%90%E4%BA%91%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
-    <id>http://zhangguixin.com/2022/01/02/%E6%9D%82%E9%A1%B9/%E7%B2%92%E5%AD%90%E4%BA%91%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/</id>
-    <published>2022-01-02T07:25:35.000Z</published>
-    <updated>2022-04-02T08:06:27.590Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;参考教程：&lt;a</summary>
         
       
     

@@ -1,6 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>在ROS1环境下安装ROS2</title>
+    <url>/2022/05/19/ROS/%E5%9C%A8ROS1%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85ROS2/</url>
+    <content><![CDATA[<h1 id="1-环境说明"><a href="#1-环境说明" class="headerlink" title="1 环境说明"></a>1 环境说明</h1><p>Ubuntu20.04、ROS1-noetic、ROS2-foxy</p>
+<p>在Ubuntu20.04中已经安装了noetic</p>
+<h1 id="2-安装ROS2"><a href="#2-安装ROS2" class="headerlink" title="2 安装ROS2"></a>2 安装ROS2</h1><h2 id="2-1-Setup-locale"><a href="#2-1-Setup-locale" class="headerlink" title="2.1 Setup locale"></a>2.1 Setup locale</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">sudo locale-gen en_US en_US.UTF-8<br>sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8<br><span class="hljs-built_in">export</span> LANG=en_US.UTF-8<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="2-2-Setup-Sources"><a href="#2-2-Setup-Sources" class="headerlink" title="2.2 Setup Sources"></a>2.2 Setup Sources</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">sudo apt update<br>sudo apt install curl gnupg2 lsb-release<br><br>curl http://repo.ros2.org/repos.key | sudo apt-key add - <br><br><span class="hljs-comment"># 之后再添加源:</span><br>sudo sh -c <span class="hljs-string">'echo "deb http://packages.ros.org/ros2/ubuntu `lsb_release -cs` main" &gt; /etc/apt/sources.list.d/ros2-latest.list'</span><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="2-3-Install"><a href="#2-3-Install" class="headerlink" title="2.3 Install"></a>2.3 Install</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">sudo apt update<br><br>sudo apt install ros-foxy-desktop<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="3-设置启动zsh时选择ROS1或ROS2"><a href="#3-设置启动zsh时选择ROS1或ROS2" class="headerlink" title="3 设置启动zsh时选择ROS1或ROS2"></a>3 设置启动zsh时选择ROS1或ROS2</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">sudo vim ~/.zshrc   <span class="hljs-comment"># 如果使用bash，就对应bashrc</span><br><br><span class="hljs-comment"># 修改原来ROS1的source内容</span><br><span class="hljs-comment">#source /opt/ros/noetic/setup.zsh</span><br><span class="hljs-comment">#</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">"ros noetic(1) or ros foxy(2)?"</span><br><span class="hljs-built_in">read</span> edition<br><span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$edition</span>"</span> -eq <span class="hljs-string">"1"</span> ];<span class="hljs-keyword">then</span>              <span class="hljs-comment"># 这里注意[]里面要加空格</span><br>        <span class="hljs-built_in">source</span> /opt/ros/noetic/setup.zsh    <span class="hljs-comment"># 如果使用bash，就对应setup.bash</span><br><span class="hljs-keyword">else</span><br>        <span class="hljs-built_in">source</span> /opt/ros/foxy/setup.zsh<br><span class="hljs-keyword">fi</span><br></code></pre></td></tr></tbody></table></figure><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>win10设置网络连接频段</title>
+    <url>/2021/07/29/windows/win10%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E9%A2%91%E6%AE%B5/</url>
+    <content><![CDATA[<h1 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h1><p>windows10操作系统，IntelAX200无线网卡</p>
+<h1 id="修改步骤"><a href="#修改步骤" class="headerlink" title="修改步骤"></a>修改步骤</h1><p>在设备管理器中找到无线网卡，右键属性–&gt;高级<br>在下图中课选择合适的频段。<br><img src="/images/win10%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E9%A2%91%E6%AE%B5/01.png" alt="01"></p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>若无线网卡设置为5GHz或2.4GHz，那么移动热点只能设置为与之相同的频段。<br>选择双频段时，可以自由选择热点频段。</p>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>windows</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu20.04安装Yandex</title>
+    <url>/2022/05/19/Linux/Ubuntu20.04%E5%AE%89%E8%A3%85Yandex/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>战斗民族的浏览器优缺点就不多说了，唯一让我想用的是，可以同步显示多台设备当下打开的页面，多设备体验良好，虽然体量大，速度却比较快。</p>
+<p>在官网直接下载的话，安装的时候会出问题。</p>
+<h1 id="1-添加源"><a href="#1-添加源" class="headerlink" title="1 添加源"></a>1 添加源</h1><p>添加源的方法多种多样，担心在终端更改容易出错的话，可以在软件和更新中添加以下内容</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">deb &lt;http://repo.yandex.ru/yandex-browser/deb&gt; beta main<br></code></pre></td></tr></tbody></table></figure>
+<p><img src="https://i.imgtg.com/2022/05/19/hBhHL.png" alt="Untitled"></p>
+<h1 id="2-添加密钥"><a href="#2-添加密钥" class="headerlink" title="2 添加密钥"></a>2 添加密钥</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">$ wget &lt;https://repo.yandex.ru/yandex-browser/YANDEX-BROWSER-KEY.GPG&gt;<br>$ sudo apt-key add YANDEX-BROWSER-KEY.GPG<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="3-安装"><a href="#3-安装" class="headerlink" title="3 安装"></a>3 安装</h1><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">$ sudo apt update<br>$ sudo apt install yandex-browser-beta<br></code></pre></td></tr></tbody></table></figure><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>软件</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cartographer安装与使用</title>
+    <url>/2021/12/12/ROS/cartographer%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>准备写一下cartographer专栏，原理部分能学多少写多少吧，毕竟不是课题组的主要方向，怕是时间不大充裕。以下为系列文章专栏：</p>
+<a href="/2021/12/12/ROS/cartographer%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" title="1. cartographer安装与使用">1. cartographer安装与使用</a>
+
+<h1 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h1><p>安装cartographer确实有点复杂，之前写过一篇文章，<a href="/2021/05/08/ROS/ROS-melodic%E5%AE%89%E8%A3%85cartographer/" title="ROS-melodic安装cartographer">ROS-melodic安装cartographer</a>。文章里是不开代理的流程，有点复杂。</p>
+<p>建议还是开个代理，按照官网教程，一步一步的安装，十分流畅，五分钟就能安装完。</p>
+<p><a href="https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html">Cartographer_ROS</a></p>
+<h1 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h1><h2 id="1-文件结构"><a href="#1-文件结构" class="headerlink" title="1. 文件结构"></a>1. 文件结构</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">.<br>├── abseil-cpp<br>├── build_isolated<br>├── devel_isolated<br>├── install_isolated						<span class="hljs-comment"># 编译安装后主要使用的文件夹，执行的文件都在share文件夹内</span><br>│&nbsp;&nbsp; ├── bin<br>│&nbsp;&nbsp; ├── env.sh<br>│&nbsp;&nbsp; ├── include<br>│&nbsp;&nbsp; ├── lib<br>│&nbsp;&nbsp; ├── local_setup.bash<br>│&nbsp;&nbsp; ├── local_setup.sh<br>│&nbsp;&nbsp; ├── local_setup.zsh<br>│&nbsp;&nbsp; ├── setup.bash<br>│&nbsp;&nbsp; ├── setup.sh<br>│&nbsp;&nbsp; ├── _setup_util.py<br>│&nbsp;&nbsp; ├── setup.zsh<br>│&nbsp;&nbsp; └── share<br>│&nbsp;&nbsp;     ├── autobot_gui<br>│&nbsp;&nbsp;     ├── autobot_simulation<br>│&nbsp;&nbsp;     ├── cartographer                <span class="hljs-comment"># cartographer的主要实现</span><br>│&nbsp;&nbsp;     ├── cartographer_ros			<span class="hljs-comment"># cartographer与ROS的接口，也是我们主要调用的文件夹</span><br>│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── cmake<br>│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── configuration_files		<span class="hljs-comment"># 有lua的配置文件夹</span><br>│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── launch					<span class="hljs-comment"># 可执行的launch文件，我们可以参考上面和这个这两个文件夹写自己的文件</span><br>│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── package.xml<br>│&nbsp;&nbsp;     │&nbsp;&nbsp; └── urdf<br>│&nbsp;&nbsp;     ├── cartographer_ros_msgs<br>│&nbsp;&nbsp;     ├── cartographer_rviz<br>│&nbsp;&nbsp;     ├── gennodejs<br>│&nbsp;&nbsp;     ├── lidar_slam<br>│&nbsp;&nbsp;     └── roseus<br>└── src<br>    ├── autobot_gui				<span class="hljs-comment"># 除了cartographer的，都是自己创建的功能包</span><br>    ├── autobot_simulation<br>    ├── cartographer<br>    ├── cartographer_ros<br>    ├── CMakeLists.txt -&gt; /opt/ros/noetic/share/catkin/cmake/toplevel.cmake<br>    └── lidar_slam<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="2-使用catkin-make-isolated"><a href="#2-使用catkin-make-isolated" class="headerlink" title="2. 使用catkin_make_isolated"></a>2. 使用catkin_make_isolated</h2><p>以往对于工作空间的编译都是使用catkin_make,在安装有cartographer的工作空间内使用以下命令编译安装。这个命令会把每一个安装包单独编译安装，不会要求每个变量名都是唯一的，对于跨功能包的msg还能不能继续使用，还有待验证。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">catkin_make_isolated --install --use-ninja<br></code></pre></td></tr></tbody></table></figure>
+<p>在使用这个命令编译安装后，要source的目录是’./install_isolated’。在source后会发现，之前的功能包运行launch文件时会找不到目标文件，这里需要修改一下以前功能包的CMakeLists.txt。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 在自己创建功能包的CMakeLists.txt文件内，添加以下内容</span><br><span class="hljs-comment"># 下面表示，对功能包内的config、launch、meshes、urdf文件夹内的内容进行安装。注意修改称自己功能包下的文件夹目录。</span><br><br>foreach(dir config launch meshes urdf)<br>	install(DIRECTORY <span class="hljs-variable">${dir}</span>/<br>		DESTINATION <span class="hljs-variable">${CATKIN_PACKAGE_SHARE_DESTINATION}</span>/<span class="hljs-variable">${dir}</span>)<br>endforeach(dir)<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="3-仿真运行"><a href="#3-仿真运行" class="headerlink" title="3. 仿真运行"></a>3. 仿真运行</h2><p>在上面完成了创建功能包的运行，所以自己的仿真环境可以运行了，接下来就给仿真环境添加cartographer的配置文件。</p>
+<ol>
+<li><p>添加配置文件</p>
+<p>这个配置文件可以复制revo_lds.lua修改</p>
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><code class="hljs lua">include <span class="hljs-string">"map_builder.lua"</span><br>include <span class="hljs-string">"trajectory_builder.lua"</span><br><br>options = {<br>  map_builder = MAP_BUILDER,<br>  trajectory_builder = TRAJECTORY_BUILDER,<br>  map_frame = <span class="hljs-string">"map"</span>,<br>  <span class="hljs-comment">-- tracking_frame更改为我们机器人的基坐标tf，一般是base_link</span><br>  tracking_frame = <span class="hljs-string">"base_link"</span>,<br>    <br>  <span class="hljs-comment">-- map连接到哪个坐标系</span><br>  published_frame = <span class="hljs-string">"odom"</span>,<br>  odom_frame = <span class="hljs-string">"odom"</span>,<br><br>  <span class="hljs-comment">-- 开关参数</span><br>  provide_odom_frame = <span class="hljs-literal">false</span>,<br>  publish_frame_projected_to_2d = <span class="hljs-literal">false</span>,<br>  use_pose_extrapolator = <span class="hljs-literal">true</span>,<br>  use_odometry = <span class="hljs-literal">false</span>,<br>  use_nav_sat = <span class="hljs-literal">false</span>,<br>  use_landmarks = <span class="hljs-literal">false</span>,<br>  <span class="hljs-comment">-- 激光雷达数量</span><br>  num_laser_scans = <span class="hljs-number">1</span>,<br>  num_multi_echo_laser_scans = <span class="hljs-number">0</span>,<br>  num_subdivisions_per_laser_scan = <span class="hljs-number">1</span>,<br>  num_point_clouds = <span class="hljs-number">0</span>,<br>  lookup_transform_timeout_sec = <span class="hljs-number">0.2</span>,<br>  submap_publish_period_sec = <span class="hljs-number">0.3</span>,<br>  pose_publish_period_sec = <span class="hljs-number">5e-3</span>,<br>  trajectory_publish_period_sec = <span class="hljs-number">30e-3</span>,<br>  rangefinder_sampling_ratio = <span class="hljs-number">1.</span>,<br>  odometry_sampling_ratio = <span class="hljs-number">1.</span>,<br>  fixed_frame_pose_sampling_ratio = <span class="hljs-number">1.</span>,<br>  imu_sampling_ratio = <span class="hljs-number">1.</span>,<br>  landmarks_sampling_ratio = <span class="hljs-number">1.</span>,<br>}<br><br>MAP_BUILDER.use_trajectory_builder_2d = <span class="hljs-literal">true</span><br><br>TRAJECTORY_BUILDER_2D.submaps.num_range_data = <span class="hljs-number">35</span><br>TRAJECTORY_BUILDER_2D.min_range = <span class="hljs-number">0.3</span><br>TRAJECTORY_BUILDER_2D.max_range = <span class="hljs-number">8.</span><br>TRAJECTORY_BUILDER_2D.missing_data_ray_length = <span class="hljs-number">1.</span><br>TRAJECTORY_BUILDER_2D.use_imu_data = <span class="hljs-literal">false</span><br>TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = <span class="hljs-literal">true</span><br>TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.linear_search_window = <span class="hljs-number">0.1</span><br>TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.translation_delta_cost_weight = <span class="hljs-number">10.</span><br>TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.rotation_delta_cost_weight = <span class="hljs-number">1e-1</span><br><br>POSE_GRAPH.optimization_problem.huber_scale = <span class="hljs-number">1e2</span><br>POSE_GRAPH.optimize_every_n_nodes = <span class="hljs-number">35</span><br>POSE_GRAPH.constraint_builder.min_score = <span class="hljs-number">0.65</span><br><br><span class="hljs-keyword">return</span> options<br></code></pre></td></tr></tbody></table></figure>
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>添加launch文件</p>
+<p>可以复制demo_revo_lds..launch的修改</p>
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">launch</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">param</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"/use_sim_time"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span> /&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">node</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"cartographer_node"</span> <span class="hljs-attr">pkg</span>=<span class="hljs-string">"cartographer_ros"</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">"cartographer_node"</span> <span class="hljs-attr">args</span>=<span class="hljs-string">"</span></span><br><span class="hljs-tag"><span class="hljs-string">          -configuration_directory $(find lidar_slam)/configuration_files</span></span><br><span class="hljs-tag"><span class="hljs-string">          -configuration_basename autobot_cartographer.lua"</span></span><br><span class="hljs-tag">      <span class="hljs-attr">output</span>=<span class="hljs-string">"screen"</span>&gt;</span><br>      <br>    <span class="hljs-tag">&lt;<span class="hljs-name">remap</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"scan"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/scan"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">remap</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"odom"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/odom"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">node</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">node</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"cartographer_occupancy_grid_node"</span> <span class="hljs-attr">pkg</span>=<span class="hljs-string">"cartographer_ros"</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">"cartographer_occupancy_grid_node"</span> <span class="hljs-attr">args</span>=<span class="hljs-string">"-resolution 0.05"</span> /&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">launch</span>&gt;</span><br><br></code></pre></td></tr></tbody></table></figure></li>
+<li><p>运行</p>
+<p>在启动仿真环境后，再运行上面的launch文件，再RVIZ中添加cartographer插件即可</p>
+</li>
+</ol>
+<p><img src="/images/cartographer%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/2021-12-12-15-22-42.png" alt="2021-12-12-15-22-42"></p>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>SLAM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>手机上的Linux体验----Aid learning</title>
     <url>/2021/01/28/Linux/%E6%89%8B%E6%9C%BA%E4%B8%8A%E7%9A%84Linux%E4%BD%93%E9%AA%8C-Aid-learning/</url>
     <content><![CDATA[<blockquote>
@@ -2280,20 +2366,6 @@ EFI系统分区：
       </tags>
   </entry>
   <entry>
-    <title>win10设置网络连接频段</title>
-    <url>/2021/07/29/windows/win10%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E9%A2%91%E6%AE%B5/</url>
-    <content><![CDATA[<h1 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h1><p>windows10操作系统，IntelAX200无线网卡</p>
-<h1 id="修改步骤"><a href="#修改步骤" class="headerlink" title="修改步骤"></a>修改步骤</h1><p>在设备管理器中找到无线网卡，右键属性–&gt;高级<br>在下图中课选择合适的频段。<br><img src="/images/win10%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E9%A2%91%E6%AE%B5/01.png" alt="01"></p>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>若无线网卡设置为5GHz或2.4GHz，那么移动热点只能设置为与之相同的频段。<br>选择双频段时，可以自由选择热点频段。</p>
-<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>windows</category>
-      </categories>
-      <tags>
-        <tag>windows</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>win10设置有线网络与WIFI网络优先级</title>
     <url>/2021/07/27/windows/win10%E8%AE%BE%E7%BD%AE%E6%9C%89%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8EWIFI%E7%BD%91%E7%BB%9C%E4%BC%98%E5%85%88%E7%BA%A7/</url>
     <content><![CDATA[<blockquote>
@@ -3069,43 +3141,6 @@ EFI系统分区：
       </categories>
       <tags>
         <tag>ROS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cartographer安装与使用</title>
-    <url>/2021/12/12/ROS/cartographer%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>准备写一下cartographer专栏，原理部分能学多少写多少吧，毕竟不是课题组的主要方向，怕是时间不大充裕。以下为系列文章专栏：</p>
-<a href="/2021/12/12/ROS/cartographer%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" title="1. cartographer安装与使用">1. cartographer安装与使用</a>
-
-<h1 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h1><p>安装cartographer确实有点复杂，之前写过一篇文章，<a href="/2021/05/08/ROS/ROS-melodic%E5%AE%89%E8%A3%85cartographer/" title="ROS-melodic安装cartographer">ROS-melodic安装cartographer</a>。文章里是不开代理的流程，有点复杂。</p>
-<p>建议还是开个代理，按照官网教程，一步一步的安装，十分流畅，五分钟就能安装完。</p>
-<p><a href="https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html">Cartographer_ROS</a></p>
-<h1 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h1><h2 id="1-文件结构"><a href="#1-文件结构" class="headerlink" title="1. 文件结构"></a>1. 文件结构</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">.<br>├── abseil-cpp<br>├── build_isolated<br>├── devel_isolated<br>├── install_isolated						<span class="hljs-comment"># 编译安装后主要使用的文件夹，执行的文件都在share文件夹内</span><br>│&nbsp;&nbsp; ├── bin<br>│&nbsp;&nbsp; ├── env.sh<br>│&nbsp;&nbsp; ├── include<br>│&nbsp;&nbsp; ├── lib<br>│&nbsp;&nbsp; ├── local_setup.bash<br>│&nbsp;&nbsp; ├── local_setup.sh<br>│&nbsp;&nbsp; ├── local_setup.zsh<br>│&nbsp;&nbsp; ├── setup.bash<br>│&nbsp;&nbsp; ├── setup.sh<br>│&nbsp;&nbsp; ├── _setup_util.py<br>│&nbsp;&nbsp; ├── setup.zsh<br>│&nbsp;&nbsp; └── share<br>│&nbsp;&nbsp;     ├── autobot_gui<br>│&nbsp;&nbsp;     ├── autobot_simulation<br>│&nbsp;&nbsp;     ├── cartographer                <span class="hljs-comment"># cartographer的主要实现</span><br>│&nbsp;&nbsp;     ├── cartographer_ros			<span class="hljs-comment"># cartographer与ROS的接口，也是我们主要调用的文件夹</span><br>│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── cmake<br>│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── configuration_files		<span class="hljs-comment"># 有lua的配置文件夹</span><br>│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── launch					<span class="hljs-comment"># 可执行的launch文件，我们可以参考上面和这个这两个文件夹写自己的文件</span><br>│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── package.xml<br>│&nbsp;&nbsp;     │&nbsp;&nbsp; └── urdf<br>│&nbsp;&nbsp;     ├── cartographer_ros_msgs<br>│&nbsp;&nbsp;     ├── cartographer_rviz<br>│&nbsp;&nbsp;     ├── gennodejs<br>│&nbsp;&nbsp;     ├── lidar_slam<br>│&nbsp;&nbsp;     └── roseus<br>└── src<br>    ├── autobot_gui				<span class="hljs-comment"># 除了cartographer的，都是自己创建的功能包</span><br>    ├── autobot_simulation<br>    ├── cartographer<br>    ├── cartographer_ros<br>    ├── CMakeLists.txt -&gt; /opt/ros/noetic/share/catkin/cmake/toplevel.cmake<br>    └── lidar_slam<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="2-使用catkin-make-isolated"><a href="#2-使用catkin-make-isolated" class="headerlink" title="2. 使用catkin_make_isolated"></a>2. 使用catkin_make_isolated</h2><p>以往对于工作空间的编译都是使用catkin_make,在安装有cartographer的工作空间内使用以下命令编译安装。这个命令会把每一个安装包单独编译安装，不会要求每个变量名都是唯一的，对于跨功能包的msg还能不能继续使用，还有待验证。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">catkin_make_isolated --install --use-ninja<br></code></pre></td></tr></tbody></table></figure>
-<p>在使用这个命令编译安装后，要source的目录是’./install_isolated’。在source后会发现，之前的功能包运行launch文件时会找不到目标文件，这里需要修改一下以前功能包的CMakeLists.txt。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 在自己创建功能包的CMakeLists.txt文件内，添加以下内容</span><br><span class="hljs-comment"># 下面表示，对功能包内的config、launch、meshes、urdf文件夹内的内容进行安装。注意修改称自己功能包下的文件夹目录。</span><br><br>foreach(dir config launch meshes urdf)<br>	install(DIRECTORY <span class="hljs-variable">${dir}</span>/<br>		DESTINATION <span class="hljs-variable">${CATKIN_PACKAGE_SHARE_DESTINATION}</span>/<span class="hljs-variable">${dir}</span>)<br>endforeach(dir)<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="3-仿真运行"><a href="#3-仿真运行" class="headerlink" title="3. 仿真运行"></a>3. 仿真运行</h2><p>在上面完成了创建功能包的运行，所以自己的仿真环境可以运行了，接下来就给仿真环境添加cartographer的配置文件。</p>
-<ol>
-<li><p>添加配置文件</p>
-<p>这个配置文件可以复制revo_lds.lua修改</p>
-<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><code class="hljs lua">include <span class="hljs-string">"map_builder.lua"</span><br>include <span class="hljs-string">"trajectory_builder.lua"</span><br><br>options = {<br>  map_builder = MAP_BUILDER,<br>  trajectory_builder = TRAJECTORY_BUILDER,<br>  map_frame = <span class="hljs-string">"map"</span>,<br>  <span class="hljs-comment">-- tracking_frame更改为我们机器人的基坐标tf，一般是base_link</span><br>  tracking_frame = <span class="hljs-string">"base_link"</span>,<br>    <br>  <span class="hljs-comment">-- map连接到哪个坐标系</span><br>  published_frame = <span class="hljs-string">"odom"</span>,<br>  odom_frame = <span class="hljs-string">"odom"</span>,<br><br>  <span class="hljs-comment">-- 开关参数</span><br>  provide_odom_frame = <span class="hljs-literal">false</span>,<br>  publish_frame_projected_to_2d = <span class="hljs-literal">false</span>,<br>  use_pose_extrapolator = <span class="hljs-literal">true</span>,<br>  use_odometry = <span class="hljs-literal">false</span>,<br>  use_nav_sat = <span class="hljs-literal">false</span>,<br>  use_landmarks = <span class="hljs-literal">false</span>,<br>  <span class="hljs-comment">-- 激光雷达数量</span><br>  num_laser_scans = <span class="hljs-number">1</span>,<br>  num_multi_echo_laser_scans = <span class="hljs-number">0</span>,<br>  num_subdivisions_per_laser_scan = <span class="hljs-number">1</span>,<br>  num_point_clouds = <span class="hljs-number">0</span>,<br>  lookup_transform_timeout_sec = <span class="hljs-number">0.2</span>,<br>  submap_publish_period_sec = <span class="hljs-number">0.3</span>,<br>  pose_publish_period_sec = <span class="hljs-number">5e-3</span>,<br>  trajectory_publish_period_sec = <span class="hljs-number">30e-3</span>,<br>  rangefinder_sampling_ratio = <span class="hljs-number">1.</span>,<br>  odometry_sampling_ratio = <span class="hljs-number">1.</span>,<br>  fixed_frame_pose_sampling_ratio = <span class="hljs-number">1.</span>,<br>  imu_sampling_ratio = <span class="hljs-number">1.</span>,<br>  landmarks_sampling_ratio = <span class="hljs-number">1.</span>,<br>}<br><br>MAP_BUILDER.use_trajectory_builder_2d = <span class="hljs-literal">true</span><br><br>TRAJECTORY_BUILDER_2D.submaps.num_range_data = <span class="hljs-number">35</span><br>TRAJECTORY_BUILDER_2D.min_range = <span class="hljs-number">0.3</span><br>TRAJECTORY_BUILDER_2D.max_range = <span class="hljs-number">8.</span><br>TRAJECTORY_BUILDER_2D.missing_data_ray_length = <span class="hljs-number">1.</span><br>TRAJECTORY_BUILDER_2D.use_imu_data = <span class="hljs-literal">false</span><br>TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = <span class="hljs-literal">true</span><br>TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.linear_search_window = <span class="hljs-number">0.1</span><br>TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.translation_delta_cost_weight = <span class="hljs-number">10.</span><br>TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.rotation_delta_cost_weight = <span class="hljs-number">1e-1</span><br><br>POSE_GRAPH.optimization_problem.huber_scale = <span class="hljs-number">1e2</span><br>POSE_GRAPH.optimize_every_n_nodes = <span class="hljs-number">35</span><br>POSE_GRAPH.constraint_builder.min_score = <span class="hljs-number">0.65</span><br><br><span class="hljs-keyword">return</span> options<br></code></pre></td></tr></tbody></table></figure>
-
-
-</li>
-</ol>
-<ol start="2">
-<li><p>添加launch文件</p>
-<p>可以复制demo_revo_lds..launch的修改</p>
-<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">launch</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">param</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"/use_sim_time"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span> /&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">node</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"cartographer_node"</span> <span class="hljs-attr">pkg</span>=<span class="hljs-string">"cartographer_ros"</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">"cartographer_node"</span> <span class="hljs-attr">args</span>=<span class="hljs-string">"</span></span><br><span class="hljs-tag"><span class="hljs-string">          -configuration_directory $(find lidar_slam)/configuration_files</span></span><br><span class="hljs-tag"><span class="hljs-string">          -configuration_basename autobot_cartographer.lua"</span></span><br><span class="hljs-tag">      <span class="hljs-attr">output</span>=<span class="hljs-string">"screen"</span>&gt;</span><br>      <br>    <span class="hljs-tag">&lt;<span class="hljs-name">remap</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"scan"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/scan"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">remap</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"odom"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/odom"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">node</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">node</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"cartographer_occupancy_grid_node"</span> <span class="hljs-attr">pkg</span>=<span class="hljs-string">"cartographer_ros"</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">"cartographer_occupancy_grid_node"</span> <span class="hljs-attr">args</span>=<span class="hljs-string">"-resolution 0.05"</span> /&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">launch</span>&gt;</span><br><br></code></pre></td></tr></tbody></table></figure></li>
-<li><p>运行</p>
-<p>在启动仿真环境后，再运行上面的launch文件，再RVIZ中添加cartographer插件即可</p>
-</li>
-</ol>
-<p><img src="/images/cartographer%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/2021-12-12-15-22-42.png" alt="2021-12-12-15-22-42"></p>
-<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
-      <tags>
-        <tag>SLAM</tag>
       </tags>
   </entry>
   <entry>
