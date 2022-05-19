@@ -12,7 +12,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>ROS学习目录 |  Dream</title>
+      <title> Dream</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/badminton.ico" />
@@ -45,9 +45,9 @@
           font-size: 1.6rem;
         }
       </style>
-    <link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
-
+    
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Dream" type="application/atom+xml">
 </head>
   </html>
 </html>
@@ -71,38 +71,24 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-ROS/ROS学习目录"
+  id="post-右键在局域网发送文件"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
   data-scroll-reveal
 >
   <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  ROS学习目录
-</h1>
- 
-
-      
-    </header>
      
     <div class="article-meta">
-      <a href="/2022/01/21/ROS/ROS%E5%AD%A6%E4%B9%A0%E7%9B%AE%E5%BD%95/" class="article-date">
-  <time datetime="2022-01-21T13:32:30.000Z" itemprop="datePublished">2022-01-21</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/ROS/">ROS</a>
-  </div>
-  
+      <a href="/2022/05/16/%E5%8F%B3%E9%94%AE%E5%9C%A8%E5%B1%80%E5%9F%9F%E7%BD%91%E5%8F%91%E9%80%81%E6%96%87%E4%BB%B6/" class="article-date">
+  <time datetime="2022-05-16T08:46:46.895Z" itemprop="datePublished">2022-05-16</time>
+</a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.6k</span>
+            <span class="post-count">224</span>
         </span>
     </span>
 
@@ -111,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">5 分钟</span>
+            <span class="post-count">1 分钟</span>
         </span>
     </span>
 </div>
@@ -126,129 +112,25 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>想了一段时间关于ROS学习的方式，如果是罗列出知识点，就跟网上很多现有的教程是重复的。最后我想列出一篇一个完整的ROS机器人设计任务，跟我的毕业设计说明书互相配合，类似习题册和答案的组合。本文在任务间会写出参考教程。</p>
-<p>本文主要从一个机器人的三大方面开始，各个方面看上去是独立的，但是在机器人的整体设计时是互相联系的，这一点参考下面的设计说明书。</p>
-<p>设计说明书：<a href="/2021/12/16/ROS/Autobot-%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" title="Autobot-毕业设计">Autobot-毕业设计</a></p>
-<h1 id="1-结构"><a href="#1-结构" class="headerlink" title="1. 结构"></a>1. 结构</h1><p>结构部分主要指机械结构，这是决定机器人的工作场景和工作方式。我目前主要集中在轮式机器人，机械臂部分在涉及到后会更新。</p>
-<h2 id="1-1-轮式机器人"><a href="#1-1-轮式机器人" class="headerlink" title="1.1 轮式机器人"></a>1.1 轮式机器人</h2><p>对轮式机器人来说，比较重要的结构部分就是底盘。所以这一章需要广泛了解各类轮式机器人底盘，掌握不同底盘结构的特点和工作场景。</p>
-<ol>
-<li><p>了解有哪些常用的机器人底盘？其各有何特点？</p>
-<blockquote>
-<p>参考<a href="/2021/12/16/ROS/Autobot-%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" title="Autobot-毕业设计">Autobot-毕业设计</a>：1.1.1 底盘结构设计</p>
-</blockquote>
+  <h1 id="下载pscp"><a href="#下载pscp" class="headerlink" title="下载pscp"></a>下载pscp</h1><p>下载pscp.exe<a target="_blank" rel="noopener" href="https://the.earth.li/~sgtatham/putty/latest/w32/pscp.exe">(32-bit)</a><a target="_blank" rel="noopener" href="https://the.earth.li/~sgtatham/putty/latest/w64/pscp.exe">(64-bit)</a></p>
+<p>下载后放在固定位置保存</p>
+<h1 id="创建右键菜单选项"><a href="#创建右键菜单选项" class="headerlink" title="创建右键菜单选项"></a>创建右键菜单选项</h1><p>使用<code>win+R</code>输入<code>regedit</code>打开注册表选项</p>
+<p>在<code>HKEY_CLASSES_ROOT\AllFilesystemObjects\shell</code>中新建pscp的注册表，按照下图创建两级菜单，<code>ScpHpc/command</code>，如下图所示。</p>
+<p><img src="https://i.imgtg.com/2022/05/19/Fu9UC.png"></p>
+<p><img src="https://i.imgtg.com/2022/05/19/FIigP.png"></p>
+<p>然后点击command，右侧会显示其名称、类型和数据，双击名称下面的<code>默认(default)</code><br>按照下图输入数值数据。</p>
+<ul>
+<li>pscp地址：注意用<code>\</code>! <ul>
+<li><strong>如果出现无权限可以检查以下斜杠方向</strong></li>
+</ul>
 </li>
-<li><p>选其中一种对其进行建模与分析</p>
-<blockquote>
-<p>参考<a href="/2021/12/16/ROS/Autobot-%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" title="Autobot-毕业设计">Autobot-毕业设计</a>：1.1.2 差速模型分析</p>
-</blockquote>
-</li>
-<li><p>了解轮式机器人中常用的电机类型并分别列举其特点</p>
-<blockquote>
-<p>参考<a href="/2021/12/16/ROS/Autobot-%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" title="Autobot-毕业设计">Autobot-毕业设计</a>：1.2 电机选型</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="1-2-机械臂"><a href="#1-2-机械臂" class="headerlink" title="1.2 机械臂"></a>1.2 机械臂</h2><h1 id="2-硬件"><a href="#2-硬件" class="headerlink" title="2 硬件"></a>2 硬件</h1><h2 id="2-1-单片机"><a href="#2-1-单片机" class="headerlink" title="2.1 单片机"></a>2.1 单片机</h2><ol>
-<li><p>什么是单片机？单片机的分类？</p>
-<blockquote>
-<p>自己查资料，列举要点<br>经常有人说先学51再学32,这一点是错的，他们之间没有必然联系。几年前是那样，是因为32参考资料较少，学起来不如51方便，但现在资料已经足够了，而且32的开发生态更加丰富。没有说32在任何情况下都比51好，但我们平时用的就是32方便。</p>
-</blockquote>
-</li>
-<li><p>stm32单片机的分类？不同类的特点</p>
-<blockquote>
-<p>主要针对stm32单片机的性能分类，了解之后可以确定后面从哪一款入手学习。</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="2-1-1-stm32单片机的基础部分"><a href="#2-1-1-stm32单片机的基础部分" class="headerlink" title="2.1.1 stm32单片机的基础部分"></a>2.1.1 stm32单片机的基础部分</h3><blockquote>
-<p>基础部分内容是逃不开的，无论什么形式，都要花时间才能理解，所以这一部分是比较耗时的。</p>
-<p>参考教程：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Lx411Z7Qa?from=search&amp;seid=17651868647906041339">正点原子手把手教你学STM32单片机教学视频</a> :第1讲～第28讲外部中断实验+第31、32讲</li>
-<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1yp411f7gs?from=search&amp;seid=5970723847933395781&amp;spm_id_from=333.337.0.0">基于HAL库的STM32F407视频教程（硬石STM32）</a>：第1章～第13章</li>
-<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1sJ411w7WY?from=search&amp;seid=5970723847933395781&amp;spm_id_from=333.337.0.0">硬石STM32F103入门开发板视频</a>：第1章～第8章<br>参考教程各色各样，不同的人喜欢不同的风格，上面的教程是指讲的相似内容即为基础部分内容，后面的高级部分，用到了再去学就可以。可以不同的视频都看一点，看看哪个老师讲的更合自己的胃口，也可以串着看。在看教程时考虑以下几个问题</li>
-</ol>
-</blockquote>
-<ol>
-<li><p>什么是HAL库？什么是标准库？什么是寄存器？</p>
-</li>
-<li><p>如何搭建一套自己的工程模板？</p>
-</li>
-<li><p>有哪些更好用的编程工具？</p>
-<blockquote>
-<p>了解stm32CubeMX、CubeIDE、CLion、stm32CubeMonitor</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="2-1-2-stm32单片机的高级应用"><a href="#2-1-2-stm32单片机的高级应用" class="headerlink" title="2.1.2 stm32单片机的高级应用"></a>2.1.2 stm32单片机的高级应用</h3><h3 id="2-1-3-FreeRTOS"><a href="#2-1-3-FreeRTOS" class="headerlink" title="2.1.3 FreeRTOS"></a>2.1.3 FreeRTOS</h3><h3 id="2-1-4-LWIP"><a href="#2-1-4-LWIP" class="headerlink" title="2.1.4 LWIP"></a>2.1.4 LWIP</h3><h2 id="2-2-传感器"><a href="#2-2-传感器" class="headerlink" title="2.2 传感器"></a>2.2 传感器</h2><h3 id="2-2-1-测距模块"><a href="#2-2-1-测距模块" class="headerlink" title="2.2.1 测距模块"></a>2.2.1 测距模块</h3><h3 id="2-2-2-雷达"><a href="#2-2-2-雷达" class="headerlink" title="2.2.2 雷达"></a>2.2.2 雷达</h3><h3 id="2-2-3-编码器"><a href="#2-2-3-编码器" class="headerlink" title="2.2.3 编码器"></a>2.2.3 编码器</h3><h2 id="2-3-电机驱动"><a href="#2-3-电机驱动" class="headerlink" title="2.3 电机驱动"></a>2.3 电机驱动</h2><h2 id="2-4-电源"><a href="#2-4-电源" class="headerlink" title="2.4 电源"></a>2.4 电源</h2><h1 id="3-软件"><a href="#3-软件" class="headerlink" title="3 软件"></a>3 软件</h1><h2 id="3-1-ROS"><a href="#3-1-ROS" class="headerlink" title="3.1 ROS"></a>3.1 ROS</h2><p>首先学的是一个框架：机器人操作系统ROS。ROS很重要，但不是非他不可，一定注意ROS并不是决定性因素，算法才是重点，ROS只是工具。ROS是运行在Linux操作系统之上的元操作系统，所以在学习ROS的过程中就遇到了Linux应该怎么用，所以就不单独去学Linux了。</p>
-<blockquote>
-<p>参考教程：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ci4y1L7ZZ?from=search&amp;seid=16102907305809806828&amp;spm_id_from=333.337.0.0">【奥特学园】ROS机器人入门课程《ROS理论与实践》零基础教程</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1qh41197TZ?from=search&amp;seid=2135245634157025536&amp;spm_id_from=333.337.0.0">黑马ROS无人车</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Av411A7hJ?from=search&amp;seid=15670591582687422571&amp;spm_id_from=333.337.0.0">ROS零基础入门教程百日谈合集</a></li>
-<li><a target="_blank" rel="noopener" href="https://robot.czxy.com/car/bk/hardware/">智学无人小车</a><br>上面的教程都比较不错，一开始可以从奥特学园的教程开始看，老师讲的比较生动，而且都对应实际操作，完全可以跟着操作。后面的黑马无人车是比较全面的教程，涉及范围比较广。ROS零基础入门教程百日谈合集也很不错，他从实体出发，也都有实际操作。最后的智学无人小车平台是一个文档教程，跟黑马的视频应该是对应的。<br>看视频的教程可能对需要掌握哪些内容不够清楚，可以参考下面的问题</li>
-</ol>
-</blockquote>
-<h3 id="3-1-1-基础部分"><a href="#3-1-1-基础部分" class="headerlink" title="3.1.1 基础部分"></a>3.1.1 基础部分</h3><ol>
-<li>ROS安装</li>
-</ol>
-<p>这一部分的视频我推荐参考奥特学园的教程，特别是零基础。<br>入门学习时不必纠结使用Ubuntu18.04还是20.04,先学。<br>文档教程：<a href="/2021/01/28/ROS/ubuntu18-04LTS%E5%AE%89%E8%A3%85ROS/" title="ubuntu18-04LTS安装ROS">ubuntu18-04LTS安装ROS</a></p>
-<ol start="2">
-<li>话题通信</li>
-</ol>
-<p>这部分可以直接看奥特学园教程，按照他的思路分别使用C++和Python 实现通信</p>
-<ol start="3">
-<li>通过ROS话题通信实现电脑和单片机间通信</li>
-</ol>
-<p>参考教程：<a href="/2021/08/18/ROS/%E5%9C%A8stm32%E4%B8%AD%E8%BF%90%E8%A1%8CROS%E8%8A%82%E7%82%B9-rosserial-stm32/" title="在stm32中运行ROS节点-rosserial-stm32">在stm32中运行ROS节点-rosserial-stm32</a></p>
-<ol start="4">
-<li>使用自定义消息实现电脑和单片机间的通信</li>
-</ol>
-<p>参考教程：<a href="/2021/11/16/ROS/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E5%AE%9E%E7%8E%B0ROS%E4%B8%8Estm32%E9%80%9A%E8%AE%AF/" title="使用自定义消息实现ROS与stm32通讯">使用自定义消息实现ROS与stm32通讯</a></p>
-<h3 id="3-1-2-仿真环境"><a href="#3-1-2-仿真环境" class="headerlink" title="3.1.2 仿真环境"></a>3.1.2 仿真环境</h3><ol>
-<li><p>URDF是什么？使用URDF创建简单模型并在Rviz和Gazebo中显示</p>
-<blockquote>
-<p>学会URDF基本语法会调用即可，后面很少自己写很多代码</p>
-</blockquote>
-</li>
-<li><p>使用Solidworks创建一个机器人模型，使用sw2urdf转换为urdf并在Rviz中显示</p>
-<blockquote>
-<p>参考教程：<a href="/2021/08/14/ROS/Solidworks%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BAurdf/" title="Solidworks模型导出urdf">Solidworks模型导出urdf</a></p>
-</blockquote>
-</li>
-<li><p>将urdf模型转换为xacro格式</p>
-<blockquote>
-<p>参考教程：<a href="/2021/11/20/ROS/%E6%8E%A7%E5%88%B6sw2urdf%E5%AF%BC%E5%87%BA%E6%A8%A1%E5%9E%8B%E5%9C%A8Rviz%E5%92%8CGazebo%E4%B8%AD%E8%BF%90%E5%8A%A8/" title="控制sw2urdf导出模型在Gazebo中运动并在Rviz中同步显示数据">控制sw2urdf导出模型在Gazebo中运动并在Rviz中同步显示数据</a></p>
-</blockquote>
-</li>
-<li><p>将solidworks创建的机器人模型转换为xacro文件，并在Rviz和Gazebo中显示</p>
-<blockquote>
-<p>参考教程：<a href="/2021/11/20/ROS/%E6%8E%A7%E5%88%B6sw2urdf%E5%AF%BC%E5%87%BA%E6%A8%A1%E5%9E%8B%E5%9C%A8Rviz%E5%92%8CGazebo%E4%B8%AD%E8%BF%90%E5%8A%A8/" title="控制sw2urdf导出模型在Gazebo中运动并在Rviz中同步显示数据">控制sw2urdf导出模型在Gazebo中运动并在Rviz中同步显示数据</a></p>
-</blockquote>
-</li>
-<li><p>键盘控制模型在Rviz中运动</p>
-<blockquote>
-<p>参考教程：<a href="/2021/11/20/ROS/%E6%8E%A7%E5%88%B6sw2urdf%E5%AF%BC%E5%87%BA%E6%A8%A1%E5%9E%8B%E5%9C%A8Rviz%E5%92%8CGazebo%E4%B8%AD%E8%BF%90%E5%8A%A8/" title="控制sw2urdf导出模型在Gazebo中运动并在Rviz中同步显示数据">控制sw2urdf导出模型在Gazebo中运动并在Rviz中同步显示数据</a></p>
-</blockquote>
-</li>
-<li><p>键盘控制模型在Gazebo中运动</p>
-<blockquote>
-<p>参考教程：<a href="/2021/11/20/ROS/%E6%8E%A7%E5%88%B6sw2urdf%E5%AF%BC%E5%87%BA%E6%A8%A1%E5%9E%8B%E5%9C%A8Rviz%E5%92%8CGazebo%E4%B8%AD%E8%BF%90%E5%8A%A8/" title="控制sw2urdf导出模型在Gazebo中运动并在Rviz中同步显示数据">控制sw2urdf导出模型在Gazebo中运动并在Rviz中同步显示数据</a></p>
-</blockquote>
-</li>
-</ol>
-<h3 id="3-1-3-高级部分"><a href="#3-1-3-高级部分" class="headerlink" title="3.1.3 高级部分"></a>3.1.3 高级部分</h3><ol>
-<li>ROS_Android</li>
-<li>ROS_Web</li>
-<li>ROS_QT</li>
-</ol>
-<h3 id="3-1-4-SLAM相关"><a href="#3-1-4-SLAM相关" class="headerlink" title="3.1.4 SLAM相关"></a>3.1.4 SLAM相关</h3><ol>
-<li>Gmapping</li>
-<li>move_base</li>
-<li>AMCL</li>
-<li>Cartographer</li>
-</ol>
+<li>-r表示发送的是目录，传输文件也是可以的</li>
+<li>-pw是表示密码，后面跟远程服务器的密码</li>
+<li>%1表示选中文件或目录的路径</li>
+<li>最后是<code>远程服务器用户名@远程地址:上传到远程的目录</code><br><img src="https://i.imgtg.com/2022/05/19/FI4Cx.png"></li>
+</ul>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>可以看到最上面的ScpHpc是显示的，发送后也是正常。<br><img src="https://i.imgtg.com/2022/05/19/FIL4p.png"></p>
+<p><img src="https://i.imgtg.com/2022/05/19/FIE6U.png"></p>
 <script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
@@ -313,32 +195,21 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zhangguixin.com/2022/01/21/ROS/ROS%E5%AD%A6%E4%B9%A0%E7%9B%AE%E5%BD%95/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zhangguixin.com/2022/05/16/%E5%8F%B3%E9%94%AE%E5%9C%A8%E5%B1%80%E5%9F%9F%E7%BD%91%E5%8F%91%E9%80%81%E6%96%87%E4%BB%B6/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ROS/" rel="tag">ROS</a></li></ul>
-
     </footer>
   </div>
 
    
   <nav class="article-nav">
     
-      <a href="/2022/03/13/Linux/WSL%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            WSL使用测试
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/01/02/%E6%9D%82%E9%A1%B9/%E7%B2%92%E5%AD%90%E4%BA%91%E4%BD%BF%E7%94%A8wordpress%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" class="article-nav-link">
+      <a href="/2022/04/16/ROS/ROS%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">粒子云使用wordpress搭建博客</div>
+        <div class="article-nav-title">ROS编译工具</div>
       </a>
     
   </nav>
